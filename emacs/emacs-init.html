@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>emacs-配置文件</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="emacs,emacs-init.el">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">emacs-配置文件</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org10b3ab0">1. load,load-file</a>
+<ul>
+<li><a href="#org5fbddad">1.1. 加载文件,在.emacs中加载默认的文件</a></li>
+<li><a href="#orgbc211d7">1.2. 加载插件,在.emacs中指定插件文件夹,然后加载</a></li>
+<li><a href="#orga4940c0">1.3. 关于这些加载项目的差别可以在这个网站查看</a></li>
+</ul>
+</li>
+<li><a href="#org12c43a9">2. 配置文件不用重启就起效</a></li>
+<li><a href="#org716ba16">3. 我的配置文件</a></li>
+<li><a href="#orgf4208b9">4. 默认的一些配置</a></li>
+<li><a href="#orgeb7e8c2">5. org-mode相关的两个配置</a></li>
+<li><a href="#org5f0a7f5">6. 我比较喜欢些东西加入日期</a></li>
+<li><a href="#orgdcc11f6">7. 关于复制粘帖的一些设置</a></li>
+<li><a href="#org93d5e38">8. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#org59391a5">9. 日期的配置(没用到也没有测试)</a></li>
+<li><a href="#org0a0e868">10. 备份相关的设置</a></li>
+<li><a href="#orgc8cb38d">11. frame-title-format设置相关</a>
+<ul>
+<li><a href="#orgb7821e8">11.1. 我的设置</a></li>
+<li><a href="#orgbcfabf8">11.2. frame-title-format选项相关</a></li>
+</ul>
+</li>
+<li><a href="#org80d742b">12. 配置目录的文件树</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org10b3ab0" class="outline-2">
+<h2 id="org10b3ab0"><span class="section-number-2">1</span> load,load-file</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org5fbddad" class="outline-3">
+<h3 id="org5fbddad"><span class="section-number-3">1.1</span> 加载文件,在.emacs中加载默认的文件</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-lisp">(load <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/xxx.el "</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc211d7" class="outline-3">
+<h3 id="orgbc211d7"><span class="section-number-3">1.2</span> 加载插件,在.emacs中指定插件文件夹,然后加载</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-lisp">1. (add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/"</span>)
+   (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">***-***</span>)
+
+2. &#24819;&#35201;&#34987;&#21152;&#36733;,&#25554;&#20214;&#30340;.el&#25991;&#20214;&#26368;&#21518;&#19968;&#23450;&#35201;proide
+   (<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">***-***</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga4940c0" class="outline-3">
+<h3 id="orga4940c0"><span class="section-number-3">1.3</span> 关于这些加载项目的差别可以在这个网站查看</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<a href="http://ergoemacs.org/emacs/elisp_library_system.html">http://ergoemacs.org/emacs/elisp_library_system.html</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12c43a9" class="outline-2">
+<h2 id="org12c43a9"><span class="section-number-2">2</span> 配置文件不用重启就起效</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>打开 .emacs 文件
+C-x C-e 光标前面的运行一条语句
+立即生效</li>
+
+<li><p>
+选择一个 region
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs">M-x eval-region
+M-x load-file ~/.emacs
+M-x eval-buffer
+</pre>
+</div></li>
+
+<li><p>
+都是立即生效，可以马上试验一条语句的效果
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(setq frame-title-format <span style="color: #00cd66; background-color: #dcdcdc;">"emacs@%b"</span>) 
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org716ba16" class="outline-2">
+<h2 id="org716ba16"><span class="section-number-2">3</span> 我的配置文件</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao's ~/.emacs.d/init.el</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">open-init-file</span>()
+  (interactive)
+  (find-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/init.el"</span>))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#24049;&#30340;&#19968;&#20123;&#23567;&#30340;&#37197;&#32622;</span>
+(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/"</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
+(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cl"</span> 'org-store-link)
+(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cc"</span> 'org-capture)
+(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-ca"</span> 'org-agenda)
+(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cb"</span> 'org-iswitchb)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-publish</span>)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;pengshao-org-publish.el&#25991;&#20214;&#24403;&#20013;&#35774;&#32622;&#20102;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(define-key global-map "\C-cp" 'org-publish)</span>
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-calendar</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-default</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-backup</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-insert-date</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">cua-rectangle-mark-mode&#30340;&#24555;&#25463;&#38190;</span>
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c n"</span>) 'cua-rectangle-mark-mode)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21152;&#36733;&#21035;&#30340;&#25554;&#20214;</span>
+
+
+(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/"</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">color-theme</span>)
+(color-theme-initialize)
+(color-theme-snow)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">iimage</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">tabbar</span>)
+(tabbar-mode)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20999;&#25442;buffer</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">prior&#23601;&#26159;&#19978;&#32763;&#39029;pg up,next&#23601;&#26159;pg dn&#38190;&#30424;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [C-prior] 'previous-buffer)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [C-next] 'next-buffer)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Win&#26356;&#25442;tabbar&#19981;&#38169;&#21543;,&#21069;&#20004;&#20010;&#26159;&#22312;&#19981;&#21516;&#30340;&#20998;&#32452;&#20999;&#25442;,&#21518;&#38754;&#30340;&#26159;&#22312;&#21516;&#32452;&#20999;&#25442;</span>
+(global-set-key [s-up] 'tabbar-backward-group)
+(global-set-key [s-down] 'tabbar-backward-group)
+(global-set-key [s-left] 'tabbar-backward-tab)
+(global-set-key [s-right] 'tabbar-forward-tab)
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">htmlize</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">word-like-count-mode</span>)
+(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-xw"</span> 'word-like-count-mode)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">browse-kill-ring</span>)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c k"</span>) 'browse-kill-ring)
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete</span>)
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete-config</span>)
+(add-to-list 'ac-dictionary-directories <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/ac-dict/"</span>)
+(ac-config-default)
+(define-key ac-mode-map (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c q"</span>) 'auto-complete)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">youdao-dictionary</span>)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Enable Cache</span>
+(setq url-automatic-caching t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Example Key binding</span>
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c y"</span>) 'youdao-dictionary-search-at-point)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Integrate with popwin-el (https://github.com/m2ym/popwin-el)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">(push "*Youdao Dictionary*" popwin:special-display-config)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Set file path for saving search history</span>
+(setq youdao-dictionary-search-history-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/.youdao"</span>)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Enable Chinese word segmentation support (&#25903;&#25345;&#20013;&#25991;&#20998;&#35789;)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq youdao-dictionary-use-chinese-word-segmentation t)</span>
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">sr-speedbar</span>)
+(setq sr-speedbar-right-side nil)     <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24038;&#20391;&#26174;&#31034;</span>
+(setq sr-speedbar-width 25)          <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23485;&#24230;</span>
+(setq speedbar-directory-unshown-regexp <span style="color: #00cd66; background-color: #dcdcdc;">"^\(\.\.*$\)\'"</span>)       <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;.&#30340;&#22836;&#25991;&#20214;</span>
+(setq sr-speedbar-skip-other-window-p t)            <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31383;&#21475;&#36339;&#36716;&#36339;&#36807;sr-speedbar</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#24555;&#25463;&#38190;</span>
+(global-set-key [f5] 'sr-speedbar-select-window)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c s"</span>) 'sr-speedbar-open)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c x"</span>) 'sr-speedbar-close)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25171;&#24320;sr-speedbar</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#22826;&#19981;&#22909;&#29992;&#20102;,&#27599;&#27425;&#37117;&#22810;&#25171;&#24320;&#19968;&#20010;&#31383;&#26684;,&#25152;&#20197;&#24573;&#30053;&#20102;,</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(sr-speedbar-open)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24320;&#26426;&#40664;&#35748;&#21551;&#21160;speedbar,&#19981;&#29992;&#20102;,&#29616;&#22312;&#29992;sr-speedbar&#20102;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(speedbar 1)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#38190;&#30424;&#37197;&#32622;&#25918;&#22312;&#26368;&#21518;,&#21482;&#35201;&#26159;&#37197;&#32622;&#20102;F1-F10,&#21644;Home/End&#38190;,&#25152;&#26377;&#33258;&#24049;&#37197;&#32622;&#30340;&#37117;&#22312;init.el&#20102;,&#26041;&#20415;&#26597;&#25214;</span>
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-key-building</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4208b9" class="outline-2">
+<h2 id="orgf4208b9"><span class="section-number-2">4</span> 默认的一些配置</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-default.el---&#40664;&#35748;&#19968;&#23567;&#20123;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#38388;&#25139;&#20351;&#29992;&#33521;&#25991;&#26143;&#26399;</span>
+(setq system-time-locale <span style="color: #00cd66; background-color: #dcdcdc;">"C"</span>)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#32534;&#30721;&#36873;&#29992; UTF-8</span>
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20851;&#38381;&#36215;&#21160;&#26102;&#30340;&#37027;&#20010;&#8220;&#24320;&#26426;&#30011;&#38754;&#8221; </span>
+(setq inhibit-startup-message t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-below)   ;; &#27178;&#21521;&#20998;&#23631;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-right)   ;; &#32437;&#21521;&#20998;&#23631;</span>
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#21551;&#21160;&#26102;&#20505;&#31383;&#21475;&#22823;&#23567;</span>
+(setq default-frame-alist
+'((height . 30) (width . 100) (menu-bar-lines . 0) (tool-bar-lines . 0)))
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;&#26631;&#39064;&#26639;&#25552;&#31034;&#20320;&#30446;&#21069;&#22312;&#20160;&#20040;&#20301;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq frame-title-format "pengshao@%n%b")</span>
+
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">buffer name (if the buffer isn't visiting a file)</span>
+(setq frame-title-format
+      '(<span style="color: #00cd66; background-color: #dcdcdc;">""</span> <span style="color: #00cd66; background-color: #dcdcdc;">" &#19978;&#39532;&#25552;&#26538;, &#21435;&#24178;&#20182;&#23064; - "</span>
+        (<span style="color: #ba55d3; background-color: #dcdcdc;">:eval</span> (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name)) <span style="color: #00cd66; background-color: #dcdcdc;">"%b"</span>))))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35821;&#27861;&#39640;&#20142;</span>
+(global-font-lock-mode t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25171;&#24320;&#22270;&#29255;&#26174;&#31034;&#21151;&#33021;</span>
+(auto-image-file-mode t)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#21015;&#21495;,&#26174;&#31034;&#34892;&#21495;&#30721;</span>
+(column-number-mode t)
+(global-linum-mode t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#25324;&#21495;&#21305;&#37197;</span>
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#28155;&#21152;&#25324;&#21495;</span>
+(electric-pair-mode t)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#26102;&#38388;&#65292;&#26684;&#24335;&#22914;&#19979;</span>
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#37027;&#20010;&#22823;&#22823;&#30340;&#24037;&#20855;&#26639;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(tool-bar-mode nil)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#28378;&#21160;&#26465;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(scroll-bar-mode nil)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25903;&#25345;emacs&#21644;&#22806;&#37096;&#31243;&#24207;&#30340;&#31896;&#36148;</span>
+(setq x-select-enable-clipboard t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#26174;&#31034; 80&#21015;&#23601;&#25442;&#34892;</span>
+(setq default-fill-column 80)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19968;&#25171;&#24320;&#23601;&#36215;&#29992; text &#27169;&#24335;&#12290;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq default-major-mode 'text-mode)</span>
+
+
+
+
+
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-default</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb7e8c2" class="outline-2">
+<h2 id="orgeb7e8c2"><span class="section-number-2">5</span> org-mode相关的两个配置</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-mode.el---orgmode&#30456;&#20851;&#30340;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25105;&#30340;&#32534;&#30721;&#35774;&#32622;</span>
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">org-mode&#35821;&#27861;&#39640;&#20142;</span>
+(setq org-src-fontify-natively t)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20445;&#35777;&#21518;&#32512;&#20026;'.org'&#30340;&#25991;&#20214;&#20250;&#20351;&#29992;Org mode</span>
+(add-to-list 'auto-mode-alist '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\.org\\'"</span> . org-mode))
+
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#40664;&#35748;&#30340;agenda&#25991;&#20214;,&#30340;todo&#30340;&#20840;&#23616;&#25991;&#20214;&#21487;&#20197;&#28155;&#21152;&#22312;&#36825;&#37324;</span>
+(setq org-agenda-files
+      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>
+            ))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27599;&#27425;&#26032;&#24314;todo&#21644;&#20570;&#23436;&#37117;&#35201;&#28155;&#21152;&#26102;&#38388;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-todo 'time)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-done 'time)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile</span>
+(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,#+STARTUP: overview : content : showall : showeverything :</span>
+(setq org-startup-folded 'content)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">prevent editing an invisible part of the buffer&#38450;&#27490;&#32534;&#36753;&#32531;&#20914;&#21306;&#19981;&#21487;&#35265;&#37096;&#20998;</span>
+(setq org-catch-invisible-edits nil) 
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#28155;&#21152;&#33258;&#21160;&#25442;&#34892;&#21151;&#33021;</span>
+(add-hook 'org-mode-hook (<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> () (setq truncate-lines nil)))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#30340;(setq org-startup-indented t)&#32553;&#36827;&#26143;&#21495;</span>
+(setq org-startup-indented t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622; bullet list</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-bullets-bullet-list '("&#9776;" "&#9783;" "&#9775;" "&#9773;"))</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#22810;&#32452;&#29366;&#24577;&#24207;&#21015;&#65292;&#27599;&#20010;&#8220;#+SEQ_TODO&#8221;&#34892;&#23450;&#20041;&#19968;&#32452;</span>
+(setq org-todo-keywords
+ '((sequence <span style="color: #00cd66; background-color: #dcdcdc;">"TODO(T!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DOING(H!)"</span>  <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DONE(D!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED(C@/!)"</span>)
+
+   ))
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">org-todo-keyword-faces</span>
+(setq org-todo-keyword-faces
+      '(
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"TODO"</span>      . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FF0033"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FFFF33"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED"</span>  . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"yellow"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"DOING"</span>     . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#990066"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#00FF00"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        ))
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">'org-tag-faces'</span>
+(setf org-tag-faces
+      '(
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#19978;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"black"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#95A5A6"</span>   <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#20241;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"red"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#21152;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"white"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#3498DB"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+        ))
+
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25240;&#21472;&#26102;&#19981;&#20877;&#26174;&#31034;&#12300;...&#12301;, &#25442;&#20010;&#20320;&#21916;&#27426;&#30340;&#31526;&#21495;</span>
+(setq org-ellipsis <span style="color: #00cd66; background-color: #dcdcdc;">"&#9660;"</span>)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-publish.el---org-publish&#30456;&#20851;&#30340;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">ox-publish</span>)
+(setq org-publish-project-alist
+      '(
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"org"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;&#26159;&#21542;&#36882;&#24402;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-html-publish-to-html  <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20351;&#29992;&#21738;&#20010;&#20989;&#25968;&#26469;&#36827;&#34892;publish&#65288;&#27880;&#65306;org 7&#19982;8&#22312;&#36825;&#20010;&#22320;&#26041;&#26377;&#21306;&#21035;&#65289;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:headline-levels</span> 2   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#30001;&#20110;&#22823;&#32434;&#32467;&#26500;&#20063;&#29992;&#20110;&#21015;&#34920;&#21644;&#20219;&#21153;,&#22240;&#27492;&#21482;&#26377;&#21069;4&#20010;&#32423;&#21035;&#29992;&#20316;&#26631;&#39064;&#26356;&#28145;&#30340;&#32423;&#21035;&#20250;&#34987;&#30475;&#20316;&#39033;&#30446;&#21015;&#34920;,&#25105;&#35774;&#32622;&#30340;2</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-preamble</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;&#33258;&#21160;&#21069;&#35328;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:section-numbers</span> t <span style="color: #4f94cd; background-color: #dcdcdc;">;&#31456;&#33410;&#25968;&#23383;&#26159;&#21542;&#26174;&#31034;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:author</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20316;&#32773;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:email</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao58@gmail.com"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#37038;&#31665;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-sitemap</span> t                  <span style="color: #4f94cd; background-color: #dcdcdc;">; &#33258;&#21160;&#29983;&#25104; sitemap.org &#25991;&#20214;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-filename</span> <span style="color: #00cd66; background-color: #dcdcdc;">"sitemap.org"</span>  <span style="color: #4f94cd; background-color: #dcdcdc;">; ... call it sitemap.org (it's the default)...</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-title</span> <span style="color: #00cd66; background-color: #dcdcdc;">"PengShao's BLOG!"</span>         <span style="color: #4f94cd; background-color: #dcdcdc;">; ... with title</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">:sitemap-file-entry-format "%d %t"   ;&#36825;&#37324;&#37319;&#29992;&#26102;&#38388;+&#26631;&#39064;&#30340;&#26041;&#24335;&#29983;&#25104;sitemap </span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:style-include-default</span> nil  <span style="color: #4f94cd; background-color: #dcdcdc;">;&#31105;&#29992;&#40664;&#35748; css &#26679;&#24335;,&#20351;&#29992;&#33258;&#23450;&#20041;css</span>
+
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20316;&#20026;&#19968;&#20010;&#23383;&#31526;&#20018;&#32473;&#20104; html-head &#21464;&#37327;&#24182;&#25554;&#20837;&#21040;&#29983;&#25104;&#30340; html &#25991;&#20214;&#30340;head&#37096;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;&#22240;&#27492;&#37324;&#38754;&#30340;&#26576;&#20123;&#23383;&#31526;&#24517;&#39035;&#36991;&#20813;&#36716;&#20041;&#65292;&#27604;&#22914;&#21452;&#24341;&#21495;&#24517;&#39035;&#21152;&#19978;&#21453;&#26012;&#26464;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;href &#30340;&#36171;&#20540;&#19981;&#20250;&#20570;&#22914;&#20309;&#36716;&#25442;&#65292;&#22240;&#27492;&#24517;&#39035;&#30830;&#20445;&#26159;&#22312;&#29983;&#25104;&#30340; html &#25991;&#20214;&#33021;&#22815;&#35775;&#38382;&#30340;&#32477;&#23545;&#36335;&#24452;&#12290;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:html-postamble</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"</span>
+
+         )
+
+
+
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|sh\\|el\\|jpeg\\|html"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-publish-attachment
+          )
+
+
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:components</span> (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>))
+
+
+        ))
+
+
+(define-key global-map <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cp"</span> 'org-publish)
+
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-publish</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f0a7f5" class="outline-2">
+<h2 id="org5f0a7f5"><span class="section-number-2">6</span> 我比较喜欢些东西加入日期</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-einsrt-date.el---&#25554;&#20837;&#26102;&#38388;&#26684;&#24335;&#30456;&#20851;&#30340;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-time</span> ()
+  (interactive)
+  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d/%A %H:%M:%S&gt;"</span> (current-time))))
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m t"</span>) 'my-insert-time)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-date</span> ()
+  (interactive)
+  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d-%j/%A&gt;"</span> (current-time))))
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m d"</span>) 'my-insert-date)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-month</span> ()
+  (interactive)
+  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%B&gt;"</span> (current-time))))
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m m"</span>) 'my-insert-month)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25554;&#20837;&#20170;&#24180;&#30340;&#26102;&#38388;&#36827;&#24230;&#26465;</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">make-progress</span> (width percent has-number?)
+  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((done (/ percent 100.0))
+         (done-width (floor (* width done))))
+    (concat
+     <span style="color: #00cd66; background-color: #dcdcdc;">"["</span>
+     (make-string done-width ?/)
+     (make-string (- width done-width) ? )
+     <span style="color: #00cd66; background-color: #dcdcdc;">"]"</span>
+     (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> has-number? (concat <span style="color: #00cd66; background-color: #dcdcdc;">" "</span> (number-to-string percent) <span style="color: #00cd66; background-color: #dcdcdc;">"%"</span>))
+     )))
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-day-progress</span> ()
+  (interactive)
+  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((today (time-to-day-in-year (current-time)))
+         (percent (floor (* 100 (/ today 365.0)))))
+    (insert (make-progress 30 percent t))
+    ))
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m y"</span>) 'insert-day-progress)
+
+(add-to-list 'org-src-lang-modes '(<span style="color: #00cd66; background-color: #dcdcdc;">"plantuml"</span> . plantuml))
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-insert-date</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdcc11f6" class="outline-2">
+<h2 id="orgdcc11f6"><span class="section-number-2">7</span> 关于复制粘帖的一些设置</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring.el---&#22797;&#21046;&#31896;&#24086;&#30456;&#20851;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#21521;kill-ring&#20013;&#21152;&#20837;&#37325;&#22797;&#20869;&#23481;</span>
+(setq kill-do-not-save-duplicates t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25903;&#25345;&#20013;&#38190;&#31896;&#36148;</span>
+(setq mouse-yank-at-point t)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22686;&#22823;kill-ring-max</span>
+(setq kill-ring-max 200)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20851;&#20110;&#27809;&#26377;&#36873;&#20013;&#21306;&#22495;,&#21017;&#40664;&#35748;&#20026;&#36873;&#20013;&#25972;&#34892;&#30340;advice</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#24773;&#20917;&#19979;M-w&#22797;&#21046;&#19968;&#20010;&#21306;&#22495;&#65292;&#20294;&#26159;&#22914;&#26524;&#27809;&#26377;&#21306;&#22495;&#34987;&#36873;&#20013;&#65292;&#21017;&#22797;&#21046;&#24403;&#21069;&#34892;</span>
+(defadvice kill-ring-save (before slickcopy activate compile)
+  <span style="color: #00cd66; background-color: #dcdcdc;">"When called interactively with no active region, copy a single line instead."</span>
+  (interactive
+   (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> mark-active (list (region-beginning) (region-end))
+     (message <span style="color: #00cd66; background-color: #dcdcdc;">"welldone,copy this line"</span>)
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
+
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93d5e38" class="outline-2">
+<h2 id="org93d5e38"><span class="section-number-2">8</span> 我的键配置(主要是f1-f10)</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-key-building.el --- &#20840;&#23616;&#38190;&#30424;&#32465;&#23450;&#35774;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26368;&#22909;&#25918;&#22312;&#21152;&#36733;&#25991;&#20214;&#30340;&#26368;&#21518;,&#38450;&#27490;&#34987;&#35206;&#30422;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20064;&#24815;&#35774;&#32622;&#65292;Home&#38190;&#35774;&#23450;&#20809;&#26631;&#21040;&#25991;&#20214;&#24320;&#22836;</span>
+(global-set-key [(home)] 'beginning-of-buffer)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20064;&#24815;&#35774;&#32622;&#65292;End&#38190;&#35774;&#23450;&#20809;&#26631;&#21040;&#25991;&#20214;&#32467;&#23614;</span>
+(global-set-key [(end)] 'end-of-buffer)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F1&#21040;F10</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F1,&#25171;&#24320;&#24110;&#21161;&#65292;&#24120;&#29992;&#24110;&#21161;&#26377;info&#21644;woman&#65288;&#23601;&#26159;&#22312;emacs&#20013;&#30475;man&#65289;</span>
+(global-set-key [f1] 'info)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F2,&#24674;&#22797;&#65292;</span>
+(global-set-key [f2] 'undo)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F3,&#21453;&#24674;&#22797;&#65292;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f3] 'redo)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F3,&#24555;&#36895;&#25171;&#24320;&#37197;&#32622;&#25991;&#20214;</span>
+(global-set-key [f3] 'open-init-file)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F4,kill&#24403;&#21069;buffer</span>
+(global-set-key [f4] 'kill-this-buffer)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F5,speedbar,&#22312;init.el&#35774;&#32622;&#20102;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key (kbd "C-c s") 'sr-speedbar-open)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key (kbd "C-c x") 'sr-speedbar-close)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F6,dired</span>
+(global-set-key [f6] 'dired)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F7,eshell,shell,terminal-emulator</span>
+(global-set-key [f7] 'shell)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F8,list-bookmarks</span>
+(global-set-key [f8] 'list-bookmarks)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F9,bookmark-set</span>
+(global-set-key [f9] 'bookmark-set)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#30475;&#26032;&#38395;&#32452;&#65292;&#24120;&#29992;&#30340;&#24456;&#65292;&#19981;&#36807;&#26356;&#22810;&#26102;&#38388;&#29616;&#22312;sir&#37324;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f9] 'gnus)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F10&#65292;&#25171;&#24320;&#65295;&#20851;&#38381;&#33756;&#21333;</span>
+(global-set-key [f10] 'menu-bar-mode)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#32534;&#35793;&#31561;&#65292;&#26242;&#26102;&#36824;&#19981;&#24120;&#29992;&#30340;&#35774;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f11] 'compile)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f12] 'todo-show)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f12] 'gdb)</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-key-building</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59391a5" class="outline-2">
+<h2 id="org59391a5"><span class="section-number-2">9</span> 日期的配置(没用到也没有测试)</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-calendar.el---calendar&#30456;&#20851;&#37197;&#32622;(&#19968;&#30452;&#27809;&#26377;&#35843;&#35797;)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#26085;&#21382; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#26085;&#21382;&#30340;&#19968;&#20123;&#39068;&#33394;</span>
+(setq calendar-load-hook
+'(<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> ()
+(set-face-foreground 'diary-face <span style="color: #00cd66; background-color: #dcdcdc;">"skyblue"</span>)
+(set-face-background 'holiday-face <span style="color: #00cd66; background-color: #dcdcdc;">"slate blue"</span>)
+(set-face-foreground 'holiday-face <span style="color: #00cd66; background-color: #dcdcdc;">"white"</span>)))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#25105;&#25152;&#22312;&#22320;&#26041;&#30340;&#32463;&#32428;&#24230;&#65292;calendar&#37324;&#26377;&#20010;&#21151;&#33021;&#26159;&#26085;&#26376;&#39135;&#30340;&#39044;&#27979;&#65292;&#21644;&#20320;&#30340;&#32463;&#32428;&#24230;&#30456;&#32852;&#31995;&#30340;&#12290;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35753;emacs&#33021;&#35745;&#31639;&#26085;&#20986;&#26085;&#33853;&#30340;&#26102;&#38388;&#65292;&#22312; calendar &#19978;&#29992; S &#21363;&#21487;&#30475;&#21040;</span>
+(setq calendar-latitude +36.125)
+(setq calendar-longitude +117.786)
+(setq calendar-location-name <span style="color: #00cd66; background-color: #dcdcdc;">"Laiwu"</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#38452;&#21382;&#26174;&#31034;&#65292;&#22312; calendar &#19978;&#29992; pC &#26174;&#31034;&#38452;&#21382;</span>
+(setq chinese-calendar-celestial-stem
+[<span style="color: #00cd66; background-color: #dcdcdc;">"&#30002;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#20057;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19993;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19969;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25098;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24049;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24218;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#36763;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#22764;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#30328;"</span>])
+(setq chinese-calendar-terrestrial-branch
+[<span style="color: #00cd66; background-color: #dcdcdc;">"&#23376;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19985;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#23493;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#21359;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#36784;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24051;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25098;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#26410;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#30003;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#37193;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25100;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#20133;"</span>])
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622; calendar &#30340;&#26174;&#31034;</span>
+(setq calendar-remove-frame-by-deleting t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq calendar-week-start-day 1) ; &#35774;&#32622;&#26143;&#26399;&#19968;&#20026;&#27599;&#21608;&#30340;&#31532;&#19968;&#22825;</span>
+(setq mark-diary-entries-in-calendar t) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#26631;&#35760;calendar&#19978;&#26377;diary&#30340;&#26085;&#26399;</span>
+(setq mark-holidays-in-calendar nil) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20026;&#20102;&#31361;&#20986;&#26377;diary&#30340;&#26085;&#26399;&#65292;calendar&#19978;&#19981;&#26631;&#35760;&#33410;&#26085;</span>
+(setq view-calendar-holidays-initially nil) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#25171;&#24320;calendar&#30340;&#26102;&#20505;&#19981;&#26174;&#31034;&#19968;&#22534;&#33410;&#26085;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#19981;&#20851;&#24515;&#30340;&#33410;&#26085;&#65292;&#35774;&#23450;&#33258;&#24049;&#22312;&#24847;&#30340;&#33410;&#26085;&#65292;&#22312; calendar &#19978;&#29992; h &#26174;&#31034;&#33410;&#26085;</span>
+(setq christian-holidays nil)
+(setq hebrew-holidays nil)
+(setq islamic-holidays nil)
+(setq solar-holidays nil)
+(setq general-holidays '((holiday-fixed 1 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20803;&#26086;"</span>)
+(holiday-fixed 2 14 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24773;&#20154;&#33410;"</span>)
+(holiday-fixed 3 14 <span style="color: #00cd66; background-color: #dcdcdc;">"&#30333;&#33394;&#24773;&#20154;&#33410;"</span>)
+(holiday-fixed 4 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24858;&#20154;&#33410;"</span>)
+(holiday-fixed 5 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#21171;&#21160;&#33410;"</span>)
+(holiday-float 5 0 2 <span style="color: #00cd66; background-color: #dcdcdc;">"&#27597;&#20146;&#33410;"</span>)
+(holiday-fixed 6 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20799;&#31461;&#33410;"</span>)
+(holiday-float 6 0 3 <span style="color: #00cd66; background-color: #dcdcdc;">"&#29238;&#20146;&#33410;"</span>)
+(holiday-fixed 7 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24314;&#20826;&#33410;"</span>)
+(holiday-fixed 8 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24314;&#20891;&#33410;"</span>)
+(holiday-fixed 9 10 <span style="color: #00cd66; background-color: #dcdcdc;">"&#25945;&#24072;&#33410;"</span>)
+(holiday-fixed 10 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#22269;&#24198;&#33410;"</span>)
+(holiday-fixed 12 25 <span style="color: #00cd66; background-color: #dcdcdc;">"&#22307;&#35806;&#33410;"</span>)))
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#27169;&#24335;&#25903;&#25345;&#21508;&#31181;&#26041;&#24335;&#26469;&#26356;&#25913;&#24403;&#21069;&#26085;&#26399;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#65288;&#36825;&#37324;&#30340;&#8220;&#21069;&#8221;&#26159;&#25351;&#36824;&#27809;&#26377;&#21040;&#26469;&#30340;&#37027;&#19968;&#22825;&#65292;&#8220;&#21518;&#8221;&#26159;&#25351;&#24050;&#32463;&#36807;&#21435;&#30340;&#26085;&#23376;&#65289;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">q &#36864;&#20986;calendar&#27169;&#24335;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-f &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-b &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-n &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#21608;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-p &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#21608;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-} &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#20010;&#26376;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-{ &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#20010;&#26376;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-x ] &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#24180;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-x [ &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#24180;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-a &#31227;&#21160;&#21040;&#24403;&#21069;&#21608;&#30340;&#31532;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-e &#31227;&#21160;&#21040;&#24403;&#21069;&#21608;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-a &#31227;&#21160;&#21040;&#24403;&#21069;&#26376;&#30340;&#31532;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-e &#22810;&#21160;&#21040;&#24403;&#21069;&#26376;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-&lt; &#31227;&#21160;&#21040;&#24403;&#21069;&#24180;&#30340;&#31532;&#19968;&#22825;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-&gt; &#31227;&#21160;&#21040;&#24403;&#21069;&#24180;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#27169;&#24335;&#25903;&#25345;&#31227;&#21160;&#22810;&#31181;&#31227;&#21160;&#21040;&#29305;&#29664;&#26085;&#26399;&#30340;&#26041;&#24335;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">g d &#31227;&#21160;&#21040;&#19968;&#20010;&#29305;&#21035;&#30340;&#26085;&#26399;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">o &#20351;&#26576;&#20010;&#29305;&#27530;&#30340;&#26376;&#20998;&#20316;&#20026;&#20013;&#38388;&#30340;&#26376;&#20998;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">. &#31227;&#21160;&#21040;&#24403;&#22825;&#30340;&#26085;&#26399;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">p d &#26174;&#31034;&#26576;&#19968;&#22825;&#22312;&#19968;&#24180;&#20013;&#30340;&#20301;&#32622;&#65292;&#20063;&#26174;&#31034;&#26412;&#24180;&#24230;&#36824;&#26377;&#22810;&#23569;&#22825;&#12290;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-c C-l &#21047;&#26032;Calendar&#31383;&#21475;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#25903;&#25345;&#29983;&#25104;LATEX&#20195;&#30721;&#12290;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t m &#25353;&#26376;&#29983;&#25104;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t M &#25353;&#26376;&#29983;&#25104;&#19968;&#20010;&#32654;&#21270;&#30340;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t d &#25353;&#24403;&#22825;&#26085;&#26399;&#29983;&#25104;&#19968;&#20010;&#24403;&#22825;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 1 &#22312;&#19968;&#39029;&#19978;&#29983;&#25104;&#36825;&#20010;&#21608;&#30340;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 2 &#22312;&#20004;&#39029;&#19978;&#29983;&#25104;&#36825;&#20010;&#21608;&#30340;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 3 &#29983;&#25104;&#19968;&#20010;ISO-SYTLE&#39118;&#26684;&#30340;&#24403;&#21069;&#21608;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 4 &#29983;&#25104;&#19968;&#20010;&#20174;&#21608;&#19968;&#24320;&#22987;&#30340;&#24403;&#21069;&#21608;&#26085;&#21382;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t y &#29983;&#25104;&#24403;&#21069;&#24180;&#30340;&#26085;&#21382;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">EMACS Calendar&#25903;&#25345;&#37197;&#32622;&#33410;&#26085;&#65306;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">h &#26174;&#31034;&#24403;&#21069;&#30340;&#33410;&#26085;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">x &#23450;&#20041;&#24403;&#22825;&#20026;&#26576;&#20010;&#33410;&#26085;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">u &#21462;&#28040;&#24403;&#22825;&#24050;&#34987;&#23450;&#20041;&#30340;&#33410;&#26085;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">e &#26174;&#31034;&#25152;&#26377;&#36825;&#21069;&#21518;&#20849;&#19977;&#20010;&#26376;&#30340;&#33410;&#26085;&#12290;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-x holiday &#22312;&#21478;&#22806;&#30340;&#31383;&#21475;&#30340;&#26174;&#31034;&#36825;&#21069;&#21518;&#19977;&#20010;&#26376;&#30340;&#33410;&#26085;&#12290;</span>
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21478;&#22806;&#65292;&#36824;&#26377;&#19968;&#20123;&#29305;&#27530;&#30340;&#65292;&#26377;&#24847;&#24605;&#30340;&#21629;&#20196;&#65306;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">S &#26174;&#31034;&#24403;&#22825;&#30340;&#26085;&#20986;&#26085;&#33853;&#26102;&#38388;(&#26159;&#22823;&#20889;&#30340;S)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">p C &#26174;&#31034;&#20892;&#21382;&#21487;&#20197;&#20351;&#29992;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">g C &#20351;&#29992;&#20892;&#21382;&#31227;&#21160;&#26085;&#26399;&#21487;&#20197;&#20351;&#29992;</span>
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-calendar</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a0e868" class="outline-2">
+<h2 id="org0a0e868"><span class="section-number-2">10</span> 备份相关的设置</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-backup.el--&#22791;&#20221;&#30456;&#20851;&#35774;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+(setq
+ backup-by-copying t    <span style="color: #4f94cd; background-color: #dcdcdc;">;&#33258;&#21160;&#22791;&#20221;</span>
+ delete-old-versions t <span style="color: #4f94cd; background-color: #dcdcdc;">; &#33258;&#21160;&#21024;&#38500;&#26087;&#30340;&#22791;&#20221;&#25991;&#20214;</span>
+ kept-new-versions 10   <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20445;&#30041;&#26368;&#36817;&#30340;50&#20010;&#22791;&#20221;&#25991;&#20214;</span>
+ kept-old-versions 2   <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20445;&#30041;&#26368;&#26089;&#30340;2&#20010;&#22791;&#20221;&#25991;&#20214;</span>
+ version-control t    <span style="color: #4f94cd; background-color: #dcdcdc;">; &#22810;&#27425;&#22791;&#20221;</span>
+ <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25226;&#29983;&#25104;&#30340;&#22791;&#20221;&#25991;&#20214;&#25918;&#21040;&#32479;&#19968;&#30340;&#19968;&#20010;&#30446;&#24405;,&#32780;&#19981;&#22312;&#22312;&#25991;&#20214;&#24403;&#21069;&#30446;&#24405;&#29983;&#25104;&#22909;&#22810; ~ #&#30340;&#25991;&#20214;</span>
+ <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#20320;&#32534;&#36753;&#26576;&#20010;&#25991;&#20214;&#26102; &#21518;&#24724;&#20102;&#24819;&#24674;&#22797;&#25104;&#20197;&#21069;&#30340;&#19968;&#20010;&#29256;&#26412; &#20320;&#21487;&#20197;&#21040;&#36825;&#20010;&#30446;&#24405;&#19979;&#25214;&#21040;&#22791;&#20221;&#30340;&#29256;&#26412;</span>
+
+
+ backup-directory-alist `((<span style="color: #00cd66; background-color: #dcdcdc;">".*"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/"</span>)) <span style="color: #4f94cd; background-color: #dcdcdc;">;</span>
+ auto-save-file-name-transforms `((<span style="color: #00cd66; background-color: #dcdcdc;">".*"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/"</span> t))
+ auto-save-list-file-prefix   <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/saves-"</span>)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-backup</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc8cb38d" class="outline-2">
+<h2 id="orgc8cb38d"><span class="section-number-2">11</span> frame-title-format设置相关</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-orgb7821e8" class="outline-3">
+<h3 id="orgb7821e8"><span class="section-number-3">11.1</span> 我的设置</h3>
+<div class="outline-text-3" id="text-11-1">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">buffer name (if the buffer isn't visiting a file)</span>
+(setq frame-title-format
+      '(<span style="color: #00cd66; background-color: #dcdcdc;">""</span> <span style="color: #00cd66; background-color: #dcdcdc;">" &#19978;&#39532;&#25552;&#26538;, &#21435;&#24178;&#20182;&#23064; - "</span>
+        (<span style="color: #ba55d3; background-color: #dcdcdc;">:eval</span> (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name)) <span style="color: #00cd66; background-color: #dcdcdc;">"%b"</span>))))
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbcfabf8" class="outline-3">
+<h3 id="orgbcfabf8"><span class="section-number-3">11.2</span> frame-title-format选项相关</h3>
+<div class="outline-text-3" id="text-11-2">
+<pre class="example">
+A string is printed verbatim in the mode line except for %-constructs:
+(%-constructs are allowed when the string is the entire mode-line-format
+or when it is found in a cons-cell or a list)
+%b -- print buffer name.      %f -- print visited file name.
+%F -- print frame name.
+%* -- print %, * or hyphen.   %+ -- print *, % or hyphen.
+%&amp; -- is like %*, but ignore read-only-ness.
+%  -- means buffer is read-only and * means it is modified.For a modified read-only buffer, %* gives % and %+ gives *.
+%s -- print process status.
+%p -- print percent of buffer above top of window, or Top, Bot or All.
+%P -- print percent of buffer above bottom of window, perhaps plus Top,or print Bottom or All.
+%m -- print the mode name.
+%n -- print Narrow if appropriate.
+%z -- print mnemonics of buffer, terminal, and keyboard coding systems.
+%Z -- like %z, but including the end-of-line format.
+%[ -- print one [ for each recursive editing level.  %] similar.
+%% -- print %.   %- -- print infinitely many dashes.
+Decimal digits after the % specify field width to which to pad.
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org80d742b" class="outline-2">
+<h2 id="org80d742b"><span class="section-number-2">12</span> 配置目录的文件树</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+[<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
+</p>
+
+<pre class="example">
+/home/pengshao/.emacs.d/
+├── ac-comphist.dat
+├── bookmarks
+├── init.el
+├── lisp
+│   ├── ac-dict
+│   │   ├── ada-mode
+│   │   ├── caml-mode
+│   │   ├── clojure-mode
+│   │   ├── clojurescript-mode
+│   │   ├── c++-mode
+│   │   ├── c-mode
+│   │   ├── coq-mode
+│   │   ├── css-mode
+│   │   ├── erlang-mode
+│   │   ├── ess-julia-mode
+│   │   ├── go-mode
+│   │   ├── haskell-mode
+│   │   ├── java-mode
+│   │   ├── js-mode
+│   │   ├── julia-mode
+│   │   ├── lua-mode
+│   │   ├── nim-mode
+│   │   ├── objc-mode
+│   │   ├── octave-mode
+│   │   ├── org-mode
+│   │   ├── php-mode
+│   │   ├── python-mode
+│   │   ├── qml-mode
+│   │   ├── ruby-mode
+│   │   ├── scala-mode
+│   │   ├── scheme-mode
+│   │   ├── sclang-mode
+│   │   ├── sh-mode
+│   │   ├── swift-mode
+│   │   ├── tcl-mode
+│   │   ├── ts-mode
+│   │   ├── tuareg-mode
+│   │   └── verilog-mode
+│   ├── auto-complete-config.el
+│   ├── auto-complete.el
+│   ├── auto-complete-pkg.el
+│   ├── browse-kill-ring.el
+│   ├── color-theme.el
+│   ├── htmlize.el
+│   ├── iimage.el
+│   ├── popup.el
+│   ├── tabbar.el
+│   ├── themes
+│   │   ├── color-theme-example.el
+│   │   └── color-theme-library.el
+│   └── word-like-count-mode.el
+├── loadfile
+│   ├── pengshao-backup.el
+│   ├── pengshao-calendar.el
+│   ├── pengshao-copy-cut-paste-killring.el
+│   ├── pengshao-default.el
+│   ├── pengshao-insert-date.el
+│   ├── pengshao-key-building.el
+│   ├── pengshao-org-mode.el
+│   └── pengshao-org-publish.el
+├── org-other-file
+│   ├── css
+│   │   ├── org2.css
+│   │   └── org.css
+│   ├── org-info.js
+│   ├── org-level-0.org
+│   ├── org-level-1.org
+│   └── org-level-3.org
+├── timelog
+└── url
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

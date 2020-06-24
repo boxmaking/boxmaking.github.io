@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>org-publish-tutorial</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="emacs, org-mode, org-publish-tutorial">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">org-publish-tutorial</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb0ded3c">1. 文件导出教程,以及相关的css文件和头部文件</a></li>
+<li><a href="#org47a614a">2. 批量导出文件</a></li>
+<li><a href="#orgb6eaa43">3. 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</a></li>
+<li><a href="#org0430167">4. 清除上下标的设置</a></li>
+<li><a href="#org4711bbd">5. 导出的html不显示目录</a></li>
+<li><a href="#orgdaaf5f2">6. 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-orgb0ded3c" class="outline-2">
+<h2 id="orgb0ded3c"><span class="section-number-2">1</span> 文件导出教程,以及相关的css文件和头部文件</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>做好准备工作后，就可以导出了
+C-c C-e
+然后选择相应的格式，就可以导出对应的文件了。</li>
+<li>导出到HTML教程
+<ol class="org-ol">
+<li>借鉴了<a href="https://github.com/lijigang">lijigang</a>的头文件
+css模板<a href="https://github.com/lijigang/org-notes-style">https://github.com/lijigang/org-notes-style</a></li>
+
+<li><p>
+头文件
+</p></li>
+</ol></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+然后在org文件的头部添加上加载头文件的语句就可以了
+</p>
+<pre class="example">
+#+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
+</pre></li>
+
+<li>css文件地址
+css文件最好是放到跟文件夹内部</li>
+
+<li><p>
+直接css嵌入文件内部(我没有使用,作为备用选项)
+</p>
+
+<p>
+刚开始调试本地 Emacs Org Mode 发布成网页工程时，往往容易发现 CSS 没有起到应有的效果。
+</p>
+
+<p>
+因为 Emacs Org Mode 默认是采用 Web 服务器的方式来导入 CSS 文件的，其中最重要的参数，就是你设置的 Web 服务器根目录。
+</p>
+
+<p>
+所以，当你需要在本地调试 Emacs Org Mode 生成的 html 页面，最好的办法是安装一个 Web 服务器，并且把 Emacs 生成的 html 页面放到这个服务器的根目录下进行调试，这样就可以避免 CSS 导入位置出错的问题了。
+</p>
+
+<p>
+当然，如果只是想生成供本地阅读的 html（比如说，作为笔记使用的 org 文件，发布成 html 更方便阅读），也可以采用把 CSS 内容直接内嵌到 html 页面里的方式：
+</p>
+
+<p>
+首先设置好一个变量，把 CSS 属性导入：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">set the stylesheet string</span>
+(setq waterstyle <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;style&gt;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> body {</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">     padding: 50px 150px 50px 150px;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">     border-style: solid;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">     border-width: 20pt;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">     border-color: #790000;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> }</span>
+
+<span style="color: #00cd66; background-color: #dcdcdc;"> body, p, li {</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">         /*font-family: monospace;*/</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">             font-family: \"Microsoft YaHei\" ! important;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">         font-size: 1em;</span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> }</span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> /* more CSS style */</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">              &lt;/style&gt;"</span>)
+</pre>
+</div>
+<p>
+然后在 org 工程设置里有关添加 CSS 的地方使用该变量，可以使用如下方式来直接把 CSS 内容加进去：
+</p>
+
+<pre class="example">
+:style , waterstyle
+</pre>
+<p>
+这样，本地使用 html 页面就会变得非常舒服，不会依赖于外部的 CSS 文件。 
+</p></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org47a614a" class="outline-2">
+<h2 id="org47a614a"><span class="section-number-2">2</span> 批量导出文件</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+教程直接就是配置文件
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-publish.el---org-publish&#30456;&#20851;&#30340;&#37197;&#32622;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">ox-publish</span>)
+(<span style="color: #cd0000; background-color: #dcdcdc;">setq</span> org-publish-project-alist
+      '(
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"org"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26159;&#21542;&#36882;&#24402;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-html-publish-to-html  <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20351;&#29992;&#21738;&#20010;&#20989;&#25968;&#26469;&#36827;&#34892;publish&#65288;&#27880;&#65306;org 7&#19982;8&#22312;&#36825;&#20010;&#22320;&#26041;&#26377;&#21306;&#21035;&#65289;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:headline-levels</span> 2   <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#30001;&#20110;&#22823;&#32434;&#32467;&#26500;&#20063;&#29992;&#20110;&#21015;&#34920;&#21644;&#20219;&#21153;,&#22240;&#27492;&#21482;&#26377;&#21069;4&#20010;&#32423;&#21035;&#29992;&#20316;&#26631;&#39064;&#26356;&#28145;&#30340;&#32423;&#21035;&#20250;&#34987;&#30475;&#20316;&#39033;&#30446;&#21015;&#34920;,&#25105;&#35774;&#32622;&#30340;2</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-preamble</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#21069;&#35328;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:section-numbers</span> t <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31456;&#33410;&#25968;&#23383;&#26159;&#21542;&#26174;&#31034;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:author</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20316;&#32773;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:email</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao58@gmail.com"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#37038;&#31665;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-sitemap</span> t                  <span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#29983;&#25104; sitemap.org &#25991;&#20214;</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-filename</span> <span style="color: #00cd66; background-color: #dcdcdc;">"sitemap.org"</span>  <span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">... call it sitemap.org (it's the default)...</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-title</span> <span style="color: #00cd66; background-color: #dcdcdc;">"PengShao's BLOG!"</span>         <span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">... with title</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">:sitemap-file-entry-format "%d %t"   ;&#36825;&#37324;&#37319;&#29992;&#26102;&#38388;+&#26631;&#39064;&#30340;&#26041;&#24335;&#29983;&#25104;sitemap </span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:style-include-default</span> nil  <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31105;&#29992;&#40664;&#35748; css &#26679;&#24335;,&#20351;&#29992;&#33258;&#23450;&#20041;css</span>
+
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20316;&#20026;&#19968;&#20010;&#23383;&#31526;&#20018;&#32473;&#20104; html-head &#21464;&#37327;&#24182;&#25554;&#20837;&#21040;&#29983;&#25104;&#30340; html &#25991;&#20214;&#30340;head&#37096;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22240;&#27492;&#37324;&#38754;&#30340;&#26576;&#20123;&#23383;&#31526;&#24517;&#39035;&#36991;&#20813;&#36716;&#20041;&#65292;&#27604;&#22914;&#21452;&#24341;&#21495;&#24517;&#39035;&#21152;&#19978;&#21453;&#26012;&#26464;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">href &#30340;&#36171;&#20540;&#19981;&#20250;&#20570;&#22914;&#20309;&#36716;&#25442;&#65292;&#22240;&#27492;&#24517;&#39035;&#30830;&#20445;&#26159;&#22312;&#29983;&#25104;&#30340; html &#25991;&#20214;&#33021;&#22815;&#35775;&#38382;&#30340;&#32477;&#23545;&#36335;&#24452;&#12290;</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"</span>
+             <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:html-postamble</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"</span>
+
+         )
+
+
+
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"css</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">js</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">png</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">jpg</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">gif</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">pdf</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">mp3</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">ogg</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">swf</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">sh</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">el</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">jpeg</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">\\</span><span style="color: #00cd66; background-color: #dcdcdc; font-weight: bold;">|</span><span style="color: #00cd66; background-color: #dcdcdc;">html"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-publish-attachment
+          )
+
+
+         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:components</span> (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>))
+
+
+        ))
+
+
+(define-key global-map <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cp"</span> 'org-publish)
+
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-publish</span>)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb6eaa43" class="outline-2">
+<h2 id="orgb6eaa43"><span class="section-number-2">3</span> 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>本来认为org只发布修改过的文件是它对比了org文件和导出文件的时间戳。
+后来我把导出文件删除，又重新发布。发现都跳过了，
+并没有重新导出文件，可见它并没有对比org文件和导出文件的时间戳
+后来在家目录下发现了一个目录.org-timestamps
+原来所有的东西都在这里放着
+想不改变org文件而重新导出html等文件可以把这个目录删除，然后现重新发布。</li>
+<li>或者直接暴力的
+C-u M-x org-purblish
+这样也是可以的</li>
+<li><p>
+Orgmode 发布项目缓存说明
+在使用 Orgmode 进行 M-x org-publish-project 来进行将 org 文件导出为项目时，发现它会有缓存，即如果 org 文件没有再修改过，它就不会再生成该文件相应的 HTML 文件了。
+</p>
+
+<p>
+参数
+</p>
+<ol class="org-ol">
+<li>org-publish-use-timestamps-flag 1
+(可通过 C-h v 变量名 来查看变量的说明及设置) 这个在第一次时可以看到，设置过之后就看不到了。( 我的环境是 Mac+Emacs25.1 )，它显示是否使用时间戳来埋发布。 这个就是导致缓存的原因。即对应的文件的的修改时间戳要比它新才会进行发布。</li>
+<li>org-publish-timestamp-directory
+这个就是保存时间戳文件的缓存目录。（删除该目录下的所有文件，即可进行全量重新发布）</li>
+</ol></li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org0430167" class="outline-2">
+<h2 id="org0430167"><span class="section-number-2">4</span> 清除上下标的设置</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+导出时如果需要目录(类似本文开头), 
+要在org文件的开头出添加metadata. 
+默认情况下org-mode会把^, _, []等字符当做latex中的上标,下标和脚注
+如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
+</p>
+
+<pre class="example">
+#+OPTIONS: ^:nil _:nil f:nil toc:t
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4711bbd" class="outline-2">
+<h2 id="org4711bbd"><span class="section-number-2">5</span> 导出的html不显示目录</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+一般文字文章我不喜欢
+导出html文章不显示目录，toc 选项设置为 nil 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgdaaf5f2" class="outline-2">
+<h2 id="orgdaaf5f2"><span class="section-number-2">6</span> 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li><p>
+配置文件选项设置
+</p>
+<pre class="example">
+:auto-sitemap t
+:sitemap-filename "sitemap.org"  ; ... call it sitemap.org ...
+:sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
+</pre></li>
+
+<li>然后每次发布这个工程的时候，就会生成一个 sitemap.org 的文件，这个文件会递归地遍历你工程里的所有文件并生成链接，并会生成一个名叫 sitemap.html 的文件。</li>
+
+<li><p>
+然后，我们只要在我们的 index.org 里 include 这个文件即可：
+</p>
+<pre class="example">
+#+INCLUDE: sitemap.org
+</pre>
+
+<p>
+这样我们就再也不用手动添加页面的索引链接了。
+</p></li>
+
+<li>我们可以在每个页面的页脚里把这个 sitemap.org 的链接给加上，方便随手访问这个索引。</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

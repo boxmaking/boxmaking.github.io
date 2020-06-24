@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>crotab-tutorial</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-crontab">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">crotab-tutorial</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfadab7f">1. crontab简介</a></li>
+<li><a href="#orgbba5bb9">2. 而 linux 任务调度的工作主要分为以下两类：</a></li>
+<li><a href="#orgce4c6df">3. 语法</a></li>
+<li><a href="#orga54c542">4. 实例</a></li>
+<li><a href="#org312ea67">5. 注意</a></li>
+<li><a href="#org765c57a">6. 后记</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgfadab7f" class="outline-2">
+<h2 id="orgfadab7f"><span class="section-number-2">1</span> crontab简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+是用来定期执行程序的命令
+</p>
+
+<p>
+当安装完成操作系统之后，默认便会启动此任务调度命
+</p>
+
+<p>
+crond 命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作
+</p>
+</div>
+</div>
+<div id="outline-container-orgbba5bb9" class="outline-2">
+<h2 id="orgbba5bb9"><span class="section-number-2">2</span> 而 linux 任务调度的工作主要分为以下两类：</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+1、系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
+2、个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce4c6df" class="outline-2">
+<h2 id="orgce4c6df"><span class="section-number-2">3</span> 语法</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+crontab [ -u user ] file
+或
+crontab [ -u user ] { -l | -r | -e }
+说明：
+crontab 是用来让使用者在固定时间或固定间隔执行程序之用，换句话说，也就是类似使用者的时程表。
+</p>
+
+<p>
+-u user 是指设定指定 user 的时程表，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user 的话，就是表示设定自己的时程表。
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org54c9a77"></a>参数说明：<br>
+<div class="outline-text-4" id="text-3-0-1">
+<p>
+-e : 执行文字编辑器来设定时程表，请先设定 VISUAL 环境变数来指定使用那个文字编辑器(比如说 setenv VISUAL joe)
+直接-e编辑文件就可以了.   
+-r : 删除目前的时程表
+-l : 列出目前的时程表
+-l只能暂时的列出文件内容,
+其实文件在/var/spool/cron/crontab/Username
+</p>
+</div>
+</li>
+
+<li><a id="orgbc0ea4c"></a>时间格式如下：<br>
+<div class="outline-text-4" id="text-3-0-2">
+<pre class="example">
+f1 f2 f3 f4 f5 program
+其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程序。
+当 f1 为 * 时表示每分钟都要执行 program，f2 为 * 时表示每小时都要执行程序，其馀类推
+当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其馀类推
+当 f1 为 */n 时表示每 n 分钟个时间间隔执行一次，f2 为 */n 表示每 n 小时个时间间隔执行一次，其馀类推
+当 f1 为 a, b, c,... 时表示第 a, b, c,... 分钟要执行，f2 为 a, b, c,... 时表示第 a, b, c...个小时要执行，其馀类推
+*    *    *    *    *
+-    -    -    -    -
+|    |    |    |    |
+|    |    |    |    +----- 星期中星期几 (0 - 7) (星期天 为0)
+|    |    |    +---------- 月份 (1 - 12) 
+|    |    +--------------- 一个月中的第几天 (1 - 31)
+|    +-------------------- 小时 (0 - 23)
++------------------------- 分钟 (0 - 59)
+使用者也可以将所有的设定先存放在文件中，用 crontab file 的方式来设定执行时间。
+</pre>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orga54c542" class="outline-2">
+<h2 id="orga54c542"><span class="section-number-2">4</span> 实例</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+每月每天每小时的第 0 分钟执行一次 /bin/ls
+0 * * * * /bin/ls
+</p>
+
+<p>
+在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup
+0 6-12/3 * 12 * /usr/bin/backup
+</p>
+
+<p>
+周一到周五每天下午 5:00 寄一封信给 alex@domain.name
+0 17 * * 1-5 mail -s "hi" alex@domain.name &lt; /tmp/maildata
+</p>
+
+<p>
+每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分&#x2026;.执行 echo "haha"
+20 0-23/2 * * * echo "haha"
+</p>
+
+<p>
+下面再看看几个具体的例子：
+</p>
+<pre class="example">
+0 */2 * * * /sbin/service httpd restart  意思是每两个小时重启一次apache 
+
+50 7 * * * /sbin/service sshd start  意思是每天7：50开启ssh服务 
+
+50 22 * * * /sbin/service sshd stop  意思是每天22：50关闭ssh服务 
+
+0 0 1,15 * * fsck /home  每月1号和15号检查/home 磁盘 
+
+1 * * * * /home/bruce/backup  每小时的第一分执行 /home/bruce/backup这个文件 
+
+00 03 * * 1-5 find /home "*.xxx" -mtime +4 -exec rm {} \;  每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。
+
+30 6 */10 * * ls  意思是每月的1、11、21、31日是的6：30执行一次ls命令
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org312ea67" class="outline-2">
+<h2 id="org312ea67"><span class="section-number-2">5</span> 注意</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+当程序在你所指定的时间执行后，系统会寄一封信给你，显示该程序执行的内容，若是你不希望收到这样的信，请在每一行空一格之后加上 &gt; /dev/null 2&gt;&amp;1 即可
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org765c57a" class="outline-2">
+<h2 id="org765c57a"><span class="section-number-2">6</span> 后记</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+任何系统管理员权限内的任务都必须位于 /etc 内，这是因为它们都是配置文件。如果您有一些需要以管理员身份每天(daily)、每周(weekly)或每月(monthly)运行的定时任务，请将它们放置在 /etc/cron.{daily,weekly,monthly} 中。它们将在 /etc/crontab 中被激活，然后按照文件名的字典顺序依次运行。
+</p>
+
+<p>
+另一方面，如果您有某个定时任务 (a) 需要以某个特定的用户身份运行，或者 (b) 需要在某个特定时刻或以特定周期运行，您可以使用 /etc/crontab，或者更好的 /etc/cron.d/whatever。这些特殊的文件可以包含一个额外的域，允许您指定运行该定时任务的用户帐户。
+</p>
+
+<p>
+在任何情况下，您只需编辑这些文件，cron 将会自动处理它们。没有必要再运行某个特殊的命令。欲了解更多的信息，请参阅 cron(8)、crontab(5) 和 /usr/share/doc/cron/README.Debian
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

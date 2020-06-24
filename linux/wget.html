@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wget-用法详解释</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="wget-tutorial wget-用法详解释">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">wget-用法详解释</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8bab481">1. wget -c URL  断点续传</a></li>
+<li><a href="#org53b8feb">2. 使用wget –mirror镜像网站</a></li>
+<li><a href="#orga58e810">3. 后台下载</a></li>
+<li><a href="#orge1a4a1f">4. 指定下载目录</a></li>
+<li><a href="#orga023865">5. 下载文件并重命名</a></li>
+<li><a href="#org00d633e">6. wget使用代理来下载</a></li>
+<li><a href="#orge1be5b5">7. 批量下载</a></li>
+<li><a href="#org4c5bc6f">8. 选择性的下载</a></li>
+<li><a href="#org2d6ee0a">9. 密码和认证</a>
+<ul>
+<li><a href="#org8315c9f">9.1. 下载http文件</a></li>
+<li><a href="#org0bcae27">9.2. 下载FTP文件</a></li>
+</ul>
+</li>
+<li><a href="#org6ba9569">10. 附录 ::</a>
+<ul>
+<li><a href="#org4121c35">10.1. 启动参数：</a></li>
+<li><a href="#orgd3b1a76">10.2. 记录和输入文件参数：</a></li>
+<li><a href="#org97e4807">10.3. 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</a></li>
+<li><a href="#org88248c2">10.4. 更多的教程使用</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org8bab481" class="outline-2">
+<h2 id="org8bab481"><span class="section-number-2">1</span> wget -c URL  断点续传</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+当文件特别大或者网络特别慢的时候，往往一个文件还没有下载完，连接就已经被切断，此时就需要断点续传。wget的断点续传是自动的，只需要使用-c参数，例如：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget -c http://the.url.of/incomplete/file
+</pre>
+</div>
+
+<p>
+使用断点续传要求服务器支持断点续传。
+</p>
+
+<ul class="org-ul">
+<li>-t&#x2013;&#x2014;表示重试次数</li>
+<li>-t 100&#x2013;&#x2014;要重试100次，那么</li>
+<li>-t 0&#x2013;&#x2014;表示无穷次重试，直到连接成功</li>
+<li>-T&#x2013;&#x2014;参数表示超时等待时间</li>
+<li>-T 120-&#x2014;表示等待120秒连接不上就算超时。</li>
+</ul>
+
+<p>
+若下载中断后你没有用 -c 进行断点续传，而是重新下载, wget 会在文件名后加上 “.1” 防止与前面下载的文件重名.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org53b8feb" class="outline-2">
+<h2 id="org53b8feb"><span class="section-number-2">2</span> 使用wget –mirror镜像网站</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+我常用的镜像方法
+wget -c &#x2013;mirror -p &#x2013;convert-links -P ./LOCAL URL
+</p>
+
+<p>
+说明：
+下载整个网站到本地。
+</p>
+
+<p>
+-p:下载所有为了html页面显示正常的文件
+</p>
+
+<p>
+–convert-links:下载后，转换成本地的链接
+</p>
+
+<p>
+-P ./LOCAL：保存所有文件和目录到本地指定目录
+</p>
+
+<p>
+&#x2013;convert-links 强制转换文件链接为本地
+</p>
+
+<p>
+-x: 会强制建立服务器上一模一样的目录，如果使用-nd参数，那么服务器上下载的所有内容都会加到本地当前目录。
+</p>
+
+<p>
+-m,  &#x2013;mirror
+-N -r -l inf &#x2013;no-remove-listing 的缩写形式。
+wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执行。
+</p>
+
+<p>
+-r: 指定递归下载，下载服务器上所有的目录和文件，实质就是下载整个网站
+这个命令一定要小心使用，因为在下载的时候，被下载网站指向的所有地址同 样会被下载
+如果这个网站引用了其他网站，那么被引用的网站也会被下载下来！
+由于这个原因，这个参数不常用
+</p>
+
+<p>
+-l number参数来指定下载的层次
+-l2&#x2013;下载两层，
+-l info或0&#x2013;无限制
+</p>
+
+<p>
+-N,  &#x2013;timestamping
+只获取比本地文件新的文件。
+</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orga58e810" class="outline-2">
+<h2 id="orga58e810"><span class="section-number-2">3</span> 后台下载</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+当下载大型文件时, 可以使用 -b 选项让wget在后台下载文件.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget -b http://example.com/big-file.zip
+</pre>
+</div>
+
+<p>
+输出内容会写入同目录下的 “wget-log” 文件, 这样你就可以用下面命令来检查下载状态了:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tail -f wget-log
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge1a4a1f" class="outline-2">
+<h2 id="orge1a4a1f"><span class="section-number-2">4</span> 指定下载目录</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+使用 -P 选项指定下载目录:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget -P /opt/wordpress https://wordpress.org/latest.zip
+</pre>
+</div>
+
+<p>
+就会把文件下载到 /opt/wordpress 目录中.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga023865" class="outline-2">
+<h2 id="orga023865"><span class="section-number-2">5</span> 下载文件并重命名</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+若你想以其他名称保存下载的文件，可以使用 -O 选项:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget -O wordpress.zip https://wordpress.org/latest.zip
+</pre>
+</div>
+
+<p>
+wget会下载文件并以”wordpress.zip”为名存放到当前目录中.zip” name.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org00d633e" class="outline-2">
+<h2 id="org00d633e"><span class="section-number-2">6</span> wget使用代理来下载</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li><p>
+如果用户的网络需要经过代理服务器，那么可以让wget通过代理服务器进行文件的下载。此时需要在当前用户的目录下创建一个.wgetrc文件。文件中可以设置代理服务器：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">https_proxy = http://127.0.0.1:41091/
+http_proxy = http://127.0.0.1:41091/
+</pre>
+</div></li>
+
+<li>分别表示http的代理服务器和ftp的代理服务器。如果代理服务器需要密码则使用：
+–proxy-user=USER设置代理用户
+–proxy-passwd=PASS设置代理密码</li>
+
+<li>这两个参数。
+使用参数–proxy=on/off 使用或者关闭代理。
+wget还有很多有用的功能，需要用户去挖掘。</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orge1be5b5" class="outline-2">
+<h2 id="orge1be5b5"><span class="section-number-2">7</span> 批量下载</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+若你想同时下载多个文件,你可以将要在的文件URL存放在一个文本文件中(假设该文件名为download.txt).
+</p>
+
+<p>
+下面命令创建一个文本文件:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">touch download.txt
+</pre>
+</div>
+
+<p>
+然后可以用 nano 编辑该文件，输入所有想下载的文件URL:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">nano download.txt
+
+http://example.com/file1.zip
+
+http://example.com/file2.zip
+
+http://example.com/file3.zip
+</pre>
+</div>
+
+
+<p>
+保存该文件, 然后使用 -i 选项下载文本文件中保存的所有文件:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget -i download.txt
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4c5bc6f" class="outline-2">
+<h2 id="org4c5bc6f"><span class="section-number-2">8</span> 选择性的下载</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+wget -m –reject=gif <a href="http://target.web.site/subdirectory">http://target.web.site/subdirectory</a> &#x2013;表示忽略gif文件
+wget -m –accept=gif <a href="http://target.web.site/subdirectory">http://target.web.site/subdirectory</a> &#x2013;表示只接受gif文件
+</p>
+
+<p>
+–accept=LIST 可以接受的文件类型
+–reject=LIST 拒绝接受的文件类型
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2d6ee0a" class="outline-2">
+<h2 id="org2d6ee0a"><span class="section-number-2">9</span> 密码和认证</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org8315c9f" class="outline-3">
+<h3 id="org8315c9f"><span class="section-number-3">9.1</span> 下载http文件</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+wget只能处理利用用户名/密码方式限制访问的网站，可以利用两个参数：
+   –http-user=USER设置HTTP用户
+   –http-passwd=PASS设置HTTP密码
+   对于需要证书做认证的网站，就只能利用其他下载工具了，例如curl。
+</p>
+</div>
+</div>
+<div id="outline-container-org0bcae27" class="outline-3">
+<h3 id="org0bcae27"><span class="section-number-3">9.2</span> 下载FTP文件</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+wget还支持下载FTP文件，可以为它设置用户名和密码，如下所示:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget --ftp-user=username --ftp-password=password ftp://url-to-ftp-file
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6ba9569" class="outline-2">
+<h2 id="org6ba9569"><span class="section-number-2">10</span> 附录 ::</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org4121c35" class="outline-3">
+<h3 id="org4121c35"><span class="section-number-3">10.1</span> 启动参数：</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+-V, –version 显示wget的版本后退出
+</p>
+
+<p>
+-h, –help 打印语法帮助
+</p>
+
+<p>
+-b, –background 启动后转入后台执行
+</p>
+
+<p>
+-e, –execute=COMMAND 执行`.wgetrc’格式的命令，wgetrc格式参见/etc/wgetrc或~/.wgetrc
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3b1a76" class="outline-3">
+<h3 id="orgd3b1a76"><span class="section-number-3">10.2</span> 记录和输入文件参数：</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+-o, –output-file=FILE 把记录写到FILE文件中
+</p>
+
+<p>
+-a, –append-output=FILE 把记录追加到FILE文件中
+</p>
+
+<p>
+-d, –debug 打印调试输出
+</p>
+
+<p>
+-q, –quiet 安静模式(没有输出)
+</p>
+
+<p>
+-v, –verbose 冗长模式(这是缺省设置)
+</p>
+
+<p>
+-nv, –non-verbose 关掉冗长模式，但不是安静模式
+</p>
+
+<p>
+-i, –input-file=FILE 下载在FILE文件中出现的URLs
+</p>
+
+<p>
+-F, –force-html 把输入文件当作HTML格式文件对待
+</p>
+
+<p>
+-B, –base=URL 将URL作为在-F -i参数指定的文件中出现的相对链接的前缀
+</p>
+
+<p>
+–sslcertfile=FILE 可选客户端证书
+</p>
+
+<p>
+–sslcertkey=KEYFILE 可选客户端证书的KEYFILE
+</p>
+
+<p>
+–egd-file=FILE 指定EGD socket的文件名
+</p>
+
+<p>
+下载参数：
+</p>
+
+<p>
+–bind-address=ADDRESS 指定本地使用地址(主机名或IP，当本地有多个IP或名字时使用)
+</p>
+
+<p>
+-t, –tries=NUMBER 设定最大尝试链接次数(0 表示无限制).
+</p>
+
+<p>
+-O –output-document=FILE 把文档写到FILE文件中
+</p>
+
+<p>
+-nc, –no-clobber 不要覆盖存在的文件或使用.#前缀
+</p>
+
+<p>
+-c, –continue 接着下载没下载完的文件
+</p>
+
+<p>
+–progress=TYPE 设定进程条标记
+</p>
+
+<p>
+-N, –timestamping 不要重新下载文件除非比本地文件新
+</p>
+
+<p>
+-S, –server-response 打印服务器的回应
+</p>
+
+<p>
+–spider 不下载任何东西
+</p>
+
+<p>
+-T, –timeout=SECONDS 设定响应超时的秒数
+</p>
+
+<p>
+-w, –wait=SECONDS 两次尝试之间间隔SECONDS秒
+</p>
+
+<p>
+–waitretry=SECONDS 在重新链接之间等待1…SECONDS秒
+</p>
+
+<p>
+–random-wait 在下载之间等待0…2*WAIT秒
+</p>
+
+<p>
+-Y, –proxy=on/off 打开或关闭代理
+</p>
+
+<p>
+-Q, –quota=NUMBER 设置下载的容量限制
+</p>
+
+<p>
+–limit-rate=RATE 限定下载输率
+</p>
+
+<p>
+目录参数：
+</p>
+
+<p>
+-nd –no-directories 不创建目录
+</p>
+
+<p>
+-x, –force-directories 强制创建目录
+</p>
+
+<p>
+-nH, –no-host-directories 不创建主机目录
+</p>
+
+<p>
+-P, –directory-prefix=PREFIX 将文件保存到目录 PREFIX/…
+</p>
+
+<p>
+–cut-dirs=NUMBER 忽略 NUMBER层远程目录
+</p>
+
+<p>
+HTTP 选项参数：
+</p>
+
+<p>
+–http-user=USER 设定HTTP用户名为 USER.
+</p>
+
+<p>
+–http-passwd=PASS 设定http密码为 PASS
+</p>
+
+<p>
+-C, –cache=on/off 允许/不允许服务器端的数据缓存 (一般情况下允许)
+</p>
+
+<p>
+-E, –html-extension 将所有text/html文档以.html扩展名保存
+</p>
+
+<p>
+–ignore-length 忽略 `Content-Length’头域
+</p>
+
+<p>
+–header=STRING 在headers中插入字符串 STRING
+</p>
+
+<p>
+–proxy-user=USER 设定代理的用户名为 USER
+</p>
+
+<p>
+–proxy-passwd=PASS 设定代理的密码为 PASS
+</p>
+
+<p>
+–referer=URL 在HTTP请求中包含 `Referer: URL’头
+</p>
+
+<p>
+-s, –save-headers 保存HTTP头到文件
+</p>
+
+<p>
+-U, –user-agent=AGENT 设定代理的名称为 AGENT而不是 Wget/VERSION
+</p>
+
+<p>
+–no-http-keep-alive 关闭 HTTP活动链接 (永远链接)
+</p>
+
+<p>
+–cookies=off 不使用 cookies
+</p>
+
+<p>
+–load-cookies=FILE 在开始会话前从文件 FILE中加载cookie
+</p>
+
+<p>
+–save-cookies=FILE 在会话结束后将 cookies保存到 FILE文件中
+</p>
+
+<p>
+FTP 选项参数：
+</p>
+
+<p>
+-nr, –dont-remove-listing 不移走 `.listing’文件
+</p>
+
+<p>
+-g, –glob=on/off 打开或关闭文件名的 globbing机制
+</p>
+
+<p>
+–passive-ftp 使用被动传输模式 (缺省值).
+</p>
+
+<p>
+–active-ftp 使用主动传输模式
+</p>
+
+<p>
+–retr-symlinks 在递归的时候，将链接指向文件(而不是目录)
+</p>
+
+<p>
+递归下载参数：
+</p>
+
+<p>
+-r, –recursive 递归下载－－慎用!
+</p>
+
+<p>
+-l, –level=NUMBER 最大递归深度 (inf 或 0 代表无穷)
+</p>
+
+<p>
+–delete-after 在现在完毕后局部删除文件
+</p>
+
+<p>
+-k, –convert-links 转换非相对链接为相对链接
+</p>
+
+<p>
+-K, –backup-converted 在转换文件X之前，将之备份为 X.orig
+</p>
+
+<p>
+-m, –mirror 等价于 -r -N -l inf -nr
+</p>
+
+<p>
+-p, –page-requisites 下载显示HTML文件的所有图片
+</p>
+
+<p>
+递归下载中的包含和不包含(accept/reject)：
+</p>
+
+<p>
+-A, –accept=LIST 分号分隔的被接受扩展名的列表
+</p>
+
+<p>
+-R, –reject=LIST 分号分隔的不被接受的扩展名的列表
+</p>
+
+<p>
+-D, –domains=LIST 分号分隔的被接受域的列表
+</p>
+
+<p>
+–exclude-domains=LIST 分号分隔的不被接受的域的列表
+</p>
+
+<p>
+–follow-ftp 跟踪HTML文档中的FTP链接
+</p>
+
+<p>
+–follow-tags=LIST 分号分隔的被跟踪的HTML标签的列表
+</p>
+
+<p>
+-G, –ignore-tags=LIST 分号分隔的被忽略的HTML标签的列表
+</p>
+
+<p>
+-H, –span-hosts 当递归时转到外部主机
+</p>
+
+<p>
+-L, –relative 仅仅跟踪相对链接
+</p>
+
+<p>
+-I, –include-directories=LIST 允许目录的列表
+</p>
+
+<p>
+-X, –exclude-directories=LIST 不被包含目录的列表
+</p>
+
+<p>
+-np, –no-parent 不要追溯到父目录
+</p>
+
+<p>
+wget -S –spider url 不下载只显示过程
+</p>
+</div>
+</div>
+
+<div id="outline-container-org97e4807" class="outline-3">
+<h3 id="org97e4807"><span class="section-number-3">10.3</span> 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+wget -r -np -nH –cut-dirs=3 <a href="ftp://host/test/">ftp://host/test/</a>
+测试.txt
+wget -r -np -nH -nd <a href="ftp://host/test/">ftp://host/test/</a>
+%B4%FA%B8%D5.txt
+wget “<a href="ftp://host/test/">ftp://host/test/</a>*”
+%B4%FA%B8%D5.txt
+</p>
+
+<p>
+由 於不知名的原因，可能是为了避开特殊档名， wget 会自动将抓取档名的部分用 encode<sub>string</sub> 处理过， 所以该 patch 就把被 encode<sub>string</sub> 处理成 “%3A” 这种东西， 用 decode<sub>string</sub> 还原成 “:”，并套用在目录与档案名称的部分，decode<sub>string</sub> 是 wget 内建的函式。
+</p>
+
+<p>
+wget -t0 -c -nH -x -np -b -m -P <i>home/sunny/NOD32view</i>  <a href="http://downloads1.kaspersky-labs.com/bases/">http://downloads1.kaspersky-labs.com/bases/</a> -o wget.log
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88248c2" class="outline-3">
+<h3 id="org88248c2"><span class="section-number-3">10.4</span> 更多的教程使用</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+Linux wget命令详解 <a href="http://www.linuxidc.com/Linux/2012-08/67837.htm">http://www.linuxidc.com/Linux/2012-08/67837.htm</a>
+</p>
+
+<p>
+Linux 下使用 wget/aria2 进行离线迅雷批量下载 <a href="http://www.linuxidc.com/Linux/2011-10/46052.htm">http://www.linuxidc.com/Linux/2011-10/46052.htm</a>
+</p>
+
+<p>
+Linux使用wget请求地址时报错 <a href="http://www.linuxidc.com/Linux/2011-07/39345.htm">http://www.linuxidc.com/Linux/2011-07/39345.htm</a>
+</p>
+
+<p>
+Linux下载命令wget使用详解 <a href="http://www.linuxidc.com/Linux/2011-01/30980.htm">http://www.linuxidc.com/Linux/2011-01/30980.htm</a>
+</p>
+
+<p>
+wget 使用大全 <a href="http://www.linuxidc.com/Linux/2008-09/15722.htm">http://www.linuxidc.com/Linux/2008-09/15722.htm</a>
+</p>
+
+<p>
+Linux 命令行下载工具 wget 的使用技巧 <a href="http://www.linuxidc.com/Linux/2007-10/8293.htm">http://www.linuxidc.com/Linux/2007-10/8293.htm</a>
+</p>
+
+<p>
+wget 命令实例 <a href="http://www.linuxidc.com/Linux/2014-10/108733.htm">http://www.linuxidc.com/Linux/2014-10/108733.htm</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

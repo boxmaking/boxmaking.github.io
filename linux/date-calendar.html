@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>date-calendat-使用教程</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-command, linux">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">date-calendat-使用教程</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3a31b55">1. date命令</a>
+<ul>
+<li><a href="#orgbc5c702">1.1. date命令基本操作</a></li>
+<li><a href="#org84579ef">1.2. date &#x2013;date :: 计算时间</a></li>
+</ul>
+</li>
+<li><a href="#org57b3a1a">2. cal calender命令</a>
+<ul>
+<li><a href="#orgf117c7f">2.1. 配置文件</a></li>
+<li><a href="#orga660c72">2.2. 添加代办事项</a></li>
+<li><a href="#org0a0f38d">2.3. 日期信息</a></li>
+<li><a href="#orgc571e02">2.4. 导出为HTML</a></li>
+<li><a href="#orgf58af92">2.5. 约会提醒功能</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org3a31b55" class="outline-2">
+<h2 id="org3a31b55"><span class="section-number-2">1</span> date命令</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgbc5c702" class="outline-3">
+<h3 id="orgbc5c702"><span class="section-number-3">1.1</span> date命令基本操作</h3>
+<div class="outline-text-3" id="text-1-1">
+<table>
+<caption class="t-above"><span class="table-number">&#34920;1&nbsp;</span> date命令基本操作</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">%a+%A</th>
+<th scope="col" class="org-left">星期的简写+星期的全称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">%b+%B</td>
+<td class="org-left">月份的简写+月份的全称</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%D</td>
+<td class="org-left">mm/dd/yy格式</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%c</td>
+<td class="org-left">当前时区的时间</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%e+%d+%m</td>
+<td class="org-left">去零的日期+日期+月份</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%H+%M+%S</td>
+<td class="org-left">24小时制式的时间+秒数</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%j</td>
+<td class="org-left">一年中的第几天</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%n</td>
+<td class="org-left">换行现实</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%Y+%y</td>
+<td class="org-left">全称的年和简写的年</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">%U</td>
+<td class="org-left">一年中的第几个星期</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org84579ef" class="outline-3">
+<h3 id="org84579ef"><span class="section-number-3">1.2</span> date &#x2013;date :: 计算时间</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+date命令的 &#x2013;date 参数
+可以让date命令按照指定的时间来显示结果
+但是我没有想到的是 &#x2013;date 参数居然支持进行时间的加减运算
+</p>
+
+<p>
+下面这段说明摘自 man date
+</p>
+<pre class="example">
+DATE STRING
+       The --date=STRING is a mostly free format human readable date string such as "Sun, 29 Feb 2004 16:21:42  -0800"
+       or  "2004-02-29  16:21:42"  or even "next Thursday".  A date string may contain items indicating calendar date,
+       time of day, time zone, day of week, relative time, relative date, and numbers.  An empty string indicates  the
+       beginning  of  the  day.   The  date  string format is more complex than is easily documented here but is fully
+       described in the info documentation.
+</pre>
+
+<p>
+换句话说，我们可以用它来进行日期间的加减运算,下面是一些例子:
+</p>
+
+<p>
+计算2018年11月22日再过60天是什么时候
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">date --date <span style="color: #00cd66; background-color: #dcdcdc;">'2018-11-22 + 60 days'</span> +<span style="color: #00cd66; background-color: #dcdcdc;">'%Y-%m-%d'</span>
+
+2019-01-21
+
+</pre>
+</div>
+<p>
+计算2018年11月22日，前50天是什么时候
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">date --date <span style="color: #00cd66; background-color: #dcdcdc;">'2018-11-22 - 50 days'</span> +<span style="color: #00cd66; background-color: #dcdcdc;">'%Y-%m-%d'</span>
+
+2018-10-03
+
+</pre>
+</div>
+
+<p>
+还可以加上时分秒
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">date --date <span style="color: #00cd66; background-color: #dcdcdc;">'2018-11-22 01:02:03 HKT +12 days +12 hours +15 minutes'</span>
+
+2018&#24180; 12&#26376; 04&#26085; &#26143;&#26399;&#20108; 13:17:03 HKT
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org57b3a1a" class="outline-2">
+<h2 id="org57b3a1a"><span class="section-number-2">2</span> cal calender命令</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf117c7f" class="outline-3">
+<h3 id="orgf117c7f"><span class="section-number-3">2.1</span> 配置文件</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -<b>- coding: utf-8; lexical-binding: t -</b>-
+;;pengshao-calendar.el&#x2014;calendar相关配置(一直没有调试)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</p>
+
+<p>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; 设置日历 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;设置日历的一些颜色
+(setq calendar-load-hook
+'(lambda ()
+(set-face-foreground 'diary-face "skyblue")
+(set-face-background 'holiday-face "slate blue")
+(set-face-foreground 'holiday-face "white")))
+</p>
+
+<p>
+;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
+;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
+(setq calendar-latitude +36.125)
+(setq calendar-longitude +117.786)
+(setq calendar-location-name "Laiwu")
+</p>
+
+<p>
+;; 设置阴历显示，在 calendar 上用 pC 显示阴历
+(setq chinese-calendar-celestial-stem
+["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+(setq chinese-calendar-terrestrial-branch
+["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
+</p>
+
+<p>
+;; 设置 calendar 的显示
+(setq calendar-remove-frame-by-deleting t)
+;(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
+(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
+(setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar上不标记节日
+(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
+</p>
+
+<p>
+;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
+(setq christian-holidays nil)
+(setq hebrew-holidays nil)
+(setq islamic-holidays nil)
+(setq solar-holidays nil)
+(setq general-holidays '((holiday-fixed 1 1 "元旦")
+(holiday-fixed 2 14 "情人节")
+(holiday-fixed 3 14 "白色情人节")
+(holiday-fixed 4 1 "愚人节")
+(holiday-fixed 5 1 "劳动节")
+(holiday-float 5 0 2 "母亲节")
+(holiday-fixed 6 1 "儿童节")
+(holiday-float 6 0 3 "父亲节")
+(holiday-fixed 7 1 "建党节")
+(holiday-fixed 8 1 "建军节")
+(holiday-fixed 9 10 "教师节")
+(holiday-fixed 10 1 "国庆节")
+(holiday-fixed 12 25 "圣诞节")))
+</p>
+
+<p>
+;;Calendar模式支持各种方式来更改当前日期
+;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
+;; q 退出calendar模式
+;; C-f 让当前日期向前一天
+;; C-b 让当前日期向后一天
+;; C-n 让当前日期向前一周
+;; C-p 让当前日期向后一周
+;; M-} 让当前日期向前一个月
+;; M-{ 让当前日期向后一个月
+;; C-x ] 让当前日期向前一年
+;; C-x [ 让当前日期向后一年
+;; C-a 移动到当前周的第一天
+;; C-e 移动到当前周的最后一天
+;; M-a 移动到当前月的第一天
+;; M-e 多动到当前月的最后一天
+;; M-&lt; 移动到当前年的第一天
+;; M-&gt; 移动到当前年的最后一天
+</p>
+
+<p>
+;;Calendar模式支持移动多种移动到特珠日期的方式
+;; g d 移动到一个特别的日期
+;; o 使某个特殊的月分作为中间的月分
+;; . 移动到当天的日期
+;; p d 显示某一天在一年中的位置，也显示本年度还有多少天。
+;; C-c C-l 刷新Calendar窗口
+</p>
+
+<p>
+;; Calendar支持生成LATEX代码。
+;; t m 按月生成日历
+;; t M 按月生成一个美化的日历
+;; t d 按当天日期生成一个当天日历
+;; t w 1 在一页上生成这个周的日历
+;; t w 2 在两页上生成这个周的日历
+;; t w 3 生成一个ISO-SYTLE风格的当前周日历
+;; t w 4 生成一个从周一开始的当前周日历
+;; t y 生成当前年的日历
+</p>
+
+<p>
+;;EMACS Calendar支持配置节日：
+;; h 显示当前的节日
+;; x 定义当天为某个节日
+;; u 取消当天已被定义的节日
+;; e 显示所有这前后共三个月的节日。
+;; M-x holiday 在另外的窗口的显示这前后三个月的节日。
+</p>
+
+
+<p>
+;; 另外，还有一些特殊的，有意思的命令：
+;; S 显示当天的日出日落时间(是大写的S)
+;; p C 显示农历可以使用
+;; g C 使用农历移动日期可以使用
+</p>
+
+
+<p>
+(provide 'pengshao-calendar)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga660c72" class="outline-3">
+<h3 id="orga660c72"><span class="section-number-3">2.2</span> 添加代办事项</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+在Calendar中可以为指定的日期添加代办事项:
+</p>
+
+<ul class="org-ul">
+<li>使用i d命令为指定日期添加代办事项 
+在calendar中输入i d命令后,Emacs会打开一个教diary的文件,并自动填入光标所处的日期信息
+只需要接着输入代办事项的信息并保存就可以了</li>
+
+<li>使用i w命令为每周的某一天添加代办事项
+可以使用i w命令建立每周例行任务</li>
+
+<li>使用i m命令为每月的某一天添加代办事项
+我们可以使用i m命令建立每月例行任务</li>
+
+<li>使用i y命令为每年的某一天添加代变事项 
+可以使用i y命令建立每年的例行任务</li>
+
+<li>使用i a建立周年纪念日
+跟i y命令类似,但calendar会记录起始年份</li>
+<li>使用i b命令为一个时间段添加代办事项
+将光标和mark放置在一段时间的起始/结尾处,按下i b键,Calendar自动插入时间段的信息我们只要输入待办事项的信息就行了</li>
+
+<li><p>
+使用i c命令定义一个循环事项
+按下i c后,calendar提示输入循环间隔的日期
+虽有Calendar自动插入代表循环的时间信息,我们只需要输入代变事项的信息就行了
+</p>
+
+<p>
+命令 	说明
+</p></li>
+<li>i d 	添加待办事项</li>
+<li>i w 	添加每周例行任务</li>
+<li>i m 	添加每月例行任务</li>
+<li>i y 	添加每年例行任务</li>
+<li>i a 	添加周年纪念日</li>
+<li>i b 	为一段时间添加待办事项</li>
+<li>i c 	添加循环事项</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0a0f38d" class="outline-3">
+<h3 id="org0a0f38d"><span class="section-number-3">2.3</span> 日期信息</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+将光标定位到指定的日期处后,Emacs还提供了一些命令来获取光标所处日期的信息. 常用到的命令有:
+</p>
+
+<ul class="org-ul">
+<li>使用p d命令显示光标所处日期是当年中的第几天</li>
+
+<li>使用p C命令显示光标所处日期的农历信息</li>
+
+<li>M-=计算一段时间的天数
+在要计算时间段的起始天数/结束天数用命令C-@定义为mark
+然后将光标移动到时间段的结束天数/起始天数,这就定义了一个时间段区域
+按下M-=后就会在minibuffer中显示该时间段包含的天数
+该天数包含了起始天数和结束天数的.</li>
+
+<li><p>
+使用h命令查看光标所处日期的假期信息
+如果光标所处的日期并没有假期,则Emacs在minibuffer提示No Holidays known
+否则则显示该日期对应节假日的名字.
+Emacs内置了一些常见的节假日信息
+另外,Emacs也提供了一些函数供我们自定义节假日:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(holiday-fixed m d &#33410;&#26085;&#21517;) <span style="color: #4f94cd; background-color: #dcdcdc;">;&#23450;&#20041;m&#26376;&#30340;&#31532;d&#26085;&#20026;xx&#33410;&#20551;&#26085;</span>
+(holiday-float m w n &#33410;&#26085;&#21517;) <span style="color: #4f94cd; background-color: #dcdcdc;">;&#23450;&#20041;m&#26376;&#30340;&#31532;w&#20010;&#26143;&#26399;&#30340;&#31532;n&#22825;&#20026;xx&#33410;&#20551;&#26085;,&#40664;&#35748;&#21608;&#26085;&#20026;&#31532;0&#26085;</span>
+</pre>
+</div></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><p>
+使用a命令查看所有三个月的假期信息 按下a键后,Emacs会在另一个窗口显示calendar中三个月期间内的所有节假日信息.
+</p>
+
+<p>
+使用x命令在calendar中标示出所有为节假日的日期来
+若我们想让calendar自动标示出节假日的日期来
+则更改calendar-mark-holidays-flag的值为非nil即可
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(setq calendar-mark-holidays-flag t)    <span style="color: #4f94cd; background-color: #dcdcdc;">;&#35753;calendar&#33258;&#21160;&#26631;&#35760;&#20986;&#33410;&#20551;&#26085;&#30340;&#26085;&#26399;</span>
+</pre>
+</div></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>使用d命令显示光标当前日期的代办事项
+可以在d命令前加上一个数字n,表示显示n天内的所有代办事项</li>
+
+<li><p>
+使用m命令在calendar中标记出所有记有待办事项的日期 
+该命令跟x类似,只是它标记出的是带有待办事项的日期. 
+你也可以通过更改变量calendar-mark-diary-entries-flag的值为非nil来让calendar自动标记出记有待办事项的日期.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(setq calendar-mark-diary-entries-flag t)    <span style="color: #4f94cd; background-color: #dcdcdc;">;&#35753;calendar&#33258;&#21160;&#26631;&#35760;&#20986;&#35760;&#26377;&#24453;&#21150;&#20107;&#39033;&#30340;&#26085;&#26399;</span>
+</pre>
+</div></li>
+
+<li>值得一提的时,如果你将记录某项代办事项但却不想被标记出来,只需要在执行插入待办事项的命令前执行C-u就行了(就像C-u i d这样).</li>
+
+<li>使用u命令去除calendar中的标记</li>
+</ul>
+
+<p>
+命令 	说明
+</p>
+<ul class="org-ul">
+<li>p d 	显示当前日期是当年的第几天</li>
+<li>p C 	显示当前日期的农历信息</li>
+<li>M-= 	计算一段时间的天数</li>
+<li>h 	查看当前日期的假期信息</li>
+<li>a 	查看三个月内的所有节假日信息</li>
+<li>x 	标记出calendar中所有为节假日的日期</li>
+<li>d 	查看指定日期的待办事项</li>
+<li>m 	标记出calendar中所有记有待办事项的日期</li>
+<li>u 	清除calendar中的标记</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgc571e02" class="outline-3">
+<h3 id="orgc571e02"><span class="section-number-3">2.4</span> 导出为HTML</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Emacs提供了两个命令来将日历信息,节假日信息和待办事项信息一起导出成HTML文件供我们查看,这两个命令为:
+</p>
+<ul class="org-ul">
+<li>命令 	说明</li>
+<li>H m 	导出单月的日程安排信息</li>
+<li>H y 	导出当年的每个月的日程安排信息</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf58af92" class="outline-3">
+<h3 id="orgf58af92"><span class="section-number-3">2.5</span> 约会提醒功能</h3>
+<div class="outline-text-3" id="text-2-5">
+<ol class="org-ol">
+<li>用M-x appt-activate开启约会提醒功能 要使用约会提醒功能,先需要开启appointment通知功能,命令是M-x appt-activate</li>
+<li>随后使用M-x appt-add命令来添加一个约会提醒. 执行app-add命令后,在Emacs提醒你依次输入约会开始的时间,提醒的消息,和提前多少分钟开始提醒. 虽有在离约会还有指定分钟的时候,Emacs会在底部弹出一个窗口,窗口的内容显示了指定的提醒消息.</li>
+<li>使用M-x appt-delete来删除一个约会提醒 执行appt-delete后,Emacs依次显示所有添加的约会提醒,并询问是否删除,按y表示删除,按n表示保留</li>
+
+<li><p>
+在mode-line上显示约会提醒的倒计时 通过设置变量appt-display-mode-line的值为非nil,Emacs会在mode-line上显示还有多少分钟到下一个约会的倒计时.
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(setq appt-display-mode-line t)         <span style="color: #4f94cd; background-color: #dcdcdc;">;&#22312;mode-line&#19978;&#26174;&#31034;&#36824;&#26377;&#22810;&#23569;&#20998;&#38047;&#21040;&#32422;&#20250;&#30340;&#20498;&#35745;&#26102;</span>
+</pre>
+</div></li>
+
+<li>M-x appt-activate 	开启appointment提醒功能</li>
+<li>M-x appt-add 	添加一个约会提醒</li>
+<li>M-x appt-delete 	删除约会提醒</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

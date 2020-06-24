@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>org-complete</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">org-complete</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge8cd9de">1. Completion</a>
+<ul>
+<li><a href="#org597f618">1.1. M-TAB</a></li>
+</ul>
+</li>
+<li><a href="#org4792887">2. footnotes</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orge8cd9de" class="outline-2">
+<h2 id="orge8cd9de"><span class="section-number-2">1</span> Completion</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Org has in-buffer completions. Unlike minibuffer completions, which are useful for quick command interactions, Org’s in-buffer completions are more suitable for content creation in Org documents. Type one or more letters and invoke the hot key to complete the text in-place. Depending on the context and the keys, Org offers different types of completions. No minibuffer is involved. Such mode-specific hot keys have become an integral part of Emacs and Org provides several shortcuts.
+</p>
+</div>
+
+<div id="outline-container-org597f618" class="outline-3">
+<h3 id="org597f618"><span class="section-number-3">1.1</span> M-TAB</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Complete word at point.
+</p>
+
+<ol class="org-ol">
+<li>At the beginning of an empty headline, complete TODO keywords.</li>
+
+<li>After ‘\’, complete TeX symbols supported by the exporter.</li>
+
+<li>After ‘*’, complete headlines in the current buffer so that they can be used in search links like:</li>
+
+<li>After ‘:’ in a headline, complete tags. Org deduces the list of tags from the ‘TAGS’ in-buffer option (see Setting Tags), the variable org-tag-alist, or from all tags used in the current buffer.</li>
+
+<li>After ‘:’ and not in a headline, complete property keys. The list of keys is constructed dynamically from all keys used in the current buffer.</li>
+
+<li>After ‘[’, complete link abbreviations (see Link Abbreviations).</li>
+
+<li>After ‘#+’, complete the special keywords like ‘TYP<sub>TODO</sub>’ or file-specific ‘OPTIONS’. After option keyword is complete, pressing M-TAB again inserts example settings for this keyword.</li>
+
+<li>After ‘STARTUP’ keyword, complete startup items.</li>
+
+<li>When point is anywhere else, complete dictionary words using Ispell.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4792887" class="outline-2">
+<h2 id="org4792887"><span class="section-number-2">2</span> footnotes</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="https://orgmode.org/manual/Completion.html">https://orgmode.org/manual/Completion.html</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

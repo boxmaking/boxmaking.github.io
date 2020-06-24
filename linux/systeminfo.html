@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linux系统信息查询教程</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux, systeminfo-linux">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">linux系统信息查询教程</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org31110e3">1. neofetch</a></li>
+<li><a href="#org4908968">2. GUI软件来查看系统的硬件信息&#x2014;最简单</a></li>
+<li><a href="#org5f50311">3. 查看系统信息</a>
+<ul>
+<li><a href="#orgd9fe4ce">3.1. uname -a</a></li>
+<li><a href="#orgb28bea6">3.2. 查看系统内核版本</a></li>
+<li><a href="#org304005e">3.3. cat /etc/issue</a></li>
+<li><a href="#orgf47db93">3.4. lsb<sub>release</sub> -a</a></li>
+<li><a href="#org7004bee">3.5. evn</a></li>
+<li><a href="#org6c31e07">3.6. hostname</a></li>
+</ul>
+</li>
+<li><a href="#orgf1df919">4. CPU 详细信息</a>
+<ul>
+<li><a href="#orgc4c1317">4.1. cpu和gpu的监控工具</a></li>
+</ul>
+</li>
+<li><a href="#org5783fee">5. 硬盘使用情况</a></li>
+<li><a href="#org1dea020">6. 内存相关查询教程</a>
+<ul>
+<li><a href="#org031fb8b">6.1. 查看内存使用情况</a></li>
+<li><a href="#org3a33876">6.2. dmidecode命令来显示内存相关的知识</a></li>
+</ul>
+</li>
+<li><a href="#org328b459">7. 显存查看</a></li>
+<li><a href="#org8cee771">8. 进程相关命令</a>
+<ul>
+<li><a href="#org52fbb51">8.1. ps -aux</a></li>
+<li><a href="#org61047b3">8.2. <span class="todo TODO">TODO</span> top</a></li>
+<li><a href="#org5e2c66a">8.3. kill</a></li>
+<li><a href="#org29de4af">8.4. <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></a></li>
+<li><a href="#org290d661">8.5. Ctrl-Z | Ctrl-C</a></li>
+</ul>
+</li>
+<li><a href="#orge2671a3">9. 网络相关呢的信息</a>
+<ul>
+<li><a href="#orgab78953">9.1. 查看网卡硬件信息</a></li>
+<li><a href="#orgcf8e67f">9.2. ifconfig</a></li>
+<li><a href="#org430f67a">9.3. 查看所有的监听端口</a></li>
+<li><a href="#org55013af">9.4. 查看所有已建立的链接</a></li>
+</ul>
+</li>
+<li><a href="#orge257232">10. 用户相关</a>
+<ul>
+<li><a href="#org38155c9">10.1. 查看有多少个用户后</a></li>
+<li><a href="#org801e4d4">10.2. 查看有多少个族群</a></li>
+<li><a href="#org052ab97">10.3. 查看用户登录日志</a></li>
+<li><a href="#org1b4d094">10.4. 查看用户的基本信息</a></li>
+</ul>
+</li>
+<li><a href="#orgc298974">11. inxi和lshw命令可以概述所有的信息</a></li>
+<li><a href="#org0363407">12. 查看uefi和biso的信息</a></li>
+<li><a href="#orgae3d81c">13. 总结1</a></li>
+<li><a href="#orgcc0584f">14. 总结2</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org31110e3" class="outline-2">
+<h2 id="org31110e3"><span class="section-number-2">1</span> neofetch</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+neofetch可以显示很酷的带图片的信息
+多用于分享使用
+</p>
+<pre class="example">
+
+       _,met$$$$$gg.        pengshao@ps-debian 
+    ,g$$$$$$$$$$$$$$$P.     ------------------ 
+  ,g$$P"     """Y$$.".      OS: Debian GNU/Linux 10 (buster) x86_64 
+ ,$$P'              `$$$.   Host: VMware Virtual Platform None 
+',$$P       ,ggs.     `$$b: Kernel: 4.19.0-8-amd64 
+`d$$'     ,$P"'   .    $$$  Uptime: 15 mins 
+ $$P      d$'     ,    $$P  Packages: 1847 (dpkg) 
+ $$:      $$.   -    ,d$$'  Shell: bash 5.0.3 
+ $$;      Y$b._   _,d$P'    Resolution: 1440x900 
+ Y$$.    `.`"Y$$$$P"'       DE: Xfce 
+ `$$b      "-.__            WM: Xfwm4 
+  `Y$$                      WM Theme: Default 
+   `Y$$.                    Theme: Xfce [GTK2], Adwaita [GTK3] 
+     `$$b.                  Icons: Tango [GTK2], Adwaita [GTK3] 
+       `Y$$b.               Terminal: emacs 
+          `"Y$b._           CPU: AMD Ryzen 3 2200G (3) @ 3.749GHz 
+              `"""          GPU: VMware SVGA II Adapter 
+                            Memory: 1418MiB / 2024MiB 
+                        
+
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4908968" class="outline-2">
+<h2 id="org4908968"><span class="section-number-2">2</span> GUI软件来查看系统的硬件信息&#x2014;最简单</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>i-nex 收集硬件信息，并且类似于 Windows 下流行的 CPU-Z 的显示。</li>
+<li>HardInfo 显示硬件具体信息，甚至包括一组八个的流行的性能基准程序，你可以用它们评估你的系统性能。</li>
+<li>KInfoCenter 和 Lshw 也能够显示硬件的详细信息，并且可以从许多软件仓库中获取。</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org5f50311" class="outline-2">
+<h2 id="org5f50311"><span class="section-number-2">3</span> 查看系统信息</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgd9fe4ce" class="outline-3">
+<h3 id="orgd9fe4ce"><span class="section-number-3">3.1</span> uname -a</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+输出系统信息
+-a 查看所有
+-r 查看内核
+-p 处理器
+-m 机器硬件信息
+-i 硬件平台信息
+</p>
+</div>
+</div>
+<div id="outline-container-orgb28bea6" class="outline-3">
+<h3 id="orgb28bea6"><span class="section-number-3">3.2</span> 查看系统内核版本</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+cat /proc/version
+</p>
+</div>
+</div>
+<div id="outline-container-org304005e" class="outline-3">
+<h3 id="org304005e"><span class="section-number-3">3.3</span> cat /etc/issue</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+此命令适合所有linux发行版
+</p>
+</div>
+</div>
+<div id="outline-container-orgf47db93" class="outline-3">
+<h3 id="orgf47db93"><span class="section-number-3">3.4</span> lsb<sub>release</sub> -a</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+列出所有的版本信息
+</p>
+</div>
+</div>
+<div id="outline-container-org7004bee" class="outline-3">
+<h3 id="org7004bee"><span class="section-number-3">3.5</span> evn</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+查看所有的环境变量
+</p>
+</div>
+</div>
+<div id="outline-container-org6c31e07" class="outline-3">
+<h3 id="org6c31e07"><span class="section-number-3">3.6</span> hostname</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+查看计算机名
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf1df919" class="outline-2">
+<h2 id="orgf1df919"><span class="section-number-2">4</span> CPU 详细信息</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+使用 lscpu 命令或与它相近的 lshw 命令查看 CPU 的详细信息：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lscpu
+lshw -C cpu
+</pre>
+</div>
+
+<p>
+使用这些命令的时候，你可以通过使用 grep 命令过滤复杂的信息，并缩小所需信息范围。
+</p>
+
+<ol class="org-ol">
+<li><p>
+只查看 CPU 品牌和型号:
+lshw -C cpu |grep-i product
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ sudo lshw -C cpu | grep -i product
+product: AMD Ryzen 3 2200G with Radeon Vega Graphics
+</pre>
+</div></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+仅查看 CPU 的速度（兆赫兹）:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lscpu|grep-i mhz
+</pre>
+</div>
+<p>
+或其 BogoMips 额定功率:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lscpu|grep-i bogo
+</pre>
+</div></li>
+
+<li>grep 命令的 -i 参数代表搜索结果忽略大小写。</li>
+</ol>
+</div>
+
+<div id="outline-container-orgc4c1317" class="outline-3">
+<h3 id="orgc4c1317"><span class="section-number-3">4.1</span> cpu和gpu的监控工具</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li>sensor</li>
+<li>Glances</li>
+<li>i7z</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org5783fee" class="outline-2">
+<h2 id="org5783fee"><span class="section-number-2">5</span> 硬盘使用情况</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li><p>
+显示每个磁盘设备的描述信息：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">lshw -short-C disk 
+</pre>
+</div></li>
+
+<li><p>
+通过以下命令获取任何指定的 SATA 磁盘详细信息，例如其型号、序列号以及支持的模式和扇区数量
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">hdparm-i /dev/sda
+</pre>
+</div>
+
+<p>
+当然，如果需要的话你应该将 sda 替换成 sdb 或者其他设备号。
+</p></li>
+
+<li><p>
+要列出所有磁盘及其分区和大小，请使用以下命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">lsblk
+</pre>
+</div></li>
+
+<li><p>
+使用以下命令获取更多有关扇区数量、大小、文件系统 ID 和 类型以及分区开始和结束扇区：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">fdisk-l
+</pre>
+</div></li>
+
+<li><p>
+要启动 Linux，你需要确定 GRUB 引导程序的可挂载分区。你可以使用 blkid 命令找到此信息。它列出了每个分区的唯一标识符（UUID）及其文件系统类型（例如 ext3 或 ext4）：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">blkid
+</pre>
+</div></li>
+
+<li><p>
+使用以下命令列出已挂载的文件系统和它们的挂载点，以及已用的空间和可用的空间（兆字节为单位）：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">df-m
+</pre>
+</div></li>
+
+<li><p>
+最后，你可以列出所有的 USB 和 PCI 总线以及其他设备的详细信息：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lsusb&#25110;&#32773; lspci
+</pre>
+</div></li>
+
+<li><p>
+查看文件夹的使用情况和大小
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">du -sh &lt;&#25991;&#20214;&#22841;&gt;
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org1dea020" class="outline-2">
+<h2 id="org1dea020"><span class="section-number-2">6</span> 内存相关查询教程</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org031fb8b" class="outline-3">
+<h3 id="org031fb8b"><span class="section-number-3">6.1</span> 查看内存使用情况</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-sh">free -m -h
+</pre>
+</div>
+<p>
+-h 用gb和mb现实便于阅读
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a33876" class="outline-3">
+<h3 id="org3a33876"><span class="section-number-3">6.2</span> dmidecode命令来显示内存相关的知识</h3>
+<div class="outline-text-3" id="text-6-2">
+<ol class="org-ol">
+<li><p>
+使用 dmidecode 命令列出每根内存条和其容量：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">dmidecode -t memory |grep-i size
+</pre>
+</div></li>
+
+<li><p>
+使用以下命令获取系统内存更多的信息，包括类型、容量、速度和电压：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lshw -short-C memory
+</pre>
+</div></li>
+
+<li><p>
+你肯定想知道的一件事是你的计算机可以安装的最大内存：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">dmidecode -t memory |grep-i max
+</pre>
+</div></li>
+
+<li><p>
+现在检查一下计算机是否有空闲的插槽可以插入额外的内存条。你可以通过使用命令在不打开计算机机箱的情况下就做到：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lshw -short-C memory |grep-i empty
+</pre>
+</div>
+<p>
+输出为空则意味着所有的插槽都在使用中。
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org328b459" class="outline-2">
+<h2 id="org328b459"><span class="section-number-2">7</span> 显存查看</h2>
+<div class="outline-text-2" id="text-7">
+<ol class="org-ol">
+<li><p>
+使用 lspci 列出所有设备信息然后过滤出你想要的显卡设备信息:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lspci |grep-i vga
+</pre>
+</div></li>
+
+<li><p>
+视频控制器的设备号输出信息通常如下：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">00:02.0 VGA compatible controller:IntelCorporation82Q35ExpressIntegratedGraphicsController(rev 02)
+</pre>
+</div></li>
+
+<li><p>
+现在再加上视频设备号重新运行 lspci 命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lspci -v -s 00:02.0
+</pre>
+</div></li>
+
+<li><p>
+输出信息中 prefetchable 那一行显示了系统中的显卡内存大小:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">...
+Memory at f0100000 (32-bit, non-prefetchable)[<span style="color: #912cee; background-color: #dcdcdc;">size</span>=512K]
+I/O ports at 1230[<span style="color: #912cee; background-color: #dcdcdc;">size</span>=8]
+Memory at e0000000 (32-bit, prefetchable)[<span style="color: #912cee; background-color: #dcdcdc;">size</span>=256M]
+Memory at f0000000 (32-bit, non-prefetchable)[<span style="color: #912cee; background-color: #dcdcdc;">size</span>=1M]
+...
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org8cee771" class="outline-2">
+<h2 id="org8cee771"><span class="section-number-2">8</span> 进程相关命令</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org52fbb51" class="outline-3">
+<h3 id="org52fbb51"><span class="section-number-3">8.1</span> ps -aux</h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-sh">ps -aux 
+ps -ef
+</pre>
+</div>
+<p>
+这是两张方式,经常使用第一种方式
+后面经常加入管道符号来
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ps -aux | grep xfce
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org61047b3" class="outline-3">
+<h3 id="org61047b3"><span class="section-number-3">8.2</span> <span class="todo TODO">TODO</span> top</h3>
+</div>
+
+<div id="outline-container-org5e2c66a" class="outline-3">
+<h3 id="org5e2c66a"><span class="section-number-3">8.3</span> kill</h3>
+<div class="outline-text-3" id="text-8-3">
+<ol class="org-ol">
+<li><p>
+可以杀死进程
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">kill</span> -9 id 
+</pre>
+</div></li>
+
+<li><p>
+全部杀死进程
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">killall idname
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org29de4af" class="outline-3">
+<h3 id="org29de4af"><span class="section-number-3">8.4</span> <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></h3>
+<div class="outline-text-3" id="text-8-4">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> fg 后面加上进程的后台号码就能够将进程前台化</li>
+<li class="off"><code>[&#xa0;]</code> bg 还不会用</li>
+<li class="off"><code>[&#xa0;]</code> &amp; 加在命令的后面可以将命令后台化</li>
+<li class="off"><code>[&#xa0;]</code> jobs 还不会用</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org290d661" class="outline-3">
+<h3 id="org290d661"><span class="section-number-3">8.5</span> Ctrl-Z | Ctrl-C</h3>
+<div class="outline-text-3" id="text-8-5">
+<ol class="org-ol">
+<li>Ctrl-z 是将程序挂起
+挂起后还会显示一个进程号码
+用于fg 的时候前台化进程</li>
+<li>Ctrl-c 是终止前台正在运行的程序</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge2671a3" class="outline-2">
+<h2 id="orge2671a3"><span class="section-number-2">9</span> 网络相关呢的信息</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgab78953" class="outline-3">
+<h3 id="orgab78953"><span class="section-number-3">9.1</span> 查看网卡硬件信息</h3>
+<div class="outline-text-3" id="text-9-1">
+<div class="org-src-container">
+<pre class="src src-sh">lshw -C network
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcf8e67f" class="outline-3">
+<h3 id="orgcf8e67f"><span class="section-number-3">9.2</span> ifconfig</h3>
+<div class="outline-text-3" id="text-9-2">
+<div class="org-src-container">
+<pre class="src src-sh">apt-get install net-tools
+sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#29616;&#23454;&#24403;&#21069;&#28608;&#27963;&#30340;&#32593;&#32476;&#31471;&#21475;&#20449;&#24687;</span>
+</pre>
+</div>
+</div>
+
+
+<ol class="org-ol">
+<li><a id="org55c65b1"></a>各项参数的解释<br>
+<div class="outline-text-4" id="text-9-2-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">缩写</th>
+<th scope="col" class="org-left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">lo</td>
+<td class="org-left">回环接口</td>
+</tr>
+
+<tr>
+<td class="org-left">eth0 或 enp*</td>
+<td class="org-left">以太网接口</td>
+</tr>
+
+<tr>
+<td class="org-left">wlan0</td>
+<td class="org-left">无线网接口</td>
+</tr>
+
+<tr>
+<td class="org-left">ppp0</td>
+<td class="org-left">点对点协议接口(拨号调制解调器PPTP,VPN,连接或,USB调制解调器使用)</td>
+</tr>
+
+<tr>
+<td class="org-left">vboxnet0 或 vmnet*</td>
+<td class="org-left">虚拟机网络接口</td>
+</tr>
+
+<tr>
+<td class="org-left">link encap</td>
+<td class="org-left">网络类型，Ethernet是以太网</td>
+</tr>
+
+<tr>
+<td class="org-left">HWaddr</td>
+<td class="org-left">网卡MAC地址</td>
+</tr>
+
+<tr>
+<td class="org-left">Inet addr</td>
+<td class="org-left">IP地址</td>
+</tr>
+
+<tr>
+<td class="org-left">Bcast</td>
+<td class="org-left">广播地址</td>
+</tr>
+
+<tr>
+<td class="org-left">Mask</td>
+<td class="org-left">子网掩码</td>
+</tr>
+
+<tr>
+<td class="org-left">UP BROADCAST RUNNING MULTICAST</td>
+<td class="org-left">网卡运行状态</td>
+</tr>
+
+<tr>
+<td class="org-left">MTU</td>
+<td class="org-left">最大传输单元</td>
+</tr>
+
+<tr>
+<td class="org-left">collisions</td>
+<td class="org-left">以太网发生冲突的次数，如果该值过高，就要考虑网络硬件故障</td>
+</tr>
+
+<tr>
+<td class="org-left">RX packets,TX packets</td>
+<td class="org-left">接收和发送的数据包数量；</td>
+</tr>
+
+<tr>
+<td class="org-left">RX byte，TX byte</td>
+<td class="org-left">表示接搜和传输的具体数目</td>
+</tr>
+
+<tr>
+<td class="org-left">Interrupt</td>
+<td class="org-left">中断信息</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org430f67a" class="outline-3">
+<h3 id="org430f67a"><span class="section-number-3">9.3</span> 查看所有的监听端口</h3>
+<div class="outline-text-3" id="text-9-3">
+<div class="org-src-container">
+<pre class="src src-sh">netstat -lntp
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org55013af" class="outline-3">
+<h3 id="org55013af"><span class="section-number-3">9.4</span> 查看所有已建立的链接</h3>
+<div class="outline-text-3" id="text-9-4">
+<div class="org-src-container">
+<pre class="src src-sh">netstat -antp
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge257232" class="outline-2">
+<h2 id="orge257232"><span class="section-number-2">10</span> 用户相关</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org38155c9" class="outline-3">
+<h3 id="org38155c9"><span class="section-number-3">10.1</span> 查看有多少个用户后</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-sh">cat /etc/passwd <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;passwd&#25991;&#20214;</span>
+cut -d: -f1 /etc/passwd <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#29992;&#25143;&#21517;&#31216;</span>
+cut -d: -f1 /etc/passwd | wc -l <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#29992;wc&#35745;&#31639;&#20986;&#26377;&#22810;&#23569;&#20010;&#29992;&#25143;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org801e4d4" class="outline-3">
+<h3 id="org801e4d4"><span class="section-number-3">10.2</span> 查看有多少个族群</h3>
+<div class="outline-text-3" id="text-10-2">
+<div class="org-src-container">
+<pre class="src src-sh">cat /etc/group <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;group&#25991;&#20214;</span>
+cut -d: -f1 /etc/group <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#29992;&#25143;&#21517;&#31216;</span>
+cut -d: -f1 /etc/group | wc -l <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#29992;wc&#35745;&#31639;&#20986;&#26377;&#22810;&#23569;&#20010;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org052ab97" class="outline-3">
+<h3 id="org052ab97"><span class="section-number-3">10.3</span> 查看用户登录日志</h3>
+<div class="outline-text-3" id="text-10-3">
+<div class="org-src-container">
+<pre class="src src-sh">last
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1b4d094" class="outline-3">
+<h3 id="org1b4d094"><span class="section-number-3">10.4</span> 查看用户的基本信息</h3>
+<div class="outline-text-3" id="text-10-4">
+<div class="org-src-container">
+<pre class="src src-sh">id &lt;usename&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc298974" class="outline-2">
+<h2 id="orgc298974"><span class="section-number-2">11</span> inxi和lshw命令可以概述所有的信息</h2>
+<div class="outline-text-2" id="text-11">
+<ol class="org-ol">
+<li><p>
+inxi 
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">inxi -Fxz
+</pre>
+</div>
+<p>
+-F完整输出
+-x增加细节
+-z隐藏mac和ip等信息
+</p></li>
+
+<li><p>
+lshw
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lshw -short
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org0363407" class="outline-2">
+<h2 id="org0363407"><span class="section-number-2">12</span> 查看uefi和biso的信息</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+这条命令显示了 UEFI 或 BIOS 的日期和版本
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">dmidecode -t bios
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae3d81c" class="outline-2">
+<h2 id="orgae3d81c"><span class="section-number-2">13</span> 总结1</h2>
+<div class="outline-text-2" id="text-13">
+<div class="org-src-container">
+<pre class="src src-sh">uname -a <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#20869;&#26680;/&#25805;&#20316;&#31995;&#32479;/CPU&#20449;&#24687;</span>
+head -n 1 /etc/issue <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25805;&#20316;&#31995;&#32479;&#29256;&#26412;</span>
+cat /proc/cpuinfo <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;CPU&#20449;&#24687;</span>
+hostname <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#35745;&#31639;&#26426;&#21517;</span>
+lspci -tv <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#25152;&#26377;PCI&#35774;&#22791;</span>
+lsusb -tv <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#25152;&#26377;USB&#35774;&#22791;</span>
+lsmod <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#21152;&#36733;&#30340;&#20869;&#26680;&#27169;&#22359;</span>
+env <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#29615;&#22659;&#21464;&#37327;&#36164;&#28304;</span>
+free -m <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#20869;&#23384;&#20351;&#29992;&#37327;&#21644;&#20132;&#25442;&#21306;&#20351;&#29992;&#37327;</span>
+df -h <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#21508;&#20998;&#21306;&#20351;&#29992;&#24773;&#20917;</span>
+du -sh &lt;&#30446;&#24405;&#21517;&gt; <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25351;&#23450;&#30446;&#24405;&#30340;&#22823;&#23567;</span>
+grep MemTotal /proc/meminfo <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#20869;&#23384;&#24635;&#37327;</span>
+grep MemFree /proc/meminfo <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31354;&#38386;&#20869;&#23384;&#37327;</span>
+uptime <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31995;&#32479;&#36816;&#34892;&#26102;&#38388;&#12289;&#29992;&#25143;&#25968;&#12289;&#36127;&#36733;</span>
+cat /proc/loadavg <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31995;&#32479;&#36127;&#36733;&#30913;&#30424;&#21644;&#20998;&#21306;</span>
+mount | column -t <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25346;&#25509;&#30340;&#20998;&#21306;&#29366;&#24577;</span>
+fdisk -l <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#20998;&#21306;</span>
+swapon -s <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#20132;&#25442;&#20998;&#21306;</span>
+hdparm -i /dev/hda <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#30913;&#30424;&#21442;&#25968;(&#20165;&#36866;&#29992;&#20110;IDE&#35774;&#22791;)</span>
+dmesg | grep IDE <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#21551;&#21160;&#26102;IDE&#35774;&#22791;&#26816;&#27979;&#29366;&#20917;&#32593;&#32476;</span>
+ifconfig <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#32593;&#32476;&#25509;&#21475;&#30340;&#23646;&#24615;</span>
+iptables -L <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#38450;&#28779;&#22681;&#35774;&#32622;</span>
+route -n <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#36335;&#30001;&#34920;</span>
+netstat -lntp <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#30417;&#21548;&#31471;&#21475;</span>
+netstat -antp <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#24050;&#32463;&#24314;&#31435;&#30340;&#36830;&#25509;</span>
+netstat -s <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#32593;&#32476;&#32479;&#35745;&#20449;&#24687;&#36827;&#31243;</span>
+ps -ef <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#36827;&#31243;</span>
+top <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23454;&#26102;&#26174;&#31034;&#36827;&#31243;&#29366;&#24577;&#29992;&#25143;</span>
+w <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#27963;&#21160;&#29992;&#25143;</span>
+id &lt;&#29992;&#25143;&#21517;&gt; <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25351;&#23450;&#29992;&#25143;&#20449;&#24687;</span>
+last <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#29992;&#25143;&#30331;&#24405;&#26085;&#24535;</span>
+cut -d: -f1 /etc/passwd <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31995;&#32479;&#25152;&#26377;&#29992;&#25143;</span>
+cut -d: -f1 /etc/group <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31995;&#32479;&#25152;&#26377;&#32452;</span>
+rontab -l <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#24403;&#21069;&#29992;&#25143;&#30340;&#35745;&#21010;&#20219;&#21153;&#26381;&#21153;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc0584f" class="outline-2">
+<h2 id="orgcc0584f"><span class="section-number-2">14</span> 总结2</h2>
+<div class="outline-text-2" id="text-14">
+<div class="org-src-container">
+<pre class="src src-sh">inxi -Fxz &#25110; hwinfo --short &#25110; lshw  -short <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#25152;&#26377;&#30828;&#20214;&#20449;&#24687;   </span>
+lscpu &#25110; lshw -C cpu  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">CPU &#20449;&#24687;</span>
+lshw -C cpu | grep -i capabilities <span style="color: #4f94cd; background-color: #dcdcdc;">#  </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034; CPU &#21151;&#33021;&#65288;&#20363;&#22914; PAE&#12289;SSE2&#65289;    </span>
+lshw -C cpu | grep -i width  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25253;&#21578; CPU &#20301;&#25968;</span>
+dmidecode -t memory | grep -i size &#25110; lshw -short -C memory  <span style="color: #4f94cd; background-color: #dcdcdc;">#  </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#24403;&#21069;&#20869;&#23384;&#22823;&#23567;&#21644;&#37197;&#32622;</span>
+dmidecode -t memory | grep -i max <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#30828;&#20214;&#25903;&#25345;&#30340;&#26368;&#22823;&#20869;&#23384; </span>
+lshw -short -C memory | grep -i empty <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#65288;&#36755;&#20986;&#20026;&#31354;&#34920;&#31034;&#27809;&#26377;&#21487;&#29992;&#25554;&#30830;&#23450;&#26159;&#21542;&#26377;&#31354;&#38386;&#20869;&#23384;&#25554;&#27133;&#27133;&#65289;</span>
+lspci | grep -i vga &#28982;&#21518;&#25351;&#23450;&#35774;&#22791;&#21495;&#20877;&#27425;&#20351;&#29992;&#65307;    <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#30830;&#23450;&#26174;&#21345;&#20869;&#23384;&#25968;&#37327;      </span>
+&#20363;&#22914;&#65306;lspci -v -s 00:02.0 &#26174;&#21345;&#20869;&#23384;&#25968;&#37327;&#23601;&#26159; prefetchable &#30340;&#20540;
+free -m &#25110; top  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#24403;&#21069;&#20869;&#23384;&#20351;&#29992;&#24773;&#20917;</span>
+lshw -short -C disk  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#30913;&#30424;&#39537;&#21160;&#22120;</span>
+hdparm -i /dev/sda&#65288;&#38656;&#35201;&#30340;&#35805;&#26367;&#25442;&#25481; sda&#65289;  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#25351;&#23450;&#30913;&#30424;&#39537;&#21160;&#22120;&#30340;&#35814;&#32454;&#20449;&#24687;</span>
+lsblk&#65288;&#31616;&#21333;&#65289; &#25110; fdisk -l&#65288;&#35814;&#32454;&#65289;  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#30913;&#30424;&#21644;&#20998;&#21306;&#20449;&#24687;</span>
+blkid  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#20998;&#21306; ID&#65288;UUID&#65289;     </span>
+df -m  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986;&#24050;&#25346;&#36733;&#25991;&#20214;&#31995;&#32479;&#25346;&#36733;&#28857;&#20197;&#21450;&#24050;&#29992;&#21644;&#21487;&#29992;&#31354;&#38388;</span>
+lsusb <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986; USB &#35774;&#22791;</span>
+lspci <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21015;&#20986; PCI &#35774;&#22791;</span>
+lshw -C network <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#32593;&#21345;&#35814;&#32454;&#20449;&#24687;</span>
+ifconfig -a &#25110; ip link show &#25110; netstat -i <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#32593;&#32476;&#25509;&#21475;</span>
+ip route | column -t &#25110; netstat -r <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#36335;&#30001;&#34920;</span>
+dmidecode -t bios <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034; UEFI/BIOS &#20449;&#24687;</span>
+uname -a  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#20869;&#26680;&#29256;&#26412;&#32593;&#32476;&#20027;&#26426;&#21517;&#31561;</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

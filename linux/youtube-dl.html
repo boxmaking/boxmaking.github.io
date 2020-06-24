@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>youtube-dl使用教程</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="youtube-dl使用教程">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">youtube-dl使用教程</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga21d278">1. youtube-dl+ffmpeg安装</a></li>
+<li><a href="#org7692477">2. youtube-dl代理</a></li>
+<li><a href="#org8aa4146">3. 调用arai2,下载</a></li>
+<li><a href="#org7ed0389">4. youtube-dl下载</a></li>
+<li><a href="#orgabbf3e7">5. 批量下载的参数</a></li>
+<li><a href="#org3f5d802">6. 常用参数</a></li>
+<li><a href="#org466e3e2">7. 下载youtube播放列表</a></li>
+<li><a href="#orgf780590">8. CONFIGURATION</a></li>
+<li><a href="#org295457e">9. man youtube-dl</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orga21d278" class="outline-2">
+<h2 id="orga21d278"><span class="section-number-2">1</span> youtube-dl+ffmpeg安装</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+下载地址都有<a href="https://ytdl-org.github.io/youtube-dl/download.html">https://ytdl-org.github.io/youtube-dl/download.html</a>]] 
+</p>
+<ol class="org-ol">
+<li><p>
+To install it right away for all UNIX users (Linux, OS X, etc.), type:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+</pre>
+</div></li>
+
+<li><p>
+If you do not have curl, you can alternatively use a recent wget:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+</pre>
+</div></li>
+<li><p>
+安装 FFmpeg
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">add-apt-repository ppa:djcj/hybrid
+apt-get update
+apt-get install ffmpeg
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org7692477" class="outline-2">
+<h2 id="org7692477"><span class="section-number-2">2</span> youtube-dl代理</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">socks5&#20195;&#29702;</span>
+youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=6_gLU_OStK0
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">http&#20195;&#29702;</span>
+youtube-dl --proxy http://127.0.0.1:8118 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=6_gLU_OStK0
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">https&#20195;&#29702;</span>
+youtube-dl --proxy https://127.0.0.1:8118 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=6_gLU_OStK0
+</pre>
+</div>
+
+<p>
+也可以在youtube-dl的配置文件中设置代理.
+注意,aria2只支持http和https代理.
+#~/.config/youtube-dl/config
+</p>
+
+<p>
+#-x
+</p>
+
+<p>
+#=========================================General Options==============================================
+</p>
+
+<p>
+–ignore-errors
+</p>
+
+<p>
+#=========================================Network Options==============================================
+</p>
+
+<p>
+–proxy socks5://127.0.0.1:1090 –proxy <a href="http://127.0.0.1:41091">http://127.0.0.1:41091</a> –proxy <a href="https://127.0.0.1:41091">https://127.0.0.1:41091</a>
+</p>
+
+<p>
+–socket-timeout 10 #-4, –force-ipv4 Make all connections via IPv4 #-6, –force-ipv6 Make all connections via IPv6
+</p>
+
+<p>
+#=========================================Video Selection==============================================
+</p>
+
+<p>
+–download-archive ~/youtube-dl/archive.txt
+</p>
+
+<p>
+#=========================================Download Options==============================================
+</p>
+
+<p>
+#-r, –limit-rate RATE Maximum download rate in bytes per second (e.g. 50K or 4.2M) #–fragment-retries RETRIES Number of retries for a fragment (default is 10), or "infinite" (DASH, hlsnative and ISM)
+</p>
+
+<p>
+–retries infinite #–buffer-size SIZE Size of download buffer (e.g. 1024 or 16K) (default is 1024)
+</p>
+
+<p>
+#–hls-prefer-native Use the native HLS downloader instead of ffmpeg #–hls-prefer-ffmpeg Use ffmpeg instead of the native HLS downloader #–hls-use-mpegts Use the mpegts container for HLS videos, allowing to play the video while downloading (some players may not be able to play it)
+</p>
+
+<p>
+#–external-downloader COMMAND Use the specified external downloader. Currently supports aria2c,avconv,axel,curl,ffmpeg,httpie,wget #–external-downloader-args ARGS Give these arguments to the external downloader
+</p>
+
+<p>
+–external-downloader aria2c –external-downloader-args "-x 16 -k 1M" #–external-downloader-args "–all-proxy=<a href="http://127.0.0.1:7890">http://127.0.0.1:7890</a> –file-allocation=prealloc -j 16 -x 16 -k 1M"
+</p>
+
+<p>
+#=========================================Filesystem Options==============================================
+</p>
+
+<p>
+#-a, –batch-file FILE File containing URLs to download ('-' for stdin), one URL per line. Lines starting with '#', ';' or ']' are considered as comments and ignored.
+</p>
+
+<p>
+#-o, –output TEMPLATE Output filename template, see the "OUTPUT TEMPLATE" for all the info #-o '%(uploaddate)s %(title)s-%(id)s.%(ext)s'
+</p>
+
+<p>
+-o ~/tmp/movies/%(title)s.%(ext)s
+</p>
+
+<p>
+#Do not overwrite files #-w, –no-overwrites
+</p>
+
+<p>
+#-c, –continue Force resume of partially downloaded files. By default, youtube-dl will resume downloads if possible. –continue
+</p>
+
+<p>
+–cookies
+</p>
+
+<p>
+#–cache-dir DIR Location in the filesystem where youtube-dl can store some downloaded information permanently. #By default $XDGCACHEHOME/youtube-dl or ~/.cache/youtube-dl . At the moment, only YouTube player files (for videos with obfuscated signatures) are cached, but that may change.
+</p>
+
+<p>
+#=========================================Thumbnail images==============================================
+</p>
+
+<p>
+#Write thumbnail image to disk #–write-thumbnail
+</p>
+
+<p>
+#–write-all-thumbnails Write all thumbnail image formats to disk #–list-thumbnails Simulate and list all available thumbnail formats
+</p>
+
+<p>
+#=========================================Verbosity / Simulation Options============================================== #=========================================Workarounds==============================================
+</p>
+
+<p>
+#=========================================Video Format Options==============================================
+</p>
+
+<p>
+#–format '(bestvideo[ext=mp4][fps&lt;31]+bestaudio[ext=m4a]/best[ext=mp4]/bestvideo+bestaudio/best)[protocol^=http]'
+</p>
+
+<p>
+#–youtube-skip-dash-manifest Do not download the DASH manifests and related data on YouTube videos #–youtube-skip-dash-manifest
+</p>
+
+<p>
+#=========================================Subtitle Options==============================================
+</p>
+
+<p>
+#–write-sub Write subtitle file #–write-auto-sub Write automatically generated subtitle file (YouTube only) #–all-subs Download all the available subtitles of the video #–list-subs List all available subtitles for the video #–sub-format FORMAT Subtitle format, accepts formats preference, #for example: "srt" or "ass/srt/best" –sub-lang LANGS Languages of the subtitles to download (optional) separated by commas, use –list-subs for available language tags
+</p>
+
+<p>
+#=========================================Authentication Options============================================== #-u, –username USERNAME Login with this account ID #-p, –password PASSWORD Account password. If this option is left out, youtube-dl will ask interactively. #-2, –twofactor TWOFACTOR Two-factor authentication code #-n, –netrc Use .netrc authentication data #–video-password PASSWORD Video password (vimeo, smotri, youku)
+</p>
+
+<p>
+#=========================================Adobe Pass Options==============================================
+</p>
+
+<p>
+#=========================================Post-processing Options==============================================
+</p>
+
+<p>
+#Embed thumbnail in the audio as cover art #–embed-thumbnail
+</p>
+
+<p>
+#Write metadata to the video file #–add-metadata
+</p>
+
+<p>
+#–embed-subs Embed subtitles in the video (only for mp4, webm and mkv videos) #–convert-subs FORMAT Convert the subtitles to other format (currently supported: srt|ass|vtt|lrc) 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8aa4146" class="outline-2">
+<h2 id="org8aa4146"><span class="section-number-2">3</span> 调用arai2,下载</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19979;&#36733;&#25903;&#25345;&#22359;&#25991;&#20214;&#30340;&#35270;&#39057;</span>
+youtube-dl url --external-downloader aria2c --external-downloader-args <span style="color: #00cd66; background-color: #dcdcdc;">"-x 16 -k 1M"</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19979;&#36733;&#19981;&#25903;&#25345;&#22359;&#25991;&#20214;&#30340;&#35270;&#39057;,youtube &#19981;&#25903;&#25345;&#22359;&#22823;&#23567;</span>
+youtube-dl url --external-downloader aria2c --external-downloader-args <span style="color: #00cd66; background-color: #dcdcdc;">"-x 16 "</span>
+</pre>
+</div>
+
+<table>
+<caption class="t-above"><span class="table-number">&#34920;1&nbsp;</span> 参数说明</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'&#x2013;external-downloader aria2c'</td>
+<td class="org-left">调用外部下载工具</td>
+</tr>
+
+<tr>
+<td class="org-left">'&#x2013;external-downloader-args'</td>
+<td class="org-left">外部下载工具指定参数</td>
+</tr>
+
+<tr>
+<td class="org-left">'-x 16'</td>
+<td class="org-left">启用aria2 16个线程，最多就支持16线程</td>
+</tr>
+
+<tr>
+<td class="org-left">'-K 1M'</td>
+<td class="org-left">指定块的大小</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org7ed0389" class="outline-2">
+<h2 id="org7ed0389"><span class="section-number-2">4</span> youtube-dl下载</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+下载选项(附加代理选项)
+语法: youtube-dl 视频网址
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=6_gLU_OStK0
+</pre>
+</div></li>
+
+<li><p>
+用以下代码查看可供下载的格式：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#26684;&#24335;&#32534;&#21495;-F/--all-formats</span>
+youtube-dl -F https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=lW9Uudkx42g
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh">youtube-dl -F https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=nCfrfCzaB2A
+[youtube] Setting language
+[youtube] n-BXNXvTvV4: Downloading video webpage
+[youtube] n-BXNXvTvV4: Downloading video info webpage
+[youtube] n-BXNXvTvV4: Extracting video information
+&#26684;&#24335;&#32534;&#21495;
+format code extension resolution  note
+171         webm      audio only  DASH audio , audio@ 48k (worst)
+140         m4a       audio only  DASH audio , audio@128k
+160         mp4       144p        DASH video , video only
+242         webm      240p        DASH video , video only
+133         mp4       240p        DASH video , video only
+243         webm      360p        DASH video , video only
+134         mp4       360p        DASH video , video only
+244         webm      480p        DASH video , video only
+135         mp4       480p        DASH video , video only
+247         webm      720p        DASH video , video only
+136         mp4       720p        DASH video , video only
+248         webm      1080p       DASH video , video only
+137         mp4       1080p       DASH video , video only
+271         webm      1440p       DASH video , video only
+264         mp4       1440p       DASH video , video only
+272         webm      2160p       DASH video , video only
+138         mp4       2160p       DASH video , video only
+100         webm      360p        3D
+82          mp4       360p        3D
+84          mp4       720p        3D
+17          3gp       176x144
+36          3gp       320x240
+5           flv       400x240
+43          webm      640x360
+18          mp4       640x360
+22          mp4       1280x720    (best)
+</pre>
+</div>
+<p>
+如果你想下真正的最高画质需要分别下上面的138和140，然后用视频软件合成。
+</p></li>
+
+<li><p>
+第一列是 id，第二列是文件格式，后面是视频信息。
+如果直接想下载哪一种格式的就直接 -f id 就好了，比如下载格式为 720p / mp4 格式的，它的 id 是 22，那么直接：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">youtube-dl -f 22 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=IW_kWtI9EUg
+</pre>
+</div>
+<p>
+下载完成了
+</p>
+
+<p>
+1080p 视频和音频是分开的
+可以看到有些格式带有 video only,有些带有 audio only
+选两个你自己喜欢的组合吧。比如我要下载 1080p / mp4 的视频和 128k / m4a 的音频
+他们的 id 分别是 137 和 140
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">youtube-dl -f 137+140 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=IW_kWtI9EUg
+</pre>
+</div>
+
+<p>
+youtube-dl 就用下载这两个视频和音频并调用 FFmpeg 合成为一个文件，并删除原来两个视频和音频。
+mp4 + m4a 会合成为一个 mp4 文件， mp4 + webm 会兼容合成为 .mkv 文件，一般为了方便视频以后上传什么的我都选择 mp4 + m4a 组合。
+</p></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgabbf3e7" class="outline-2">
+<h2 id="orgabbf3e7"><span class="section-number-2">5</span> 批量下载的参数</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>将链接全部保存到一个文本文件里</li>
+
+<li><p>
+一行一个网址，文件保存在Downloads文件夹下面。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">youtube-dl -c -i -a video_url.txt
+</pre>
+</div>
+
+<p>
+参数说明 :
+-c 断点续传（如果由于意外原因下载中断了，再次启动下载命令时，可以实现断点续传）
+-i 忽略报错（如果出现某些链接无法打开或者下载的问题，会自动绕过，继续下载其他视频）
+-a 包含要下载的URL的文件,每行一个URL。行开始用'＃'，';'或']'被认为是评论和忽略)
+</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org3f5d802" class="outline-2">
+<h2 id="org3f5d802"><span class="section-number-2">6</span> 常用参数</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-shell">youtube-dl --list-extractors  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25903;&#25345;&#32593;&#31449;&#21015;&#34920;</span>
+youtube-dl -U  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31243;&#24207;&#21319;&#32423;</span>
+youtube-dl --get-format URL <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33719;&#21462;&#35270;&#39057;&#26684;&#24335;</span>
+youtube-dl -F URL <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33719;&#21462;&#25152;&#26377;&#26684;&#24335;&#65288;&#30446;&#21069;&#20165;&#25903;&#25345;YouTube&#65289;&#65292;&#20363;&#22914;&#65306;</span>
+
+
+&#19979;&#36733;&#26222;&#36890;&#30340;&#35270;&#39057;&#21482;&#38656;&#35201;youtube-dl https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=nCfrfCzaB2A 
+&#40664;&#35748;&#19979;&#36733;&#19979;&#26469;&#30340;&#26684;&#24335;&#20026;webm
+
+youtube-dl -f format URL <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19979;&#36733;&#25351;&#23450;&#26684;&#24335;&#30340;&#35270;&#39057;&#65292;&#36825;&#37324;&#20197;&#19979;&#36733;1080p&#21407;&#30011;&#36136;&#37327;&#30340;&#35270;&#39057;&#26684;&#24335;&#20026;&#20363;:</span>
+youtube-dl -f 137 http://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=n-BXNXvTvV4
+
+&#25152;&#20197;&#35201;&#19979;&#36733;&#26368;&#24555;&#30340;&#23601;&#24471;&#29992;&#19979;&#38754;&#36825;&#26679;&#30340;&#20363;&#23376;&#35760;&#20303;&#36825;&#20010;<span style="color: #ff00ff;">`22`</span>
+youtube-dl -f 22 http://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=n-BXNXvTvV4
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org466e3e2" class="outline-2">
+<h2 id="org466e3e2"><span class="section-number-2">7</span> 下载youtube播放列表</h2>
+<div class="outline-text-2" id="text-7">
+<pre class="example">
+youtube-dl -cit https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHRZqpB8fIW
+</pre>
+<p>
+找到列表，复制并替换掉PLCJcQMZOafICYrx7zhFu<sub>RWHRZqpB8fIW即可</sub>。
+</p>
+
+<p>
+例如下载播放列表选择质量最好的MP4格式的视频 -i跳过错误
+</p>
+<pre class="example">
+youtube-dl -cit -f mp4  https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHRZqpB8fIW
+</pre>
+
+<p>
+那如何获取视频列表呢？其实我们只需要获取到这一串列表码即可，
+如PLCJcQMZOafIC81DKkddectaYwp20xDMwf
+</p>
+<ol class="org-ol">
+<li>进入用户的播放列表界面</li>
+</ol>
+<ol class="org-ol">
+<li>例如：<a href="https://www.youtube.com/user/GreatOnlineTutorials/playlists">https://www.youtube.com/user/GreatOnlineTutorials/playlists</a>，</li>
+<li>并在源码中找到每个播放列表的list值</li>
+<li>拼接在<a href="https://www.youtube.com/playlist/?list=%E5%90%8E%E9%9D%A2%E5%8D%B3%E5%8F%AF">https://www.youtube.com/playlist/?list=后面即可</a>。</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgf780590" class="outline-2">
+<h2 id="orgf780590"><span class="section-number-2">8</span> CONFIGURATION</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+On Linux and macOS
+</p>
+<ul class="org-ul">
+<li>/etc/youtube-dl.conf&#x2014;&gt;the system wide configuration file is located</li>
+<li>~/.config/youtube-dl/config-&#x2014;&gt;the user wide configuration file</li>
+</ul>
+
+<p>
+我的配置文件
+#~/.config/youtube-dl/config
+</p>
+
+<p>
+#-x
+</p>
+
+<p>
+#=========================================General Options==============================================
+</p>
+
+<p>
+–ignore-errors
+</p>
+
+<p>
+#=========================================Network Options==============================================
+</p>
+
+<p>
+–proxy socks5://127.0.0.1:1090 –proxy <a href="http://127.0.0.1:41091">http://127.0.0.1:41091</a> –proxy <a href="https://127.0.0.1:41091">https://127.0.0.1:41091</a>
+</p>
+
+<p>
+–socket-timeout 10 #-4, –force-ipv4 Make all connections via IPv4 #-6, –force-ipv6 Make all connections via IPv6
+</p>
+
+<p>
+#=========================================Video Selection==============================================
+</p>
+
+<p>
+–download-archive ~/youtube-dl/archive.txt
+</p>
+
+<p>
+#=========================================Download Options==============================================
+</p>
+
+<p>
+#-r, –limit-rate RATE Maximum download rate in bytes per second (e.g. 50K or 4.2M) #–fragment-retries RETRIES Number of retries for a fragment (default is 10), or "infinite" (DASH, hlsnative and ISM)
+</p>
+
+<p>
+–retries infinite #–buffer-size SIZE Size of download buffer (e.g. 1024 or 16K) (default is 1024)
+</p>
+
+<p>
+#–hls-prefer-native Use the native HLS downloader instead of ffmpeg #–hls-prefer-ffmpeg Use ffmpeg instead of the native HLS downloader #–hls-use-mpegts Use the mpegts container for HLS videos, allowing to play the video while downloading (some players may not be able to play it)
+</p>
+
+<p>
+#–external-downloader COMMAND Use the specified external downloader. Currently supports aria2c,avconv,axel,curl,ffmpeg,httpie,wget #–external-downloader-args ARGS Give these arguments to the external downloader
+</p>
+
+<p>
+–external-downloader aria2c –external-downloader-args "-x 16 -k 1M" #–external-downloader-args "–all-proxy=<a href="http://127.0.0.1:7890">http://127.0.0.1:7890</a> –file-allocation=prealloc -j 16 -x 16 -k 1M"
+</p>
+
+<p>
+#=========================================Filesystem Options==============================================
+</p>
+
+<p>
+#-a, –batch-file FILE File containing URLs to download ('-' for stdin), one URL per line. Lines starting with '#', ';' or ']' are considered as comments and ignored.
+</p>
+
+<p>
+#-o, –output TEMPLATE Output filename template, see the "OUTPUT TEMPLATE" for all the info #-o '%(uploaddate)s %(title)s-%(id)s.%(ext)s'
+</p>
+
+<p>
+-o ~/tmp/movies/%(title)s.%(ext)s
+</p>
+
+<p>
+#Do not overwrite files #-w, –no-overwrites
+</p>
+
+<p>
+#-c, –continue Force resume of partially downloaded files. By default, youtube-dl will resume downloads if possible. –continue
+</p>
+
+<p>
+–cookies
+</p>
+
+<p>
+#–cache-dir DIR Location in the filesystem where youtube-dl can store some downloaded information permanently. #By default $XDGCACHEHOME/youtube-dl or ~/.cache/youtube-dl . At the moment, only YouTube player files (for videos with obfuscated signatures) are cached, but that may change.
+</p>
+
+<p>
+#=========================================Thumbnail images==============================================
+</p>
+
+<p>
+#Write thumbnail image to disk #–write-thumbnail
+</p>
+
+<p>
+#–write-all-thumbnails Write all thumbnail image formats to disk #–list-thumbnails Simulate and list all available thumbnail formats
+</p>
+
+<p>
+#=========================================Verbosity / Simulation Options============================================== #=========================================Workarounds==============================================
+</p>
+
+<p>
+#=========================================Video Format Options==============================================
+</p>
+
+<p>
+#–format '(bestvideo[ext=mp4][fps&lt;31]+bestaudio[ext=m4a]/best[ext=mp4]/bestvideo+bestaudio/best)[protocol^=http]'
+</p>
+
+<p>
+#–youtube-skip-dash-manifest Do not download the DASH manifests and related data on YouTube videos #–youtube-skip-dash-manifest
+</p>
+
+<p>
+#=========================================Subtitle Options==============================================
+</p>
+
+<p>
+#–write-sub Write subtitle file #–write-auto-sub Write automatically generated subtitle file (YouTube only) #–all-subs Download all the available subtitles of the video #–list-subs List all available subtitles for the video #–sub-format FORMAT Subtitle format, accepts formats preference, #for example: "srt" or "ass/srt/best" –sub-lang LANGS Languages of the subtitles to download (optional) separated by commas, use –list-subs for available language tags
+</p>
+
+<p>
+#=========================================Authentication Options============================================== #-u, –username USERNAME Login with this account ID #-p, –password PASSWORD Account password. If this option is left out, youtube-dl will ask interactively. #-2, –twofactor TWOFACTOR Two-factor authentication code #-n, –netrc Use .netrc authentication data #–video-password PASSWORD Video password (vimeo, smotri, youku)
+</p>
+
+<p>
+#=========================================Adobe Pass Options==============================================
+</p>
+
+<p>
+#=========================================Post-processing Options==============================================
+</p>
+
+<p>
+#Embed thumbnail in the audio as cover art #–embed-thumbnail
+</p>
+
+<p>
+#Write metadata to the video file #–add-metadata
+</p>
+
+<p>
+#–embed-subs Embed subtitles in the video (only for mp4, webm and mkv videos) #–convert-subs FORMAT Convert the subtitles to other format (currently supported: srt|ass|vtt|lrc) 
+</p>
+
+<p>
+如果不想用配置文件启动
+You can use "&#x2013;ignore-config" if you want to disable the configuration file for a particular youtube-dl run.
+也可以用另外的配置文件
+You can also use "&#x2013;config-location PATH" if you want to use custom configuration file for a particular youtube-dl run.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org295457e" class="outline-2">
+<h2 id="org295457e"><span class="section-number-2">9</span> man youtube-dl</h2>
+<div class="outline-text-2" id="text-9">
+<pre class="example">
+Usage: youtube-dl [OPTIONS] URL [URL...]
+
+Options:
+  通用选项:
+    -h, --help                       打印帮助文档
+    --version                        打印版本信息
+    -U, --update                     更新到最新版(需要权限)
+    -i, --ignore-errors              遇到下载错误时跳过
+    --abort-on-error                 遇到下载错误时终止
+    --dump-user-agent                显示当前使用的浏览器(User-agent)
+    --list-extractors                列出所有的提取器(支持的网站)
+    --extractor-descriptions         同上
+    --force-generic-extractor        强制使用通用提取器下载
+    --ignore-config                  不读取配置文件，仅读取/etc/youtube-dl.conf
+    --config-location PATH           使用指定路径下的配置文件
+    --flat-playlist                  列出列表视频但不下载
+    --mark-watched                   标记看过此视频 (YouTube only)
+    --no-mark-watched                不标记看过此视频 (YouTube only)
+    --no-color                       打印到屏幕上的代码不带色
+
+  网络选项:
+    --proxy URL                      使用HTTP/HTTPS/SOCKS协议的代理.如：socks5://127.0.0.1:1080/.
+    --socket-timeout SECONDS         放弃连接前等待时间
+    --source-address IP              绑定的客户端IP地址
+    -4, --force-ipv4                 所有连接通过IPv4
+    -6, --force-ipv6                 所有连接通过IPv6
+
+  地理限制:
+    --geo-verification-proxy URL     使用此代理地址测试一些有地理限制的地址
+    --geo-bypass                     绕过地理限制通过伪装X-Forwarded-For HTTP头部的客户端ip (实验)
+    --no-geo-bypass                  不 绕过地理限制通过伪装X-Forwarded-For HTTP头部的客户端ip (实验)
+    --geo-bypass-country CODE        强制绕过地理限制通过提供准确的ISO 3166-2标准的国别代码(实验) 
+
+  视频选择:
+    --playlist-start NUMBER          指定列表中开始下载的视频(默认为1)
+    --playlist-end NUMBER            指定列表中结束的视频(默认为last)
+    --playlist-items ITEM_SPEC       指定列表中要下载的视频项目编号.如："--playlist-items 1,2,5,8"或"--playlist-items 1-3,7,10-13"
+    --match-title REGEX              下载标题匹配的视频(正则表达式或区分大小写的字符串)
+    --reject-title REGEX             跳过下载标题匹配的视频(正则表达式或区分大小写的字符串)
+    --max-downloads NUMBER           下载NUMBER个视频后停止
+    --min-filesize SIZE              不下载小于SIZE的视频(e.g. 50k or 44.6m)
+    --max-filesize SIZE              不下载大于SIZE的视频(e.g. 50k or 44.6m)
+    --date DATE                      仅下载上传日期在指定日期的视频
+    --datebefore DATE                仅下载上传日期在指定日期或之前的视频 (i.e. inclusive)
+    --dateafter DATE                 仅下载上传日期在指定日期或之后的视频 (i.e. inclusive)
+    --min-views COUNT                不下载观影数小于指定值的视频
+    --max-views COUNT                不下载观影数大于指定值的视频
+
+    --match-filter FILTER            通用视频过滤器. Specify any key (see help for -o for a list of available keys) to match if the key is present, !key to check if the key is not present, key &gt; NUMBER (like "comment_count &gt; 12", also works with &gt;=, &lt;, &lt;=, !=, =) to compare against a number,key = 'LITERAL' (like "uploader = 'Mike Smith'", also works with !=) to match against a string literal and &amp; to require multiple matches. Values which are not known are excluded unless you put a question mark (?) after the operator. For example, to only match videos that have been liked more than 100 times and disliked less than 50 times (or the dislike functionality is not available at the given service), but who also have a description, use --match-filter "like_count &gt; 100 &amp; dislike_count &lt;? 50 &amp; description" .
+
+    --no-playlist                    当视频链接到一个视频和一个播放列表时，仅下载视频
+    --yes-playlist                   当视频链接到一个视频和一个播放列表时，下载视频和播放列表
+    --age-limit YEARS                下载合适上传年限的视频
+    --download-archive FILE          仅下载档案文件中未列出的影片，已下载的记录ID
+    --include-ads                    同时下载广告(实验)
+
+  下载选项:
+    -r, --limit-rate RATE            最大bps (e.g. 50K or 4.2M)
+    -R, --retries RETRIES            重试次数 (默认10), or "infinite".
+    --fragment-retries RETRIES       一个分段的最大重试次数(default is 10), or "infinite" (DASH, hlsnative and ISM)
+    --skip-unavailable-fragments     跳过不可用分段(DASH, hlsnative and ISM)
+    --abort-on-unavailable-fragment  放弃某个分段当不可获取时
+    --keep-fragments                 下载完成后，将下载的片段保存在磁盘上; 片段默认被删除
+    --buffer-size SIZE               设置缓冲区大小buffer (e.g. 1024 or 16K) (default is 1024)
+    --no-resize-buffer               不自动调整缓冲区大小.默认情况下自动调整
+    --playlist-reverse               以相反的顺序下载播放列表视频
+    --playlist-random                以随机的顺序下载播放列表视频
+    --xattr-set-filesize             Set file xattribute ytdl.filesize with expected file size (experimental)
+    --hls-prefer-native              使用本机默认HLS下载器而不是ffmpeg
+    --hls-prefer-ffmpeg              使用ffmpeg而不是本机HLS下载器
+    --hls-use-mpegts                 使用TS流容器来存放HLS视频,一些高级播放器允许在下载的同时播放视频
+    --external-downloader COMMAND    使用指定的第三方下载工具,当前支持：aria2c,avconv,axel,curl,ffmpeg,httpie,wget
+    --external-downloader-args ARGS  给第三方下载工具指定参数，如：--external-downloader aria2c --external-downloader-args -j8
+
+  文件系统选项:
+    -a, --batch-file FILE            文件中包含需要下载的URL
+    --id                             仅使用文件名中的视频ID
+    -o, --output TEMPLATE            Output filename template, see the "OUTPUT TEMPLATE" for all the info
+    --autonumber-start NUMBER        指定%(autonumber)s的起始值(默认为1)
+    --restrict-filenames             将文件名限制为ASCII字符，并避免文件名中的“＆”和空格
+    -w, --no-overwrites              不要覆盖文件
+    -c, --continue                   强制恢复部分下载的文件。 默认情况下，youtube-dl仅在可能时将恢复下载。
+    --no-continue                    不要恢复部分下载的文件(从头开始重新启动)
+    --no-part                        不使用.part文件 - 直接写入输出文件
+    --no-mtime                       不使用Last-modified header来设置文件最后修改时间
+    --write-description              将视频描述写入.description文件
+    --write-info-json                将视频元数据写入.info.json文件
+    --write-annotations              将视频注释写入.annotations.xml文件
+    --load-info-json FILE            包含视频信息的JSON文件(使用“--write-info-json”选项创建)
+    --cookies FILE                   文件从中读取Cookie(经测试，export cookies插件可以使用，但firebug导出的cookies导致错误,chrome下请用cookies.txt)注意：不同平台windows、Linux、OSX之间需要转换CE LF才能使用！
+    --cache-dir DIR                  文件存储位置。youtube-dl需要永久保存一些下载的信息。默认为$XDG_CACHE_HOME/youtube-dl或/.cache/youtube-dl。目前，只有YouTube播放器文件（对于具有模糊签名的视频）进行缓存，但可能会发生变化。
+    --no-cache-dir                   不用缓存
+    --rm-cache-dir                   删除所有缓存文件
+
+  缩略图:
+    --write-thumbnail                把缩略图写入硬盘
+    --write-all-thumbnails           将所有缩略图写入磁盘
+    --list-thumbnails                列出所有可用的缩略图格式
+
+  详细/模拟选项:
+    -q, --quiet                      激活退出模式
+    --no-warnings                    忽略警告
+    -s, --simulate                   不下载不存储任何文件到硬盘，模拟下载模式
+    --skip-download                  不下载视频
+    -g, --get-url                    模拟下载获取视频直连
+    -e, --get-title                  模拟下载获取标题
+    --get-id                         模拟下载获取id
+    --get-thumbnail                  模拟下载获取缩略图URL
+    --get-description                模拟下载获取视频描述
+    --get-duration                   模拟下载获取视频长度
+    --get-filename                   模拟下载获取输出视频文件名
+    --get-format                     模拟下载获取输出视频格式
+    -j, --dump-json                  模拟下载获取JSON information.
+    -J, --dump-single-json           模拟下载获取每条命令行参数的JSON information.如果是个播放列表，就获取整个播放列表的JSON
+    --print-json                     下载的同时获取视频信息的JSON
+    --newline                        进度条在新行输出
+    --no-progress                    不打印进度条
+    --console-title                  在控制台标题栏显示进度
+    -v, --verbose                    打印各种调试信息
+    --dump-pages                     打印下载下来的使用base64编码的页面来调试问题（非常冗长）
+    --write-pages                    将下载的中间页以文件的形式写入当前目录中以调试问题
+    --print-traffic                  显示发送和读取HTTP流量
+    -C, --call-home                  联系youtube-dl服务器进行调试
+    --no-call-home                   不联系youtube-dl服务器进行调试
+
+  解决方法:
+    --encoding ENCODING              强制指定编码(实验)
+    --no-check-certificate           禁止HTTPS证书验证
+    --prefer-insecure                使用未加密的连接来检索有关视频的信息(目前仅支持YouTube)
+    --user-agent UA                  指定user agent
+    --referer URL                    指定自定义的referer,仅限视频来源于同一网站
+    --add-header FIELD:VALUE         指定一个自定义值的HTTP头文件,使用分号分割,可以多次使用此选项
+    --bidi-workaround                围绕缺少双向文本支持的终端工作。需要在PATH中有bidiv或fribidi可执行文件
+    --sleep-interval SECONDS         在每次下载之前休眠的秒数，或者每次下载之前的随机睡眠的范围的下限(最小可能的睡眠秒数)与-max-sleep-interval一起使用。
+    --max-sleep-interval SECONDS     每次下载前随机睡眠范围的上限(最大可能睡眠秒数)。只能与--min-sleep-interval一起使用。
+
+  视频格式选项:
+    -f, --format FORMAT              视频格式代码,查看"FORMAT SELECTION"获取所有信息
+    --all-formats                    获取所有视频格式
+    --prefer-free-formats            开源的视频格式优先，除非有特定的请求
+    -F, --list-formats               列出请求视频的所有可用格式
+    --youtube-skip-dash-manifest     不要下载关于YouTube视频的DASH清单和相关数据
+    --merge-output-format FORMAT     如果需要合并(例如bestvideo + bestaudio)，则输出到给定的容器格式。mkv，mp4，ogg，webm，flv之一。如果不需要合并，则忽略
+
+  字幕选项:
+    --write-sub                      下载字幕文件
+    --write-auto-sub                 下载自动生成的字幕文件 (YouTube only)
+    --all-subs                       下载所有可用的字幕
+    --list-subs                      列出所有字幕
+    --sub-format FORMAT              字幕格式,接受格式偏好,如："srt" or "ass/srt/best"
+    --sub-lang LANGS                 要下载的字幕的语言(可选)用逗号分隔,请使用--list-subs表示可用的语言标签
+
+  验证选项:
+    -u, --username USERNAME          使用ID登录
+    -p, --password PASSWORD          账户密码,如果此选项未使用,youtube-dl将交互式地询问。
+    -2, --twofactor TWOFACTOR        双因素认证码
+    -n, --netrc                      使用.netrc认证数据
+    --video-password PASSWORD        视频密码(vimeo, smotri, youku)
+
+  Adobe Pass Options:
+    --ap-mso MSO                     Adobe Pass多系统运营商(电视提供商)标识符,使用--ap-list-mso列出可用的MSO
+    --ap-username USERNAME           MSO账号登录
+    --ap-password PASSWORD           账户密码,如果此选项未使用,youtube-dl将交互式地询问。
+    --ap-list-mso                    列出所有支持的MSO
+
+  后处理选项:
+    -x, --extract-audio              将视频文件转换为纯音频文件(需要ffmpeg或avconv和ffprobe或avprobe)
+    --audio-format FORMAT            指定音频格式: "best", "aac", "flac", "mp3", "m4a", "opus", "vorbis", or "wav"; "best" by default;-x存在时无效
+    --audio-quality QUALITY          指定ffmpeg/avconv音频质量,为VBR插入一个0(best)-9(worse)的值(默认5),或者指定比特率
+    --recode-video FORMAT            必要时将视频转码为其他格式(当前支持: mp4|flv|ogg|webm|mkv|avi)
+    --postprocessor-args ARGS        给后处理器提供这些参数
+    -k, --keep-video                 视频文件在后处理后保存在磁盘上; 该视频默认被删除
+    --no-post-overwrites             不要覆盖后处理文件; 默认情况下,后处理文件将被覆盖
+    --embed-subs                     在视频中嵌入字幕(仅适用于mp4,webm和mkv视频）
+    --embed-thumbnail                将缩略图嵌入音频作为封面艺术
+    --add-metadata                   将元数据写入视频文件
+    --metadata-from-title FORMAT     从视频标题中解析附加元数据，如歌曲标题/艺术家。格式语法和--output相似.也可以使用带有命名捕获组的正则表达式。解析的参数替换现有值。Example: --metadata-from-title "%(artist)s - %(title)s" matches a title like "Coldplay - Paradise". Example (regex): --metadata-from-title "(?P&lt;artist&gt;.+?) - (?P&lt;title&gt;.+)"
+    --xattrs                         将元数据写入视频文件的xattrs(使用dublin core 和 xdg标准)
+    --fixup POLICY                   自动更正文件的已知故障。never(不做警告), warn(只发出警告), detect_or_warn (默认;如果可以的话修复文件,否则警告)
+    --prefer-avconv                  后处理时相较ffmpeg偏向于avconv
+    --prefer-ffmpeg                  后处理优先使用ffmpeg
+    --ffmpeg-location PATH           ffmpeg/avconv程序位置;PATH为二进制所在文件夹或者目录.
+    --exec CMD                       在下载后对文件执行命令,类似于find -exec语法.示例：--exec'adb push {} /sdcard/Music/ &amp;&amp; rm {}'
+    --convert-subs FORMAT            转换字幕格式(当前支持: srt|ass|vtt)
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

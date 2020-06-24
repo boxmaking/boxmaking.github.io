@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linux-kill</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-kill">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">linux-kill</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org0f04345">1. 精通Linux的“kill”命令</a></li>
+<li><a href="#orge923816">2. Kill命令和信号</a></li>
+<li><a href="#org8ee0c8e">3. 使用"kill"的语法是：</a></li>
+<li><a href="#org97cd3c2">4. PKill</a></li>
+<li><a href="#orgee35218">5. Killall</a></li>
+<li><a href="#orgd6fdca3">6. xkill</a></li>
+<li><a href="#org695f636">7. 结论</a></li>
+</ul>
+</div>
+</nav>
+
+
+
+
+<div id="outline-container-org0f04345" class="outline-2">
+<h2 id="org0f04345"><span class="section-number-2">1</span> 精通Linux的“kill”命令</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+无论你使用哪种操作系统，你一定会遇到某个行为失常的应用，它把自己锁死并拒绝关闭。在Linux(还有Mac)，你可以用一个"kill"命令强制终结它。在这个教程中，我们将展示给你多种方式使用"kill"命令终结应用。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge923816" class="outline-2">
+<h2 id="orge923816"><span class="section-number-2">2</span> Kill命令和信号</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+总共有60个你可以使用的信号，但是基本上你只需要知道SIGTERM(15)和SIGKILL(9)。
+</p>
+
+<p>
+你可以用这个命令看到所有信号的列表：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ba55d3; background-color: #dcdcdc;">kill</span> -l
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>·SIGTERM - 此信号请求一个进程停止运行。此信号是可以被忽略的。进程可以用一段时间来正常关闭，一个程序的正常关闭一般需要一段时间来保存进度并释放资源。换句话说，它不是强制停止。</li>
+
+<li>·SIGKILL - 此信号强制进程立刻停止运行。程序不能忽略此信号，而未保存的进度将会丢失。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8ee0c8e" class="outline-2">
+<h2 id="org8ee0c8e"><span class="section-number-2">3</span> 使用"kill"的语法是：</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+kill [信号或选项] PID(s)
+</p>
+
+<p>
+默认信号（当没有指定的时候）是SIGTERM。当它不起作用时，你可以使用下面的命令来强制kill掉一个进程:
+</p>
+
+<p>
+kill SIGKILL PID 或者  kill -9 PID
+</p>
+
+<p>
+这里"-9"代表着SIGKILL信号。
+</p>
+
+<ol class="org-ol">
+<li><p>
+如果你不知道应用的PID，仅需要运行这个命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ps ux 
+</pre>
+</div>
+<p>
+它会显示所有正在运行的应用还有应用的PID。
+</p></li>
+
+<li><p>
+例如，要kill掉Chrome，我会运行命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ba55d3; background-color: #dcdcdc;">kill</span> -9 3629
+</pre>
+</div>
+
+<p>
+也可以在同一时间kill多个进程。
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ba55d3; background-color: #dcdcdc;">kill</span> -9 PID1 PID2 PID3 
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org97cd3c2" class="outline-2">
+<h2 id="org97cd3c2"><span class="section-number-2">4</span> PKill</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+"pkill"命令允许使用扩展的正则表达式和其它匹配方式。你现在可以使用应用的进程名kill掉它们，而不是使用PID。例如，要kill掉Firefox浏览器，只需要运行命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pkill firefox
+</pre>
+</div>
+
+
+<p>
+使用正则表达式匹配的话，你可以输入进程名的部分字符，比如：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pkill fire
+</pre>
+</div>
+
+
+<p>
+为了避免kill掉错误的进程，你应该用一下"pgrep -l [进程名]"列表来匹配进程名称。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgee35218" class="outline-2">
+<h2 id="orgee35218"><span class="section-number-2">5</span> Killall</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+killall同样使用进程名替代PID，并且它会kill掉所有的同名进程
+例如，如果你正在运行多个Firefox浏览器的实例，可以用命令把它们全部kill掉：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">killall firefox
+</pre>
+</div>
+
+
+<p>
+在Gnome中，你可以使用这个命令重启Nautilus：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">killall nautilus
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd6fdca3" class="outline-2">
+<h2 id="orgd6fdca3"><span class="section-number-2">6</span> xkill</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+xkill 是图形方式kill一个应用。当你在终端键入"xkill"，你的光标将立刻变成一个"十字"。你只需要做的是在不正常的应用上点击一下，它就会立刻kill掉这个应用。如果你经常用的话，你也可以添加一个键盘快捷键来激活xkill。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org695f636" class="outline-2">
+<h2 id="org695f636"><span class="section-number-2">7</span> 结论</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+当应用不正常而导致系统挂起的时候，人们往往重启计算机并且再一次开启所有的任务。而有了这些"kill"命令，你将能够更好的处理不正常的应用，从而避免导致系统崩溃。当你不想因一个不正常的进程而导致服务器宕机时，它尤其的有用。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

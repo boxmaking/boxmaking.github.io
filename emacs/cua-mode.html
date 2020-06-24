@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>emacs-可视化编辑教程</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="cua-mode列模式编辑 emacs可视化编辑模式">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">emacs-可视化编辑教程</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga7db62d">1. emacs编辑的快捷键 ::</a></li>
+<li><a href="#org2a21276">2. emacs列编辑模式 ::</a></li>
+<li><a href="#org01c1fc8">3. cua-mode (Common User Access mode) ::</a>
+<ul>
+<li><a href="#org10b3081">3.1. cua-mode (Common User Access mode)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orga7db62d" class="outline-2">
+<h2 id="orga7db62d"><span class="section-number-2">1</span> emacs编辑的快捷键 ::</h2>
+<div class="outline-text-2" id="text-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">C-d (delete-char)</th>
+<th scope="col" class="org-left">删除光标处的字符</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Backspace (delete-backward-char)</th>
+<th scope="col" class="org-left">删除光标前字符</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">M-\ (delete-horizontal-space)</th>
+<th scope="col" class="org-left">删除光标处的所有空格和Tab字符</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">M-SPC (just-one-space)</th>
+<th scope="col" class="org-left">删除光标处的所有空格和Tab字符,但留下一个</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">C-x C-o (delete-blank-lines)</th>
+<th scope="col" class="org-left">删除光标周围的空白行，保留当前行</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">M-^ (delete-indentation)</th>
+<th scope="col" class="org-left">将两行合为一行,删除之间的空白和缩进</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-k (kill-line)</td>
+<td class="org-left">从光标处起删除该行</td>
+</tr>
+
+<tr>
+<td class="org-left">C-S-Backspace (kill-whole-line)</td>
+<td class="org-left">删除整</td>
+</tr>
+
+<tr>
+<td class="org-left">C-w (kill-region)</td>
+<td class="org-left">删除区域</td>
+</tr>
+
+<tr>
+<td class="org-left">M-w (kill-ring-save)</td>
+<td class="org-left">复制到kill 环，而不删除</td>
+</tr>
+
+<tr>
+<td class="org-left">M-d (kill-word)</td>
+<td class="org-left">删除光标起一个单词</td>
+</tr>
+
+<tr>
+<td class="org-left">M-Backspace (backward-kill-word)</td>
+<td class="org-left">删除光标前单词</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x Backspace (backward-kill-sentence)</td>
+<td class="org-left">往前删一句</td>
+</tr>
+
+<tr>
+<td class="org-left">M-k (kill-sentence)</td>
+<td class="org-left">删除光标起一句</td>
+</tr>
+
+<tr>
+<td class="org-left">M-z char (zap-to-char)</td>
+<td class="org-left">删至字符char为止</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org2a21276" class="outline-2">
+<h2 id="org2a21276"><span class="section-number-2">2</span> emacs列编辑模式 ::</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+emacs以C-x r开头的命令来进行矩形操作
+用C-x r space或者C-x r C-@设一个mark
+移动光标到另一点，用以下命令进行列操作：
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">C-x r k</td>
+<td class="org-left">剪切一个矩形块</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r y</td>
+<td class="org-left">粘贴一个矩形块</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r o</td>
+<td class="org-left">插入一个矩形块</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r c</td>
+<td class="org-left">清除一个矩形块(使其变成空白)</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r t</td>
+<td class="org-left">在选定区域的所有列前插入样的字符</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r d</td>
+<td class="org-left">删除举行区域不保存</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r s</td>
+<td class="org-left">copy-to-register</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r r</td>
+<td class="org-left">copy-rectangle-to-register</td>
+</tr>
+
+<tr>
+<td class="org-left">C-x r N</td>
+<td class="org-left">选定矩形块的所有列前面插入序号（从1开始）</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org01c1fc8" class="outline-2">
+<h2 id="org01c1fc8"><span class="section-number-2">3</span> cua-mode (Common User Access mode) ::</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+cua-mode也是一种更好的可视化的列模式
+cua-mode和cua-rect是有区别的
+</p>
+
+<ol class="org-ol">
+<li>在cua- mode下,按下[C-return]会进入cua rectangle模式
+<ul class="org-ul">
+<li>(org模式不起作用,必须通过M-x cua-rectangle-mark-mode进入)</li>
+<li><p>
+这里我设置了直接在任何模式下启动的快捷键
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">cua-rectangle-mark-mode&#30340;&#24555;&#25463;&#38190;</span>
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c n"</span>) 'cua-rectangle-mark-mode)
+</pre>
+</div></li>
+</ul></li>
+
+<li>通过光标键来选中一个rect范围，这个rect会用另外的颜色显示出来
+
+<ul class="org-ul">
+<li>可以很方便地对这个rect进行操作</li>
+<li>[M-up],[M-down],[M-left],[M-righ]可以移动这个rect</li>
+<li>[C- return]/[M-c]可以取消这个rect</li>
+<li>[C-space]可以退出cua-rect模式并激活普通模式下的选择</li>
+</ul></li>
+</ol>
+</div>
+
+<div id="outline-container-org10b3081" class="outline-3">
+<h3 id="org10b3081"><span class="section-number-3">3.1</span> cua-mode (Common User Access mode)</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>直接输入字符: 在每行前(或后)都插入这个字符</li>
+
+<li>[M-b]: 用空格(tabs或者spaces)替换所有rect中的字符</li>
+
+<li>[M-c]: 去掉所有行左侧的空格 blank</li>
+
+<li>[M-f]: 用单个字符替换所有rect中的字符(提示输入一个字符)</li>
+
+<li>[M-i]: 对每行中第一个找到的数字进行加1操作(自动把0x开头的当作十六进制数字)</li>
+
+<li>[M-k]: 剪切rect</li>
+
+<li>[M-l]: 把rect中的内容全部转换为小写</li>
+
+<li>[M-m]: 拷贝rect</li>
+
+<li>[M-n]: 用一串自增的数字替换rect中的每一行(这个功能可以用来给每行编号)</li>
+
+<li>[M-o]: rect的内容右移，选中的rect用空格填充</li>
+
+<li>[M-r]: 用字符串替换符满足正则表达式的字符串</li>
+
+<li>[M-R]: 上下反转</li>
+
+<li>[M-s]: 把rect中的每一行替换为一个字符串(提示输入)</li>
+
+<li>[M-t]: 把rect整个替换为一个字符串(提示输入)</li>
+
+<li>[M-u]: 把rect中的内容全部转换为大写</li>
+
+<li>[M-|]: 对rect执行一个shell命令</li>
+
+<li>[M-p]: pad选择模式</li>
+
+<li>[C-c]: 复制rect</li>
+
+<li>[C-v]: 粘贴rect</li>
+
+<li>[C-x]: 剪切rect</li>
+
+<li>[C-z]: undo</li>
+</ul>
+
+<p>
+还有一些其他的命令可以直接看cua-base.el(emacs22之后已经自带cua-mode)。 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linux查看端口进程几种方法</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-command, linux">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">linux查看端口进程几种方法</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org979cc01">1. netstat</a></li>
+<li><a href="#org18aeadb">2. ss</a></li>
+<li><a href="#org33fbd4c">3. lsof</a></li>
+</ul>
+</div>
+</nav>
+<p>
+有时候启动应用时会提示端口被占，这时候需要找出占用端口的进程把它kill掉才能正常启动应用。
+</p>
+
+<div id="outline-container-org979cc01" class="outline-2">
+<h2 id="org979cc01"><span class="section-number-2">1</span> netstat</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-shell">sudo netstat -pnltu
+
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
+tcp        0      0 0.0.0.0:8022            0.0.0.0:*               LISTEN      2695/sshd           
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      3570/master         
+tcp        0      0 0.0.0.0:9090            0.0.0.0:*               LISTEN      1/systemd           
+tcp        0      0 127.0.0.1:2628          0.0.0.0:*               LISTEN      2707/dictd 1.12.1:  
+tcp6       0      0 :::2377                 :::*                    LISTEN      14901/dockerd       
+tcp6       0      0 :::7946                 :::*                    LISTEN      14901/dockerd       
+tcp6       0      0 :::3306                 :::*                    LISTEN      15127/docker-proxy  
+tcp6       0      0 :::111                  :::*                    LISTEN      10557/rpcbind       
+tcp6       0      0 :::8022                 :::*                    LISTEN      2695/sshd           
+udp        0      0 0.0.0.0:980             0.0.0.0:*                           10557/rpcbind       
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           2627/dhclient       
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           1/systemd           
+udp        0      0 0.0.0.0:4789            0.0.0.0:*                           -                   
+udp6       0      0 :::980                  :::*                                10557/rpcbind       
+udp6       0      0 :::111                  :::*                                10557/rpcbind       
+udp6       0      0 :::7946                 :::*                                14901/dockerd       
+
+</pre>
+</div>
+
+<p>
+其中:
+</p>
+<ul class="org-ul">
+<li>p  显示监听服务的进程号或程序名</li>
+<li>n  用数字的形式表示主机,端口和用户名</li>
+<li>l  只显示监听的socket</li>
+<li>t  显示TCP连接</li>
+<li>u  显示UDP连接</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org18aeadb" class="outline-2">
+<h2 id="org18aeadb"><span class="section-number-2">2</span> ss</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-shell">sudo ss -l -p -t -u -n
+
+Netid  State      Recv-Q Send-Q Local Address:Port               Peer Address:Port              
+udp    UNCONN     0      0         *:980                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=8))
+udp    UNCONN     0      0         *:68                    *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dhclient"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2627,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=6))
+udp    UNCONN     0      0         *:111                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=5),(<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=57))
+udp    UNCONN     0      0         *:4789                  *:*                  
+udp    UNCONN     0      0        :::980                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=10))
+udp    UNCONN     0      0        :::111                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=9))
+udp    UNCONN     0      0        :::7946                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=48))
+tcp    LISTEN     0      128       *:111                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4),(<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=56))
+tcp    LISTEN     0      128       *:8022                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"sshd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2695,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=3))
+tcp    LISTEN     0      100    127.0.0.1:25                    *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"master"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=3570,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=13))
+tcp    LISTEN     0      128       *:9090                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=26))
+tcp    LISTEN     0      10     127.0.0.1:2628                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dictd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2707,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=3))
+tcp    LISTEN     0      128      :::2377                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=37))
+tcp    LISTEN     0      128      :::7946                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=47))
+tcp    LISTEN     0      128      :::3306                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"docker-proxy"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=15127,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4))
+tcp    LISTEN     0      128      :::111                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=11))
+tcp    LISTEN     0      128      :::8022                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"sshd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2695,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4))
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33fbd4c" class="outline-2">
+<h2 id="org33fbd4c"><span class="section-number-2">3</span> lsof</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-shell">sudo lsof -i |grep LISTEN
+
+systemd       1      root   26u  IPv4    21777      0t0  TCP *:websm (LISTEN)
+systemd       1      root   56u  IPv4    21883      0t0  TCP *:sunrpc (LISTEN)
+sshd       2695      root    3u  IPv4    27062      0t0  TCP *:oa-system (LISTEN)
+sshd       2695      root    4u  IPv6    27064      0t0  TCP *:oa-system (LISTEN)
+dictd      2707    nobody    3u  IPv4    27084      0t0  TCP localhost:dict (LISTEN)
+master     3570      root   13u  IPv4    28301      0t0  TCP localhost:smtp (LISTEN)
+rpcbind   10557       rpc    4u  IPv4    21883      0t0  TCP *:sunrpc (LISTEN)
+rpcbind   10557       rpc   11u  IPv6   100717      0t0  TCP *:sunrpc (LISTEN)
+dockerd   14901      root   37u  IPv6    56238      0t0  TCP *:2377 (LISTEN)
+dockerd   14901      root   47u  IPv6    57440      0t0  TCP *:7946 (LISTEN)
+docker-pr 15127      root    4u  IPv6    54641      0t0  TCP *:mysql (LISTEN)
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

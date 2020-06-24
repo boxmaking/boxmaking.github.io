@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:17 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>git-学习笔记</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="git-learn">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">git-学习笔记</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgee98423">1. git set proxy</a></li>
+<li><a href="#orgcf09dff">2. git设置信息: git config</a></li>
+<li><a href="#orga418dce">3. 建立repository: git init</a></li>
+<li><a href="#org85a311e">4. git添加文件: git add <b>*</b>.***/git commit</a></li>
+<li><a href="#org2ff0788">5. repository status: git status</a></li>
+<li><a href="#orgd3b3dff">6. 查看文件不同: git diff <b>*</b>.***/git</a></li>
+<li><a href="#orgeaf0538">7. 版本的回退: git reset &#x2013;hard HEAD^</a>
+<ul>
+<li><a href="#org6c4a2be">7.1. 在Git中，用HEAD表示当前版本</a></li>
+<li><a href="#orgfb29312">7.2. 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</a></li>
+<li><a href="#orgb51fae5">7.3. 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</a></li>
+</ul>
+</li>
+<li><a href="#org3445245">8. 操作日志: git log/git reflog</a></li>
+<li><a href="#org63cf9bf">9. working dirctory + Repository+stage概念</a></li>
+<li><a href="#org20d79aa">10. 撤销修改: git checkout &#x2013; ./my-first-git.org</a></li>
+<li><a href="#org1200827">11. 删除文件: git rm <b>*</b>.***</a>
+<ul>
+<li><a href="#orgf5f5ff6">11.1. 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</a></li>
+<li><a href="#orgfaac4ed">11.2. 删错了恢复: git checkout &#x2013; ./***.***</a></li>
+</ul>
+</li>
+<li><a href="#orga65bf26">12. 远程仓库: github 使用教程</a>
+<ul>
+<li><a href="#org3edc398">12.1. 本地上传远程库</a></li>
+<li><a href="#org50d8989">12.2. 远程仓库的clone</a></li>
+</ul>
+</li>
+<li><a href="#org75bbfd0">13. 快速添加许可证文件</a></li>
+<li><a href="#org2deb8c4">14. 工作区去除大量已删除文件</a></li>
+<li><a href="#org6cc9d0d">15. 没有任何改动的提交</a></li>
+<li><a href="#org43513a0">16. 美化相关</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-orgee98423" class="outline-2">
+<h2 id="orgee98423"><span class="section-number-2">1</span> git set proxy</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+git设置代理教程
+<a href="git-proxy.html">git-proxy.html</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgcf09dff" class="outline-2">
+<h2 id="orgcf09dff"><span class="section-number-2">2</span> git设置信息: git config</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>所有的配置都在~/.gitconfig内</li>
+
+<li><p>
+完善自己的用户名和信息
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git config --global user.name <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao"</span>
+$ git config --global user.email <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao@gmail.com"</span>
+</pre>
+</div>
+<p>
+&#x2013;global参数是整个机器上面的全局参数
+</p></li>
+<li><p>
+git设置颜色
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git config --global color.ui true
+$ git config --global color.ui 1
+</pre>
+</div></li>
+<li><p>
+自动更正
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git config --global help.autocorrect 1
+</pre>
+</div></li>
+<li><p>
+Git 命令自定义别名
+</p>
+
+<p>
+别名用来帮助你定义自己的 git 命令
+比如你可以定义 git a 来运行 git add &#x2013;all。
+</p>
+
+<ul class="org-ul">
+<li><p>
+要添加一个别名， 一种方法是打开 ~/.gitconfig 文件并添加如下内容：
+</p>
+<pre class="example">
+[alias]
+co = checkout
+cm = commit
+p = push
+# Show verbose output about tags, branches or remotes
+tags = tag -l
+branches = branch -a
+remotes = remote -v
+</pre>
+
+<ul class="org-ul">
+<li><p>
+或者在命令行里键入：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git config --global alias.new_alias git_function
+</pre>
+</div>
+
+<p>
+例如：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git config --global alias.cm commit
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25351;&#21521;&#22810;&#20010;&#21629;&#20196;&#30340;&#21035;&#21517;&#21487;&#20197;&#29992;&#24341;&#21495;&#26469;&#23450;&#20041;&#65306;</span>
+$ git config --global alias.ac <span style="color: #00cd66; background-color: #dcdcdc;">'add -A . &amp;&amp; commit'</span>
+</pre>
+</div></li>
+
+<li><p>
+下面列出了一些有用的别名：
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Alias</td>
+<td class="org-left">Command</td>
+</tr>
+
+<tr>
+<td class="org-left">git cm</td>
+<td class="org-left">git commit</td>
+</tr>
+
+<tr>
+<td class="org-left">git co</td>
+<td class="org-left">git checkout</td>
+</tr>
+
+<tr>
+<td class="org-left">git ac</td>
+<td class="org-left">git add . -A git commit</td>
+</tr>
+
+<tr>
+<td class="org-left">git st</td>
+<td class="org-left">git status -sb</td>
+</tr>
+
+<tr>
+<td class="org-left">git tags</td>
+<td class="org-left">git tag -l</td>
+</tr>
+
+<tr>
+<td class="org-left">git branches</td>
+<td class="org-left">git branch -a</td>
+</tr>
+
+<tr>
+<td class="org-left">git cleanup</td>
+<td class="org-left">git branch &#x2013;merged \ grep -v '*'  xargs git branch -d</td>
+</tr>
+
+<tr>
+<td class="org-left">git remotes</td>
+<td class="org-left">git remote -v</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga418dce" class="outline-2">
+<h2 id="orga418dce"><span class="section-number-2">3</span> 建立repository: git init</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+git init&#x2014;添加当前目录为git仓库
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git init
+Initialized empty Git repository<span style="color: #cd0000; background-color: #dcdcdc;"> in</span> /home/pengshao/tmp/gitlearn/.git/
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org85a311e" class="outline-2">
+<h2 id="org85a311e"><span class="section-number-2">4</span> git添加文件: git add <b>*</b>.***/git commit</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+git add <b>*</b>.***
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ 
+pengshao@ps-debian:~/tmp/gitlearn$ git add readme.org 
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+
+<p>
+这样就添加了一个git文件到自己的git仓库了.
+</p></li>
+
+<li><p>
+git commit -m 'add readme.txt to my Git repository'
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git commit -m <span style="color: #00cd66; background-color: #dcdcdc;">'add 2.org file'</span>
+
+[master 528d873] add 2.org file
+
+your configuration file:
+
+ git config --global --edit
+
+ After doing this, you may fix the identity used for this commit with:
+
+ git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 2.org
+ pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+
+<p>
+git会告诉你,1 file changed, 1 insertion(+)
+</p></li>
+
+<li><p>
+git add 和 git commit 介绍
+</p>
+<ol class="org-ol">
+<li>git add 一次只能添加一个文件</li>
+
+<li>git commit一次可以添加很多文件</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-shell">$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m <span style="color: #00cd66; background-color: #dcdcdc;">"add 3 files."</span>
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org2ff0788" class="outline-2">
+<h2 id="org2ff0788"><span class="section-number-2">5</span> repository status: git status</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>修改2.org这个文件</li>
+<li><p>
+git status&#x2013;命令
+查看git repository 近况
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git status
+On branch master
+Changes not staged for commit:
+(use <span style="color: #00cd66; background-color: #dcdcdc;">"git add &lt;file&gt;..."</span> to update what will be committed)
+(use <span style="color: #00cd66; background-color: #dcdcdc;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #cd0000; background-color: #dcdcdc;"> in</span> working directory)
+
+modified:   2.org
+
+no changes added to commit (use <span style="color: #00cd66; background-color: #dcdcdc;">"git add"</span> and/or <span style="color: #00cd66; background-color: #dcdcdc;">"git commit -a"</span>)
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div></li>
+<li>上面的代码告诉我们,有一个文件修改了
+但是没有commit到git repository</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgd3b3dff" class="outline-2">
+<h2 id="orgd3b3dff"><span class="section-number-2">6</span> 查看文件不同: git diff <b>*</b>.***/git</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+git diff&#x2014;查看文件的不同之处
+</p>
+<ol class="org-ol">
+<li><p>
+可以用git diff <b>*</b>.***查看两个文件之间的不同之处.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git diff
+WARNING: terminal is not fully functional
+<span style="color: #0000cd; background-color: #dcdcdc;">-</span>  (press RETURN)
+diff --git a/2.org b/2.org
+index 77a872f..dc92c40 100644
+--- a/2.org
++++ b/2.org
+@@ -1 +1,2 @@
+-my git test
++this is my git test file
++&#25105;&#35201;&#32487;&#32493;&#23398;&#20064;git
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+<p>
+通过上面的代码就能看到两个文件之间的不同了
+</p></li>
+<li>知道了文件之间的不同之处之后就能够放心的commit了</li>
+<li><p>
+git add <b>*</b>.***
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git add 2.org 
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+<p>
+linux哲学,没有任何的输出
+</p></li>
+<li>git status 查看一下当前的 repository
+这时候会提示modefied文件会有一个2.org
+这时候就能进行commit了</li>
+<li><p>
+git commit -m '我要继续学习git'
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git commit -m <span style="color: #00cd66; background-color: #dcdcdc;">'2.org-&gt;&#25105;&#35201;&#32487;&#32493;&#23398;&#20064;git&#23383;&#34892;'</span>
+[master 197daf9] 2.org-&gt;&#25105;&#35201;&#32487;&#32493;&#23398;&#20064;git&#23383;&#34892;
+your configuration file:
+
+ git config --global --edit
+
+ After doing this, you may fix the identity used for this commit with:
+
+git commit --amend --reset-author
+
+1 file changed, 2 insertions(+), 1 deletion(-)
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+<p>
+告诉我们一个文件改动了,添加了新的两行(+),删除了一行(-)
+</p></li>
+<li><p>
+git status 在查看一下啊
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git status
+On branch master
+nothing to commit, working tree clean
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+<p>
+更改已经完成
+</p></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgeaf0538" class="outline-2">
+<h2 id="orgeaf0538"><span class="section-number-2">7</span> 版本的回退: git reset &#x2013;hard HEAD^</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org6c4a2be" class="outline-3">
+<h3 id="org6c4a2be"><span class="section-number-3">7.1</span> 在Git中，用HEAD表示当前版本</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+HEAD^: 上一个版本就是
+HEAD^^: 上上一个版本就是
+当然往上100个版本写100个<sup>比较容易数不过来</sup>
+HEAD~100: 回到第一百个版本
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">git</span> reset --hard HEAD^
+HEAD is now at b0c58a0 &#36825;&#26159;&#25105;&#30340;&#31532;&#19968;&#20010;git&#25991;&#20214;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb29312" class="outline-3">
+<h3 id="orgfb29312"><span class="section-number-3">7.2</span> 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-shell">$ git reset --hard b0c58a0
+</pre>
+</div>
+<p>
+这样和那样的效果是一样的
+只要没有关电脑能找到版本号就能这样回退版本
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgb51fae5" class="outline-3">
+<h3 id="orgb51fae5"><span class="section-number-3">7.3</span> 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</h3>
+<div class="outline-text-3" id="text-7-3">
+<div class="org-src-container">
+<pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git reflog
+<span style="color: #0000cd; background-color: #dcdcdc;">b0c58a0</span> (HEAD -&gt; master) HEAD@{0}: reset: moving to HEAD^
+bcc625b HEAD@{1}: commit: &#28155;&#21152;&#20102;&#35760;&#31508;&#35760;&#30340;&#36873;&#39033;
+<span style="color: #0000cd; background-color: #dcdcdc;">b0c58a0</span> (HEAD -&gt; master) HEAD@{2}: commit (initial): &#36825;&#26159;&#25105;&#30340;&#31532;&#19968;&#20010;git&#25991;&#20214;
+pengshao@ps-debian:~/tmp/gitlearn$ 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3445245" class="outline-2">
+<h2 id="org3445245"><span class="section-number-2">8</span> 操作日志: git log/git reflog</h2>
+</div>
+
+<div id="outline-container-org63cf9bf" class="outline-2">
+<h2 id="org63cf9bf"><span class="section-number-2">9</span> working dirctory + Repository+stage概念</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<img src="iamge/workingdirectory.jpeg" alt="workingdirectory.jpeg">
+当前目录就是工作区
+工作区里面的.git文件就是版本库
+最重要的就是称为stage（或者叫index）的暂存区
+还有Git为我们自动创建的第一个分支master
+以及指向master的一个指针叫HEAD
+</p>
+<ol class="org-ol">
+<li>git add <b>*</b>.*** 实际上是把文件或者修改提交到stage</li>
+<li>git commit 实际上是把缓存区的更新提交到master分支</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org20d79aa" class="outline-2">
+<h2 id="org20d79aa"><span class="section-number-2">10</span> 撤销修改: git checkout &#x2013; ./my-first-git.org</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+git checkout    可以撤销没有提交到stage的修改
+git reset HEAD  可以撤销掉提交到stage的修改
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1200827" class="outline-2">
+<h2 id="org1200827"><span class="section-number-2">11</span> 删除文件: git rm <b>*</b>.***</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-orgf5f5ff6" class="outline-3">
+<h3 id="orgf5f5ff6"><span class="section-number-3">11.1</span> 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+git rm <b>*</b>.*** 从而在版本库中同步删除
+git commit -m '<b><b>**</b></b>' 来提交到版本库中
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfaac4ed" class="outline-3">
+<h3 id="orgfaac4ed"><span class="section-number-3">11.2</span> 删错了恢复: git checkout &#x2013; ./***.***</h3>
+</div>
+</div>
+
+
+<div id="outline-container-orga65bf26" class="outline-2">
+<h2 id="orga65bf26"><span class="section-number-2">12</span> 远程仓库: github 使用教程</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org3edc398" class="outline-3">
+<h3 id="org3edc398"><span class="section-number-3">12.1</span> 本地上传远程库</h3>
+<div class="outline-text-3" id="text-12-1">
+<ol class="org-ol">
+<li>在github上面 create a new repository</li>
+
+<li><p>
+本地关联远程仓库
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">git</span> remote add origin https://github.com/boxmaking/learngit-note.git
+</pre>
+</div>
+<p>
+这一步是关联远程仓库的命令
+并且在本地仓库新建一个origin的远程分支
+</p></li>
+
+<li><p>
+第一次推送master和所有内容
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">git</span> push -u origin master
+</pre>
+</div>
+<p>
+实际上就是把本地的master分支推送到远程
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数
+Git不但会把本地的master分支内容推送的远程新的master分支
+还会把本地的master分支和远程的master分支关联起来
+在以后的推送或者拉取时就可以简化命令
+</p></li>
+
+<li><p>
+推送最新的内容
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">git</span> push origin master
+</pre>
+</div>
+<p>
+把本地master分支的最新修改推送至GitHub
+</p></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+远程仓库比本地仓库提前一个版本
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">git</span> pull origin master
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org50d8989" class="outline-3">
+<h3 id="org50d8989"><span class="section-number-3">12.2</span> 远程仓库的clone</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75bbfd0" class="outline-2">
+<h2 id="org75bbfd0"><span class="section-number-2">13</span> 快速添加许可证文件</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+创建一个仓库时，Github会为你提供一个预置的软件许可列表：
+</p>
+
+<p>
+对于已有的仓库，可以通过 web 界面创建文件来添加软件许可
+</p>
+
+<p>
+输入LICENSE作为文件名后，同样可以从预置的列表中选择一个作为模板。
+</p>
+
+<p>
+这个技巧也适用于 .gitignore 文件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2deb8c4" class="outline-2">
+<h2 id="org2deb8c4"><span class="section-number-2">14</span> 工作区去除大量已删除文件</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+当用 /bin/rm 命令删除了大量文件之后
+你可以用下面一条命令从工作区和索引中去除这些文件
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git rm $(<span style="color: #ff00ff;">git</span> ls-files -d)
+</pre>
+</div>
+
+<p>
+例如:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git status
+On branch master
+Changes not staged for commit:
+        deleted:    a
+        deleted:    c
+
+$ git rm $(<span style="color: #ff00ff;">git</span> ls-files -d)
+rm <span style="color: #00cd66; background-color: #dcdcdc;">'a'</span>
+rm <span style="color: #00cd66; background-color: #dcdcdc;">'c'</span>
+
+$ git status
+On branch master
+Changes to be committed:
+        deleted:    a
+        deleted:    c
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6cc9d0d" class="outline-2">
+<h2 id="org6cc9d0d"><span class="section-number-2">15</span> 没有任何改动的提交</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+可以使用&#x2013;allow-empty选项强制创建一个没有任何改动的提交：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git commit -m <span style="color: #00cd66; background-color: #dcdcdc;">"Big-ass commit"</span> --allow-empty
+</pre>
+</div>
+
+<p>
+这样做在如下几种情况下是有意义的：
+</p>
+
+<ul class="org-ul">
+<li>标记新的工作或一个新功能的开始。</li>
+<li>记录对项目的跟代码无关的改动。</li>
+<li>跟使用你仓库的其他人交流。</li>
+<li>作为仓库的第一次提交，因为第一次提交后不能被</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org43513a0" class="outline-2">
+<h2 id="org43513a0"><span class="section-number-2">16</span> 美化相关</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li><p>
+美化git status
+git status加上-sb选项:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git status -sb
+</pre>
+</div></li>
+
+<li><p>
+美化 Git Log
+输入如下命令:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$ git log --all --graph --pretty=format:<span style="color: #00cd66; background-color: #dcdcdc;">'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset'</span> --abbrev-commit --date=relative
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

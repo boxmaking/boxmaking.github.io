@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>未整理的linux学习笔记</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-command, linux">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">未整理的linux学习笔记</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfb68eca">1. 实现命令关机</a></li>
+<li><a href="#org7af4d5b">2. shell 快捷键</a>
+<ul>
+<li><a href="#orgb003d5e">2.1. 字母大小写控制</a></li>
+<li><a href="#orgc903d77">2.2. shell语系的支持</a></li>
+</ul>
+</li>
+<li><a href="#org458c9b5">3. echo {a,b}{a,b}{a,b}</a></li>
+<li><a href="#orgdb0257b">4. netstat -tulnp</a></li>
+<li><a href="#orgf64604c">5. <span class="todo TODO">TODO</span> bc命令学习</a></li>
+<li><a href="#org1e1d2e2">6. <span class="todo TODO">TODO</span> mc学习</a></li>
+<li><a href="#orgaa3a66c">7. sync,shutdown,reboot</a></li>
+<li><a href="#org69750ce">8. <span class="todo TODO">TODO</span> fsck,fdisk命令教程</a></li>
+<li><a href="#org7a2e04f">9. suer相关命令</a></li>
+<li><a href="#org115a4db">10. 文件相关知识</a></li>
+<li><a href="#org8613d96">11. grep命令教程</a>
+<ul>
+<li><a href="#org94acbce">11.1. -i选项来不区分大小写</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-orgfb68eca" class="outline-2">
+<h2 id="orgfb68eca"><span class="section-number-2">1</span> 实现命令关机</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+echo "PASSWORD" | sudo -S shutdown -h now
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7af4d5b" class="outline-2">
+<h2 id="org7af4d5b"><span class="section-number-2">2</span> shell 快捷键</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgb003d5e" class="outline-3">
+<h3 id="orgb003d5e"><span class="section-number-3">2.1</span> 字母大小写控制</h3>
+<div class="outline-text-3" id="text-2-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">M+c</td>
+<td class="org-left">首字母大写</td>
+</tr>
+
+<tr>
+<td class="org-left">M+u</td>
+<td class="org-left">全部字母大写</td>
+</tr>
+
+<tr>
+<td class="org-left">M+l</td>
+<td class="org-left">全字母小写</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc903d77" class="outline-3">
+<h3 id="orgc903d77"><span class="section-number-3">2.2</span> shell语系的支持</h3>
+<div class="outline-text-3" id="text-2-2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">echo $LANG</td>
+<td class="org-left">显示当前的语系</td>
+</tr>
+
+<tr>
+<td class="org-left">LANG=en<sub>UC</sub></td>
+<td class="org-left">调整语系为美国英语</td>
+</tr>
+
+<tr>
+<td class="org-left">LANG=zh<sub>CN.UTF</sub>-8</td>
+<td class="org-left">调整语系为中文简体,UTF-8编码</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org458c9b5" class="outline-2">
+<h2 id="org458c9b5"><span class="section-number-2">3</span> echo {a,b}{a,b}{a,b}</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+这个命令是应用了linux的大括号展开功能
+常用与快速的备份一个文件
+cp xxx{,.back}
+这个命令就是用了大括号展开功能来悲愤xxx文件
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgdb0257b" class="outline-2">
+<h2 id="orgdb0257b"><span class="section-number-2">4</span> netstat -tulnp</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+查看端口的监听情况
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">-t</td>
+<td class="org-left">tcp</td>
+</tr>
+
+<tr>
+<td class="org-left">-u</td>
+<td class="org-left">udp</td>
+</tr>
+
+<tr>
+<td class="org-left">-l</td>
+<td class="org-left">listen</td>
+</tr>
+
+<tr>
+<td class="org-left">-n</td>
+<td class="org-left">显示ip</td>
+</tr>
+
+<tr>
+<td class="org-left">-p</td>
+<td class="org-left">现实pid,need root</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgf64604c" class="outline-2">
+<h2 id="orgf64604c"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> bc命令学习</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+scale=N
+N为想要计算的小数点数位
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1e1d2e2" class="outline-2">
+<h2 id="org1e1d2e2"><span class="section-number-2">6</span> <span class="todo TODO">TODO</span> mc学习</h2>
+</div>
+
+
+
+
+<div id="outline-container-orgaa3a66c" class="outline-2">
+<h2 id="orgaa3a66c"><span class="section-number-2">7</span> sync,shutdown,reboot</h2>
+<div class="outline-text-2" id="text-7">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">sync</td>
+<td class="org-left">关机之前必须的命令</td>
+</tr>
+
+<tr>
+<td class="org-left">shutdown</td>
+<td class="org-left">关机命令</td>
+</tr>
+
+<tr>
+<td class="org-left">shutdown -h 10 '我要在十分钟后关机'</td>
+<td class="org-left">十分钟后关机</td>
+</tr>
+
+<tr>
+<td class="org-left">shutdown -h now</td>
+<td class="org-left">马上关机</td>
+</tr>
+
+<tr>
+<td class="org-left">shutdown -c</td>
+<td class="org-left">取消正在进行的关机</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org69750ce" class="outline-2">
+<h2 id="org69750ce"><span class="section-number-2">8</span> <span class="todo TODO">TODO</span> fsck,fdisk命令教程</h2>
+</div>
+
+
+<div id="outline-container-org7a2e04f" class="outline-2">
+<h2 id="org7a2e04f"><span class="section-number-2">9</span> suer相关命令</h2>
+<div class="outline-text-2" id="text-9">
+<ol class="org-ol">
+<li><p>
+用户相关文件
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">/etc/shadow</td>
+<td class="org-left">密码文件</td>
+</tr>
+
+<tr>
+<td class="org-left">/etc/passwd</td>
+<td class="org-left">用户名</td>
+</tr>
+
+<tr>
+<td class="org-left">/etc/group</td>
+<td class="org-left">群组</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org115a4db" class="outline-2">
+<h2 id="org115a4db"><span class="section-number-2">10</span> 文件相关知识</h2>
+<div class="outline-text-2" id="text-10">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">目录文件</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">链接文件</td>
+</tr>
+
+<tr>
+<td class="org-left">-</td>
+<td class="org-left">文件</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">可随机存储的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">一次性存储文件,鼠标键盘等</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org8613d96" class="outline-2">
+<h2 id="org8613d96"><span class="section-number-2">11</span> grep命令教程</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org94acbce" class="outline-3">
+<h3 id="org94acbce"><span class="section-number-3">11.1</span> -i选项来不区分大小写</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:17 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的linux软件列表</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="debian, linux-software">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">我的linux软件列表</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf9f5cbe">1. 校正日期和时间</a></li>
+<li><a href="#orgb12cd48">2. 安装的软件</a>
+<ul>
+<li><a href="#org6fd6fd0">2.1. install-sudo</a></li>
+<li><a href="#orgca753c7">2.2. 中文输入环境教程</a></li>
+<li><a href="#org0f4a80b">2.3. 浏览器</a></li>
+<li><a href="#org7252a90">2.4. ebook</a></li>
+<li><a href="#org13caeb0">2.5. 聊天</a></li>
+<li><a href="#orge09a3a2">2.6. email</a></li>
+<li><a href="#org9029d12">2.7. 下载工具</a></li>
+<li><a href="#org9790dcc">2.8. 文件管理</a></li>
+<li><a href="#org639e7d6">2.9. 多媒体</a></li>
+<li><a href="#org329d47a">2.10. 网盘</a></li>
+<li><a href="#org23f66a7">2.11. 办公</a></li>
+<li><a href="#orgd898b95">2.12. game</a></li>
+<li><a href="#org10c534c">2.13. free</a></li>
+<li><a href="#orgab7be38">2.14. 虚拟机</a></li>
+<li><a href="#org40581b6">2.15. fun</a></li>
+<li><a href="#org3368257">2.16. 解压</a></li>
+<li><a href="#org585c226">2.17. 系统相关</a></li>
+<li><a href="#org3d9f476">2.18. 修复依赖</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgf9f5cbe" class="outline-2">
+<h2 id="orgf9f5cbe"><span class="section-number-2">1</span> 校正日期和时间</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-shell">cp /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime     <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#21306;&#20026;&#20122;&#27954;/&#19978;&#28023;</span>
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>网络校时</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-shell">apt-get install ntpdate
+ntpdate 210.72.145.44        <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20013;&#22269;&#22269;&#23478;&#26102;&#38388;&#26381;&#21153;&#22120;: 210.72.145.44</span>
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>手动校时</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-shell">sudo date -s 11/13/2019                <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">2019&#24180;11&#26376;13&#26085;</span>
+sudo date -s 10:05:30                  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">10&#28857;05&#20998;30&#31186;</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb12cd48" class="outline-2">
+<h2 id="orgb12cd48"><span class="section-number-2">2</span> 安装的软件</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org6fd6fd0" class="outline-3">
+<h3 id="org6fd6fd0"><span class="section-number-3">2.1</span> install-sudo</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-shell">su
+apt-get install sudo
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgca753c7" class="outline-3">
+<h3 id="orgca753c7"><span class="section-number-3">2.2</span> 中文输入环境教程</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>sudo apt-get install locales</li>
+<li>sudo apt-get install fonts-wqy-*</li>
+<li>sudo apt-get install ibus ibus-gtk ibus-pinyin</li>
+<li>sudo apt-get install ttf-dejavu</li>
+<li>sudo apt-get install ttf-wqy-microhei</li>
+<li>sudo apt-get install ttf-wqy-zenhei</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0f4a80b" class="outline-3">
+<h3 id="org0f4a80b"><span class="section-number-3">2.3</span> 浏览器</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>firefox-esr</li>
+<li>chrome</li>
+<li>orphneOrphne
+你们懂的官网：<a href="http://orphne.sourceforge.net/main.html">http://orphne.sourceforge.net/main.html</a>
+感兴趣自己试,我没研究过.</li>
+<li>w3m,w3m-el,w3m-img</li>
+<li>lastpass</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7252a90" class="outline-3">
+<h3 id="org7252a90"><span class="section-number-3">2.4</span> ebook</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><p>
+calibre-ebook
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin <span style="color: #912cee; background-color: #dcdcdc;">install_dir</span>=~/calibre-bin <span style="color: #912cee; background-color: #dcdcdc;">isolated</span>=y
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org13caeb0" class="outline-3">
+<h3 id="org13caeb0"><span class="section-number-3">2.5</span> 聊天</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>xchat</li>
+<li>Erc</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge09a3a2" class="outline-3">
+<h3 id="orge09a3a2"><span class="section-number-3">2.6</span> email</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>thunderbird</li>
+<li>gmail</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org9029d12" class="outline-3">
+<h3 id="org9029d12"><span class="section-number-3">2.7</span> 下载工具</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>wget</li>
+<li>aira2</li>
+<li>curl</li>
+<li>youtube-dl</li>
+<li></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org9790dcc" class="outline-3">
+<h3 id="org9790dcc"><span class="section-number-3">2.8</span> 文件管理</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>mc</li>
+<li>thunar</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org639e7d6" class="outline-3">
+<h3 id="org639e7d6"><span class="section-number-3">2.9</span> 多媒体</h3>
+<div class="outline-text-3" id="text-2-9">
+<ul class="org-ul">
+<li><p>
+FFmpeg
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt install ffmpeg
+</pre>
+</div></li>
+<li>vlc</li>
+<li>mplayer,SMPlayer</li>
+<li>网易云音乐</li>
+<li>gimp</li>
+<li>blender</li>
+<li>imagemagick</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org329d47a" class="outline-3">
+<h3 id="org329d47a"><span class="section-number-3">2.10</span> 网盘</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>mega</li>
+<li>百度云</li>
+<li>坚果云盘</li>
+<li>google-drivebox</li>
+<li>dropbox</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org23f66a7" class="outline-3">
+<h3 id="org23f66a7"><span class="section-number-3">2.11</span> 办公</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>wps</li>
+<li>libreoffice</li>
+<li>youdao-dict</li>
+<li>xpdf</li>
+<li>chm2pdf</li>
+<li>emacs</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgd898b95" class="outline-3">
+<h3 id="orgd898b95"><span class="section-number-3">2.12</span> game</h3>
+<div class="outline-text-3" id="text-2-12">
+<ul class="org-ul">
+<li>steam</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org10c534c" class="outline-3">
+<h3 id="org10c534c"><span class="section-number-3">2.13</span> free</h3>
+<div class="outline-text-3" id="text-2-13">
+<ul class="org-ul">
+<li>pandevpn</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgab7be38" class="outline-3">
+<h3 id="orgab7be38"><span class="section-number-3">2.14</span> 虚拟机</h3>
+<div class="outline-text-3" id="text-2-14">
+<ul class="org-ul">
+<li>virtualbox</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org40581b6" class="outline-3">
+<h3 id="org40581b6"><span class="section-number-3">2.15</span> fun</h3>
+<div class="outline-text-3" id="text-2-15">
+<ul class="org-ul">
+<li>scrot
+截图软件</li>
+<li>neofetch
+显示带图标的硬件信息</li>
+<li>figlet</li>
+<li><p>
+tree
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">tree -a</th>
+<th scope="col" class="org-left">display all thefile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">tree -l N</td>
+<td class="org-left">多少层</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+asciiview
+命令
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install aview imagemagick
+$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> shiyanlou.png -driver curses
+</pre>
+</div>
+<p>
+需要imagemagick支持
+</p></li>
+<li><p>
+factor命令
+分解因数
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">factor60</span>
+</pre>
+</div></li>
+<li>Bastet
+命令行的俄罗斯方块</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3368257" class="outline-3">
+<h3 id="org3368257"><span class="section-number-3">2.16</span> 解压</h3>
+<div class="outline-text-3" id="text-2-16">
+<ul class="org-ul">
+<li>unzip,unrar-free</li>
+<li><p>
+7zip
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install p7zip-full
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org585c226" class="outline-3">
+<h3 id="org585c226"><span class="section-number-3">2.17</span> 系统相关</h3>
+<div class="outline-text-3" id="text-2-17">
+<ul class="org-ul">
+<li>dpkg-dev</li>
+<li>net-tools</li>
+<li>gvfs-bin,python-gi,gir1.2-appindicator3-0.1</li>
+<li><p>
+psensor
+图形化温度显示器
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install lm-sensors
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install psensor
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">wpitchoune.net/psensor/</span>
+</pre>
+</div></li>
+<li>gparted
+分区工具是parted的前端</li>
+<li>Proxychains4
+代理,目前没有设置,我都是需要代理的单独设置的</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3d9f476" class="outline-3">
+<h3 id="org3d9f476"><span class="section-number-3">2.18</span> 修复依赖</h3>
+<div class="outline-text-3" id="text-2-18">
+<p>
+sudo apt-get &#x2013;fix-broken install 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

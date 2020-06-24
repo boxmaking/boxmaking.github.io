@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-06-24 Wed 22:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>find-tutorial</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="linux-find, find">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">find-tutorial</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org97d435c">1. find 常用命令</a></li>
+<li><a href="#org4428144">2. exec与xargs区别</a>
+<ul>
+<li><a href="#orgf43c5b3">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
+<li><a href="#orgda17ccf">2.2. 出各自的缺点</a></li>
+</ul>
+</li>
+<li><a href="#org443fa00">3. -exec使用教程</a>
+<ul>
+<li><a href="#org071d70a">3.1. exec参数说明</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org97d435c" class="outline-2">
+<h2 id="org97d435c"><span class="section-number-2">1</span> find 常用命令</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+一般格式： find+目录名称+参数
+参数: -name 文件名称
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'-cnewer file</td>
+<td class="org-left">查找比file文件更新的文件</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'-not</td>
+<td class="org-left">非，取反</td>
+</tr>
+
+<tr>
+<td class="org-left">'-user</td>
+<td class="org-left">文件所有人</td>
+</tr>
+
+<tr>
+<td class="org-left">'-group</td>
+<td class="org-left">文件所有组</td>
+</tr>
+
+<tr>
+<td class="org-left">'-a</td>
+<td class="org-left">并且关系</td>
+</tr>
+
+<tr>
+<td class="org-left">'-o</td>
+<td class="org-left">或者关系</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'-maxdepth</td>
+<td class="org-left">#最大深度</td>
+</tr>
+
+<tr>
+<td class="org-left">'-mindepth</td>
+<td class="org-left">#最小深度</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">'-size  20K</td>
+<td class="org-left">查找大小为20K的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">'-size  -20K</td>
+<td class="org-left">-表示小于；查找比20K小的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">'-size  +20k</td>
+<td class="org-left">+表示大于；查看比20K大的文件</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">'-type</th>
+<th scope="col" class="org-left">#文件类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">类型代号</td>
+<td class="org-left">主要的文件类型</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">#普通文件</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">#目录</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">#块设备</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">#套接字</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">#字符设备</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">#链接</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">#管道</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ctime 与 cmin</th>
+<th scope="col" class="org-left">都表示按照时间查找被篡改的文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ctime</td>
+<td class="org-left">以天为单位</td>
+</tr>
+
+<tr>
+<td class="org-left">cmin</td>
+<td class="org-left">以分钟为单位</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">'-cmin  10</td>
+<td class="org-left">查找文件更新距离现在10分钟的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">'-cmin  +10</td>
+<td class="org-left">查找文件更新距离现在超过10分钟的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">'-cmin  -10</td>
+<td class="org-left">查找文件更新距离现在10分钟以内的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">'-ctime  +/-10</td>
+<td class="org-left">查找文件更新距离现在超过10天/10天以内的文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org4428144" class="outline-2">
+<h2 id="org4428144"><span class="section-number-2">2</span> exec与xargs区别</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgf43c5b3" class="outline-3">
+<h3 id="orgf43c5b3"><span class="section-number-3">2.1</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li>-exec：{}表示命令的参数即为所找到的文件,以；表示comman命令的结束。\是转义符，
+因为分号在命令中还有它用途，所以就用一个\来限定表示这是一个分号而不是表示其它意思。</li>
+
+<li>-ok： 和 -exec 的作用相同，格式也一样，只不过以一种更为安全的模式来执行该参数
+所给出的shell给出的这个命令之前，都会给出提示，让用户来确定是否执行。</li>
+
+<li>xargs 要结合管道来完成
+格式：find [option] express |xargs command</li>
+</ol>
+
+<p>
+用一个实例来看看exec和xargs是如何传参数的：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f
+test/myfile.name
+test/files/role_file
+test/files/install_file
+
+$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f |xargs echo
+test/myfile.name test/files/role_file test/files/install_file
+
+$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f -exec echo {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+test/myfile.name
+test/files/role_file
+test/files/install_file
+</pre>
+</div>
+
+<p>
+很明显，exec是对每个找到的文件执行一次命令，除非这单个的文件名超过了几k，否则不
+会出现命令行超长出报错的问题。
+</p>
+
+<p>
+而xargs是把所有找到的文件名一股脑的转给命令。当文件很多时，这些文件名组合成的命
+令行参数很容易超长，导致命令出错。
+</p>
+
+<p>
+另外， find | xargs 这种组合在处理有空格字符的文件名时也会出错，因为这时执行的命令
+已经不知道哪些是分割符、哪些是文件名中的空格！ 而用exec则不会有这个问题。
+</p>
+
+
+<p>
+比如做个演示：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">touch</span> test/<span style="color: #00cd66; background-color: #dcdcdc;">'test zzh'</span>
+
+$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -name *zzh
+test/test zzh
+
+$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -name *zzh |xargs rm
+rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or directory</span>
+<span style="color: #ff00ff;">rm: cannot remove `</span>zzh<span style="color: #00cd66; background-color: #dcdcdc;">': No such file or directory</span>
+
+<span style="color: #00cd66; background-color: #dcdcdc;">$find test/ -name *zzh -exec rm {} \;</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgda17ccf" class="outline-3">
+<h3 id="orgda17ccf"><span class="section-number-3">2.2</span> 出各自的缺点</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>exec 每处理一个文件或者目录，它都需要启动一次命令，效率不好;</li>
+<li>exec 格式麻烦，必须用 {} 做文件的代位符，必须用 \; 作为命令的结束符，书写不便</li>
+<li>xargs 不能操作文件名有空格的文件；</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org443fa00" class="outline-2">
+<h2 id="org443fa00"><span class="section-number-2">3</span> -exec使用教程</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+综上，如果要使用的命令支持一次处理多个文件，并且也知道这些文件里没有带空格的文件，
+那么使用 xargs比较方便; 否则，就要用 exec了
+</p>
+</div>
+
+<div id="outline-container-org071d70a" class="outline-3">
+<h3 id="org071d70a"><span class="section-number-3">3.1</span> exec参数说明</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+-exec 参数后面跟的是command命令
+终止是以;为结束标志的
+这句命令后面的分号是不可缺少的(考虑到各个系统中分号会有不同的意义,所以前面加反斜杠)
+{} 花括号代表前面find查找出来的文件名。
+</p>
+
+<ol class="org-ol">
+<li><p>
+查找当前目录下的文件，并对查找结果执行ls -l 命令
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;</span>
+find . -type f -exec ls -l {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+[root@localhost home]# ls
+1.log  2.log  3.c  4.log  test
+[root@localhost home]# find  -type f
+./1.log
+./2.log
+./3.c
+[root@localhost home]# find -type f -exec ls -l {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+-rw-r--r--. 1 root root 0 Nov 14 17:55 ./1.log
+-rw-r--r--. 1 root root 0 Nov 14 17:55 ./2.log
+-rwxrwxrwx. 1 root root 0 Nov 14 18:00 ./3.c
+</pre>
+</div></li>
+
+<li><p>
+查找当前目录下，24小时内更改过的文件，并进行删除操作删除没有提示
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;</span>
+find -type f -mtime -1 -exec rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;</span>
+[root@localhost home]# ll
+total 0
+-rw-r--r--. 1 root root 0 Nov 14 17:55 1.log
+-rw-r--r--. 1 root root 0 Nov 14 17:55 2.log
+-rwxrwxrwx. 1 root root 0 Nov 14 18:00 3.c
+drwxr-xr-x. 2 root root 6 Nov 14 18:16 4.log
+-rw-r--r--. 1 root root 0 Nov 15 18:02 5.log
+drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
+[root@localhost home]# find -type f -mtime -1
+./5.log
+[root@localhost home]# find -type f -mtime -1 -exec rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# ls
+1.log  2.log  3.c  4.log  test
+</pre>
+</div>
+
+<p>
+一定要小心!当使用诸如mv或rm命令时,可以使用-exec选项的安全模式.-ok选项它将在对每个匹配到的文件进行操作之前提示你.
+</p></li>
+
+<li><p>
+查找当前目录下文件名以.log结尾且24小时内更改过的文件,并进行安全删除操作,即删除前会进行询问
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;&#65306;</span>
+find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -type f  -mtime -1 -ok rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+[root@localhost home]# touch 6.c
+[root@localhost home]# touch 7.c
+[root@localhost home]# ls
+1.log  2.log  3.c  4.log  6.log  7.c  test
+[root@localhost home]# ll
+total 0
+-rw-r--r--. 1 root root 0 Nov 14 17:55 1.log
+-rw-r--r--. 1 root root 0 Nov 14 17:55 2.log
+-rwxrwxrwx. 1 root root 0 Nov 14 18:00 3.c
+drwxr-xr-x. 2 root root 6 Nov 14 18:16 4.log
+-rw-r--r--. 1 root root 0 Nov 15 18:07 6.log
+-rw-r--r--. 1 root root 0 Nov 15 18:07 7.c
+drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
+[root@localhost home]# find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -mtime -1 -ok rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+&lt; rm ... ./6.log &gt; ? y
+[root@localhost home]# ll
+total 0
+-rw-r--r--. 1 root root 0 Nov 14 17:55 1.log
+-rw-r--r--. 1 root root 0 Nov 14 17:55 2.log
+-rwxrwxrwx. 1 root root 0 Nov 14 18:00 3.c
+drwxr-xr-x. 2 root root 6 Nov 14 18:16 4.log
+-rw-r--r--. 1 root root 0 Nov 15 18:07 7.c
+drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
+[root@localhost home]# ls
+1.log  2.log  3.c  4.log  7.c  test
+</pre>
+</div>
+
+<p>
+-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行
+</p></li>
+
+<li><p>
+查找当前目录下的以.log结尾的文件或目录，并移动到test目录下
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;&#65306;</span>
+find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -exec mv {} <span style="color: #ba55d3; background-color: #dcdcdc;">test</span> <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+[root@localhost home]# tree
+<span style="color: #ba55d3; background-color: #dcdcdc;">.</span>
+&#9500;&#9472;&#9472; 1.log
+&#9500;&#9472;&#9472; 2.log
+&#9500;&#9472;&#9472; 3.c
+&#9500;&#9472;&#9472; 4.log
+&#9500;&#9472;&#9472; 7.c
+&#9492;&#9472;&#9472; test
+
+2 directories, 4 files
+[root@localhost home]# find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -exec mv {} <span style="color: #ba55d3; background-color: #dcdcdc;">test</span> <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# ls
+3.c  7.c  test
+[root@localhost home]# tree
+<span style="color: #ba55d3; background-color: #dcdcdc;">.</span>
+&#9500;&#9472;&#9472; 3.c
+&#9500;&#9472;&#9472; 7.c
+&#9492;&#9472;&#9472; test
+&#9500;&#9472;&#9472; 1.log
+&#9500;&#9472;&#9472; 2.log
+&#9492;&#9472;&#9472; 4.log
+
+2 directories, 4 files
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>
