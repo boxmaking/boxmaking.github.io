@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:17 -->
+<!-- 2020-06-26 Fri 15:38 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>apt-get-tutorial</title>
@@ -73,6 +73,7 @@ for the JavaScript code in this tag.
 <li><a href="#org1e33bb0">1. 查看软件包的详细网址和各种依赖情况</a></li>
 <li><a href="#org639d802">2. apt-get意外中断解决办法</a></li>
 <li><a href="#org471e140">3. 尾声</a></li>
+<li><a href="#orga0457ba">4. dpkg安装和卸载软件教程</a></li>
 </ul>
 </div>
 </nav>
@@ -102,14 +103,16 @@ Ctrl+c/z中断后
 解决方法
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">sudo killall apt-get
-sudo killall dpkg
-sudo dpkg --configure -a
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall apt-get
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall dpkg
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --configure -a
 <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23601;&#23436;&#32654;&#30340;&#25630;&#23450;&#20102;</span>
 </pre>
 </div>
 </div>
 </div>
+
+
 
 <div id="outline-container-org471e140" class="outline-2">
 <h2 id="org471e140"><span class="section-number-2">3</span> 尾声</h2>
@@ -119,6 +122,20 @@ sudo dpkg --configure -a
 有了配置文件的备份之后真的很简单的就能更换系统
 这点确实是linux的优点啊.
 </p>
+</div>
+</div>
+
+
+<div id="outline-container-orga0457ba" class="outline-2">
+<h2 id="orga0457ba"><span class="section-number-2">4</span> dpkg安装和卸载软件教程</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg -i ***.deb <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23433;&#35013;</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install -f <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19968;&#33324;&#20250;&#20986;&#29616;&#20381;&#36182;&#20851;&#31995;,&#30452;&#25509;&#36825;&#26679;&#23433;&#35013;&#21363;&#21487;</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg -l  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#30340;&#36719;&#20214;&#21253;&#21517;&#31216;</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --remove ***  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21368;&#36733;&#36719;&#20214;&#21253;</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
