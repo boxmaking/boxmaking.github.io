@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-26 Fri 15:38 -->
+<!-- 2020-06-28 Sun 20:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>apt-get-tutorial</title>
@@ -71,9 +71,13 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#org1e33bb0">1. 查看软件包的详细网址和各种依赖情况</a></li>
-<li><a href="#org639d802">2. apt-get意外中断解决办法</a></li>
-<li><a href="#org471e140">3. 尾声</a></li>
-<li><a href="#orga0457ba">4. dpkg安装和卸载软件教程</a></li>
+<li><a href="#org639d802">2. apt-get意外中断解决办法</a>
+<ul>
+<li><a href="#org471e140">2.1. 尾声</a></li>
+</ul>
+</li>
+<li><a href="#orga0457ba">3. dpkg安装和卸载软件教程</a></li>
+<li><a href="#org924ea5b">4. dpkg使用代理</a></li>
 </ul>
 </div>
 </nav>
@@ -110,13 +114,12 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --con
 </pre>
 </div>
 </div>
-</div>
 
 
 
-<div id="outline-container-org471e140" class="outline-2">
-<h2 id="org471e140"><span class="section-number-2">3</span> 尾声</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org471e140" class="outline-3">
+<h3 id="org471e140"><span class="section-number-3">2.1</span> 尾声</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 其实我以前也碰到过这几个个问题,当时没能解决掉,现在终于完成了
 有了配置文件的备份之后真的很简单的就能更换系统
@@ -124,11 +127,12 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --con
 </p>
 </div>
 </div>
+</div>
 
 
 <div id="outline-container-orga0457ba" class="outline-2">
-<h2 id="orga0457ba"><span class="section-number-2">4</span> dpkg安装和卸载软件教程</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orga0457ba"><span class="section-number-2">3</span> dpkg安装和卸载软件教程</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg -i ***.deb <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23433;&#35013;</span>
 $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install -f <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19968;&#33324;&#20250;&#20986;&#29616;&#20381;&#36182;&#20851;&#31995;,&#30452;&#25509;&#36825;&#26679;&#23433;&#35013;&#21363;&#21487;</span>
@@ -137,6 +141,10 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --rem
 </pre>
 </div>
 </div>
+</div>
+
+<div id="outline-container-org924ea5b" class="outline-2">
+<h2 id="org924ea5b"><span class="section-number-2">4</span> dpkg使用代理</h2>
 </div>
 </div>
 <div id="postamble" class="status">
