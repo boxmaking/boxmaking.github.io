@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-28 Sun 20:21 -->
+<!-- 2020-07-05 Sun 23:19 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>系统挂载的教程</title>
@@ -73,6 +73,7 @@ for the JavaScript code in this tag.
 <li><a href="#org1d288cd">1. 首先查看详细的信息</a></li>
 <li><a href="#orgad7ceb1">2. 挂载</a></li>
 <li><a href="#org2022515">3. 卸载文件</a></li>
+<li><a href="#orgde9a411">4. 如何开机自动挂在硬盘在某个位置</a></li>
 </ul>
 </div>
 </nav>
@@ -184,6 +185,57 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs
 <p>
 -v选项为显示详细信息
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgde9a411" class="outline-2">
+<h2 id="orgde9a411"><span class="section-number-2">4</span> 如何开机自动挂在硬盘在某个位置</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+首先
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span>  blkid 
+/dev/sda1: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"B4BC-C378"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"vfat"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"f8bd88ba-dc1e-4e98-b84b-8bdc7d24ec95"</span>
+/dev/sda2: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"6a677709-f8fc-415a-98ad-9754192e54c9"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ext4"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"11ee69aa-7e90-499d-b421-a3009dd79bca"</span>
+/dev/sda3: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"5ff07536-bfde-482e-b4ea-571a9abc16be"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"swap"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"f408f7e7-b5a5-42e3-8c9b-87275121a3d9"</span>
+/dev/sda4: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"083aa363-750a-40b0-8f6f-f90adfde2e78"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ext4"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"9137ac47-a767-4b7c-9ba2-4bce12d800ac"</span>
+/dev/sdb5: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"DA18EBFA09C1B27D"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"a58fc54c-05"</span>
+/dev/sdb6: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"65F33762C14D581B"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"a58fc54c-06"</span>
+/dev/sdc1: <span style="color: #912cee; background-color: #dcdcdc;">SEC_TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"msdos"</span> <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"6004-51AA"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"vfat"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"EFI system partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"b8d94594-0025-4de4-88e0-77d9b922a4b1"</span>
+/dev/sdc2: <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"Microsoft reserved partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"1dd0244c-87d2-46b8-8c57-794f95efb7cf"</span>
+/dev/sdc3: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"9A5C8C9C5C8C74B3"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"Basic data partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"7792379f-f0c9-4d49-a394-976f6bd9a967"</span>
+</pre>
+</div>
+<p>
+显示出分区信息，记下要自动挂载的分区 UUID，与 Type。
+</p></li>
+
+<li><p>
+在文件系统中创建文件夹作为分区的挂载点
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">mkdir</span> ~/HDD
+</pre>
+</div></li>
+<li><p>
+然后
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> gedit /etc/fstab
+</pre>
+</div></li>
+<li><p>
+在最后添加一行
+</p>
+<pre class="example">
+UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
+</pre>
+<p>
+替换其中的 &lt;UUID&gt; 与 &lt;Type&gt; 为之前的查询结果，重启电脑，则分区已经挂载在 ~/HDD 目录下。
+</p></li>
+</ol>
 </div>
 </div>
 </div>
