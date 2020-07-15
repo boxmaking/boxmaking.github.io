@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
+<!-- 2020-07-15 Wed 21:48 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>linux系统信息查询教程</title>
@@ -87,43 +87,42 @@ for the JavaScript code in this tag.
 <li><a href="#orgc4c1317">4.1. cpu和gpu的监控工具</a></li>
 </ul>
 </li>
-<li><a href="#org5783fee">5. 硬盘使用情况</a></li>
-<li><a href="#org1dea020">6. 内存相关查询教程</a>
+<li><a href="#org1dea020">5. 内存相关查询教程</a>
 <ul>
-<li><a href="#org031fb8b">6.1. 查看内存使用情况</a></li>
-<li><a href="#org3a33876">6.2. dmidecode命令来显示内存相关的知识</a></li>
+<li><a href="#org031fb8b">5.1. 查看内存使用情况</a></li>
+<li><a href="#org3a33876">5.2. dmidecode命令来显示内存相关的知识</a></li>
 </ul>
 </li>
-<li><a href="#org328b459">7. 显存查看</a></li>
-<li><a href="#org8cee771">8. 进程相关命令</a>
+<li><a href="#org328b459">6. 显存查看</a></li>
+<li><a href="#org8cee771">7. 进程相关命令</a>
 <ul>
-<li><a href="#org52fbb51">8.1. ps -aux</a></li>
-<li><a href="#org61047b3">8.2. <span class="todo TODO">TODO</span> top</a></li>
-<li><a href="#org5e2c66a">8.3. kill</a></li>
-<li><a href="#org29de4af">8.4. <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></a></li>
-<li><a href="#org290d661">8.5. Ctrl-Z | Ctrl-C</a></li>
+<li><a href="#org52fbb51">7.1. ps -aux</a></li>
+<li><a href="#org61047b3">7.2. <span class="todo TODO">TODO</span> top</a></li>
+<li><a href="#org5e2c66a">7.3. kill</a></li>
+<li><a href="#org29de4af">7.4. <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></a></li>
+<li><a href="#org290d661">7.5. Ctrl-Z | Ctrl-C</a></li>
 </ul>
 </li>
-<li><a href="#orge2671a3">9. 网络相关呢的信息</a>
+<li><a href="#orge2671a3">8. 网络相关呢的信息</a>
 <ul>
-<li><a href="#orgab78953">9.1. 查看网卡硬件信息</a></li>
-<li><a href="#orgcf8e67f">9.2. ifconfig</a></li>
-<li><a href="#org430f67a">9.3. 查看所有的监听端口</a></li>
-<li><a href="#org55013af">9.4. 查看所有已建立的链接</a></li>
+<li><a href="#orgab78953">8.1. 查看网卡硬件信息</a></li>
+<li><a href="#orgcf8e67f">8.2. ifconfig</a></li>
+<li><a href="#org430f67a">8.3. 查看所有的监听端口</a></li>
+<li><a href="#org55013af">8.4. 查看所有已建立的链接</a></li>
 </ul>
 </li>
-<li><a href="#orge257232">10. 用户相关</a>
+<li><a href="#orge257232">9. 用户相关</a>
 <ul>
-<li><a href="#org38155c9">10.1. 查看有多少个用户后</a></li>
-<li><a href="#org801e4d4">10.2. 查看有多少个族群</a></li>
-<li><a href="#org052ab97">10.3. 查看用户登录日志</a></li>
-<li><a href="#org1b4d094">10.4. 查看用户的基本信息</a></li>
+<li><a href="#org38155c9">9.1. 查看有多少个用户后</a></li>
+<li><a href="#org801e4d4">9.2. 查看有多少个族群</a></li>
+<li><a href="#org052ab97">9.3. 查看用户登录日志</a></li>
+<li><a href="#org1b4d094">9.4. 查看用户的基本信息</a></li>
 </ul>
 </li>
-<li><a href="#orgc298974">11. inxi和lshw命令可以概述所有的信息</a></li>
-<li><a href="#org0363407">12. 查看uefi和biso的信息</a></li>
-<li><a href="#orgae3d81c">13. 总结1</a></li>
-<li><a href="#orgcc0584f">14. 总结2</a></li>
+<li><a href="#orgc298974">10. inxi和lshw命令可以概述所有的信息</a></li>
+<li><a href="#org0363407">11. 查看uefi和biso的信息</a></li>
+<li><a href="#orgae3d81c">12. 总结1</a></li>
+<li><a href="#orgcc0584f">13. 总结2</a></li>
 </ul>
 </div>
 </nav>
@@ -242,8 +241,8 @@ cat /proc/version
 使用 lscpu 命令或与它相近的 lshw 命令查看 CPU 的详细信息：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lscpu
-lshw -C cpu
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lscpu</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">lshw</span> -C cpu
 </pre>
 </div>
 
@@ -257,7 +256,7 @@ lshw -C cpu
 lshw -C cpu |grep-i product
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$ sudo lshw -C cpu | grep -i product
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> lshw -C cpu | grep -i product
 product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 </pre>
 </div></li>
@@ -269,14 +268,14 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 仅查看 CPU 的速度（兆赫兹）:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lscpu|grep-i mhz
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lscpu</span>|grep-i mhz
 </pre>
 </div>
 <p>
 或其 BogoMips 额定功率:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lscpu|grep-i bogo
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lscpu</span>|grep-i bogo
 </pre>
 </div></li>
 
@@ -297,91 +296,17 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 </div>
 
 
-<div id="outline-container-org5783fee" class="outline-2">
-<h2 id="org5783fee"><span class="section-number-2">5</span> 硬盘使用情况</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><p>
-显示每个磁盘设备的描述信息：
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">lshw -short-C disk 
-</pre>
-</div></li>
-
-<li><p>
-通过以下命令获取任何指定的 SATA 磁盘详细信息，例如其型号、序列号以及支持的模式和扇区数量
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">hdparm-i /dev/sda
-</pre>
-</div>
-
-<p>
-当然，如果需要的话你应该将 sda 替换成 sdb 或者其他设备号。
-</p></li>
-
-<li><p>
-要列出所有磁盘及其分区和大小，请使用以下命令：
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">lsblk
-</pre>
-</div></li>
-
-<li><p>
-使用以下命令获取更多有关扇区数量、大小、文件系统 ID 和 类型以及分区开始和结束扇区：
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">fdisk-l
-</pre>
-</div></li>
-
-<li><p>
-要启动 Linux，你需要确定 GRUB 引导程序的可挂载分区。你可以使用 blkid 命令找到此信息。它列出了每个分区的唯一标识符（UUID）及其文件系统类型（例如 ext3 或 ext4）：
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">blkid
-</pre>
-</div></li>
-
-<li><p>
-使用以下命令列出已挂载的文件系统和它们的挂载点，以及已用的空间和可用的空间（兆字节为单位）：
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">df-m
-</pre>
-</div></li>
-
-<li><p>
-最后，你可以列出所有的 USB 和 PCI 总线以及其他设备的详细信息：
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">lsusb&#25110;&#32773; lspci
-</pre>
-</div></li>
-
-<li><p>
-查看文件夹的使用情况和大小
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">du -sh &lt;&#25991;&#20214;&#22841;&gt;
-</pre>
-</div></li>
-</ol>
-</div>
-</div>
 
 
 <div id="outline-container-org1dea020" class="outline-2">
-<h2 id="org1dea020"><span class="section-number-2">6</span> 内存相关查询教程</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="org1dea020"><span class="section-number-2">5</span> 内存相关查询教程</h2>
+<div class="outline-text-2" id="text-5">
 </div>
 <div id="outline-container-org031fb8b" class="outline-3">
-<h3 id="org031fb8b"><span class="section-number-3">6.1</span> 查看内存使用情况</h3>
-<div class="outline-text-3" id="text-6-1">
+<h3 id="org031fb8b"><span class="section-number-3">5.1</span> 查看内存使用情况</h3>
+<div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
-<pre class="src src-sh">free -m -h
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">free</span> -m -h
 </pre>
 </div>
 <p>
@@ -391,14 +316,14 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 </div>
 
 <div id="outline-container-org3a33876" class="outline-3">
-<h3 id="org3a33876"><span class="section-number-3">6.2</span> dmidecode命令来显示内存相关的知识</h3>
-<div class="outline-text-3" id="text-6-2">
+<h3 id="org3a33876"><span class="section-number-3">5.2</span> dmidecode命令来显示内存相关的知识</h3>
+<div class="outline-text-3" id="text-5-2">
 <ol class="org-ol">
 <li><p>
 使用 dmidecode 命令列出每根内存条和其容量：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">dmidecode -t memory |grep-i size
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">dmidecode</span> -t memory | grep-i size
 </pre>
 </div></li>
 
@@ -406,7 +331,7 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 使用以下命令获取系统内存更多的信息，包括类型、容量、速度和电压：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lshw -short-C memory
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lshw</span> -short -C memory
 </pre>
 </div></li>
 
@@ -414,7 +339,7 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 你肯定想知道的一件事是你的计算机可以安装的最大内存：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">dmidecode -t memory |grep-i max
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">dmidecode</span> -t memory | grep-i max
 </pre>
 </div></li>
 
@@ -422,7 +347,7 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 现在检查一下计算机是否有空闲的插槽可以插入额外的内存条。你可以通过使用命令在不打开计算机机箱的情况下就做到：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lshw -short-C memory |grep-i empty
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lshw</span> -short -C memory | grep-i empty
 </pre>
 </div>
 <p>
@@ -435,14 +360,14 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 
 
 <div id="outline-container-org328b459" class="outline-2">
-<h2 id="org328b459"><span class="section-number-2">7</span> 显存查看</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="org328b459"><span class="section-number-2">6</span> 显存查看</h2>
+<div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><p>
 使用 lspci 列出所有设备信息然后过滤出你想要的显卡设备信息:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lspci |grep-i vga
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lspci</span> | grep -i vga
 </pre>
 </div></li>
 
@@ -450,7 +375,7 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 视频控制器的设备号输出信息通常如下：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">00:02.0 VGA compatible controller:IntelCorporation82Q35ExpressIntegratedGraphicsController(rev 02)
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">00</span>:02.0 VGA compatible controller:IntelCorporation82Q35ExpressIntegratedGraphicsController(rev 02)
 </pre>
 </div></li>
 
@@ -458,7 +383,7 @@ product: AMD Ryzen 3 2200G with Radeon Vega Graphics
 现在再加上视频设备号重新运行 lspci 命令：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">lspci -v -s 00:02.0
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lspci</span> -v -s 00:02.0
 </pre>
 </div></li>
 
@@ -481,15 +406,15 @@ Memory at f0000000 (32-bit, non-prefetchable)[<span style="color: #912cee; backg
 
 
 <div id="outline-container-org8cee771" class="outline-2">
-<h2 id="org8cee771"><span class="section-number-2">8</span> 进程相关命令</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="org8cee771"><span class="section-number-2">7</span> 进程相关命令</h2>
+<div class="outline-text-2" id="text-7">
 </div>
 <div id="outline-container-org52fbb51" class="outline-3">
-<h3 id="org52fbb51"><span class="section-number-3">8.1</span> ps -aux</h3>
-<div class="outline-text-3" id="text-8-1">
+<h3 id="org52fbb51"><span class="section-number-3">7.1</span> ps -aux</h3>
+<div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
-<pre class="src src-sh">ps -aux 
-ps -ef
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">ps</span> -aux 
+$<span style="color: #912cee; background-color: #dcdcdc;">ps</span> -ef
 </pre>
 </div>
 <p>
@@ -497,25 +422,25 @@ ps -ef
 后面经常加入管道符号来
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">ps -aux | grep xfce
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">ps</span> -aux | grep xfce
 </pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-org61047b3" class="outline-3">
-<h3 id="org61047b3"><span class="section-number-3">8.2</span> <span class="todo TODO">TODO</span> top</h3>
+<h3 id="org61047b3"><span class="section-number-3">7.2</span> <span class="todo TODO">TODO</span> top</h3>
 </div>
 
 <div id="outline-container-org5e2c66a" class="outline-3">
-<h3 id="org5e2c66a"><span class="section-number-3">8.3</span> kill</h3>
-<div class="outline-text-3" id="text-8-3">
+<h3 id="org5e2c66a"><span class="section-number-3">7.3</span> kill</h3>
+<div class="outline-text-3" id="text-7-3">
 <ol class="org-ol">
 <li><p>
 可以杀死进程
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">kill</span> -9 id 
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">kill</span> -9 id 
 </pre>
 </div></li>
 
@@ -523,7 +448,7 @@ ps -ef
 全部杀死进程
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">killall idname
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">killall</span> idname
 </pre>
 </div></li>
 </ol>
@@ -531,8 +456,8 @@ ps -ef
 </div>
 
 <div id="outline-container-org29de4af" class="outline-3">
-<h3 id="org29de4af"><span class="section-number-3">8.4</span> <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></h3>
-<div class="outline-text-3" id="text-8-4">
+<h3 id="org29de4af"><span class="section-number-3">7.4</span> <span class="todo TODO">TODO</span> fg | bg | &amp; | jobs<code>[1/4]</code></h3>
+<div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> fg 后面加上进程的后台号码就能够将进程前台化</li>
 <li class="off"><code>[&#xa0;]</code> bg 还不会用</li>
@@ -541,9 +466,11 @@ ps -ef
 </ul>
 </div>
 </div>
+
+
 <div id="outline-container-org290d661" class="outline-3">
-<h3 id="org290d661"><span class="section-number-3">8.5</span> Ctrl-Z | Ctrl-C</h3>
-<div class="outline-text-3" id="text-8-5">
+<h3 id="org290d661"><span class="section-number-3">7.5</span> Ctrl-Z | Ctrl-C</h3>
+<div class="outline-text-3" id="text-7-5">
 <ol class="org-ol">
 <li>Ctrl-z 是将程序挂起
 挂起后还会显示一个进程号码
@@ -556,14 +483,14 @@ ps -ef
 
 
 <div id="outline-container-orge2671a3" class="outline-2">
-<h2 id="orge2671a3"><span class="section-number-2">9</span> 网络相关呢的信息</h2>
-<div class="outline-text-2" id="text-9">
+<h2 id="orge2671a3"><span class="section-number-2">8</span> 网络相关呢的信息</h2>
+<div class="outline-text-2" id="text-8">
 </div>
 <div id="outline-container-orgab78953" class="outline-3">
-<h3 id="orgab78953"><span class="section-number-3">9.1</span> 查看网卡硬件信息</h3>
-<div class="outline-text-3" id="text-9-1">
+<h3 id="orgab78953"><span class="section-number-3">8.1</span> 查看网卡硬件信息</h3>
+<div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
-<pre class="src src-sh">lshw -C network
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lshw</span> -C network
 </pre>
 </div>
 </div>
@@ -571,11 +498,11 @@ ps -ef
 
 
 <div id="outline-container-orgcf8e67f" class="outline-3">
-<h3 id="orgcf8e67f"><span class="section-number-3">9.2</span> ifconfig</h3>
-<div class="outline-text-3" id="text-9-2">
+<h3 id="orgcf8e67f"><span class="section-number-3">8.2</span> ifconfig</h3>
+<div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
-<pre class="src src-sh">apt-get install net-tools
-sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#29616;&#23454;&#24403;&#21069;&#28608;&#27963;&#30340;&#32593;&#32476;&#31471;&#21475;&#20449;&#24687;</span>
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install net-tools
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#29616;&#23454;&#24403;&#21069;&#28608;&#27963;&#30340;&#32593;&#32476;&#31471;&#21475;&#20449;&#24687;</span>
 </pre>
 </div>
 </div>
@@ -583,7 +510,7 @@ sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span
 
 <ol class="org-ol">
 <li><a id="org55c65b1"></a>各项参数的解释<br>
-<div class="outline-text-4" id="text-9-2-1">
+<div class="outline-text-4" id="text-8-2-1">
 <table>
 
 
@@ -685,8 +612,8 @@ sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span
 </ol>
 </div>
 <div id="outline-container-org430f67a" class="outline-3">
-<h3 id="org430f67a"><span class="section-number-3">9.3</span> 查看所有的监听端口</h3>
-<div class="outline-text-3" id="text-9-3">
+<h3 id="org430f67a"><span class="section-number-3">8.3</span> 查看所有的监听端口</h3>
+<div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-sh">netstat -lntp
 </pre>
@@ -696,8 +623,8 @@ sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span
 
 
 <div id="outline-container-org55013af" class="outline-3">
-<h3 id="org55013af"><span class="section-number-3">9.4</span> 查看所有已建立的链接</h3>
-<div class="outline-text-3" id="text-9-4">
+<h3 id="org55013af"><span class="section-number-3">8.4</span> 查看所有已建立的链接</h3>
+<div class="outline-text-3" id="text-8-4">
 <div class="org-src-container">
 <pre class="src src-sh">netstat -antp
 </pre>
@@ -707,12 +634,12 @@ sudo ifconfig  <span style="color: #4f94cd; background-color: #dcdcdc;"># </span
 </div>
 
 <div id="outline-container-orge257232" class="outline-2">
-<h2 id="orge257232"><span class="section-number-2">10</span> 用户相关</h2>
-<div class="outline-text-2" id="text-10">
+<h2 id="orge257232"><span class="section-number-2">9</span> 用户相关</h2>
+<div class="outline-text-2" id="text-9">
 </div>
 <div id="outline-container-org38155c9" class="outline-3">
-<h3 id="org38155c9"><span class="section-number-3">10.1</span> 查看有多少个用户后</h3>
-<div class="outline-text-3" id="text-10-1">
+<h3 id="org38155c9"><span class="section-number-3">9.1</span> 查看有多少个用户后</h3>
+<div class="outline-text-3" id="text-9-1">
 <div class="org-src-container">
 <pre class="src src-sh">cat /etc/passwd <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;passwd&#25991;&#20214;</span>
 cut -d: -f1 /etc/passwd <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#29992;&#25143;&#21517;&#31216;</span>
@@ -723,8 +650,8 @@ cut -d: -f1 /etc/passwd | wc -l <span style="color: #4f94cd; background-color: #
 </div>
 
 <div id="outline-container-org801e4d4" class="outline-3">
-<h3 id="org801e4d4"><span class="section-number-3">10.2</span> 查看有多少个族群</h3>
-<div class="outline-text-3" id="text-10-2">
+<h3 id="org801e4d4"><span class="section-number-3">9.2</span> 查看有多少个族群</h3>
+<div class="outline-text-3" id="text-9-2">
 <div class="org-src-container">
 <pre class="src src-sh">cat /etc/group <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;group&#25991;&#20214;</span>
 cut -d: -f1 /etc/group <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#29992;&#25143;&#21517;&#31216;</span>
@@ -735,8 +662,8 @@ cut -d: -f1 /etc/group | wc -l <span style="color: #4f94cd; background-color: #d
 </div>
 
 <div id="outline-container-org052ab97" class="outline-3">
-<h3 id="org052ab97"><span class="section-number-3">10.3</span> 查看用户登录日志</h3>
-<div class="outline-text-3" id="text-10-3">
+<h3 id="org052ab97"><span class="section-number-3">9.3</span> 查看用户登录日志</h3>
+<div class="outline-text-3" id="text-9-3">
 <div class="org-src-container">
 <pre class="src src-sh">last
 </pre>
@@ -744,8 +671,8 @@ cut -d: -f1 /etc/group | wc -l <span style="color: #4f94cd; background-color: #d
 </div>
 </div>
 <div id="outline-container-org1b4d094" class="outline-3">
-<h3 id="org1b4d094"><span class="section-number-3">10.4</span> 查看用户的基本信息</h3>
-<div class="outline-text-3" id="text-10-4">
+<h3 id="org1b4d094"><span class="section-number-3">9.4</span> 查看用户的基本信息</h3>
+<div class="outline-text-3" id="text-9-4">
 <div class="org-src-container">
 <pre class="src src-sh">id &lt;usename&gt;
 </pre>
@@ -755,8 +682,8 @@ cut -d: -f1 /etc/group | wc -l <span style="color: #4f94cd; background-color: #d
 </div>
 
 <div id="outline-container-orgc298974" class="outline-2">
-<h2 id="orgc298974"><span class="section-number-2">11</span> inxi和lshw命令可以概述所有的信息</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="orgc298974"><span class="section-number-2">10</span> inxi和lshw命令可以概述所有的信息</h2>
+<div class="outline-text-2" id="text-10">
 <ol class="org-ol">
 <li><p>
 inxi 
@@ -784,8 +711,8 @@ lshw
 
 
 <div id="outline-container-org0363407" class="outline-2">
-<h2 id="org0363407"><span class="section-number-2">12</span> 查看uefi和biso的信息</h2>
-<div class="outline-text-2" id="text-12">
+<h2 id="org0363407"><span class="section-number-2">11</span> 查看uefi和biso的信息</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 这条命令显示了 UEFI 或 BIOS 的日期和版本
 </p>
@@ -797,8 +724,8 @@ lshw
 </div>
 
 <div id="outline-container-orgae3d81c" class="outline-2">
-<h2 id="orgae3d81c"><span class="section-number-2">13</span> 总结1</h2>
-<div class="outline-text-2" id="text-13">
+<h2 id="orgae3d81c"><span class="section-number-2">12</span> 总结1</h2>
+<div class="outline-text-2" id="text-12">
 <div class="org-src-container">
 <pre class="src src-sh">uname -a <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#20869;&#26680;/&#25805;&#20316;&#31995;&#32479;/CPU&#20449;&#24687;</span>
 head -n 1 /etc/issue <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25805;&#20316;&#31995;&#32479;&#29256;&#26412;</span>
@@ -840,8 +767,8 @@ rontab -l <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><spa
 </div>
 
 <div id="outline-container-orgcc0584f" class="outline-2">
-<h2 id="orgcc0584f"><span class="section-number-2">14</span> 总结2</h2>
-<div class="outline-text-2" id="text-14">
+<h2 id="orgcc0584f"><span class="section-number-2">13</span> 总结2</h2>
+<div class="outline-text-2" id="text-13">
 <div class="org-src-container">
 <pre class="src src-sh">inxi -Fxz &#25110; hwinfo --short &#25110; lshw  -short <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#25152;&#26377;&#30828;&#20214;&#20449;&#24687;   </span>
 lscpu &#25110; lshw -C cpu  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">CPU &#20449;&#24687;</span>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2020-07-15 Wed 21:48 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>linux硬盘相关的记录</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="pengshao">
+<meta name="keywords" content="hard-disk-drive">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<header>
+<h1 class="title">linux硬盘相关的记录</h1>
+</header><nav id="table-of-contents">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc66a252">1. 硬盘使用情况</a></li>
+<li><a href="#org3aef406">2. 挂载相关mount</a>
+<ul>
+<li><a href="#org4328482">2.1. 首先查看详细的信息</a></li>
+<li><a href="#orgf0332ce">2.2. 挂载</a></li>
+<li><a href="#orgf42b403">2.3. 卸载文件</a></li>
+</ul>
+</li>
+<li><a href="#orgcf97b47">3. 如何开机自动挂在硬盘在某个位置</a>
+<ul>
+<li><a href="#orgf26ebef">3.1. fstab方式自动挂载</a></li>
+<li><a href="#orgdd50886">3.2. rc.local方式自动挂载</a></li>
+</ul>
+</li>
+<li><a href="#org1677cc4">4. 开机自检相关教程</a></li>
+</ul>
+</div>
+</nav>
+
+
+
+<div id="outline-container-orgc66a252" class="outline-2">
+<h2 id="orgc66a252"><span class="section-number-2">1</span> 硬盘使用情况</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><p>
+显示每个磁盘设备的描述信息：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">lshw</span> -short -C disk 
+</pre>
+</div></li>
+
+<li><p>
+通过以下命令获取任何指定的 SATA 磁盘详细信息，例如其型号、序列号以及支持的模式和扇区数量
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">hdparm</span> -i /dev/sda
+</pre>
+</div>
+
+<p>
+当然，如果需要的话你应该将 sda 替换成 sdb 或者其他设备号。
+</p></li>
+
+<li><p>
+要列出所有磁盘及其分区和大小，请使用以下命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">lsblk</span>
+</pre>
+</div></li>
+
+<li><p>
+使用以下命令获取更多有关扇区数量、大小、文件系统 ID 和 类型以及分区开始和结束扇区：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> fdisk-l
+</pre>
+</div></li>
+
+<li><p>
+要启动 Linux，你需要确定 GRUB 引导程序的可挂载分区。你可以使用 blkid 命令找到此信息。它列出了每个分区的唯一标识符（UUID）及其文件系统类型（例如 ext3 或 ext4）：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">blkid</span>
+</pre>
+</div></li>
+
+<li><p>
+使用以下命令列出已挂载的文件系统和它们的挂载点，以及已用的空间和可用的空间（兆字节为单位）：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">df</span> -m
+</pre>
+</div></li>
+
+<li><p>
+最后，你可以列出所有的 USB 和 PCI 总线以及其他设备的详细信息：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">lsusb</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25110;&#32773; </span>
+$<span style="color: #912cee; background-color: #dcdcdc;">lspci</span>
+</pre>
+</div></li>
+
+<li><p>
+查看文件夹的使用情况和大小
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">du</span> -sh &lt;&#25991;&#20214;&#22841;&gt;
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org3aef406" class="outline-2">
+<h2 id="org3aef406"><span class="section-number-2">2</span> 挂载相关mount</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org4328482" class="outline-3">
+<h3 id="org4328482"><span class="section-number-3">2.1</span> 首先查看详细的信息</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> fdisk -l
+Disk /dev/sda&#65306;931.5 GiB&#65292;1000204886016 &#23383;&#33410;&#65292;1953525168 &#20010;&#25159;&#21306;
+Disk model: WDC WD10EZEX-75W
+&#21333;&#20803;&#65306;&#25159;&#21306; / 1 * 512 = 512 &#23383;&#33410;
+<span style="color: #0000cd; background-color: #dcdcdc;">&#25159;&#21306;&#22823;&#23567;</span>(&#36923;&#36753;/&#29289;&#29702;)&#65306;512 &#23383;&#33410; / 4096 &#23383;&#33410;
+I/O &#22823;&#23567;(&#26368;&#23567;/&#26368;&#20339;)&#65306;4096 &#23383;&#33410; / 4096 &#23383;&#33410;
+&#30913;&#30424;&#26631;&#31614;&#31867;&#22411;&#65306;gpt
+&#30913;&#30424;&#26631;&#35782;&#31526;&#65306;484C761A-90F3-41D0-B721-78E9E6B2E437
+
+&#35774;&#22791;           &#36215;&#28857;       &#26411;&#23614;       &#25159;&#21306;   &#22823;&#23567; &#31867;&#22411;
+/dev/sda1      2048    1050623    1048576   512M EFI &#31995;&#32479;
+/dev/sda2   1050624   59643903   58593280    28G Linux &#25991;&#20214;&#31995;&#32479;
+/dev/sda3  59643904   67926015    8282112     4G Linux swap
+/dev/sda4  67926016 1953523711 1885597696 899.1G Linux &#25991;&#20214;&#31995;&#32479;
+
+
+Disk /dev/sdb&#65306;931.5 GiB&#65292;1000204886016 &#23383;&#33410;&#65292;1953525168 &#20010;&#25159;&#21306;
+Disk model: WDC WD10PURX-69K
+&#21333;&#20803;&#65306;&#25159;&#21306; / 1 * 512 = 512 &#23383;&#33410;
+<span style="color: #0000cd; background-color: #dcdcdc;">&#25159;&#21306;&#22823;&#23567;</span>(&#36923;&#36753;/&#29289;&#29702;)&#65306;512 &#23383;&#33410; / 4096 &#23383;&#33410;
+I/O &#22823;&#23567;(&#26368;&#23567;/&#26368;&#20339;)&#65306;4096 &#23383;&#33410; / 4096 &#23383;&#33410;
+&#30913;&#30424;&#26631;&#31614;&#31867;&#22411;&#65306;dos
+&#30913;&#30424;&#26631;&#35782;&#31526;&#65306;0xa58fc54c
+
+&#35774;&#22791;       &#21551;&#21160;       &#36215;&#28857;       &#26411;&#23614;       &#25159;&#21306;   &#22823;&#23567; Id &#31867;&#22411;
+/dev/sdb1             2048 1953523711 1953521664 931.5G  f W95 &#25193;&#23637; (LBA)
+/dev/sdb5             4096 1048582143 1048578048   500G  7 HPFS/NTFS/exFAT
+/dev/sdb6       1048584192 1953523711  904939520 431.5G  7 HPFS/NTFS/exFAT
+
+
+Disk /dev/sdc&#65306;111.8 GiB&#65292;120034123776 &#23383;&#33410;&#65292;234441648 &#20010;&#25159;&#21306;
+Disk model: ZSPEED SSD 120GB
+&#21333;&#20803;&#65306;&#25159;&#21306; / 1 * 512 = 512 &#23383;&#33410;
+<span style="color: #0000cd; background-color: #dcdcdc;">&#25159;&#21306;&#22823;&#23567;</span>(&#36923;&#36753;/&#29289;&#29702;)&#65306;512 &#23383;&#33410; / 512 &#23383;&#33410;
+I/O &#22823;&#23567;(&#26368;&#23567;/&#26368;&#20339;)&#65306;512 &#23383;&#33410; / 512 &#23383;&#33410;
+&#30913;&#30424;&#26631;&#31614;&#31867;&#22411;&#65306;gpt
+&#30913;&#30424;&#26631;&#35782;&#31526;&#65306;56D5CC38-DA22-47F1-8551-1E1AB2966508
+
+&#35774;&#22791;         &#36215;&#28857;      &#26411;&#23614;      &#25159;&#21306;   &#22823;&#23567; &#31867;&#22411;
+/dev/sdc1    2048    616447    614400   300M EFI &#31995;&#32479;
+/dev/sdc2  616448    878591    262144   128M Microsoft &#20445;&#30041;
+/dev/sdc3  878592 234441614 233563023 111.4G Microsoft &#22522;&#26412;&#25968;&#25454;
+
+
+Disk /dev/sdd&#65306;7.2 GiB&#65292;7775191040 &#23383;&#33410;&#65292;15185920 &#20010;&#25159;&#21306;
+Disk model: USB Flash Drive 
+&#21333;&#20803;&#65306;&#25159;&#21306; / 1 * 512 = 512 &#23383;&#33410;
+<span style="color: #0000cd; background-color: #dcdcdc;">&#25159;&#21306;&#22823;&#23567;</span>(&#36923;&#36753;/&#29289;&#29702;)&#65306;512 &#23383;&#33410; / 512 &#23383;&#33410;
+I/O &#22823;&#23567;(&#26368;&#23567;/&#26368;&#20339;)&#65306;512 &#23383;&#33410; / 512 &#23383;&#33410;
+&#30913;&#30424;&#26631;&#31614;&#31867;&#22411;&#65306;dos
+&#30913;&#30424;&#26631;&#35782;&#31526;&#65306;0x00041f8a
+
+&#35774;&#22791;       &#21551;&#21160;  &#36215;&#28857;     &#26411;&#23614;     &#25159;&#21306;  &#22823;&#23567; Id &#31867;&#22411;
+/dev/sdd1  *     2048 15185919 15183872  7.2G  c W95 FAT32 (LBA)
+
+</pre>
+</div>
+
+<p>
+查看那个硬盘的那个分区,的代号是什么.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf0332ce" class="outline-3">
+<h3 id="orgf0332ce"><span class="section-number-3">2.2</span> 挂载</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs-3g /dev/sdb6 ./temp/mount-temp/sdb6
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs-3g /dev/sdb5 ./***
+</pre>
+</div>
+<p>
+使用了mount.ntfs-3g来挂在的ntfs格式的分区就能够读写挂载了.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf42b403" class="outline-3">
+<h3 id="orgf42b403"><span class="section-number-3">2.3</span> 卸载文件</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li><p>
+通过设备名称卸载
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> umount -v /dev/sdb5
+</pre>
+</div></li>
+<li><p>
+通过挂在点卸载
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> umount -v  ./***
+</pre>
+</div></li>
+</ol>
+<p>
+-v选项为显示详细信息
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcf97b47" class="outline-2">
+<h2 id="orgcf97b47"><span class="section-number-2">3</span> 如何开机自动挂在硬盘在某个位置</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgf26ebef" class="outline-3">
+<h3 id="orgf26ebef"><span class="section-number-3">3.1</span> fstab方式自动挂载</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li><p>
+首先
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span>  blkid 
+/dev/sda1: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"B4BC-C378"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"vfat"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"f8bd88ba-dc1e-4e98-b84b-8bdc7d24ec95"</span>
+/dev/sda2: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"6a677709-f8fc-415a-98ad-9754192e54c9"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ext4"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"11ee69aa-7e90-499d-b421-a3009dd79bca"</span>
+/dev/sda3: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"5ff07536-bfde-482e-b4ea-571a9abc16be"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"swap"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"f408f7e7-b5a5-42e3-8c9b-87275121a3d9"</span>
+/dev/sda4: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"083aa363-750a-40b0-8f6f-f90adfde2e78"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ext4"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"9137ac47-a767-4b7c-9ba2-4bce12d800ac"</span>
+/dev/sdb5: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"DA18EBFA09C1B27D"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"a58fc54c-05"</span>
+/dev/sdb6: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"65F33762C14D581B"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"a58fc54c-06"</span>
+/dev/sdc1: <span style="color: #912cee; background-color: #dcdcdc;">SEC_TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"msdos"</span> <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"6004-51AA"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"vfat"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"EFI system partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"b8d94594-0025-4de4-88e0-77d9b922a4b1"</span>
+/dev/sdc2: <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"Microsoft reserved partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"1dd0244c-87d2-46b8-8c57-794f95efb7cf"</span>
+/dev/sdc3: <span style="color: #912cee; background-color: #dcdcdc;">UUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"9A5C8C9C5C8C74B3"</span> <span style="color: #912cee; background-color: #dcdcdc;">TYPE</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"ntfs"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTLABEL</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"Basic data partition"</span> <span style="color: #912cee; background-color: #dcdcdc;">PARTUUID</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"7792379f-f0c9-4d49-a394-976f6bd9a967"</span>
+</pre>
+</div>
+
+<p>
+然后查看fstab文件
+</p>
+<pre class="example">
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+# / was on /dev/sda2 during installation
+UUID=6a677709-f8fc-415a-98ad-9754192e54c9 /               ext4    errors=remount-ro 0      1
+# /boot/efi was on /dev/sda1 during installation
+UUID=B4BC-C378  /boot/efi       vfat    umask=0077      0       1
+# /home was on /dev/sda4 during installation
+UUID=083aa363-750a-40b0-8f6f-f90adfde2e78 /home           ext4    defaults        0       2
+# swap was on /dev/sda3 during installation
+UUID=5ff07536-bfde-482e-b4ea-571a9abc16be none            swap    sw              0       0
+
+
+#/dev/sdc1 /home/pengshao/ps-backup/ ext4 defaules 1 0
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+# / was on /dev/sda2 during installation
+UUID=6a677709-f8fc-415a-98ad-9754192e54c9 /               ext4    errors=remount-ro 0      1
+# /boot/efi was on /dev/sda1 during installation
+UUID=B4BC-C378  /boot/efi       vfat    umask=0077      0       1
+# /home was on /dev/sda4 during installation
+UUID=083aa363-750a-40b0-8f6f-f90adfde2e78 /home           ext4    defaults        0       2
+# swap was on /dev/sda3 during installation
+UUID=5ff07536-bfde-482e-b4ea-571a9abc16be none            swap    sw              0       0
+
+
+#/dev/sdc1 /home/pengshao/ps-backup/ ext4 defaules 1 0
+
+</pre>
+
+<p>
+显示出分区信息，记下要自动挂载的分区 UUID，与 Type。
+第一列可以是实际分区名，也可以是实际分区的卷标（Lable）。
+</p>
+
+<p>
+如果磁盘是SATA接口，且有多个磁盘，则每个磁盘被标记为 /dev/hda 、 /dev/hdb、 /dev/hdc 等以此类推；而每个磁盘的分区被标记为 /dev/hda1、 /dev/hda2等。
+</p>
+
+<p>
+如果磁盘是SCSI类型，则多个磁盘会被分别标记为 /dev/sda、/dev/sdb等等。分区同理。
+</p>
+
+<p>
+如果使用标签来表示，则格式如：
+</p>
+
+<p>
+LABLE=/
+</p>
+
+<p>
+第二列是挂载点。
+</p>
+
+<p>
+挂载点必须为当前已经存在的目录，为了兼容起见，最好在创建需要挂载的目标目录后，将其权限设置为777，以开放所有权限。
+</p>
+
+<p>
+第三列为此分区的文件系统类型。
+</p>
+
+<p>
+Linux可以使用ext2、ext3等类型，此字段须与分区格式化时使用的类型相同。也可以使用 auto 这一特殊的语法，使系统自动侦测目标分区的分区类型。auto通常用于可移动设备的挂载。
+</p>
+
+<p>
+第四列是挂载的选项，用于设置挂载的参数。
+</p>
+
+<p>
+常见参数如下：
+</p>
+<pre class="example">
+auto: 系统自动挂载，fstab默认就是这个选项
+defaults: rw, suid, dev, exec, auto, nouser, and async.
+noauto 开机不自动挂载
+nouser 只有超级用户可以挂载
+ro 按只读权限挂载
+rw 按可读可写权限挂载
+user 任何用户都可以挂载
+</pre>
+
+<p>
+请注意光驱和软驱只有在装有介质时才可以进行挂载，因此它是noauto
+</p>
+
+<p>
+第五列是dump备份设置。
+</p>
+
+<p>
+当其值设置为1时，将允许dump备份程序备份；设置为0时，忽略备份操作；
+</p>
+
+<p>
+第六列是fsck磁盘检查设置。
+</p>
+
+<p>
+其值是一个顺序。当其值为0时，永远不检查；而 / 根目录分区永远都为1。其它分区从2开始，数字越小越先检查，如果两个分区的数字相同，则同时检查。
+</p>
+
+<p>
+当修改完此文件并保存后，重启服务器生效。
+</p></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+在文件系统中创建文件夹作为分区的挂载点
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">mkdir</span> ~/HDD
+</pre>
+</div></li>
+<li><p>
+然后
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> emacs /etc/fstab
+</pre>
+</div></li>
+<li><p>
+在最后添加一行
+</p>
+<pre class="example">
+UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
+</pre>
+<p>
+替换其中的 &lt;UUID&gt; 与 &lt;Type&gt; 为之前的查询结果，重启电脑，则分区已经挂载在 ~/HDD 目录下。
+</p></li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgdd50886" class="outline-3">
+<h3 id="orgdd50886"><span class="section-number-3">3.2</span> rc.local方式自动挂载</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="orge3b9e4c"></a>添加rc.local文件<br>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Debian 10和Debian 9一样，没有rc.local文件，导致我们有一些脚本无法设置开机启动，其实rc.local文件在debian 10里面默认没有启动而已。
+</p>
+
+<p>
+输入命令：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">systemctl</span> status rc-local
+
+ rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; static; vendor preset: enabled)
+  Drop-In: /usr/lib/systemd/system/rc-local.service.d
+           &#9492;&#9472;debian.conf
+   Active: inactive (dead)
+     Docs: man:systemd-rc-local-generator(8)
+
+</pre>
+</div>
+
+<p>
+手动增加一个rc.local文件
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">emacs</span> /etc/rc.local
+</pre>
+</div>
+
+
+<p>
+输入
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">!/bin/sh -e</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">rc.local</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">This script is executed at the end of each multiuser runlevel.</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">Make sure that the script will "exit 0" on success or any other</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">value on error.</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">In order to enable or disable this script just change the execution</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">bits.</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">By default this script does nothing.</span>
+
+<span style="color: #cd0000; background-color: #dcdcdc;">exit</span> 0
+</pre>
+</div>
+
+<p>
+给上权限
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">chmod</span> +x /etc/rc.local
+</pre>
+</div>
+
+
+<p>
+启动rc.local
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">systemctl</span> start rc.local
+</pre>
+</div>
+</div>
+</li>
+
+
+<li><a id="org3591479"></a>便捷rc.local文件<br></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org1677cc4" class="outline-2">
+<h2 id="org1677cc4"><span class="section-number-2">4</span> 开机自检相关教程</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>
