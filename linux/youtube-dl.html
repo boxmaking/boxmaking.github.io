@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-08-07 Fri 22:32 -->
+<!-- 2020-12-20 Sun 20:05 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>youtube-dl使用教程</title>
@@ -16,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -71,14 +71,15 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orga21d278">1. youtube-dl+ffmpeg安装</a></li>
-<li><a href="#org23f9351">2. youtube-dl使用代理</a></li>
-<li><a href="#org8aa4146">3. 调用arai2,下载</a></li>
-<li><a href="#org8840b06">4. youtube-dl下载格式相关</a></li>
-<li><a href="#orgabbf3e7">5. 批量下载的参数</a></li>
-<li><a href="#org466e3e2">6. 下载youtube播放列表</a></li>
-<li><a href="#org3f5d802">7. 常用参数</a></li>
-<li><a href="#orgf780590">8. CONFIGURATION</a></li>
-<li><a href="#org295457e">9. man youtube-dl</a></li>
+<li><a href="#org2850f02">2. 更新到最新版</a></li>
+<li><a href="#org23f9351">3. youtube-dl使用代理</a></li>
+<li><a href="#org8aa4146">4. 调用arai2,下载</a></li>
+<li><a href="#org8840b06">5. youtube-dl下载格式相关</a></li>
+<li><a href="#orgabbf3e7">6. 批量下载的参数</a></li>
+<li><a href="#org466e3e2">7. 下载youtube播放列表</a></li>
+<li><a href="#org3f5d802">8. 常用参数</a></li>
+<li><a href="#orgf780590">9. CONFIGURATION</a></li>
+<li><a href="#org295457e">10. man youtube-dl</a></li>
 </ul>
 </div>
 </nav>
@@ -120,9 +121,18 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> chmod a+rx
 </div>
 
 
-<div id="outline-container-org23f9351" class="outline-2">
-<h2 id="org23f9351"><span class="section-number-2">2</span> youtube-dl使用代理</h2>
+<div id="outline-container-org2850f02" class="outline-2">
+<h2 id="org2850f02"><span class="section-number-2">2</span> 更新到最新版</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+sudo apt-get youtube-dl -U
+</p>
+</div>
+</div>
+
+<div id="outline-container-org23f9351" class="outline-2">
+<h2 id="org23f9351"><span class="section-number-2">3</span> youtube-dl使用代理</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">socks5&#20195;&#29702;</span>
 $<span style="color: #912cee; background-color: #dcdcdc;">youtube</span>-dl --proxy socks5://127.0.0.1:1090 https://www.youtube.com/watch?<span style="color: #912cee; background-color: #dcdcdc;">v</span>=6_gLU_OStK0
@@ -151,8 +161,8 @@ $<span style="color: #912cee; background-color: #dcdcdc;">youtube</span>-dl --pr
 
 
 <div id="outline-container-org8aa4146" class="outline-2">
-<h2 id="org8aa4146"><span class="section-number-2">3</span> 调用arai2,下载</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org8aa4146"><span class="section-number-2">4</span> 调用arai2,下载</h2>
+<div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19979;&#36733;&#25903;&#25345;&#22359;&#25991;&#20214;&#30340;&#35270;&#39057;.</span>
 $<span style="color: #912cee; background-color: #dcdcdc;">youtube</span>-dl url --external-downloader aria2c --external-downloader-args <span style="color: #00cd66; background-color: #dcdcdc;">"-x 16 -k 1M"</span>
@@ -197,8 +207,8 @@ $<span style="color: #912cee; background-color: #dcdcdc;">youtube</span>-dl url 
 
 
 <div id="outline-container-org8840b06" class="outline-2">
-<h2 id="org8840b06"><span class="section-number-2">4</span> youtube-dl下载格式相关</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org8840b06"><span class="section-number-2">5</span> youtube-dl下载格式相关</h2>
+<div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li><p>
 用以下代码查看可供下载的格式：
@@ -345,8 +355,8 @@ Youtube-dl 支持以下品质：
 
 
 <div id="outline-container-orgabbf3e7" class="outline-2">
-<h2 id="orgabbf3e7"><span class="section-number-2">5</span> 批量下载的参数</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="orgabbf3e7"><span class="section-number-2">6</span> 批量下载的参数</h2>
+<div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li>将链接全部保存到一个文本文件里
 一行一个URL</li>
@@ -370,8 +380,8 @@ Youtube-dl 支持以下品质：
 
 
 <div id="outline-container-org466e3e2" class="outline-2">
-<h2 id="org466e3e2"><span class="section-number-2">6</span> 下载youtube播放列表</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="org466e3e2"><span class="section-number-2">7</span> 下载youtube播放列表</h2>
+<div class="outline-text-2" id="text-7">
 <pre class="example">
 youtube-dl -cit https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHRZqpB8fIW
 </pre>
@@ -403,8 +413,8 @@ youtube-dl -cit -f mp4  https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7z
 
 
 <div id="outline-container-org3f5d802" class="outline-2">
-<h2 id="org3f5d802"><span class="section-number-2">7</span> 常用参数</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="org3f5d802"><span class="section-number-2">8</span> 常用参数</h2>
+<div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-shell">youtube-dl --list-extractors     <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25903;&#25345;&#32593;&#31449;&#21015;&#34920;</span>
 youtube-dl -U        <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31243;&#24207;&#21319;&#32423;</span>
@@ -426,8 +436,8 @@ youtube-dl -f 22 http://www.youtube.com/watch?<span style="color: #912cee; backg
 
 
 <div id="outline-container-orgf780590" class="outline-2">
-<h2 id="orgf780590"><span class="section-number-2">8</span> CONFIGURATION</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="orgf780590"><span class="section-number-2">9</span> CONFIGURATION</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 On Linux and macOS
 </p>
@@ -442,6 +452,7 @@ On Linux and macOS
 </p>
 
 <p>
+#-o "%(title)s-%(id)s.%(ext)s" 
 #-o ~/temp/movie/
 </p>
 
@@ -468,8 +479,8 @@ You can also use "&#x2013;config-location PATH" if you want to use custom config
 
 
 <div id="outline-container-org295457e" class="outline-2">
-<h2 id="org295457e"><span class="section-number-2">9</span> man youtube-dl</h2>
-<div class="outline-text-2" id="text-9">
+<h2 id="org295457e"><span class="section-number-2">10</span> man youtube-dl</h2>
+<div class="outline-text-2" id="text-10">
 <pre class="example">
 Usage: youtube-dl [OPTIONS] URL [URL...]
 
