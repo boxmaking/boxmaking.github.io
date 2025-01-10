@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-08 Fri 22:06 -->
+<!-- 2025-01-10 Fri 21:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PengShao's BLOG!</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="pengshao" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +41,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -161,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -177,65 +191,18 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">PengShao's BLOG!</h1>
 <ul class="org-ul">
 <li><a href="README.html">README</a></li>
 <li><a href="index.html">index</a></li>
 <li>android
 <ul class="org-ul">
-<li><a href="android/don't-to-app.html">未整理的linux学习笔记</a></li>
+<li><a href="android/don't-to-app.html">android网页打开连接时不进行app跳转的方法</a></li>
 </ul></li>
 <li>c
 <ul class="org-ul">
@@ -254,7 +221,6 @@ for the JavaScript code in this tag.
 <li><a href="emacs/emacs-proxy.html">emacs使用代理教程</a></li>
 <li><a href="emacs/emacs-letter-upper-lower.html">emacs大小写转换的快捷键</a></li>
 <li><a href="emacs/emacs-help.html">emacs帮助系统</a></li>
-<li><a href="emacs/youdao-dictionary.html">emacs添加有道辞典教程</a></li>
 <li><a href="emacs/root-configuration.html">root用户使用自定义的配置</a></li>
 <li><a href="emacs/sr-speedbar.html">sr-speedbar使用教程</a></li>
 </ul></li>
@@ -298,7 +264,7 @@ for the JavaScript code in this tag.
 <li><a href="linux/proxychains4.html">proxychains4使用教程</a></li>
 <li><a href="linux/root-completion.html">root-completion</a></li>
 <li><a href="linux/scrot.html">scrot-tutorial:一个截屏软件教程</a></li>
-<li><a href="linux/shell-initfile.html">shell的初始化文件</a></li>
+<li><a href="linux/shell-initfile.html">shell的初始化文件 emacs-tutorial</a></li>
 <li><a href="linux/tar.html">tar命令详细功能和格式&#x2014;ar解压缩deb文件</a></li>
 <li><a href="linux/tree.html">tree-详解</a></li>
 <li><a href="linux/wget.html">wget-用法详解释</a></li>
@@ -335,7 +301,6 @@ for the JavaScript code in this tag.
 <li><a href="mylife/telephone.html">手机</a></li>
 <li><a href="mylife/nolie.html">给我一个永远的谎言，说你还没有忘记我</a></li>
 <li><a href="mylife/30.html">而立之年</a></li>
-<li><a href="mylife/芝加哥没有海.html">芝加哥没有海,但牡蛎带来了海</a></li>
 <li><a href="mylife/the-rain.html">花玻璃外的雨点&#x2013;我的亲情回忆</a></li>
 <li><a href="mylife/predawn-suzhou.html">黎明前的苏州城</a></li>
 </ul></li>

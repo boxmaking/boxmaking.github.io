@@ -1,98 +1,52 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-12-08 Tue 22:00 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux硬盘相关的记录</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="hard-disk-drive">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="hard-disk-drive" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">linux硬盘相关的记录</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc66a252">1. 硬盘使用情况</a></li>
-<li><a href="#org3aef406">2. 挂载相关mount</a>
+<li><a href="#org9f60e56">1. 硬盘使用情况</a></li>
+<li><a href="#org38eb09a">2. 挂载相关mount</a>
 <ul>
-<li><a href="#org4328482">2.1. 首先查看详细的信息</a></li>
-<li><a href="#orgf0332ce">2.2. 挂载</a></li>
-<li><a href="#orgf42b403">2.3. 卸载文件</a></li>
+<li><a href="#org998f438">2.1. 首先查看详细的信息</a></li>
+<li><a href="#org1e245ab">2.2. 挂载</a></li>
+<li><a href="#org56a4608">2.3. 卸载文件</a></li>
 </ul>
 </li>
-<li><a href="#orgcf97b47">3. 如何开机自动挂在硬盘在某个位置</a>
+<li><a href="#orgaa1e5bb">3. 如何开机自动挂在硬盘在某个位置</a>
 <ul>
-<li><a href="#orgf26ebef">3.1. fstab方式自动挂载</a></li>
-<li><a href="#org5631220">3.2. rc.local方式自动挂载 推荐方式.</a></li>
+<li><a href="#org825dcc1">3.1. fstab方式自动挂载</a></li>
+<li><a href="#org87852cb">3.2. rc.local方式自动挂载 推荐方式.</a></li>
 </ul>
 </li>
-<li><a href="#org1677cc4">4. 开机自检相关教程</a></li>
+<li><a href="#org3f91985">4. 开机自检相关教程</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-orgc66a252" class="outline-2">
-<h2 id="orgc66a252"><span class="section-number-2">1</span> 硬盘使用情况</h2>
+<div id="outline-container-org9f60e56" class="outline-2">
+<h2 id="org9f60e56"><span class="section-number-2">1.</span> 硬盘使用情况</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -169,12 +123,12 @@ $<span style="color: #912cee; background-color: #dcdcdc;">lspci</span>
 </div>
 
 
-<div id="outline-container-org3aef406" class="outline-2">
-<h2 id="org3aef406"><span class="section-number-2">2</span> 挂载相关mount</h2>
+<div id="outline-container-org38eb09a" class="outline-2">
+<h2 id="org38eb09a"><span class="section-number-2">2.</span> 挂载相关mount</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4328482" class="outline-3">
-<h3 id="org4328482"><span class="section-number-3">2.1</span> 首先查看详细的信息</h3>
+<div id="outline-container-org998f438" class="outline-3">
+<h3 id="org998f438"><span class="section-number-3">2.1.</span> 首先查看详细的信息</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> fdisk -l
@@ -242,8 +196,8 @@ I/O &#22823;&#23567;(&#26368;&#23567;/&#26368;&#20339;)&#65306;512 &#23383;&#334
 </div>
 
 
-<div id="outline-container-orgf0332ce" class="outline-3">
-<h3 id="orgf0332ce"><span class="section-number-3">2.2</span> 挂载</h3>
+<div id="outline-container-org1e245ab" class="outline-3">
+<h3 id="org1e245ab"><span class="section-number-3">2.2.</span> 挂载</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs-3g /dev/sdb6 ./temp/mount-temp/sdb6
@@ -257,8 +211,8 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs
 </div>
 
 
-<div id="outline-container-orgf42b403" class="outline-3">
-<h3 id="orgf42b403"><span class="section-number-3">2.3</span> 卸载文件</h3>
+<div id="outline-container-org56a4608" class="outline-3">
+<h3 id="org56a4608"><span class="section-number-3">2.3.</span> 卸载文件</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li><p>
@@ -284,12 +238,12 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs
 </div>
 
 
-<div id="outline-container-orgcf97b47" class="outline-2">
-<h2 id="orgcf97b47"><span class="section-number-2">3</span> 如何开机自动挂在硬盘在某个位置</h2>
+<div id="outline-container-orgaa1e5bb" class="outline-2">
+<h2 id="orgaa1e5bb"><span class="section-number-2">3.</span> 如何开机自动挂在硬盘在某个位置</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf26ebef" class="outline-3">
-<h3 id="orgf26ebef"><span class="section-number-3">3.1</span> fstab方式自动挂载</h3>
+<div id="outline-container-org825dcc1" class="outline-3">
+<h3 id="org825dcc1"><span class="section-number-3">3.1.</span> fstab方式自动挂载</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li><p>
@@ -312,7 +266,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> mount.ntfs
 <p>
 然后查看fstab文件
 </p>
-<pre class="example">
+<pre class="example" id="orgd0bb1e8">
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
@@ -396,7 +350,7 @@ Linux可以使用ext2、ext3等类型，此字段须与分区格式化时使用�
 <p>
 常见参数如下：
 </p>
-<pre class="example">
+<pre class="example" id="orgd0e0173">
 auto: 系统自动挂载，fstab默认就是这个选项
 defaults: rw, suid, dev, exec, auto, nouser, and async.
 noauto 开机不自动挂载
@@ -450,7 +404,7 @@ user 任何用户都可以挂载
 <li><p>
 在最后添加一行
 </p>
-<pre class="example">
+<pre class="example" id="orga84c141">
 UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 </pre>
 <p>
@@ -463,12 +417,12 @@ UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 
 
 
-<div id="outline-container-org5631220" class="outline-3">
-<h3 id="org5631220"><span class="section-number-3">3.2</span> rc.local方式自动挂载 推荐方式.</h3>
+<div id="outline-container-org87852cb" class="outline-3">
+<h3 id="org87852cb"><span class="section-number-3">3.2.</span> rc.local方式自动挂载 推荐方式.</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="orge3b9e4c"></a>添加rc.local文件<br>
+<li><a id="orgc6b0967"></a>添加rc.local文件<br>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Debian 10和Debian 9一样，没有rc.local文件，导致我们有一些脚本无法设置开机启动，其实rc.local文件在debian 10里面默认没有启动而已。
@@ -547,17 +501,17 @@ mount  /dev/sdd3 /home/mount-temp/sdd3/
 </li>
 
 
-<li><a id="org3591479"></a>便捷rc.local文件<br></li>
+<li><a id="org3f51f14"></a>便捷rc.local文件<br></li>
 </ol>
 </div>
 </div>
 
 
 
-<div id="outline-container-org1677cc4" class="outline-2">
-<h2 id="org1677cc4"><span class="section-number-2">4</span> 开机自检相关教程</h2>
+<div id="outline-container-org3f91985" class="outline-2">
+<h2 id="org3f91985"><span class="section-number-2">4.</span> 开机自检相关教程</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example">
+<pre class="example" id="org72d1aa2">
 sudo fdisk -l
 [sudo] pengshao 的密码：
 Disk /dev/sdc：931.5 GiB，1000204886016 字节，1953525168 个扇区

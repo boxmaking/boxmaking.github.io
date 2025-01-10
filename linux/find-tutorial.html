@@ -1,85 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>find-tutorial</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="linux-find, find">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux-find, find" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">find-tutorial</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org97d435c">1. find 常用命令</a></li>
-<li><a href="#org4428144">2. exec与xargs区别</a>
+<li><a href="#orgb9c5c05">1. find 常用命令</a></li>
+<li><a href="#org20749d6">2. exec与xargs区别</a>
 <ul>
-<li><a href="#orgf43c5b3">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
-<li><a href="#orgda17ccf">2.2. 出各自的缺点</a></li>
+<li><a href="#org56deb23">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
+<li><a href="#org0df5664">2.2. 出各自的缺点</a></li>
 </ul>
 </li>
-<li><a href="#org443fa00">3. -exec使用教程</a>
+<li><a href="#orgfdc034d">3. -exec使用教程</a>
 <ul>
-<li><a href="#org071d70a">3.1. exec参数说明</a></li>
+<li><a href="#org22556b0">3.1. exec参数说明</a></li>
 </ul>
 </li>
 </ul>
@@ -87,8 +41,8 @@ for the JavaScript code in this tag.
 </nav>
 
 
-<div id="outline-container-org97d435c" class="outline-2">
-<h2 id="org97d435c"><span class="section-number-2">1</span> find 常用命令</h2>
+<div id="outline-container-orgb9c5c05" class="outline-2">
+<h2 id="orgb9c5c05"><span class="section-number-2">1.</span> find 常用命令</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一般格式： find+目录名称+参数
@@ -301,12 +255,12 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org4428144" class="outline-2">
-<h2 id="org4428144"><span class="section-number-2">2</span> exec与xargs区别</h2>
+<div id="outline-container-org20749d6" class="outline-2">
+<h2 id="org20749d6"><span class="section-number-2">2.</span> exec与xargs区别</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf43c5b3" class="outline-3">
-<h3 id="orgf43c5b3"><span class="section-number-3">2.1</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
+<div id="outline-container-org56deb23" class="outline-3">
+<h3 id="org56deb23"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>-exec：{}表示命令的参数即为所找到的文件,以；表示comman命令的结束。\是转义符，
@@ -376,8 +330,8 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 </div>
 
 
-<div id="outline-container-orgda17ccf" class="outline-3">
-<h3 id="orgda17ccf"><span class="section-number-3">2.2</span> 出各自的缺点</h3>
+<div id="outline-container-org0df5664" class="outline-3">
+<h3 id="org0df5664"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li>exec 每处理一个文件或者目录，它都需要启动一次命令，效率不好;</li>
@@ -389,8 +343,8 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 </div>
 
 
-<div id="outline-container-org443fa00" class="outline-2">
-<h2 id="org443fa00"><span class="section-number-2">3</span> -exec使用教程</h2>
+<div id="outline-container-orgfdc034d" class="outline-2">
+<h2 id="orgfdc034d"><span class="section-number-2">3.</span> -exec使用教程</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 综上，如果要使用的命令支持一次处理多个文件，并且也知道这些文件里没有带空格的文件，
@@ -398,8 +352,8 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 </p>
 </div>
 
-<div id="outline-container-org071d70a" class="outline-3">
-<h3 id="org071d70a"><span class="section-number-3">3.1</span> exec参数说明</h3>
+<div id="outline-container-org22556b0" class="outline-3">
+<h3 id="org22556b0"><span class="section-number-3">3.1.</span> exec参数说明</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 -exec 参数后面跟的是command命令

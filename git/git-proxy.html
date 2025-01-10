@@ -1,87 +1,41 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:17 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git使用代理教程</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="git-proxy">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="git-proxy" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">git使用代理教程</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org33880dd">1. 基本设置</a></li>
-<li><a href="#org49e4d25">2. socks5设置</a></li>
-<li><a href="#org9b46fb1">3. http设置,设置了socks5可忽略</a></li>
-<li><a href="#org835813a">4. 针对 github.com 的单独配置：</a></li>
-<li><a href="#org69043a5">5. 取消代理</a></li>
+<li><a href="#org3c5d2a0">1. 基本设置</a></li>
+<li><a href="#orgbc30ba6">2. socks5设置</a></li>
+<li><a href="#orge0ec218">3. http设置,设置了socks5可忽略</a></li>
+<li><a href="#org49e2d6b">4. 针对 github.com 的单独配置：</a></li>
+<li><a href="#orge8b91e5">5. 取消代理</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org33880dd" class="outline-2">
-<h2 id="org33880dd"><span class="section-number-2">1</span> 基本设置</h2>
+<div id="outline-container-org3c5d2a0" class="outline-2">
+<h2 id="org3c5d2a0"><span class="section-number-2">1.</span> 基本设置</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 不需要设置https,反正我设置了心理安慰吧
@@ -103,8 +57,8 @@ git config --global --get http.proxy
 </div>
 
 
-<div id="outline-container-org49e4d25" class="outline-2">
-<h2 id="org49e4d25"><span class="section-number-2">2</span> socks5设置</h2>
+<div id="outline-container-orgbc30ba6" class="outline-2">
+<h2 id="orgbc30ba6"><span class="section-number-2">2.</span> socks5设置</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">git config --global http.proxy socks5://127.0.0.1:1090
@@ -113,8 +67,8 @@ git config --global https.proxy socks5://127.0.0.1:1090
 </div>
 </div>
 </div>
-<div id="outline-container-org9b46fb1" class="outline-2">
-<h2 id="org9b46fb1"><span class="section-number-2">3</span> http设置,设置了socks5可忽略</h2>
+<div id="outline-container-orge0ec218" class="outline-2">
+<h2 id="orge0ec218"><span class="section-number-2">3.</span> http设置,设置了socks5可忽略</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20165;&#20165;&#38024;&#23545;http</span>
@@ -125,8 +79,8 @@ git config --global https.proxy https://127.0.0.1:41091
 </div>
 </div>
 
-<div id="outline-container-org835813a" class="outline-2">
-<h2 id="org835813a"><span class="section-number-2">4</span> 针对 github.com 的单独配置：</h2>
+<div id="outline-container-org49e2d6b" class="outline-2">
+<h2 id="org49e2d6b"><span class="section-number-2">4.</span> 针对 github.com 的单独配置：</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">socks5&#21327;&#35758;&#65292;1080&#31471;&#21475;&#20462;&#25913;&#25104;&#33258;&#24049;&#30340;&#26412;&#22320;&#20195;&#29702;&#31471;&#21475;</span>
@@ -142,8 +96,8 @@ git config --global https.https://github.com.proxy https://127.0.0.1:41091
 </div>
 
 
-<div id="outline-container-org69043a5" class="outline-2">
-<h2 id="org69043a5"><span class="section-number-2">5</span> 取消代理</h2>
+<div id="outline-container-orge8b91e5" class="outline-2">
+<h2 id="orge8b91e5"><span class="section-number-2">5.</span> 取消代理</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">reset &#20195;&#29702;&#35774;&#32622;</span>

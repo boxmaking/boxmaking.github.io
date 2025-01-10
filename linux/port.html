@@ -1,78 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux查看端口进程几种方法</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="linux-command, linux">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux-command, linux" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">linux查看端口进程几种方法</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org979cc01">1. netstat</a></li>
-<li><a href="#org18aeadb">2. ss</a></li>
-<li><a href="#org33fbd4c">3. lsof</a></li>
+<li><a href="#orge15225d">1. netstat</a></li>
+<li><a href="#org43bbf4b">2. ss</a></li>
+<li><a href="#orgcdbacd8">3. lsof</a></li>
 </ul>
 </div>
 </nav>
@@ -80,8 +34,8 @@ for the JavaScript code in this tag.
 有时候启动应用时会提示端口被占，这时候需要找出占用端口的进程把它kill掉才能正常启动应用。
 </p>
 
-<div id="outline-container-org979cc01" class="outline-2">
-<h2 id="org979cc01"><span class="section-number-2">1</span> netstat</h2>
+<div id="outline-container-orge15225d" class="outline-2">
+<h2 id="orge15225d"><span class="section-number-2">1.</span> netstat</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">sudo netstat -pnltu
@@ -122,8 +76,8 @@ udp6       0      0 :::7946                 :::*                                
 </div>
 </div>
 
-<div id="outline-container-org18aeadb" class="outline-2">
-<h2 id="org18aeadb"><span class="section-number-2">2</span> ss</h2>
+<div id="outline-container-org43bbf4b" class="outline-2">
+<h2 id="org43bbf4b"><span class="section-number-2">2.</span> ss</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">sudo ss -l -p -t -u -n
@@ -152,8 +106,8 @@ tcp    LISTEN     0      128      :::8022                 :::*                  
 </div>
 </div>
 
-<div id="outline-container-org33fbd4c" class="outline-2">
-<h2 id="org33fbd4c"><span class="section-number-2">3</span> lsof</h2>
+<div id="outline-container-orgcdbacd8" class="outline-2">
+<h2 id="orgcdbacd8"><span class="section-number-2">3.</span> lsof</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">sudo lsof -i |grep LISTEN

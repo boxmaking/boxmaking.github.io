@@ -1,103 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>wget-用法详解释</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="wget-tutorial wget-用法详解释">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="wget-tutorial wget-用法详解释" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">wget-用法详解释</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8bab481">1. wget -c URL  断点续传</a></li>
-<li><a href="#org53b8feb">2. 使用wget –mirror镜像网站</a></li>
-<li><a href="#orga58e810">3. 后台下载</a></li>
-<li><a href="#orge1a4a1f">4. 指定下载目录</a></li>
-<li><a href="#orga023865">5. 下载文件并重命名</a></li>
-<li><a href="#org00d633e">6. wget使用代理来下载</a></li>
-<li><a href="#orge1be5b5">7. 批量下载</a></li>
-<li><a href="#org4c5bc6f">8. 选择性的下载</a></li>
-<li><a href="#org2d6ee0a">9. 密码和认证</a>
+<li><a href="#org3d70ba0">1. wget -c URL  断点续传</a></li>
+<li><a href="#org0fcfb58">2. 使用wget –mirror镜像网站</a></li>
+<li><a href="#orgdcde0a9">3. 后台下载</a></li>
+<li><a href="#orgfaac073">4. 指定下载目录</a></li>
+<li><a href="#org3986c61">5. 下载文件并重命名</a></li>
+<li><a href="#org46d1c8a">6. wget使用代理来下载</a></li>
+<li><a href="#orgc29df93">7. 批量下载</a></li>
+<li><a href="#org3fa0a9f">8. 选择性的下载</a></li>
+<li><a href="#orge0782dc">9. 密码和认证</a>
 <ul>
-<li><a href="#org8315c9f">9.1. 下载http文件</a></li>
-<li><a href="#org0bcae27">9.2. 下载FTP文件</a></li>
+<li><a href="#org3970d99">9.1. 下载http文件</a></li>
+<li><a href="#org74bad1b">9.2. 下载FTP文件</a></li>
 </ul>
 </li>
-<li><a href="#org6ba9569">10. 附录 ::</a>
+<li><a href="#org36b61c8">10. 附录 ::</a>
 <ul>
-<li><a href="#org4121c35">10.1. 启动参数：</a></li>
-<li><a href="#orgd3b1a76">10.2. 记录和输入文件参数：</a></li>
-<li><a href="#org97e4807">10.3. 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</a></li>
-<li><a href="#org88248c2">10.4. 更多的教程使用</a></li>
+<li><a href="#org3017c1c">10.1. 启动参数：</a></li>
+<li><a href="#orgd0bd1d5">10.2. 记录和输入文件参数：</a></li>
+<li><a href="#orgcee3cae">10.3. 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</a></li>
+<li><a href="#orgc8bcac7">10.4. 更多的教程使用</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org8bab481" class="outline-2">
-<h2 id="org8bab481"><span class="section-number-2">1</span> wget -c URL  断点续传</h2>
+<div id="outline-container-org3d70ba0" class="outline-2">
+<h2 id="org3d70ba0"><span class="section-number-2">1.</span> wget -c URL  断点续传</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 当文件特别大或者网络特别慢的时候，往往一个文件还没有下载完，连接就已经被切断，此时就需要断点续传。wget的断点续传是自动的，只需要使用-c参数，例如：
@@ -126,8 +80,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org53b8feb" class="outline-2">
-<h2 id="org53b8feb"><span class="section-number-2">2</span> 使用wget –mirror镜像网站</h2>
+<div id="outline-container-org0fcfb58" class="outline-2">
+<h2 id="org0fcfb58"><span class="section-number-2">2.</span> 使用wget –mirror镜像网站</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
@@ -188,8 +142,8 @@ wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执�
 </div>
 
 
-<div id="outline-container-orga58e810" class="outline-2">
-<h2 id="orga58e810"><span class="section-number-2">3</span> 后台下载</h2>
+<div id="outline-container-orgdcde0a9" class="outline-2">
+<h2 id="orgdcde0a9"><span class="section-number-2">3.</span> 后台下载</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 当下载大型文件时, 可以使用 -b 选项让wget在后台下载文件.
@@ -210,8 +164,8 @@ wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执�
 </div>
 
 
-<div id="outline-container-orge1a4a1f" class="outline-2">
-<h2 id="orge1a4a1f"><span class="section-number-2">4</span> 指定下载目录</h2>
+<div id="outline-container-orgfaac073" class="outline-2">
+<h2 id="orgfaac073"><span class="section-number-2">4.</span> 指定下载目录</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 使用 -P 选项指定下载目录:
@@ -228,8 +182,8 @@ wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执�
 </div>
 
 
-<div id="outline-container-orga023865" class="outline-2">
-<h2 id="orga023865"><span class="section-number-2">5</span> 下载文件并重命名</h2>
+<div id="outline-container-org3986c61" class="outline-2">
+<h2 id="org3986c61"><span class="section-number-2">5.</span> 下载文件并重命名</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 若你想以其他名称保存下载的文件，可以使用 -O 选项:
@@ -246,8 +200,8 @@ wget会下载文件并以”wordpress.zip”为名存放到当前目录中.zip�
 </div>
 
 
-<div id="outline-container-org00d633e" class="outline-2">
-<h2 id="org00d633e"><span class="section-number-2">6</span> wget使用代理来下载</h2>
+<div id="outline-container-org46d1c8a" class="outline-2">
+<h2 id="org46d1c8a"><span class="section-number-2">6.</span> wget使用代理来下载</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><p>
@@ -271,8 +225,8 @@ wget还有很多有用的功能，需要用户去挖掘。</li>
 </div>
 
 
-<div id="outline-container-orge1be5b5" class="outline-2">
-<h2 id="orge1be5b5"><span class="section-number-2">7</span> 批量下载</h2>
+<div id="outline-container-orgc29df93" class="outline-2">
+<h2 id="orgc29df93"><span class="section-number-2">7.</span> 批量下载</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 若你想同时下载多个文件,你可以将要在的文件URL存放在一个文本文件中(假设该文件名为download.txt).
@@ -312,8 +266,8 @@ http://example.com/file3.zip
 </div>
 
 
-<div id="outline-container-org4c5bc6f" class="outline-2">
-<h2 id="org4c5bc6f"><span class="section-number-2">8</span> 选择性的下载</h2>
+<div id="outline-container-org3fa0a9f" class="outline-2">
+<h2 id="org3fa0a9f"><span class="section-number-2">8.</span> 选择性的下载</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 wget -m –reject=gif <a href="http://target.web.site/subdirectory">http://target.web.site/subdirectory</a> &#x2013;表示忽略gif文件
@@ -328,12 +282,12 @@ wget -m –accept=gif <a href="http://target.web.site/subdirectory">http://targe
 </div>
 
 
-<div id="outline-container-org2d6ee0a" class="outline-2">
-<h2 id="org2d6ee0a"><span class="section-number-2">9</span> 密码和认证</h2>
+<div id="outline-container-orge0782dc" class="outline-2">
+<h2 id="orge0782dc"><span class="section-number-2">9.</span> 密码和认证</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org8315c9f" class="outline-3">
-<h3 id="org8315c9f"><span class="section-number-3">9.1</span> 下载http文件</h3>
+<div id="outline-container-org3970d99" class="outline-3">
+<h3 id="org3970d99"><span class="section-number-3">9.1.</span> 下载http文件</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 wget只能处理利用用户名/密码方式限制访问的网站，可以利用两个参数：
@@ -343,8 +297,8 @@ wget只能处理利用用户名/密码方式限制访问的网站，可以利用
 </p>
 </div>
 </div>
-<div id="outline-container-org0bcae27" class="outline-3">
-<h3 id="org0bcae27"><span class="section-number-3">9.2</span> 下载FTP文件</h3>
+<div id="outline-container-org74bad1b" class="outline-3">
+<h3 id="org74bad1b"><span class="section-number-3">9.2.</span> 下载FTP文件</h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
 wget还支持下载FTP文件，可以为它设置用户名和密码，如下所示:
@@ -358,12 +312,12 @@ wget还支持下载FTP文件，可以为它设置用户名和密码，如下所�
 </div>
 
 
-<div id="outline-container-org6ba9569" class="outline-2">
-<h2 id="org6ba9569"><span class="section-number-2">10</span> 附录 ::</h2>
+<div id="outline-container-org36b61c8" class="outline-2">
+<h2 id="org36b61c8"><span class="section-number-2">10.</span> 附录 ::</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org4121c35" class="outline-3">
-<h3 id="org4121c35"><span class="section-number-3">10.1</span> 启动参数：</h3>
+<div id="outline-container-org3017c1c" class="outline-3">
+<h3 id="org3017c1c"><span class="section-number-3">10.1.</span> 启动参数：</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 -V, –version 显示wget的版本后退出
@@ -383,8 +337,8 @@ wget还支持下载FTP文件，可以为它设置用户名和密码，如下所�
 </div>
 </div>
 
-<div id="outline-container-orgd3b1a76" class="outline-3">
-<h3 id="orgd3b1a76"><span class="section-number-3">10.2</span> 记录和输入文件参数：</h3>
+<div id="outline-container-orgd0bd1d5" class="outline-3">
+<h3 id="orgd0bd1d5"><span class="section-number-3">10.2.</span> 记录和输入文件参数：</h3>
 <div class="outline-text-3" id="text-10-2">
 <p>
 -o, –output-file=FILE 把记录写到FILE文件中
@@ -704,8 +658,8 @@ wget -S –spider url 不下载只显示过程
 </div>
 </div>
 
-<div id="outline-container-org97e4807" class="outline-3">
-<h3 id="org97e4807"><span class="section-number-3">10.3</span> 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</h3>
+<div id="outline-container-orgcee3cae" class="outline-3">
+<h3 id="orgcee3cae"><span class="section-number-3">10.3.</span> 中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</h3>
 <div class="outline-text-3" id="text-10-3">
 <p>
 wget -r -np -nH –cut-dirs=3 <a href="ftp://host/test/">ftp://host/test/</a>
@@ -726,8 +680,8 @@ wget -t0 -c -nH -x -np -b -m -P <i>home/sunny/NOD32view</i>  <a href="http://dow
 </div>
 </div>
 
-<div id="outline-container-org88248c2" class="outline-3">
-<h3 id="org88248c2"><span class="section-number-3">10.4</span> 更多的教程使用</h3>
+<div id="outline-container-orgc8bcac7" class="outline-3">
+<h3 id="orgc8bcac7"><span class="section-number-3">10.4.</span> 更多的教程使用</h3>
 <div class="outline-text-3" id="text-10-4">
 <p>
 Linux wget命令详解 <a href="http://www.linuxidc.com/Linux/2012-08/67837.htm">http://www.linuxidc.com/Linux/2012-08/67837.htm</a>

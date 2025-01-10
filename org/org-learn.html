@@ -1,62 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="emacs  org-mode">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs  org-mode" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -77,92 +31,91 @@ for the JavaScript code in this tag.
              }
 });
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">我的orgmode学习笔记</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5b20359">1. 标题和章节</a>
+<li><a href="#org1ecafb8">1. 标题和章节</a>
 <ul>
-<li><a href="#org74cf54c">1.1. 章节表</a></li>
-<li><a href="#org08d7f34">1.2. 目录表</a></li>
+<li><a href="#org1e4e814">1.1. 章节表</a></li>
+<li><a href="#orge9ab877">1.2. 目录表</a></li>
 </ul>
 </li>
-<li><a href="#orgd41f62d">2. 列表和任务</a>
+<li><a href="#org2a1f976">2. 列表和任务</a>
 <ul>
-<li><a href="#org0b18845">2.1. 如何将一段文本变成org-mode中的列表</a></li>
-<li><a href="#org8ae8855">2.2. 这个是复选框的使用方法<code>[0/1]</code></a></li>
+<li><a href="#org22a5e69">2.1. 如何将一段文本变成org-mode中的列表</a></li>
+<li><a href="#org1b93c5d">2.2. 这个是复选框的使用方法<code>[0/1]</code></a></li>
 </ul>
 </li>
-<li><a href="#orgc1a46f6">3. 查看版本</a></li>
-<li><a href="#org967aa49">4. 重要</a></li>
-<li><a href="#org2870f7e">5. emacs显示图片</a></li>
-<li><a href="#orga3bcbb8">6. Tags标签</a>
+<li><a href="#orgb387c7e">3. 查看版本</a></li>
+<li><a href="#org03a751e">4. 重要</a></li>
+<li><a href="#orgbd74554">5. emacs显示图片</a></li>
+<li><a href="#org841f6eb">6. Tags标签</a>
 <ul>
-<li><a href="#org94fb395">6.1. 设置标签</a></li>
-<li><a href="#org87c3b53">6.2. 预设tags</a></li>
-<li><a href="#orge1c390c">6.3. tags补全</a></li>
-<li><a href="#org0c2789f">6.4. 搜索Tag</a></li>
-<li><a href="#org239d300">6.5. tag显示效果配置</a></li>
+<li><a href="#org9b94a64">6.1. 设置标签</a></li>
+<li><a href="#org582e202">6.2. 预设tags</a></li>
+<li><a href="#org4e66b5f">6.3. tags补全</a></li>
+<li><a href="#orgab40fef">6.4. 搜索Tag</a></li>
+<li><a href="#org4f93be4">6.5. tag显示效果配置</a></li>
 </ul>
 </li>
-<li><a href="#org628c796">7. Time选项的设置</a>
+<li><a href="#org5d34f3b">7. Time选项的设置</a>
 <ul>
-<li><a href="#org89625bd">7.1. 自动计算和添加时间段的教程</a></li>
-<li><a href="#org18dd628">7.2. 时间标记添加方法</a></li>
+<li><a href="#org6eb3b58">7.1. 自动计算和添加时间段的教程</a></li>
+<li><a href="#orgf54c40e">7.2. 时间标记添加方法</a></li>
 </ul>
 </li>
-<li><a href="#org6d42f10">8. <span class="todo TODO">TODO</span> 的使用教程</a>
+<li><a href="#orged0f2c8">8. TODO的使用教程</a>
 <ul>
-<li><a href="#org748a9ae">8.1. 文件状态关键词todo选项和类型关键词todo选项的自定义操作</a></li>
-<li><a href="#org4a1b3ff">8.2. 全局配置文件内定义关键词</a></li>
+<li><a href="#org3d86cae">8.1. 文件状态关键词todo选项和类型关键词todo选项的自定义操作</a></li>
+<li><a href="#orge48daa8">8.2. 全局配置文件内定义关键词</a></li>
 </ul>
 </li>
-<li><a href="#org16d6515">9. link的使用</a>
+<li><a href="#orgb5cc529">9. link的使用</a>
 <ul>
-<li><a href="#orgc7e4411">9.1. 内部链接</a></li>
-<li><a href="#org0c476a2">9.2. 外部链接</a></li>
-<li><a href="#orgd128bb4">9.3. 网址链接</a></li>
-<li><a href="#orgd2ac077">9.4. 脚注使用</a></li>
-<li><a href="#org5f72d84">9.5. 链接补全</a></li>
+<li><a href="#org52e42e3">9.1. 内部链接</a></li>
+<li><a href="#org3655aac">9.2. 外部链接</a></li>
+<li><a href="#org296072f">9.3. 网址链接</a></li>
+<li><a href="#orga3bd092">9.4. 脚注使用</a></li>
+<li><a href="#orgcf7e290">9.5. 链接补全</a></li>
 </ul>
 </li>
-<li><a href="#orga763958">10. <span class="todo TODO">TODO</span> 稀疏树的建立</a></li>
-<li><a href="#org0cf01e2">11. <span class="todo TODO">TODO</span> 表格的输入</a></li>
-<li><a href="#orgc01f4bf">12. <span class="todo TODO">TODO</span> 大纲缩进模式</a></li>
-<li><a href="#orgdce4cab">13. <span class="todo TODO">TODO</span> #+SETUP:默认启动选项教程</a>
+<li><a href="#org9f10bfb">10. <span class="todo TODO">TODO</span> 稀疏树的建立</a></li>
+<li><a href="#org7882da8">11. <span class="todo TODO">TODO</span> 表格的输入</a></li>
+<li><a href="#orgdee0367">12. <span class="todo TODO">TODO</span> 大纲缩进模式</a></li>
+<li><a href="#orgbf9c080">13. <span class="todo TODO">TODO</span> #+SETUP:默认启动选项教程</a>
 <ul>
-<li><a href="#orgfc7147d">13.1. likethis</a></li>
-<li><a href="#org07fcb93">13.2. 也可以通过改变setq org-startup-folded 函数来解决问题</a></li>
+<li><a href="#org43fdc51">13.1. likethis</a></li>
+<li><a href="#orga4674b4">13.2. 也可以通过改变setq org-startup-folded 函数来解决问题</a></li>
 </ul>
 </li>
-<li><a href="#org2dafe34">14. 字体设置</a></li>
-<li><a href="#orgbf2b0d6">15. <span class="todo TODO">TODO</span> 文档的元数据整理</a></li>
-<li><a href="#orgd218731">16. <span class="todo TODO">TODO</span> 内容元数据的整理</a></li>
-<li><a href="#orgae007cc">17. <span class="todo TODO">TODO</span> 嵌入文件</a></li>
-<li><a href="#org9c23762">18. <span class="todo TODO">TODO</span> 加密文件</a></li>
-<li><a href="#org93fbfdc">19. 快速链接 C-c l</a></li>
-<li><a href="#orge14ed6b">20. orgmode画树形图</a></li>
+<li><a href="#org8736f12">14. 字体设置</a></li>
+<li><a href="#org9d1a98a">15. <span class="todo TODO">TODO</span> 文档的元数据整理</a></li>
+<li><a href="#orgfc8a512">16. <span class="todo TODO">TODO</span> 内容元数据的整理</a></li>
+<li><a href="#org2900edd">17. <span class="todo TODO">TODO</span> 嵌入文件</a></li>
+<li><a href="#org385d589">18. <span class="todo TODO">TODO</span> 加密文件</a></li>
+<li><a href="#org039872d">19. 快速链接 C-c l</a></li>
+<li><a href="#org83b32c3">20. orgmode画树形图</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org5b20359" class="outline-2">
-<h2 id="org5b20359"><span class="section-number-2">1</span> 标题和章节</h2>
+<div id="outline-container-org1ecafb8" class="outline-2">
+<h2 id="org1ecafb8"><span class="section-number-2">1.</span> 标题和章节</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 <ol class="org-ol">
-<li><a id="org6297287"></a>折叠大纲<br>
+<li><a id="orgdb782b9"></a>折叠大纲<br>
 <div class="outline-text-4" id="text-1-0-1">
 <table>
 
@@ -196,7 +149,7 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </li>
-<li><a id="org2cc3d03"></a>在大纲之间移动<br>
+<li><a id="org796c776"></a>在大纲之间移动<br>
 <div class="outline-text-4" id="text-1-0-2">
 <table>
 
@@ -235,7 +188,7 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </li>
-<li><a id="org21abebe"></a>基于大纲的编辑<br>
+<li><a id="orgfe1a1d5"></a>基于大纲的编辑<br>
 <div class="outline-text-4" id="text-1-0-3">
 <table>
 
@@ -312,8 +265,8 @@ for the JavaScript code in this tag.
 </ol>
 
 
-<div id="outline-container-org74cf54c" class="outline-3">
-<h3 id="org74cf54c"><span class="section-number-3">1.1</span> 章节表</h3>
+<div id="outline-container-org1e4e814" class="outline-3">
+<h3 id="org1e4e814"><span class="section-number-3">1.1.</span> 章节表</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 大纲结构确定了导出文档的结构基础,由于大纲结构也用于（比如说）列表和任务
@@ -322,20 +275,20 @@ for the JavaScript code in this tag.
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example">
+<pre class="example" id="orge66015e">
 #+OPTIONS: H:4
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-org08d7f34" class="outline-3">
-<h3 id="org08d7f34"><span class="section-number-3">1.2</span> 目录表</h3>
+<div id="outline-container-orge9ab877" class="outline-3">
+<h3 id="orge9ab877"><span class="section-number-3">1.2.</span> 目录表</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example">
+<pre class="example" id="org8a70b7c">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -344,12 +297,12 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgd41f62d" class="outline-2">
-<h2 id="orgd41f62d"><span class="section-number-2">2</span> 列表和任务</h2>
+<div id="outline-container-org2a1f976" class="outline-2">
+<h2 id="org2a1f976"><span class="section-number-2">2.</span> 列表和任务</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org0b18845" class="outline-3">
-<h3 id="org0b18845"><span class="section-number-3">2.1</span> 如何将一段文本变成org-mode中的列表</h3>
+<div id="outline-container-org22a5e69" class="outline-3">
+<h3 id="org22a5e69"><span class="section-number-3">2.1.</span> 如何将一段文本变成org-mode中的列表</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>假设有这么一段文本
@@ -378,8 +331,8 @@ etc</li>
 </div>
 
 
-<div id="outline-container-org8ae8855" class="outline-3">
-<h3 id="org8ae8855"><span class="section-number-3">2.2</span> 这个是复选框的使用方法<code>[0/1]</code></h3>
+<div id="outline-container-org1b93c5d" class="outline-3">
+<h3 id="org1b93c5d"><span class="section-number-3">2.2.</span> 这个是复选框的使用方法<code>[0/1]</code></h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li class="trans"><code>[-]</code> 只有在纯文本下面前面不带星号的文本才行
@@ -387,7 +340,7 @@ etc</li>
 <li class="on"><code>[X]</code> 并且必须是有序或者是无序标签</li>
 <li class="off"><code>[&#xa0;]</code> C-c C-c &#x2013; 改变标签的选项</li>
 <li class="off"><code>[&#xa0;]</code> S-左/右 &#x2013; 可以改变列表头样式
-<a href="#org78f4c4b">内部链接教程1</a></li>
+<a href="#org3bd74b4">内部链接教程1</a></li>
 </ul></li>
 </ul>
 </div>
@@ -396,8 +349,8 @@ etc</li>
 
 
 
-<div id="outline-container-orgc1a46f6" class="outline-2">
-<h2 id="orgc1a46f6"><span class="section-number-2">3</span> 查看版本</h2>
+<div id="outline-container-orgb387c7e" class="outline-2">
+<h2 id="orgb387c7e"><span class="section-number-2">3.</span> 查看版本</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 M-x org-version
@@ -407,8 +360,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org967aa49" class="outline-2">
-<h2 id="org967aa49"><span class="section-number-2">4</span> 重要</h2>
+<div id="outline-container-org03a751e" class="outline-2">
+<h2 id="org03a751e"><span class="section-number-2">4.</span> 重要</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 &#x2013; 必须用英文标点
@@ -417,8 +370,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org2870f7e" class="outline-2">
-<h2 id="org2870f7e"><span class="section-number-2">5</span> emacs显示图片</h2>
+<div id="outline-container-orgbd74554" class="outline-2">
+<h2 id="orgbd74554"><span class="section-number-2">5.</span> emacs显示图片</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>下载iimage.el文件</li>
@@ -431,12 +384,12 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-orga3bcbb8" class="outline-2">
-<h2 id="orga3bcbb8"><span class="section-number-2">6</span> Tags标签</h2>
+<div id="outline-container-org841f6eb" class="outline-2">
+<h2 id="org841f6eb"><span class="section-number-2">6.</span> Tags标签</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org94fb395" class="outline-3">
-<h3 id="org94fb395"><span class="section-number-3">6.1</span> 设置标签</h3>
+<div id="outline-container-org9b94a64" class="outline-3">
+<h3 id="org9b94a64"><span class="section-number-3">6.1.</span> 设置标签</h3>
 <div class="outline-text-3" id="text-6-1">
 <dl class="org-dl">
 <dt>C-c C-q (org-set-tags-command)</dt><dd>为当前标题输入新的tag. Org-mode同时也提供补全功能,或給key设定单字符的快捷键,具体内容见下文. 
@@ -449,8 +402,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org87c3b53" class="outline-3">
-<h3 id="org87c3b53"><span class="section-number-3">6.2</span> 预设tags</h3>
+<div id="outline-container-org582e202" class="outline-3">
+<h3 id="org582e202"><span class="section-number-3">6.2.</span> 预设tags</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li><p>
@@ -487,8 +440,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-orge1c390c" class="outline-3">
-<h3 id="orge1c390c"><span class="section-number-3">6.3</span> tags补全</h3>
+<div id="outline-container-org4e66b5f" class="outline-3">
+<h3 id="org4e66b5f"><span class="section-number-3">6.3.</span> tags补全</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 默认情况下,Org-mode在输入tag时提供的是标准minibuffer补全方式.
@@ -556,8 +509,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org0c2789f" class="outline-3">
-<h3 id="org0c2789f"><span class="section-number-3">6.4</span> 搜索Tag</h3>
+<div id="outline-container-orgab40fef" class="outline-3">
+<h3 id="orgab40fef"><span class="section-number-3">6.4.</span> 搜索Tag</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 一旦完善的tag系统建立起来了,我们就可以利用它将相关联的信息搜集起来
@@ -597,8 +550,8 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org239d300" class="outline-3">
-<h3 id="org239d300"><span class="section-number-3">6.5</span> tag显示效果配置</h3>
+<div id="outline-container-org4f93be4" class="outline-3">
+<h3 id="org4f93be4"><span class="section-number-3">6.5.</span> tag显示效果配置</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 变量'org-tag-faces'设置方法和'org-todo-keyword-faces'的设置方法应该一样
@@ -619,12 +572,12 @@ M-x emacs-version
 </div>
 
 
-<div id="outline-container-org628c796" class="outline-2">
-<h2 id="org628c796"><span class="section-number-2">7</span> Time选项的设置</h2>
+<div id="outline-container-org5d34f3b" class="outline-2">
+<h2 id="org5d34f3b"><span class="section-number-2">7.</span> Time选项的设置</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org89625bd" class="outline-3">
-<h3 id="org89625bd"><span class="section-number-3">7.1</span> 自动计算和添加时间段的教程</h3>
+<div id="outline-container-org6eb3b58" class="outline-3">
+<h3 id="org6eb3b58"><span class="section-number-3">7.1.</span> 自动计算和添加时间段的教程</h3>
 <div class="outline-text-3" id="text-7-1">
 <ol class="org-ol">
 <li>第一种是添加开始和结束的时间
@@ -646,7 +599,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example">
+<pre class="example" id="org7601d60">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -704,8 +657,8 @@ CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 </div>
 
 
-<div id="outline-container-org18dd628" class="outline-3">
-<h3 id="org18dd628"><span class="section-number-3">7.2</span> 时间标记添加方法</h3>
+<div id="outline-container-orgf54c40e" class="outline-3">
+<h3 id="orgf54c40e"><span class="section-number-3">7.2.</span> 时间标记添加方法</h3>
 <div class="outline-text-3" id="text-7-2">
 <ol class="org-ol">
 <li>添加时间标记C-c .可以添加时间标记<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-03 Tue&gt;</span></span>
@@ -718,10 +671,10 @@ CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 <li>还可以通过自己设定的emacs的时间添加标记来添加时间
 <ol class="org-ol">
 <li>C-c m t &#x2013; 带时间的日期添加
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-22 Sun&gt;</span></span></li>
+&lt;2020-03-22/Sunday 22:42:11&gt;</li>
 
 <li>C-c m d &#x2013; 不带时间的日期添加
-<span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-22 Sun&gt;</span></span></li>
+&lt;2020-03-22/Sunday&gt;</li>
 
 <li><p>
 设置格式和配置文件在
@@ -791,8 +744,8 @@ CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 </div>
 
 
-<div id="outline-container-org6d42f10" class="outline-2">
-<h2 id="org6d42f10"><span class="section-number-2">8</span> <span class="todo TODO">TODO</span> 的使用教程</h2>
+<div id="outline-container-orged0f2c8" class="outline-2">
+<h2 id="orged0f2c8"><span class="section-number-2">8.</span> TODO的使用教程</h2>
 <div class="outline-text-2" id="text-8">
 <dl class="org-dl">
 <dt>C-c C-t</dt><dd>来改变todo列表的状态地方的
@@ -803,8 +756,8 @@ S-上,S-下,来设置优先级</dd>
 </dl>
 </div>
 
-<div id="outline-container-org748a9ae" class="outline-3">
-<h3 id="org748a9ae"><span class="section-number-3">8.1</span> 文件状态关键词todo选项和类型关键词todo选项的自定义操作</h3>
+<div id="outline-container-org3d86cae" class="outline-3">
+<h3 id="org3d86cae"><span class="section-number-3">8.1.</span> 文件状态关键词todo选项和类型关键词todo选项的自定义操作</h3>
 <div class="outline-text-3" id="text-8-1">
 <ol class="org-ol">
 <li>在Org文件中定义的TODO关键词仅适用于当前文件
@@ -815,7 +768,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example">
+<pre class="example" id="org2a1293a">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -844,8 +797,8 @@ S-上,S-下,来设置优先级</dd>
 </div>
 
 
-<div id="outline-container-org4a1b3ff" class="outline-3">
-<h3 id="org4a1b3ff"><span class="section-number-3">8.2</span> 全局配置文件内定义关键词</h3>
+<div id="outline-container-orge48daa8" class="outline-3">
+<h3 id="orge48daa8"><span class="section-number-3">8.2.</span> 全局配置文件内定义关键词</h3>
 <div class="outline-text-3" id="text-8-2">
 <ol class="org-ol">
 <li>如果想要所有的org-mode文件都想用这个功能的话必须要在</li>
@@ -892,20 +845,20 @@ emacs配置文件中中设置如下的代码就行了
 
 
 
-<div id="outline-container-org16d6515" class="outline-2">
-<h2 id="org16d6515"><span class="section-number-2">9</span> link的使用</h2>
+<div id="outline-container-orgb5cc529" class="outline-2">
+<h2 id="orgb5cc529"><span class="section-number-2">9.</span> link的使用</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example">
+<pre class="example" id="orgf61c8bd">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
 
-<div id="outline-container-orgc7e4411" class="outline-3">
-<h3 id="orgc7e4411"><span class="section-number-3">9.1</span> 内部链接</h3>
+<div id="outline-container-org52e42e3" class="outline-3">
+<h3 id="org52e42e3"><span class="section-number-3">9.1.</span> 内部链接</h3>
 <div class="outline-text-3" id="text-9-1">
 <ol class="org-ol">
 <li><p>
@@ -913,15 +866,15 @@ Org-mode支持内部链接,也就是锚点
 </p>
 
 <p>
-定义锚点 #<a id="org78f4c4b"></a>
+定义锚点 #<a id="org3bd74b4"></a>
 </p>
 
-<pre class="example">
+<pre class="example" id="org0658541">
 [[my-anchor][内部链接]]
 </pre>
 
 <p>
-<a href="#org78f4c4b">内部链接</a>
+<a href="#org3bd74b4">内部链接</a>
 </p>
 
 <p>
@@ -932,8 +885,8 @@ Org-mode支持内部链接,也就是锚点
 </div>
 
 
-<div id="outline-container-org0c476a2" class="outline-3">
-<h3 id="org0c476a2"><span class="section-number-3">9.2</span> 外部链接</h3>
+<div id="outline-container-org3655aac" class="outline-3">
+<h3 id="org3655aac"><span class="section-number-3">9.2.</span> 外部链接</h3>
 <div class="outline-text-3" id="text-9-2">
 <ol class="org-ol">
 <li>Ｃ-u C-c C-l来添加外部文件标签
@@ -943,7 +896,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example">
+<pre class="example" id="org0034707">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -956,7 +909,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
 </p>
-<pre class="example">
+<pre class="example" id="org93825fa">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -967,15 +920,15 @@ Org-mode支持内部链接,也就是锚点
 
 
 
-<div id="outline-container-orgd128bb4" class="outline-3">
-<h3 id="orgd128bb4"><span class="section-number-3">9.3</span> 网址链接</h3>
+<div id="outline-container-org296072f" class="outline-3">
+<h3 id="org296072f"><span class="section-number-3">9.3.</span> 网址链接</h3>
 <div class="outline-text-3" id="text-9-3">
 <ol class="org-ol">
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example">
-   链接地址 [[https:www.google.com][google]]
+<pre class="example" id="org606c1fd">
+链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
 同样的也使用中括号嵌套
@@ -986,10 +939,10 @@ C-c C-l 就能添加链接了
 </div>
 
 
-<div id="outline-container-orgd2ac077" class="outline-3">
-<h3 id="orgd2ac077"><span class="section-number-3">9.4</span> 脚注使用</h3>
+<div id="outline-container-orga3bd092" class="outline-3">
+<h3 id="orga3bd092"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example">
+<pre class="example" id="org2963eb6">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1002,8 +955,8 @@ C-c C-o就能在底部打开脚注
 </div>
 
 
-<div id="outline-container-org5f72d84" class="outline-3">
-<h3 id="org5f72d84"><span class="section-number-3">9.5</span> 链接补全</h3>
+<div id="outline-container-orgcf7e290" class="outline-3">
+<h3 id="orgcf7e290"><span class="section-number-3">9.5.</span> 链接补全</h3>
 <div class="outline-text-3" id="text-9-5">
 <ol class="org-ol">
 <li>如果你要插入的链接前缀类似于'http:'或'ftp:'
@@ -1022,8 +975,8 @@ Org会根据前缀的不通为各种不通类型的链接提供不通的补全�
 </div>
 
 
-<div id="outline-container-orga763958" class="outline-2">
-<h2 id="orga763958"><span class="section-number-2">10</span> <span class="todo TODO">TODO</span> 稀疏树的建立</h2>
+<div id="outline-container-org9f10bfb" class="outline-2">
+<h2 id="org9f10bfb"><span class="section-number-2">10.</span> <span class="todo TODO">TODO</span> 稀疏树的建立</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>State "TODO"       from              <span class="timestamp-wrapper"><span class="timestamp">[2020-03-22 Sun 23:14]</span></span></li>
@@ -1037,8 +990,8 @@ C-c C-c取消高亮
 </div>
 
 
-<div id="outline-container-org0cf01e2" class="outline-2">
-<h2 id="org0cf01e2"><span class="section-number-2">11</span> <span class="todo TODO">TODO</span> 表格的输入</h2>
+<div id="outline-container-org7882da8" class="outline-2">
+<h2 id="org7882da8"><span class="section-number-2">11.</span> <span class="todo TODO">TODO</span> 表格的输入</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>State "TODO"       from              <span class="timestamp-wrapper"><span class="timestamp">[2020-03-22 Sun 23:14]</span></span></li>
@@ -1073,8 +1026,8 @@ C-c C-c,可以对齐表格
 </div>
 
 
-<div id="outline-container-orgc01f4bf" class="outline-2">
-<h2 id="orgc01f4bf"><span class="section-number-2">12</span> <span class="todo TODO">TODO</span> 大纲缩进模式</h2>
+<div id="outline-container-orgdee0367" class="outline-2">
+<h2 id="orgdee0367"><span class="section-number-2">12.</span> <span class="todo TODO">TODO</span> 大纲缩进模式</h2>
 <div class="outline-text-2" id="text-12">
 <ol class="org-ol">
 <li>#+STARTUP： indent
@@ -1087,8 +1040,8 @@ C-c C-c,可以对齐表格
 </div>
 
 
-<div id="outline-container-orgdce4cab" class="outline-2">
-<h2 id="orgdce4cab"><span class="section-number-2">13</span> <span class="todo TODO">TODO</span> #+SETUP:默认启动选项教程</h2>
+<div id="outline-container-orgbf9c080" class="outline-2">
+<h2 id="orgbf9c080"><span class="section-number-2">13.</span> <span class="todo TODO">TODO</span> #+SETUP:默认启动选项教程</h2>
 <div class="outline-text-2" id="text-13">
 <table>
 
@@ -1122,10 +1075,10 @@ C-c C-c,可以对齐表格
 </table>
 </div>
 
-<div id="outline-container-orgfc7147d" class="outline-3">
-<h3 id="orgfc7147d"><span class="section-number-3">13.1</span> likethis</h3>
+<div id="outline-container-org43fdc51" class="outline-3">
+<h3 id="org43fdc51"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example">
+<pre class="example" id="orge59928d">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1135,8 +1088,8 @@ C-c C-c,可以对齐表格
 </div>
 
 
-<div id="outline-container-org07fcb93" class="outline-3">
-<h3 id="org07fcb93"><span class="section-number-3">13.2</span> 也可以通过改变setq org-startup-folded 函数来解决问题</h3>
+<div id="outline-container-orga4674b4" class="outline-3">
+<h3 id="orga4674b4"><span class="section-number-3">13.2.</span> 也可以通过改变setq org-startup-folded 函数来解决问题</h3>
 <div class="outline-text-3" id="text-13-2">
 <div class="org-src-container">
 <pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,&#26377;#+STARTUP: overview : content : showall : showeverything :&#31561;&#20540;</span>
@@ -1150,8 +1103,8 @@ C-c C-c,可以对齐表格
 </div>
 
 
-<div id="outline-container-org2dafe34" class="outline-2">
-<h2 id="org2dafe34"><span class="section-number-2">14</span> 字体设置</h2>
+<div id="outline-container-org8736f12" class="outline-2">
+<h2 id="org8736f12"><span class="section-number-2">14.</span> 字体设置</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 <b>粗体</b>
@@ -1184,8 +1137,8 @@ C-c C-c,可以对齐表格
 </div>
 
 
-<div id="outline-container-orgbf2b0d6" class="outline-2">
-<h2 id="orgbf2b0d6"><span class="section-number-2">15</span> <span class="todo TODO">TODO</span> 文档的元数据整理</h2>
+<div id="outline-container-org9d1a98a" class="outline-2">
+<h2 id="org9d1a98a"><span class="section-number-2">15.</span> <span class="todo TODO">TODO</span> 文档的元数据整理</h2>
 <div class="outline-text-2" id="text-15">
 <ol class="org-ol">
 <li><p>
@@ -1205,7 +1158,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example">
+<pre class="example" id="org0e35a8d">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1222,7 +1175,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example">
+<pre class="example" id="orga92e8c0">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1247,7 +1200,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example">
+<pre class="example" id="org69e835e">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1282,7 +1235,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example">
+<pre class="example" id="org362ce5e">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1293,8 +1246,8 @@ d:         turn on/off inclusion of drawers
 </div>
 
 
-<div id="outline-container-orgd218731" class="outline-2">
-<h2 id="orgd218731"><span class="section-number-2">16</span> <span class="todo TODO">TODO</span> 内容元数据的整理</h2>
+<div id="outline-container-orgfc8a512" class="outline-2">
+<h2 id="orgfc8a512"><span class="section-number-2">16.</span> <span class="todo TODO">TODO</span> 内容元数据的整理</h2>
 <div class="outline-text-2" id="text-16">
 <p>
 通常在行首以“#+”开头，可以有多种用途。
@@ -1353,12 +1306,12 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 
 <pre class="example">
 单行的例子以冒号开头
-
 </pre>
 
-<pre class="example">
-  多行的例子
-  使用区块
+
+<pre class="example" id="org043e2ab">
+多行的例子
+使用区块
 </pre></li>
 
 <li><p>
@@ -1396,8 +1349,8 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 
 
 
-<div id="outline-container-orgae007cc" class="outline-2">
-<h2 id="orgae007cc"><span class="section-number-2">17</span> <span class="todo TODO">TODO</span> 嵌入文件</h2>
+<div id="outline-container-org2900edd" class="outline-2">
+<h2 id="org2900edd"><span class="section-number-2">17.</span> <span class="todo TODO">TODO</span> 嵌入文件</h2>
 <div class="outline-text-2" id="text-17">
 <ol class="org-ol">
 <li><p>
@@ -1408,7 +1361,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML">
+<div class="HTML" id="orged521e1">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1558,8 +1511,8 @@ x=\sqrt{b}
 
 
 
-<div id="outline-container-org9c23762" class="outline-2">
-<h2 id="org9c23762"><span class="section-number-2">18</span> <span class="todo TODO">TODO</span> 加密文件</h2>
+<div id="outline-container-org385d589" class="outline-2">
+<h2 id="org385d589"><span class="section-number-2">18.</span> <span class="todo TODO">TODO</span> 加密文件</h2>
 <div class="outline-text-2" id="text-18">
 <p>
 加密 Org 文件
@@ -1610,8 +1563,8 @@ M-x org-decrypt-entry
 </div>
 
 
-<div id="outline-container-org93fbfdc" class="outline-2">
-<h2 id="org93fbfdc"><span class="section-number-2">19</span> 快速链接 C-c l</h2>
+<div id="outline-container-org039872d" class="outline-2">
+<h2 id="org039872d"><span class="section-number-2">19.</span> 快速链接 C-c l</h2>
 <div class="outline-text-2" id="text-19">
 <p>
 快速插入一个链接到另一个 org 文件的地方
@@ -1634,8 +1587,8 @@ M-x org-decrypt-entry
 </div>
 
 
-<div id="outline-container-orge14ed6b" class="outline-2">
-<h2 id="orge14ed6b"><span class="section-number-2">20</span> orgmode画树形图</h2>
+<div id="outline-container-org83b32c3" class="outline-2">
+<h2 id="org83b32c3"><span class="section-number-2">20.</span> orgmode画树形图</h2>
 <div class="outline-text-2" id="text-20">
 <p>
 Org 中画树形图
@@ -1644,7 +1597,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example">
+<pre class="example" id="org957cd14">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}

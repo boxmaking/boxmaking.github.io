@@ -1,84 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:17 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>bash目录快速跳转&#x2014;为目录添加书签</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="linux-command, linux">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux-command, linux" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">bash目录快速跳转&#x2014;为目录添加书签</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgde4050f">1. 原文地址</a></li>
-<li><a href="#org3096c9a">2. 在shell中快速跳转到常用目录</a></li>
+<li><a href="#org42e1f5d">1. 原文地址</a></li>
+<li><a href="#org3433115">2. 在shell中快速跳转到常用目录</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-orgde4050f" class="outline-2">
-<h2 id="orgde4050f"><span class="section-number-2">1</span> 原文地址</h2>
+<div id="outline-container-org42e1f5d" class="outline-2">
+<h2 id="org42e1f5d"><span class="section-number-2">1.</span> 原文地址</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://www.lujun9972.win/blog/2017/04/10/%E5%9C%A8shell%E4%B8%AD%E5%BF%AB%E9%80%9F%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95/index.html">暗无天日==&gt;DarkSun的个人博客,在shell中快速跳转到常用目录</a>
@@ -87,8 +41,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org3096c9a" class="outline-2">
-<h2 id="org3096c9a"><span class="section-number-2">2</span> 在shell中快速跳转到常用目录</h2>
+<div id="outline-container-org3433115" class="outline-2">
+<h2 id="org3433115"><span class="section-number-2">2.</span> 在shell中快速跳转到常用目录</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 在 Quickly navigate your filesystem from the command-line 中发现了一种将目录加为书签实现快速跳转的好方法.
@@ -126,8 +80,8 @@ for the JavaScript code in this tag.
 <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#34917;&#20840;</span>
 <span style="color: #0000cd; background-color: #dcdcdc;">_completemarks</span>() {
     <span style="color: #ba55d3; background-color: #dcdcdc;">local</span> <span style="color: #912cee; background-color: #dcdcdc;">curw</span>=${<span style="color: #912cee; background-color: #dcdcdc;">COMP_WORDS</span>[COMP_CWORD]}
-    <span style="color: #ba55d3; background-color: #dcdcdc;">local</span> <span style="color: #912cee; background-color: #dcdcdc;">wordlist</span>=$(<span style="color: #ff00ff;">find</span> $<span style="color: #912cee; background-color: #dcdcdc;">MARKPATH</span> -type l -printf <span style="color: #00cd66; background-color: #dcdcdc;">"%f\n"</span>)
-    <span style="color: #912cee; background-color: #dcdcdc;">COMPREPLY</span>=($(<span style="color: #ff00ff;">compgen</span> -W <span style="color: #00cd66; background-color: #dcdcdc;">'${wordlist[@]}'</span> -- <span style="color: #00cd66; background-color: #dcdcdc;">"$curw"</span>))
+    <span style="color: #ba55d3; background-color: #dcdcdc;">local</span> <span style="color: #912cee; background-color: #dcdcdc;">wordlist</span>=$(<span style="color: #ff00ff;">find $MARKPATH -type l -printf "%f\n"</span>)
+    <span style="color: #912cee; background-color: #dcdcdc;">COMPREPLY</span>=($(<span style="color: #ff00ff;">compgen -W '${wordlist[@]}' -- "$curw"</span>))
     <span style="color: #cd0000; background-color: #dcdcdc;">return</span> 0
 }
 

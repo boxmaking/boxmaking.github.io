@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tree-详解</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="tree-详解">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="tree-详解" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">tree-详解</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5450451">1. 安装,语法,选项</a>
+<li><a href="#orgd0c8e34">1. 安装,语法,选项</a>
 <ul>
-<li><a href="#org06d9cb9">1.1. 版本</a></li>
-<li><a href="#org625d4b3">1.2. tree语法</a></li>
-<li><a href="#org64005b0">1.3. 选项</a></li>
+<li><a href="#orge80086a">1.1. 版本</a></li>
+<li><a href="#orgb66a3d9">1.2. tree语法</a></li>
+<li><a href="#orgef95c08">1.3. 选项</a></li>
 </ul>
 </li>
-<li><a href="#org42f5923">2. tree 实例</a></li>
-<li><a href="#orga46a29b">3. 实例</a></li>
+<li><a href="#orgf6f6f2f">2. tree 实例</a></li>
+<li><a href="#orgd413ff0">3. 实例</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org5450451" class="outline-2">
-<h2 id="org5450451"><span class="section-number-2">1</span> 安装,语法,选项</h2>
+<div id="outline-container-orgd0c8e34" class="outline-2">
+<h2 id="orgd0c8e34"><span class="section-number-2">1.</span> 安装,语法,选项</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">$ sudo apt  install tree
@@ -93,8 +47,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org06d9cb9" class="outline-3">
-<h3 id="org06d9cb9"><span class="section-number-3">1.1</span> 版本</h3>
+<div id="outline-container-orge80086a" class="outline-3">
+<h3 id="orge80086a"><span class="section-number-3">1.1.</span> 版本</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-shell">$ tree --version
@@ -104,8 +58,8 @@ tree v1.7.0 (c) 1996 - 2014 by Steve Baker, Thomas Moore, Francesc Rocher, Flori
 </div>
 </div>
 
-<div id="outline-container-org625d4b3" class="outline-3">
-<h3 id="org625d4b3"><span class="section-number-3">1.2</span> tree语法</h3>
+<div id="outline-container-orgb66a3d9" class="outline-3">
+<h3 id="orgb66a3d9"><span class="section-number-3">1.2.</span> tree语法</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
@@ -116,8 +70,8 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 </p>
 </div>
 </div>
-<div id="outline-container-org64005b0" class="outline-3">
-<h3 id="org64005b0"><span class="section-number-3">1.3</span> 选项</h3>
+<div id="outline-container-orgef95c08" class="outline-3">
+<h3 id="orgef95c08"><span class="section-number-3">1.3.</span> 选项</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 &#x2013;help	输出详细的使用情况列表。
@@ -161,7 +115,7 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 -S	打开ASCII线图形（使用linux控制台模式字体时很有用）。此选项现在等效于`charset=IBM437'，最终将被折旧。
 -Llevel	目录树的最大显示深度。
 -R	递归地遍历树的每个级别目录(请参见-L选项)，并在每个目录下执行树，再次添加`-o 00Tree.html'作为一个新选项。
--HbaseHREF	打开HTML输出，包括HTTP引用。适用于ftp站点。当使用HTML输出时，baseHREF给出基本ftp位置。也就是说，本地目录可能是“/local/ftp/pub”，但是它必须被引用为“<a href="ftp://hostname.organiz.domain/pub">ftp://hostname.organiz.domain/pub</a>”(baseHREF应该是“<a href="ftp://hostname.organiz.domain">ftp://hostname.organiz.domain</a>”)。提示:不要使用带有此选项的ANSI行，并且在目录列表中不要给出多个目录。如果您想通过CSS样式表使用颜色，除了这个选项外，还可以使用-C选项强制输出颜色。
+-HbaseHREF	打开HTML输出，包括HTTP引用。适用于ftp站点。当使用HTML输出时，baseHREF给出基本ftp位置。也就是说，本地目录可能是“/local/ftp/pub”，但是它必须被引用为“<a href="ftp://hostname.organiz.domain/pub%E2%80%9D(baseHREF%E5%BA%94%E8%AF%A5%E6%98%AF%E2%80%9Cftp://hostname.organiz.domain%E2%80%9D)%E3%80%82%E6%8F%90%E7%A4%BA:%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%B8%A6%E6%9C%89%E6%AD%A4%E9%80%89%E9%A1%B9%E7%9A%84ANSI%E8%A1%8C%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8%E4%B8%AD%E4%B8%8D%E8%A6%81%E7%BB%99%E5%87%BA%E5%A4%9A%E4%B8%AA%E7%9B%AE%E5%BD%95%E3%80%82%E5%A6%82%E6%9E%9C%E6%82%A8%E6%83%B3%E9%80%9A%E8%BF%87CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BD%BF%E7%94%A8%E9%A2%9C%E8%89%B2%EF%BC%8C%E9%99%A4%E4%BA%86%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E5%A4%96%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-C%E9%80%89%E9%A1%B9%E5%BC%BA%E5%88%B6%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2">ftp://hostname.organiz.domain/pub%E2%80%9D(baseHREF%E5%BA%94%E8%AF%A5%E6%98%AF%E2%80%9Cftp://hostname.organiz.domain%E2%80%9D)%E3%80%82%E6%8F%90%E7%A4%BA:%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%B8%A6%E6%9C%89%E6%AD%A4%E9%80%89%E9%A1%B9%E7%9A%84ANSI%E8%A1%8C%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8%E4%B8%AD%E4%B8%8D%E8%A6%81%E7%BB%99%E5%87%BA%E5%A4%9A%E4%B8%AA%E7%9B%AE%E5%BD%95%E3%80%82%E5%A6%82%E6%9E%9C%E6%82%A8%E6%83%B3%E9%80%9A%E8%BF%87CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BD%BF%E7%94%A8%E9%A2%9C%E8%89%B2%EF%BC%8C%E9%99%A4%E4%BA%86%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E5%A4%96%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-C%E9%80%89%E9%A1%B9%E5%BC%BA%E5%88%B6%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2</a>。
 -Ttitle	在HTML输出模式下设置标题和H1标题字符串。
 &#x2013;charsetcharset	设置输出HTML和绘图时使用的字符集。
 &#x2013;nolinks	关闭HTML输出中的超链接。
@@ -172,8 +126,8 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 </div>
 
 
-<div id="outline-container-org42f5923" class="outline-2">
-<h2 id="org42f5923"><span class="section-number-2">2</span> tree 实例</h2>
+<div id="outline-container-orgf6f6f2f" class="outline-2">
+<h2 id="orgf6f6f2f"><span class="section-number-2">2.</span> tree 实例</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">$ tree /home/pengshao/psnote_public/linux/
@@ -184,7 +138,7 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 显示tree中当前目录和子目录的内容。输出采用图形形式，类似于以下示例：
 </p>
 
-<pre class="example">
+<pre class="example" id="org7cc8820">
 ps-debian:~/psnote_public/linux$ tree ./
 ./
 ├── after-install-debian.org
@@ -214,8 +168,8 @@ ps-debian:~/psnote_public/linux$ tree ./
 </div>
 </div>
 
-<div id="outline-container-orga46a29b" class="outline-2">
-<h2 id="orga46a29b"><span class="section-number-2">3</span> 实例</h2>
+<div id="outline-container-orgd413ff0" class="outline-2">
+<h2 id="orgd413ff0"><span class="section-number-2">3.</span> 实例</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">$ tree -a /home/pengshao

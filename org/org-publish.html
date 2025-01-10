@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish-tutorial</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="emacs, org-mode, org-publish-tutorial">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs, org-mode, org-publish-tutorial" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">org-publish-tutorial</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb0ded3c">1. 文件导出教程,以及相关的css文件和头部文件</a></li>
-<li><a href="#org47a614a">2. 批量导出文件</a></li>
-<li><a href="#orgb6eaa43">3. 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</a></li>
-<li><a href="#org0430167">4. 清除上下标的设置</a></li>
-<li><a href="#org4711bbd">5. 导出的html不显示目录</a></li>
-<li><a href="#orgdaaf5f2">6. 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</a></li>
+<li><a href="#org69c2187">1. 文件导出教程,以及相关的css文件和头部文件</a></li>
+<li><a href="#orgcb48f97">2. 批量导出文件</a></li>
+<li><a href="#orgb1d73c6">3. 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</a></li>
+<li><a href="#org9e234d2">4. 清除上下标的设置</a></li>
+<li><a href="#orgbd9faa8">5. 导出的html不显示目录</a></li>
+<li><a href="#orgf930a7e">6. 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-orgb0ded3c" class="outline-2">
-<h2 id="orgb0ded3c"><span class="section-number-2">1</span> 文件导出教程,以及相关的css文件和头部文件</h2>
+<div id="outline-container-org69c2187" class="outline-2">
+<h2 id="org69c2187"><span class="section-number-2">1.</span> 文件导出教程,以及相关的css文件和头部文件</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>做好准备工作后，就可以导出了
@@ -107,7 +61,7 @@ css模板<a href="https://github.com/lijigang/org-notes-style">https://github.co
 <li><p>
 然后在org文件的头部添加上加载头文件的语句就可以了
 </p>
-<pre class="example">
+<pre class="example" id="orgf56d03a">
 #+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
 </pre></li>
 
@@ -173,8 +127,8 @@ css文件最好是放到跟文件夹内部</li>
 
 
 
-<div id="outline-container-org47a614a" class="outline-2">
-<h2 id="org47a614a"><span class="section-number-2">2</span> 批量导出文件</h2>
+<div id="outline-container-orgcb48f97" class="outline-2">
+<h2 id="orgcb48f97"><span class="section-number-2">2.</span> 批量导出文件</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 教程直接就是配置文件
@@ -211,7 +165,7 @@ css文件最好是放到跟文件夹内部</li>
              <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">href &#30340;&#36171;&#20540;&#19981;&#20250;&#20570;&#22914;&#20309;&#36716;&#25442;&#65292;&#22240;&#27492;&#24517;&#39035;&#30830;&#20445;&#26159;&#22312;&#29983;&#25104;&#30340; html &#25991;&#20214;&#33021;&#22815;&#35775;&#38382;&#30340;&#32477;&#23545;&#36335;&#24452;&#12290;</span>
              <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"</span>
              <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:html-postamble</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"</span>
+             <span style="color: #ba55d3; background-color: #dcdcdc;">:html-postamble</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('</span><span style="color: #cd8500; background-color: #dcdcdc;">js</span><span style="color: #00cd66; background-color: #dcdcdc;">', new Date()); gtag('</span><span style="color: #cd8500; background-color: #dcdcdc;">config</span><span style="color: #00cd66; background-color: #dcdcdc;">', '</span><span style="color: #cd8500; background-color: #dcdcdc;">UA-164487790-1</span><span style="color: #00cd66; background-color: #dcdcdc;">'); &lt;/script&gt;"</span>
 
          )
 
@@ -244,8 +198,8 @@ css文件最好是放到跟文件夹内部</li>
 </div>
 
 
-<div id="outline-container-orgb6eaa43" class="outline-2">
-<h2 id="orgb6eaa43"><span class="section-number-2">3</span> 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</h2>
+<div id="outline-container-orgb1d73c6" class="outline-2">
+<h2 id="orgb1d73c6"><span class="section-number-2">3.</span> 批量到处文件跳过未修改设置方法(在基本完善了之后,不太需要了,现在用不太到了)</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>本来认为org只发布修改过的文件是它对比了org文件和导出文件的时间戳。
@@ -278,8 +232,8 @@ Orgmode 发布项目缓存说明
 
 
 
-<div id="outline-container-org0430167" class="outline-2">
-<h2 id="org0430167"><span class="section-number-2">4</span> 清除上下标的设置</h2>
+<div id="outline-container-org9e234d2" class="outline-2">
+<h2 id="org9e234d2"><span class="section-number-2">4.</span> 清除上下标的设置</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 导出时如果需要目录(类似本文开头), 
@@ -288,14 +242,14 @@ Orgmode 发布项目缓存说明
 如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
 </p>
 
-<pre class="example">
+<pre class="example" id="org764ae1c">
 #+OPTIONS: ^:nil _:nil f:nil toc:t
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org4711bbd" class="outline-2">
-<h2 id="org4711bbd"><span class="section-number-2">5</span> 导出的html不显示目录</h2>
+<div id="outline-container-orgbd9faa8" class="outline-2">
+<h2 id="orgbd9faa8"><span class="section-number-2">5.</span> 导出的html不显示目录</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 一般文字文章我不喜欢
@@ -305,14 +259,14 @@ Orgmode 发布项目缓存说明
 </div>
 
 
-<div id="outline-container-orgdaaf5f2" class="outline-2">
-<h2 id="orgdaaf5f2"><span class="section-number-2">6</span> 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</h2>
+<div id="outline-container-orgf930a7e" class="outline-2">
+<h2 id="orgf930a7e"><span class="section-number-2">6.</span> 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><p>
 配置文件选项设置
 </p>
-<pre class="example">
+<pre class="example" id="orgb921c00">
 :auto-sitemap t
 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org ...
 :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
@@ -323,7 +277,7 @@ Orgmode 发布项目缓存说明
 <li><p>
 然后，我们只要在我们的 index.org 里 include 这个文件即可：
 </p>
-<pre class="example">
+<pre class="example" id="org7a31bb5">
 #+INCLUDE: sitemap.org
 </pre>
 

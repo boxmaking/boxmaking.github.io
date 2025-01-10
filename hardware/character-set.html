@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:17 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>字符集和编码</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="字符集,编码">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="字符集,编码" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">字符集和编码</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgace617c">1. 字符集与编码</a></li>
-<li><a href="#orgd0e1ab2">2. 字符集和编码</a></li>
-<li><a href="#org64268fb">3. 代码页</a></li>
-<li><a href="#org3c9f5de">4. ANSI 编码</a></li>
-<li><a href="#org63ef1df">5. Unicode</a></li>
-<li><a href="#org5e932be">6. UTF-8, UTF-16, UTF-32</a></li>
-<li><a href="#org677ca08">7. 字节序 (Byte Order)</a></li>
-<li><a href="#org211a506">8. 字素(Grapheme)与字素簇(Grapheme Cluster)</a></li>
-<li><a href="#org981d36f">9. Collation</a></li>
-<li><a href="#org611c73b">10. MySQL 与 UTF-8</a></li>
+<li><a href="#orgf83b198">1. 字符集与编码</a></li>
+<li><a href="#org02130fe">2. 字符集和编码</a></li>
+<li><a href="#org417489c">3. 代码页</a></li>
+<li><a href="#org06c9d13">4. ANSI 编码</a></li>
+<li><a href="#orga460692">5. Unicode</a></li>
+<li><a href="#org25cec72">6. UTF-8, UTF-16, UTF-32</a></li>
+<li><a href="#orga537db6">7. 字节序 (Byte Order)</a></li>
+<li><a href="#orge952d7b">8. 字素(Grapheme)与字素簇(Grapheme Cluster)</a></li>
+<li><a href="#orged9d7b4">9. Collation</a></li>
+<li><a href="#org59e9f2d">10. MySQL 与 UTF-8</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgace617c" class="outline-2">
-<h2 id="orgace617c"><span class="section-number-2">1</span> 字符集与编码</h2>
+<div id="outline-container-orgf83b198" class="outline-2">
+<h2 id="orgf83b198"><span class="section-number-2">1.</span> 字符集与编码</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 发布于 2019年9月12日   最后修改于 2019年11月19日    原创作品，转载请注明<a href="https://deerchao.cn/blog/posts/unicode.html">来源</a>.
@@ -95,8 +49,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgd0e1ab2" class="outline-2">
-<h2 id="orgd0e1ab2"><span class="section-number-2">2</span> 字符集和编码</h2>
+<div id="outline-container-org02130fe" class="outline-2">
+<h2 id="org02130fe"><span class="section-number-2">2.</span> 字符集和编码</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 字符集(Character Set)是字符的集合，定义系统能处理哪些字符；编码(Encoding)则规定这些字符在计算机内部的表示方式。
@@ -114,8 +68,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org64268fb" class="outline-2">
-<h2 id="org64268fb"><span class="section-number-2">3</span> 代码页</h2>
+<div id="outline-container-org417489c" class="outline-2">
+<h2 id="org417489c"><span class="section-number-2">3.</span> 代码页</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 代码页就是字符集加上编码。
@@ -130,7 +84,7 @@ reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage /f AC
 <p>
 查看系统当前设置的代码页编号：
 </p>
-<pre class="example">
+<pre class="example" id="org0a31cab">
 C:\&gt;reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage /f ACP
 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage
@@ -150,8 +104,8 @@ C:&gt;
 </div>
 
 
-<div id="outline-container-org3c9f5de" class="outline-2">
-<h2 id="org3c9f5de"><span class="section-number-2">4</span> ANSI 编码</h2>
+<div id="outline-container-org06c9d13" class="outline-2">
+<h2 id="org06c9d13"><span class="section-number-2">4.</span> ANSI 编码</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 ANSI 编码代表 Windows 系统中当前代码页对应的编码，亦即系统默认编码。
@@ -164,8 +118,8 @@ ANSI 编码代表 Windows 系统中当前代码页对应的编码，亦即系统
 </div>
 
 
-<div id="outline-container-org63ef1df" class="outline-2">
-<h2 id="org63ef1df"><span class="section-number-2">5</span> Unicode</h2>
+<div id="outline-container-orga460692" class="outline-2">
+<h2 id="orga460692"><span class="section-number-2">5.</span> Unicode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Unicode 是一套标准，包含多语言统一的字符集及其相关编码，以及在这个字符集上进行文本处理的相关规则。
@@ -186,8 +140,8 @@ Unicode 字符集被分为十七个子集(Plane，平面或位面)，每个子�
 </div>
 
 
-<div id="outline-container-org5e932be" class="outline-2">
-<h2 id="org5e932be"><span class="section-number-2">6</span> UTF-8, UTF-16, UTF-32</h2>
+<div id="outline-container-org25cec72" class="outline-2">
+<h2 id="org25cec72"><span class="section-number-2">6.</span> UTF-8, UTF-16, UTF-32</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 这些是 Unicode 标准中规定的几种编码方式。UTF 是 Unicode Transformation Format 的缩写。
@@ -212,8 +166,8 @@ UTF-32 (又称 UCS-4) 是一种定长编码，每个字符使用 32 位来表示
 </div>
 
 
-<div id="outline-container-org677ca08" class="outline-2">
-<h2 id="org677ca08"><span class="section-number-2">7</span> 字节序 (Byte Order)</h2>
+<div id="outline-container-orga537db6" class="outline-2">
+<h2 id="orga537db6"><span class="section-number-2">7.</span> 字节序 (Byte Order)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 不同系统中处理数值时可能采用的大小端序(Endianness)不同。比如在小端序（Little-endian）的机器上，32 位数字 1 在内存中表示为 4 个字节：01 00 00 00；而在大端序(Big-endian)的机器上则表示为 00 00 00 01。常见的 x86/x64, ARM 等处理器架构使用小端序，OpenRISC, SPARC等则使用大端序。不同系统间通信时，或读取其它系统存储的文件时，需要考虑字节顺序问题。
@@ -234,8 +188,8 @@ UTF-8 编码的基本单位是字节，无需考虑字节序问题。尽管可�
 </div>
 
 
-<div id="outline-container-org211a506" class="outline-2">
-<h2 id="org211a506"><span class="section-number-2">8</span> 字素(Grapheme)与字素簇(Grapheme Cluster)</h2>
+<div id="outline-container-orge952d7b" class="outline-2">
+<h2 id="orge952d7b"><span class="section-number-2">8.</span> 字素(Grapheme)与字素簇(Grapheme Cluster)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 字素是文本在书写时最小的单位，可以被理解为单独的“字”。
@@ -256,8 +210,8 @@ UTF-8 编码的基本单位是字节，无需考虑字节序问题。尽管可�
 </div>
 
 
-<div id="outline-container-org981d36f" class="outline-2">
-<h2 id="org981d36f"><span class="section-number-2">9</span> Collation</h2>
+<div id="outline-container-orged9d7b4" class="outline-2">
+<h2 id="orged9d7b4"><span class="section-number-2">9.</span> Collation</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Collation 是字符间的排序规则。在一个 Collation 中，对应字符集里所有的字符都有确定的排序先后关系，因而构成了全序关系。
@@ -270,8 +224,8 @@ Collation 是字符间的排序规则。在一个 Collation 中，对应字符�
 </div>
 
 
-<div id="outline-container-org611c73b" class="outline-2">
-<h2 id="org611c73b"><span class="section-number-2">10</span> MySQL 与 UTF-8</h2>
+<div id="outline-container-org59e9f2d" class="outline-2">
+<h2 id="org59e9f2d"><span class="section-number-2">10.</span> MySQL 与 UTF-8</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 在 MySQL 数据库中，存在多个与 Unicode 相关的字符集和排序规则。

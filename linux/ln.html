@@ -1,90 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>链接相关的教程</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="linux-ln">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux-ln" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">链接相关的教程</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org51a89f3">1. 硬链接和软链接</a></li>
-<li><a href="#org7321fa7">2. ln命令选项</a></li>
-<li><a href="#orga8484c8">3. 硬链接</a>
+<li><a href="#org736af04">1. 硬链接和软链接</a></li>
+<li><a href="#orgccd050c">2. ln命令选项</a></li>
+<li><a href="#org611fbcd">3. 硬链接</a>
 <ul>
-<li><a href="#org65c0530">3.1. 需要查看硬链接的所有文件的位置</a></li>
+<li><a href="#orgde28b9e">3.1. 需要查看硬链接的所有文件的位置</a></li>
 </ul>
 </li>
-<li><a href="#orgc0e136c">4. 符号链接,软连接</a></li>
+<li><a href="#orgf525e34">4. 符号链接,软连接</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org51a89f3" class="outline-2">
-<h2 id="org51a89f3"><span class="section-number-2">1</span> 硬链接和软链接</h2>
+<div id="outline-container-org736af04" class="outline-2">
+<h2 id="org736af04"><span class="section-number-2">1.</span> 硬链接和软链接</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 硬链接:ln source<sub>file</sub> dist<sub>file</sub>
@@ -101,10 +55,10 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org7321fa7" class="outline-2">
-<h2 id="org7321fa7"><span class="section-number-2">2</span> ln命令选项</h2>
+<div id="outline-container-orgccd050c" class="outline-2">
+<h2 id="orgccd050c"><span class="section-number-2">2.</span> ln命令选项</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example">
+<pre class="example" id="org138d989">
 --backup[=CONTROL]  为每个已存在的目标文件创建备份文件
 -b        类似--backup，但不接受任何参数
 -d, -F, --directory   创建指向目录的硬链接(只适用于超级用户)
@@ -126,8 +80,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga8484c8" class="outline-2">
-<h2 id="orga8484c8"><span class="section-number-2">3</span> 硬链接</h2>
+<div id="outline-container-org611fbcd" class="outline-2">
+<h2 id="org611fbcd"><span class="section-number-2">3.</span> 硬链接</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 建立硬链接时,在另外的目录或本目录中增加目标文件的一个目录项,这样,一个文件就登记在多个目录中.
@@ -154,8 +108,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-org65c0530" class="outline-3">
-<h3 id="org65c0530"><span class="section-number-3">3.1</span> 需要查看硬链接的所有文件的位置</h3>
+<div id="outline-container-orgde28b9e" class="outline-3">
+<h3 id="orgde28b9e"><span class="section-number-3">3.1.</span> 需要查看硬链接的所有文件的位置</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>ls -il 查看文件的inode</li>
@@ -166,8 +120,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgc0e136c" class="outline-2">
-<h2 id="orgc0e136c"><span class="section-number-2">4</span> 符号链接,软连接</h2>
+<div id="outline-container-orgf525e34" class="outline-2">
+<h2 id="orgf525e34"><span class="section-number-2">4.</span> 符号链接,软连接</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 与硬链接不同的是,符号链接确实是一个新文件当然它具有不同的I节点号,而硬链接并没有建立新文件。

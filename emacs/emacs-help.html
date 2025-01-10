@@ -1,93 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2020-06-24 Wed 22:25 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2025-01-10 Fri 21:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs帮助系统</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="pengshao">
-<meta name="keywords" content="emacs,emacs-help">
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs,emacs-help" />
+<meta name="generator" content="Org Mode" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
  <a accesskey="h" href="../index.html"> UP </a>
  |
  <a accesskey="H" href="../index.html"> HOME </a>
-</div><div id="content">
+</div><div id="content" class="content">
 <header>
 <h1 class="title">emacs帮助系统</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org538cf04">1. C-h w :: 查看某个函数绑定的快捷键</a></li>
-<li><a href="#org55652c0">2. C-h k :: 查看某个快捷键的用处和绑定的函数</a></li>
-<li><a href="#orga2ef3bb">3. C-h f :: 查看函数的用处和绑定的快捷键</a></li>
-<li><a href="#orgfd6ffc6">4. C-h v :: 查看emacs变量的详细信息</a></li>
-<li><a href="#org14b3854">5. C-h m :: 查看当前mode的详细信息和快捷键</a></li>
-<li><a href="#org9e9f1f1">6. M-x decribe-face :: 查看某个mode的文档</a></li>
-<li><a href="#org7f48dc2">7. C-h b :: 查看所有组合式快捷键</a></li>
-<li><a href="#org3e117fd">8. C-h l :: 查看最近100个按键组合</a></li>
-<li><a href="#org1decb22">9. C-h i emacs :: 的详细信息</a></li>
-<li><a href="#orgaee7e31">10. 相关全部命令</a></li>
-<li><a href="#orgddaa299">11. fn:1 https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html</a></li>
+<li><a href="#orgce8bbfa">1. C-h w :: 查看某个函数绑定的快捷键</a></li>
+<li><a href="#org066c75d">2. C-h k :: 查看某个快捷键的用处和绑定的函数</a></li>
+<li><a href="#orgb5bd031">3. C-h f :: 查看函数的用处和绑定的快捷键</a></li>
+<li><a href="#org8f034a0">4. C-h v :: 查看emacs变量的详细信息</a></li>
+<li><a href="#org84cf423">5. C-h m :: 查看当前mode的详细信息和快捷键</a></li>
+<li><a href="#org7a68054">6. M-x decribe-face :: 查看某个mode的文档</a></li>
+<li><a href="#org78c636e">7. C-h b :: 查看所有组合式快捷键</a></li>
+<li><a href="#orge66514d">8. C-h l :: 查看最近100个按键组合</a></li>
+<li><a href="#org2fb29f2">9. C-h i emacs :: 的详细信息</a></li>
+<li><a href="#org452711d">10. 相关全部命令</a></li>
+<li><a href="#org1e9e1c7">11. fn:1 https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org538cf04" class="outline-2">
-<h2 id="org538cf04"><span class="section-number-2">1</span> C-h w :: 查看某个函数绑定的快捷键</h2>
+<div id="outline-container-orgce8bbfa" class="outline-2">
+<h2 id="orgce8bbfa"><span class="section-number-2">1.</span> C-h w :: 查看某个函数绑定的快捷键</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 where-is 命令
@@ -102,8 +56,8 @@ C-h w 函数名称
 </div>
 
 
-<div id="outline-container-org55652c0" class="outline-2">
-<h2 id="org55652c0"><span class="section-number-2">2</span> C-h k :: 查看某个快捷键的用处和绑定的函数</h2>
+<div id="outline-container-org066c75d" class="outline-2">
+<h2 id="org066c75d"><span class="section-number-2">2.</span> C-h k :: 查看某个快捷键的用处和绑定的函数</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 describe-key 命令
@@ -113,8 +67,8 @@ C-h k查看快捷键绑定的函数
 </div>
 
 
-<div id="outline-container-orga2ef3bb" class="outline-2">
-<h2 id="orga2ef3bb"><span class="section-number-2">3</span> C-h f :: 查看函数的用处和绑定的快捷键</h2>
+<div id="outline-container-orgb5bd031" class="outline-2">
+<h2 id="orgb5bd031"><span class="section-number-2">3.</span> C-h f :: 查看函数的用处和绑定的快捷键</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 describe-function 命令
@@ -124,8 +78,8 @@ C-h f查看函数的详细信息
 </div>
 
 
-<div id="outline-container-orgfd6ffc6" class="outline-2">
-<h2 id="orgfd6ffc6"><span class="section-number-2">4</span> C-h v :: 查看emacs变量的详细信息</h2>
+<div id="outline-container-org8f034a0" class="outline-2">
+<h2 id="org8f034a0"><span class="section-number-2">4.</span> C-h v :: 查看emacs变量的详细信息</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 describe-variable
@@ -135,8 +89,8 @@ describe-variable
 </div>
 
 
-<div id="outline-container-org14b3854" class="outline-2">
-<h2 id="org14b3854"><span class="section-number-2">5</span> C-h m :: 查看当前mode的详细信息和快捷键</h2>
+<div id="outline-container-org84cf423" class="outline-2">
+<h2 id="org84cf423"><span class="section-number-2">5.</span> C-h m :: 查看当前mode的详细信息和快捷键</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 describe-mode 命令
@@ -146,8 +100,8 @@ C-h m查看当前mode的详细信息和快捷键
 </div>
 
 
-<div id="outline-container-org9e9f1f1" class="outline-2">
-<h2 id="org9e9f1f1"><span class="section-number-2">6</span> M-x decribe-face :: 查看某个mode的文档</h2>
+<div id="outline-container-org7a68054" class="outline-2">
+<h2 id="org7a68054"><span class="section-number-2">6.</span> M-x decribe-face :: 查看某个mode的文档</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 查看某个mode的文档
@@ -156,8 +110,8 @@ C-h m查看当前mode的详细信息和快捷键
 </div>
 
 
-<div id="outline-container-org7f48dc2" class="outline-2">
-<h2 id="org7f48dc2"><span class="section-number-2">7</span> C-h b :: 查看所有组合式快捷键</h2>
+<div id="outline-container-org78c636e" class="outline-2">
+<h2 id="org78c636e"><span class="section-number-2">7.</span> C-h b :: 查看所有组合式快捷键</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 describe-bindings 命令
@@ -167,8 +121,8 @@ describe-bindings 命令
 </div>
 
 
-<div id="outline-container-org3e117fd" class="outline-2">
-<h2 id="org3e117fd"><span class="section-number-2">8</span> C-h l :: 查看最近100个按键组合</h2>
+<div id="outline-container-orge66514d" class="outline-2">
+<h2 id="orge66514d"><span class="section-number-2">8.</span> C-h l :: 查看最近100个按键组合</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 view-lossage
@@ -181,8 +135,8 @@ view-lossage
 </div>
 
 
-<div id="outline-container-org1decb22" class="outline-2">
-<h2 id="org1decb22"><span class="section-number-2">9</span> C-h i emacs :: 的详细信息</h2>
+<div id="outline-container-org2fb29f2" class="outline-2">
+<h2 id="org2fb29f2"><span class="section-number-2">9.</span> C-h i emacs :: 的详细信息</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 info&#x2013;emacs
@@ -191,8 +145,8 @@ info&#x2013;emacs
 </div>
 
 
-<div id="outline-container-orgaee7e31" class="outline-2">
-<h2 id="orgaee7e31"><span class="section-number-2">10</span> 相关全部命令</h2>
+<div id="outline-container-org452711d" class="outline-2">
+<h2 id="org452711d"><span class="section-number-2">10.</span> 相关全部命令</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>apropos	对于给定的正则表达式，这个命令将给出 apropos 命令和变量的列表。</li>
@@ -239,8 +193,8 @@ info&#x2013;emacs
 </div>
 
 
-<div id="outline-container-orgddaa299" class="outline-2">
-<h2 id="orgddaa299"><span class="section-number-2">11</span> fn:1 <a href="https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html">https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html</a></h2>
+<div id="outline-container-org1e9e1c7" class="outline-2">
+<h2 id="org1e9e1c7"><span class="section-number-2">11.</span> fn:1 <a href="https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html">https://www.ibm.com/developerworks/cn/education/aix/au-emacs7/index.html</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
