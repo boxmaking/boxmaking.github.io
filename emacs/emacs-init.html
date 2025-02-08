@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-08 Sat 21:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -131,9 +131,24 @@ M-x eval-buffer
   (find-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/init.el"</span>))
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19996;&#20843;&#21306;&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</span>
+(setq calendar-time-zone 8)  
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">package</span>)
+(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"gnu"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://elpa.gnu.org/packages/"</span>)t)
+(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"nongnu"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://elpa.nongnu.org/nongnu/"</span>) t)
+(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"melpa"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://melpa.org/packages/"</span>) t)
+(package-initialize)
+
+
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#24049;&#30340;&#19968;&#20123;&#23567;&#30340;&#37197;&#32622;</span>
 (add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/"</span>)
 
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25554;&#20837;&#22825;&#27668;&#30340;&#37197;&#32622;</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31532;&#19968;&#39033;&#26159;&#38142;&#25509;,&#31532;&#20108;&#39033;&#26159;&#24453;&#21150;&#20107;&#39033;,&#31532;&#19977;&#39033;&#26159;&#24635;&#32467;</span>
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
 (global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cl"</span> 'org-store-link)
 (global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cc"</span> 'org-capture)
@@ -148,6 +163,8 @@ M-x eval-buffer
 
 
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-calendar</span>)
+
+
 
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-default</span>)
 
@@ -172,6 +189,18 @@ M-x eval-buffer
 (color-theme-snow)
 
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">iimage</span>)
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">cal-china-x</span>)
+(setq calendar-mark-holidays-flag t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq mark-holidays-in-calendar t) ; before emacs-25</span>
+(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+(setq cal-china-x-general-holidays '((holiday-lunar 1 15 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20803;&#23477;&#33410;"</span>)))
+(setq calendar-holidays
+      (append cal-china-x-important-holidays
+              cal-china-x-general-holidays
+              <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">other-holidays</span>
+              ))
 
 
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">tabbar</span>)
@@ -233,13 +262,17 @@ M-x eval-buffer
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Your init file should contain only one such instance.</span>
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If there is more than one, they won't work right.</span>
  '(org-safe-remote-resources
-   '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\`</span><span style="color: #cd8500; background-color: #dcdcdc;">https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\</span><span style="color: #00cd66; background-color: #dcdcdc;">'"</span>)))
+   '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\`</span><span style="color: #cd8500; background-color: #dcdcdc;">https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\</span><span style="color: #00cd66; background-color: #dcdcdc;">'"</span>))
+ '(package-selected-packages '(json-mode request)))
 (custom-set-faces
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">custom-set-faces was added by Custom.</span>
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If you edit it by hand, you could mess it up, so be careful.</span>
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Your init file should contain only one such instance.</span>
  <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If there is more than one, they won't work right.</span>
  )
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-converttime</span>)
 </pre>
 </div>
 </div>
@@ -266,7 +299,7 @@ M-x eval-buffer
 
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20851;&#38381;&#36215;&#21160;&#26102;&#30340;&#37027;&#20010;&#8220;&#24320;&#26426;&#30011;&#38754;&#8221; </span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq inhibit-startup-message t)</span>
+(setq inhibit-startup-message t)
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-below)   ;; &#27178;&#21521;&#20998;&#23631;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-right)   ;; &#32437;&#21521;&#20998;&#23631;</span>
@@ -363,21 +396,30 @@ M-x eval-buffer
 (add-to-list 'auto-mode-alist '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\.org\\'"</span> . org-mode))
 
 
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cl" 'org-store-link)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#38142;&#25509;</span>
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#40664;&#35748;&#30340;agenda&#25991;&#20214;,&#30340;todo&#30340;&#20840;&#23616;&#25991;&#20214;&#21487;&#20197;&#28155;&#21152;&#22312;&#36825;&#37324;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-ca" 'org-agenda)</span>
 (setq org-agenda-files
-      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>
-            ))
+      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/list-list.org"</span>
+        ))
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cc" 'org-capture)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile,&#36825;&#37324;&#23601;&#26159;org-capture&#30340;&#40664;&#35748;&#25991;&#20214;</span>
+(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/todo-list.org"</span>)
+
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27599;&#27425;&#26032;&#24314;todo&#21644;&#20570;&#23436;&#37117;&#35201;&#28155;&#21152;&#26102;&#38388;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-todo 'time)</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-done 'time)</span>
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile</span>
-(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
+
 
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,#+STARTUP: overview : content : showall : showeverything :</span>
@@ -839,7 +881,7 @@ M-x eval-buffer
 <div id="outline-container-org18dc752" class="outline-3">
 <h3 id="org18dc752"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
 <div class="outline-text-3" id="text-11-2">
-<pre class="example" id="orgcc7350f">
+<pre class="example" id="org2f4aaed">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -871,7 +913,7 @@ Decimal digits after the % specify field width to which to pad.
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 
-<pre class="example" id="org3ef5789">
+<pre class="example" id="orge78853d">
 /home/pengshao/.emacs.d/
 ├── ac-comphist.dat
 ├── bookmarks

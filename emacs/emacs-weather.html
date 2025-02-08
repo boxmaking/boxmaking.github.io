@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-08 Sat 21:37 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>利用wttr_in添加天气</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs,bookmark" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">利用wttr<sub>in添加天气</sub></h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8fd2c9f">1. wttr.in</a></li>
+<li><a href="#org235ba37">2. 配置文件</a></li>
+<li><a href="#orgaa6da50">3. C-c m o</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org8fd2c9f" class="outline-2">
+<h2 id="org8fd2c9f"><span class="section-number-2">1.</span> wttr.in</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org235ba37" class="outline-2">
+<h2 id="org235ba37"><span class="section-number-2">2.</span> 配置文件</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-openweather.el---&#33258;&#21160;&#25554;&#20837;&#22825;&#27668;&#30340;&#25945;&#31243;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&lt;2025-02-08/Saturday 19:32:10&gt;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-weather</span> ()
+  (interactive)
+  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"curl wttr.in/jinan?format=4 2&gt; /dev/null"</span>)))
+
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-weather)
+
+
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa6da50" class="outline-2">
+<h2 id="orgaa6da50"><span class="section-number-2">3.</span> C-c m o</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

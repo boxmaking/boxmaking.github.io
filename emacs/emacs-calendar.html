@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-08 Sat 21:37 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>calendar和cal-china-x相关的教程</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs,bookmark" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">calendar和cal-china-x相关的教程</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf6a1973">1. Calendar使用</a></li>
+<li><a href="#org2778850">2. cal-china-x安装与使用</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgf6a1973" class="outline-2">
+<h2 id="orgf6a1973"><span class="section-number-2">1.</span> Calendar使用</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>M-x Calendar 启动</li>
+<li>Calendar的相关使用教程
+<ol class="org-ol">
+<li>日历界面基本操作
+切换月份和年份
+下一个月：按下 ] 键，日历会显示下一个月的日期。
+上一个月：按下 [ 键，日历会显示上一个月的日期。
+下一年：按下 } 键，日历会显示下一年相同月份的日期。
+上一年：按下 { 键，日历会显示上一年相同月份的日期。</li>
+
+<li>快速跳转到指定日期
+按下 g 键，然后输入 y m d 格式的日期（例如 2025 10 1），再按下回车键，日历会快速跳转到指定日期。</li>
+
+<li>显示当天日期
+按下 t 键，日历会自动定位到当天的日期。</li>
+
+<li>查看详细日期信息
+将光标移动到某一日期上，按下 RET（回车键），会弹出一个窗口显示该日期的详细信息，包括星期几、节假日等（如果配置了相关节假日信息）。</li>
+
+<li>标记和查看节假日
+如果已经按照前面的教程配置了 cal-china-x 等扩展
+日历会自动标记重要的节假日。节假日通常会以不同的颜色或样式显示，方便识别。</li>
+
+<li>日程安排（日记功能）
+记录日程
+按下 d 键，然后输入要记录日程的日期（格式同快速跳转日期），再按下回车键，会打开对应的日记文件。在日记文件中输入日程信息，保存后，这些日程会与对应的日期关联。
+查看日程
+将光标移动到某一日期上，按下 D 键，会显示该日期关联的日程信息。</li>
+
+<li><p>
+日期计算
+计算相对日期
+按下 + 键，然后输入一个数字（表示天数），再按下回车键
+日历会显示当前日期之后指定天数的日期
+按下 - 键则会显示当前日期之前指定天数的日期。
+</p>
+
+<p>
+计算两个日期之间的天数
+按下 = 键，然后分别输入两个日期（格式同快速跳转日期）
+再按下回车键，Emacs 会计算并显示这两个日期之间的天数。
+</p></li>
+
+<li>退出日历
+按下 q 键，即可关闭日历窗口，返回到之前的编辑界面。</li>
+</ol></li>
+<li><p>
+自定义的插入时间快捷键
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">功能</th>
+<th scope="col" class="org-left">势力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-c m t</td>
+<td class="org-left">插入当前的年月日钟表时间</td>
+<td class="org-left">&lt;2025-02-08/Saturday 18:53:05&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c md</td>
+<td class="org-left">插入当前年月日星期</td>
+<td class="org-left">&lt;2025-02-08-039/Saturday&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c mm</td>
+<td class="org-left">插入当年年月</td>
+<td class="org-left">&lt;2025-February&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c my</td>
+<td class="org-left">插入本年度进度表</td>
+<td class="org-left">[///                           ] 10%</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(load <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/pengshao-insert-date.el"</span>)
+</pre>
+</div></li>
+<li><p>
+Calendar的相关设置文件
+pC显示农历
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(load <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/pengshao-calendar.el "</span>)
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org2778850" class="outline-2">
+<h2 id="org2778850"><span class="section-number-2">2.</span> cal-china-x安装与使用</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+安装
+<a href="https://github.com/xwl/cal-china-x">github的安装链接</a>
+下载文件：从 cal-china-x 的 GitHub 仓库 下载 cal-china-x.el 文件。
+放置文件：把下载好的 cal-china-x.el 文件放到 Emacs 的加载路径中，例如 ~/.emacs.d/lisp 目录
+配置加载路径：在 Emacs 配置文件里添加如下代码：
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/"</span>)
+
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">cal-china-x</span>)
+(setq calendar-mark-holidays-flag t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq mark-holidays-in-calendar t) ; before emacs-25</span>
+(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+(setq cal-china-x-general-holidays '((holiday-lunar 1 15 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20803;&#23477;&#33410;"</span>)))
+(setq calendar-holidays
+      (append cal-china-x-important-holidays
+              cal-china-x-general-holidays
+              <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">other-holidays&#36825;&#20010;&#22320;&#26041;&#38656;&#35201;&#38544;&#34255;&#36825;&#21477;&#35805;,&#35201;&#19981;&#28982;&#38169;&#35823;&#21551;&#21160;</span>
+              ))
+
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>使用教程
+之后就能在calendar使用了</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

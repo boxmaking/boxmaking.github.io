@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-08 Sat 21:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
@@ -275,7 +275,7 @@
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example" id="orge66015e">
+<pre class="example" id="org465fbc8">
 #+OPTIONS: H:4
 </pre>
 </div>
@@ -288,7 +288,7 @@
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example" id="org8a70b7c">
+<pre class="example" id="orgbf1d830">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -599,7 +599,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example" id="org7601d60">
+<pre class="example" id="org0616d4b">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -768,7 +768,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example" id="org2a1293a">
+<pre class="example" id="org0b5f75b">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -852,7 +852,7 @@ emacs配置文件中中设置如下的代码就行了
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example" id="orgf61c8bd">
+<pre class="example" id="orgf8aff6f">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
@@ -869,7 +869,7 @@ Org-mode支持内部链接,也就是锚点
 定义锚点 #<a id="org3bd74b4"></a>
 </p>
 
-<pre class="example" id="org0658541">
+<pre class="example" id="org38b86a7">
 [[my-anchor][内部链接]]
 </pre>
 
@@ -896,7 +896,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example" id="org0034707">
+<pre class="example" id="orge17a3d3">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -909,7 +909,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
 </p>
-<pre class="example" id="org93825fa">
+<pre class="example" id="orga9b49d8">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -927,7 +927,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example" id="org606c1fd">
+<pre class="example" id="orgbadc14e">
 链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
@@ -942,7 +942,7 @@ C-c C-l 就能添加链接了
 <div id="outline-container-orga3bd092" class="outline-3">
 <h3 id="orga3bd092"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example" id="org2963eb6">
+<pre class="example" id="org9f85940">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1078,7 +1078,7 @@ C-c C-c,可以对齐表格
 <div id="outline-container-org43fdc51" class="outline-3">
 <h3 id="org43fdc51"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example" id="orge59928d">
+<pre class="example" id="org4556c9d">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1158,7 +1158,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example" id="org0e35a8d">
+<pre class="example" id="org5877d44">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1175,7 +1175,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example" id="orga92e8c0">
+<pre class="example" id="org2ad0887">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1200,7 +1200,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example" id="org69e835e">
+<pre class="example" id="orgf9788c0">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1235,7 +1235,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example" id="org362ce5e">
+<pre class="example" id="org172f230">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1309,7 +1309,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 </pre>
 
 
-<pre class="example" id="org043e2ab">
+<pre class="example" id="org2be77c5">
 多行的例子
 使用区块
 </pre></li>
@@ -1361,7 +1361,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML" id="orged521e1">
+<div class="HTML" id="orgc00d20e">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1409,21 +1409,30 @@ return 0;
 (add-to-list 'auto-mode-alist '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\.org\\'"</span> . org-mode))
 
 
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cl" 'org-store-link)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#38142;&#25509;</span>
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#40664;&#35748;&#30340;agenda&#25991;&#20214;,&#30340;todo&#30340;&#20840;&#23616;&#25991;&#20214;&#21487;&#20197;&#28155;&#21152;&#22312;&#36825;&#37324;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-ca" 'org-agenda)</span>
 (setq org-agenda-files
-      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>
-            ))
+      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/list-list.org"</span>
+        ))
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cc" 'org-capture)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile,&#36825;&#37324;&#23601;&#26159;org-capture&#30340;&#40664;&#35748;&#25991;&#20214;</span>
+(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/todo-list.org"</span>)
+
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27599;&#27425;&#26032;&#24314;todo&#21644;&#20570;&#23436;&#37117;&#35201;&#28155;&#21152;&#26102;&#38388;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-todo 'time)</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-done 'time)</span>
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile</span>
-(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/psnote_public/idear/idear-list.org"</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
+
 
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,#+STARTUP: overview : content : showall : showeverything :</span>
@@ -1597,7 +1606,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example" id="org957cd14">
+<pre class="example" id="orga8d3664">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}
