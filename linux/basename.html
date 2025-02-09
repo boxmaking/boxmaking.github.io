@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 15:43 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>命令行实现回收站功能,安全的rm -rf</title>
@@ -94,14 +94,14 @@ done
 编写~/.bashrc文件
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">alias</span> <span style="color: #912cee; background-color: #dcdcdc;">rm</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"sh ~/remove.sh"</span>
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">alias</span> <span style="color: #912cee; background-color: #dcdcdc;">rm</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"sh ~/shellscript/remove.sh"</span>
 </pre>
 </div></li>
 <li><p>
 加载文件
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">source</span> ~/.bashrc   
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">source</span> ~/.bashrc   
 </pre>
 </div></li>
 <li><p>
@@ -126,7 +126,7 @@ done
 <p>
 basename命令允许您从不需要的文件名中去除组件。 以下是该工具的语法：
 </p>
-<pre class="example" id="orgb00f3ed">
+<pre class="example" id="orgcff60a5">
 basename NAME [SUFFIX]
 basename OPTION... NAME...
 以下是手册页中所说的内容：
@@ -143,6 +143,7 @@ SUFFIX.
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgf9b33e0" class="outline-3">
 <h3 id="orgf9b33e0"><span class="section-number-3">2.2.</span> basename命令如何工作？</h3>
 <div class="outline-text-3" id="text-2-2">
@@ -161,6 +162,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">test</span>.txt
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-org2d43384" class="outline-3">
 <h3 id="org2d43384"><span class="section-number-3">2.3.</span> basename可以处理多个输入吗？</h3>
@@ -181,6 +183,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">test</span>.jpg
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-org62bf42e" class="outline-3">
 <h3 id="org62bf42e"><span class="section-number-3">2.4.</span> 如何制作basename strip文件扩展名？</h3>
@@ -228,6 +231,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">test</span>.txttest.jp
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-org69979af" class="outline-2">
 <h2 id="org69979af"><span class="section-number-2">3.</span> rm -rf 删除目录时要判断目录</h2>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sr-speedbar使用教程</title>
@@ -47,22 +47,28 @@
 <div class="org-src-container">
 <pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">sr-speedbar</span>)
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24038;&#20391;&#26174;&#31034;</span>
-(setq sr-speedbar-right-side nil)
+(setq sr-speedbar-right-side nil)     
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23485;&#24230;</span>
-(setq sr-speedbar-width 30)
+(setq sr-speedbar-width 25)          
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;.&#30340;&#22836;&#25991;&#20214;</span>
 (setq speedbar-directory-unshown-regexp <span style="color: #00cd66; background-color: #dcdcdc;">"^\(\.\.*$\)\'"</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#24555;&#25463;&#38190;f5,&#40664;&#35748;&#22312;&#24555;&#25463;&#38190;&#37197;&#32622;&#25991;&#20214;&#20869;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f3] 'sr-speedbar-open)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31383;&#21475;&#36339;&#36716;&#36339;&#36807;sr-speedbar</span>
 (setq sr-speedbar-skip-other-window-p t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25171;&#24320;sr-speedbar</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#24555;&#25463;&#38190;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
+(global-set-key [f5] 'sr-speedbar-open)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c s"</span>) 'sr-speedbar-open)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c x"</span>) 'sr-speedbar-close)
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24320;&#26426;&#40664;&#35748;&#21551;&#21160;speedbar,&#19981;&#29992;&#20102;,&#29616;&#22312;&#29992;sr-speedbar&#20102;</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(speedbar 1)</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25171;&#24320;sr-speedbar</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#22826;&#19981;&#22909;&#29992;&#20102;,&#27599;&#27425;&#37117;&#22810;&#25171;&#24320;&#19968;&#20010;&#31383;&#26684;,&#25152;&#20197;&#24573;&#30053;&#20102;,</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(sr-speedbar-open)</span>
 </pre>
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-orgad5c216" class="outline-2">
 <h2 id="orgad5c216"><span class="section-number-2">3.</span> 快捷键</h2>

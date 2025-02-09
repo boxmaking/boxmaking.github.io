@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>badblocks,硬盘坏道检测工具</title>
@@ -36,14 +36,10 @@
 <div class="outline-text-2" id="text-1">
 <p>
 badblocks被打包在e2fsprogs安装包中。
-CentOS下：
 </p>
+
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">yum</span> install e2fsprogs
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">Ubuntu&#19979;&#65306;</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install e2fsprogs
-
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install e2fsprogs
 </pre>
 </div>
 </div>
@@ -56,13 +52,11 @@ $<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install
 <p>
 实例
 </p>
-<pre class="example" id="org42de021">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#31995;&#32479;&#24403;&#21069;&#30828;&#30424;&#20449;&#24687;&#12290;</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">fdisk</span> -l
 
-#查看系统当前硬盘信息。
-
-$fdisk -l
-
-例如，显示信息如下：
+&#20363;&#22914;&#65292;&#26174;&#31034;&#20449;&#24687;&#22914;&#19979;&#65306;
 
 Disk /dev/sda: 298.9 GB, 298999349248 bytes
 255 heads, 63 sectors/track, 36351 cylinders
@@ -77,13 +71,13 @@ Disk /dev/sdb: 42.9 GB, 42949672960 bytes
 64 heads, 32 sectors/track, 40960 cylinders
 Units = cylinders of 2048 * 512 = 1048576 bytes
 
-通过命令扫描硬盘。
+&#36890;&#36807;&#21629;&#20196;&#25195;&#25551;&#30828;&#30424;&#12290;
 
-$badblocks -s -v /dev/sdnx
+$<span style="color: #912cee; background-color: #dcdcdc;">badblocks</span> -s -v /dev/sdnx
 
-其中n表示硬盘设备名，x表示硬盘对应的分区号。例如需要检查"/dev/sda2"，执行命令如下：
+&#20854;&#20013;n&#34920;&#31034;&#30828;&#30424;&#35774;&#22791;&#21517;&#65292;x&#34920;&#31034;&#30828;&#30424;&#23545;&#24212;&#30340;&#20998;&#21306;&#21495;&#12290;&#20363;&#22914;&#38656;&#35201;&#26816;&#26597;<span style="color: #00cd66; background-color: #dcdcdc;">"/dev/sda2"</span>&#65292;&#25191;&#34892;&#21629;&#20196;&#22914;&#19979;&#65306;
 
-$badblocks -s -v /dev/sda2
+$<span style="color: #912cee; background-color: #dcdcdc;">badblocks</span> -s -v /dev/sda2
 
 Checking blocks 0 to 30681000
 Checking for bad blocks (read-only test): 306809600674112/ 306810000000
@@ -98,10 +92,11 @@ Checking for bad blocks (read-only test): 306809600674112/ 306810000000
 30680972
 30680973
 ...
-done
-Pass completed, 37 bad blocks found.其中，“37 bad blocks found”表示硬盘存在37个坏块。
+<span style="color: #cd0000; background-color: #dcdcdc;">done</span>
+Pass completed, 37 bad blocks found.&#20854;&#20013;&#65292;&#8220;37 bad blocks found&#8221;&#34920;&#31034;&#30828;&#30424;&#23384;&#22312;37&#20010;&#22351;&#22359;&#12290;
 
 </pre>
+</div>
 </div>
 </div>
 
@@ -120,7 +115,7 @@ badblock命令用于查找磁盘中损坏的区块。 电脑硬盘出现坏道�
 常见案例与用法
 查看当前系统的分区：
 </p>
-<pre class="example" id="org4ed7383">
+<pre class="example" id="orgca757e6">
 [root@zcwyou ~]# lsblk 
 
 Bash
@@ -145,7 +140,7 @@ linux-badblock命令常见案例与用法
 <p>
 比如/dev/sda1
 </p>
-<pre class="example" id="org2cc7b02">
+<pre class="example" id="orgf82f332">
 [root@zcwyou ~]# badblocks -s -v /dev/sda1
 
 Bash

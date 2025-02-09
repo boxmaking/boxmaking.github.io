@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-color-theme主题</title>
@@ -26,7 +26,6 @@
 <ul>
 <li><a href="#org1d791ef">1. 给emacs安装color-theme</a></li>
 <li><a href="#orgce3988c">2. 下载解压缩后</a></li>
-<li><a href="#orgecd79c6">3. 其它主题</a></li>
 </ul>
 </div>
 </nav>
@@ -49,12 +48,13 @@
 <h2 id="orgce3988c"><span class="section-number-2">2.</span> 下载解压缩后</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
-<li>把color-theme.el拷贝到某个load-path中，比如我的是~/.emacs.d</li>
+<li>把color-theme.el拷贝到某个load-path中
+比如我的是~/.emacs.d/lisp/</li>
 
 <li>把themes目录也要拷贝到上面的路径中</li>
 
 <li><p>
-在~/.emacs里添加下面几行：
+在~/.emacs.d/init.el里添加下面几行：
 </p>
 <div class="org-src-container">
 <pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> &#8216;color-theme)
@@ -83,30 +83,6 @@ M-x color-theme-select
 就把第三行替换成那个。
 </p></li>
 </ol>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgecd79c6" class="outline-2">
-<h2 id="orgecd79c6"><span class="section-number-2">3.</span> 其它主题</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-把其他主题下载到themes目录里
-</p>
-
-<p>
-再修改~/.emacs.d/init.el
-</p>
-<div class="org-src-container">
-<pre class="src src-lisp">(load-file &#8220;~/.emacs.d/themes/your-own-theme.el&#8221;)
-
-(color-theme-your-own)
-</pre>
-</div>
-<p>
-就可以了
-</p>
 </div>
 </div>
 </div>

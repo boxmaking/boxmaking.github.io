@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>apt-get-tutorial</title>
@@ -36,12 +36,11 @@
 </div>
 </nav>
 
-
 <div id="outline-container-org5964811" class="outline-2">
 <h2 id="org5964811"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-shell">apt-cache show programname
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-cache show programname
 </pre>
 </div>
 </div>
@@ -64,12 +63,9 @@ Ctrl+c/z中断后
 <pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall apt-get
 $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall dpkg
 $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --configure -a
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23601;&#23436;&#32654;&#30340;&#25630;&#23450;&#20102;</span>
 </pre>
 </div>
 </div>
-
-
 
 <div id="outline-container-orgcc4d76d" class="outline-3">
 <h3 id="orgcc4d76d"><span class="section-number-3">2.1.</span> 尾声</h3>
@@ -96,6 +92,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --rem
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-org96f6988" class="outline-2">
 <h2 id="org96f6988"><span class="section-number-2">4.</span> dpkg使用代理</h2>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的linux软件列表</title>
@@ -41,10 +41,10 @@
 <li><a href="#org653eec2">2.12. game</a></li>
 <li><a href="#org4937271">2.13. free</a></li>
 <li><a href="#org15227c0">2.14. 虚拟机</a></li>
-<li><a href="#org5cf03a5">2.15. fun</a></li>
-<li><a href="#org0d4e83e">2.16. 解压</a></li>
-<li><a href="#org51050bf">2.17. 系统相关</a></li>
-<li><a href="#orgc98f750">2.18. 修复依赖</a></li>
+<li><a href="#org0d4e83e">2.15. 解压</a></li>
+<li><a href="#org51050bf">2.16. 系统相关</a></li>
+<li><a href="#orgc98f750">2.17. 修复依赖</a></li>
+<li><a href="#org5cf03a5">2.18. fun</a></li>
 </ul>
 </li>
 </ul>
@@ -55,7 +55,7 @@
 <h2 id="org675a486"><span class="section-number-2">1.</span> 校正日期和时间</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-shell">cp /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime     <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#21306;&#20026;&#20122;&#27954;/&#19978;&#28023;</span>
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">cp</span> /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime     <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#21306;&#20026;&#20122;&#27954;/&#19978;&#28023;</span>
 </pre>
 </div>
 
@@ -63,8 +63,8 @@
 <li>网络校时</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">apt-get install ntpdate
-ntpdate 210.72.145.44        <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20013;&#22269;&#22269;&#23478;&#26102;&#38388;&#26381;&#21153;&#22120;: 210.72.145.44</span>
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install ntpdate
+$<span style="color: #912cee; background-color: #dcdcdc;">ntpdate</span> 210.72.145.44        <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20013;&#22269;&#22269;&#23478;&#26102;&#38388;&#26381;&#21153;&#22120;: 210.72.145.44</span>
 </pre>
 </div>
 
@@ -72,8 +72,8 @@ ntpdate 210.72.145.44        <span style="color: #4f94cd; background-color: #dcd
 <li>手动校时</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">sudo date -s 11/13/2019                <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">2019&#24180;11&#26376;13&#26085;</span>
-sudo date -s 10:05:30                  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">10&#28857;05&#20998;30&#31186;</span>
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> date -s 11/13/2019                <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">2019&#24180;11&#26376;13&#26085;</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> date -s 10:05:30                  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">10&#28857;05&#20998;30&#31186;</span>
 </pre>
 </div>
 </div>
@@ -88,8 +88,8 @@ sudo date -s 10:05:30                  <span style="color: #4f94cd; background-c
 <h3 id="org024a7df"><span class="section-number-3">2.1.</span> install-sudo</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
-<pre class="src src-shell">su
-apt-get install sudo
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">su</span>
+$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install sudo
 </pre>
 </div>
 </div>
@@ -99,17 +99,17 @@ apt-get install sudo
 <div id="outline-container-orgc47c7da" class="outline-3">
 <h3 id="orgc47c7da"><span class="section-number-3">2.2.</span> 中文输入环境教程</h3>
 <div class="outline-text-3" id="text-2-2">
-<ol class="org-ol">
-<li>sudo apt-get install locales</li>
-<li>sudo apt-get install fonts-wqy-*</li>
-<li>sudo apt-get install ibus ibus-gtk ibus-pinyin</li>
-<li>sudo apt-get install ttf-dejavu</li>
-<li>sudo apt-get install ttf-wqy-microhei</li>
-<li>sudo apt-get install ttf-wqy-zenhei</li>
-</ol>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install locales
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install fonts-wqy-*
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ibus ibus-gtk ibus-pinyin 
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-dejavu
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-wqy-microhei
+$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-wqy-zenhei
+</pre>
 </div>
 </div>
-
+</div>
 
 
 <div id="outline-container-org3fc9c5a" class="outline-3">
@@ -136,7 +136,7 @@ apt-get install sudo
 calibre-ebook
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin <span style="color: #912cee; background-color: #dcdcdc;">install_dir</span>=~/calibre-bin <span style="color: #912cee; background-color: #dcdcdc;">isolated</span>=y
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">wget</span> -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin <span style="color: #912cee; background-color: #dcdcdc;">install_dir</span>=~/calibre-bin <span style="color: #912cee; background-color: #dcdcdc;">isolated</span>=y
 </pre>
 </div></li>
 </ul>
@@ -170,11 +170,14 @@ calibre-ebook
 <h3 id="orgc917bda"><span class="section-number-3">2.7.</span> 下载工具</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
-<li>wget</li>
+<li>wget
+<a href="linux/wget.html">linux/wget.html</a>
+<a href="linux/wget-mirror.sh">linux/wget-mirror.sh</a></li>
 <li>aria2</li>
 <li>curl</li>
-<li>youtube-dl</li>
-<li></li>
+<li>youtube-dl
+<a href="linux/youtube-dl.html">linux/youtube-dl.html</a></li>
+<li>bitcomet</li>
 </ul>
 </div>
 </div>
@@ -236,7 +239,8 @@ FFmpeg
 <li>youdao-dict</li>
 <li>xpdf</li>
 <li>chm2pdf</li>
-<li>emacs</li>
+<li>emacs
+<a href="emacs/">emacs/</a></li>
 </ul>
 </div>
 </div>
@@ -272,69 +276,9 @@ FFmpeg
 </div>
 
 
-<div id="outline-container-org5cf03a5" class="outline-3">
-<h3 id="org5cf03a5"><span class="section-number-3">2.15.</span> fun</h3>
-<div class="outline-text-3" id="text-2-15">
-<ul class="org-ul">
-<li>scrot
-截图软件</li>
-<li>neofetch
-显示带图标的硬件信息</li>
-<li>figlet</li>
-<li><p>
-tree
-</p>
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">tree -a</th>
-<th scope="col" class="org-left">display all thefile</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">tree -l N</td>
-<td class="org-left">多少层</td>
-</tr>
-</tbody>
-</table></li>
-<li><p>
-asciiview
-命令
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install aview imagemagick
-$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> shiyanlou.png -driver curses
-</pre>
-</div>
-<p>
-需要imagemagick支持
-</p></li>
-<li><p>
-factor命令
-分解因数
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">factor60</span>
-</pre>
-</div></li>
-<li>Bastet
-命令行的俄罗斯方块</li>
-</ul>
-</div>
-</div>
-
-
 <div id="outline-container-org0d4e83e" class="outline-3">
-<h3 id="org0d4e83e"><span class="section-number-3">2.16.</span> 解压</h3>
-<div class="outline-text-3" id="text-2-16">
+<h3 id="org0d4e83e"><span class="section-number-3">2.15.</span> 解压</h3>
+<div class="outline-text-3" id="text-2-15">
 <ul class="org-ul">
 <li>unzip,unrar-free</li>
 <li><p>
@@ -344,14 +288,15 @@ factor命令
 <pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install p7zip-full
 </pre>
 </div></li>
+<li>tar相关
+<a href="linux/tar.html">linux/tar.html</a></li>
 </ul>
 </div>
 </div>
 
-
 <div id="outline-container-org51050bf" class="outline-3">
-<h3 id="org51050bf"><span class="section-number-3">2.17.</span> 系统相关</h3>
-<div class="outline-text-3" id="text-2-17">
+<h3 id="org51050bf"><span class="section-number-3">2.16.</span> 系统相关</h3>
+<div class="outline-text-3" id="text-2-16">
 <ul class="org-ul">
 <li>dpkg-dev</li>
 <li>net-tools</li>
@@ -376,11 +321,128 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get in
 
 
 <div id="outline-container-orgc98f750" class="outline-3">
-<h3 id="orgc98f750"><span class="section-number-3">2.18.</span> 修复依赖</h3>
-<div class="outline-text-3" id="text-2-18">
+<h3 id="orgc98f750"><span class="section-number-3">2.17.</span> 修复依赖</h3>
+<div class="outline-text-3" id="text-2-17">
 <p>
 sudo apt-get &#x2013;fix-broken install 
 </p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5cf03a5" class="outline-3">
+<h3 id="org5cf03a5"><span class="section-number-3">2.18.</span> fun</h3>
+<div class="outline-text-3" id="text-2-18">
+<ul class="org-ul">
+<li><p>
+scrot一个截图软件
+默认最好用命令就是
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">scrot -s -d 5
+</pre>
+</div>
+<p>
+<a href="https://boxmaking.github.io/linux/scrot.html">https://boxmaking.github.io/linux/scrot.html</a>
+<a href="linux/scrot.html">linux/scrot.html</a>
+</p></li>
+
+<li><p>
+neofetch 显示带图标的硬件信息
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">          _,met$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">gg</span>.          pengshao@10 
+    ,g$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">P</span>.       ----------- 
+  ,g$<span style="color: #912cee; background-color: #dcdcdc;">$P</span><span style="color: #00cd66; background-color: #dcdcdc;">"     """</span>Y$<span style="color: #912cee; background-color: #dcdcdc;">$</span>.<span style="color: #00cd66; background-color: #dcdcdc;">".        OS: Debian GNU/Linux 12 (bookworm) x86_64 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> ,$$P'              `$$$.     Host: VirtualBox 1.2 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">',$$P       ,ggs.     `$$b:   Kernel: 6.1.0-28-amd64 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">`d$$'     ,$P"'   .    $$$    Uptime: 5 hours, 38 mins </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> $$P      d$'     ,    $$P    Packages: 1947 (dpkg) </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> $$:      $$.   -    ,d$$'    Shell: bash 5.2.15 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> $$;      Y$b._   _,d$P'      Resolution: 1440x900 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> Y$$.    `.`"Y$$$$P"'         DE: Xfce 4.18 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;"> `$$b      "-.__              WM: Xfwm4 </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">  `Y$$                        WM Theme: Default </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">   `Y$$.                      Theme: Xfce [GTK2], Adwaita [GTK3] </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">     `$$b.                    Icons: Tango [GTK2], Adwaita [GTK3] </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">       `Y$$b.                 Terminal: gnome-terminal </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">          `"Y$b._             CPU: Intel i5-9400F (6) @ 2.904GHz </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">              `"""            GPU: 00:02.0 VMware SVGA II Adapter </span>
+<span style="color: #00cd66; background-color: #dcdcdc;">                              Memory: 2452MiB / 9944MiB </span>
+
+</pre>
+</div></li>
+
+<li><p>
+figlet一个ASCII 字符艺术字
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">pengshao@10:~$ figlet h e l l o 1 1
+ _              _   _           _   _ 
+| |__     ___  | | | |   ___   / | / |
+| <span style="color: #00cd66; background-color: #dcdcdc;">'_ \   / _ \ | | | |  / _ \  | | | |</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">| | | | |  __/ | | | | | (_) | | | | |</span>
+<span style="color: #00cd66; background-color: #dcdcdc;">|_| |_|  \___| |_| |_|  \___/  |_| |_|</span>
+
+</pre>
+</div></li>
+
+<li><p>
+ASCII艺术框：box命令
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt-get install boxes
+<span style="color: #ba55d3; background-color: #dcdcdc;">echo</span> <span style="color: #00cd66; background-color: #dcdcdc;">"hello"</span> | boxes -d dog
+</pre>
+</div></li>
+
+<li>toilet也是艺术字
+想学习的时候再找吧</li>
+
+<li>tree输出目录树
+<a href="https://boxmaking.github.io/linux/tree.html">https://boxmaking.github.io/linux/tree.html</a>
+<a href="linux/tree.html">linux/tree.html</a></li>
+
+<li><p>
+asciiview命令
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install aview imagemagick
+$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> shiyanlou.png -driver curses
+$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> 20250209.png
+</pre>
+</div>
+<p>
+需要imagemagick支持
+</p></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><p>
+factor命令
+分解因数
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">factor60</span>
+</pre>
+</div></li>
+
+<li>Bastet
+命令行的俄罗斯方块</li>
+
+<li><p>
+pi打印圆周率后小数点若干位
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install pi
+$<span style="color: #912cee; background-color: #dcdcdc;">pi</span> 50
+</pre>
+</div></li>
+
+<li>rev他可以反转字符很厉害</li>
+</ul>
 </div>
 </div>
 </div>

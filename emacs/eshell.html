@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Eshell使用笔记</title>
+<title>Eshell使用记录</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="eshell" />
 <meta name="generator" content="Org Mode" />
@@ -19,22 +19,38 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Eshell使用笔记</h1>
+<h1 class="title">Eshell使用记录</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org37eb399">1. M-x shell ::</a></li>
+<li><a href="#org549d07d">1. 打开eshell</a></li>
+<li><a href="#orgcd99418">2. eshell使用自动补全</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org37eb399" class="outline-2">
-<h2 id="org37eb399"><span class="section-number-2">1.</span> M-x shell ::</h2>
+<div id="outline-container-org549d07d" class="outline-2">
+<h2 id="org549d07d"><span class="section-number-2">1.</span> 打开eshell</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-打开eshell
+<code>M-x eshell</code>
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgcd99418" class="outline-2">
+<h2 id="orgcd99418"><span class="section-number-2">2.</span> eshell使用自动补全</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24573;&#30053;&#22823;&#23567;&#20889;&#36827;&#34892;&#34917;&#20840;</span>
+(setq eshell-cmpl-ignore-case t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20801;&#35768;&#24490;&#29615;&#34917;&#20840;</span>
+(setq eshell-cmpl-cycle-completions t)
+<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35753; pcomplete &#25903;&#25345;&#24490;&#29615;&#34917;&#20840;</span>
+(setq pcomplete-cycle-completions t) 
+</pre>
+</div>
 </div>
 </div>
 </div>

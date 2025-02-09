@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:43 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>auto-complete插件教程</title>
@@ -24,21 +24,26 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8f58325">1. 安装</a></li>
+<li><a href="#org02fb6c1">1. 安装后</a></li>
 <li><a href="#orgaf44171">2. 使用</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org8f58325" class="outline-2">
-<h2 id="org8f58325"><span class="section-number-2">1.</span> 安装</h2>
+<div id="outline-container-org02fb6c1" class="outline-2">
+<h2 id="org02fb6c1"><span class="section-number-2">1.</span> 安装后</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+将文件放到.emacs.d/lisp/
+在~/.emacs.d/init.el中添加下面代码即可
+</p>
+
 <div class="org-src-container">
 <pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete</span>)
 (<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete-config</span>)
 (add-to-list 'ac-dictionary-directories <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/ac-dict/"</span>)
 (ac-config-default)
-(define-key ac-mode-map (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c c"</span>) 'auto-complete)
+(define-key ac-mode-map (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c q"</span>) 'auto-complete)
 </pre>
 </div>
 </div>
@@ -51,11 +56,11 @@
 <ol class="org-ol">
 <li>更改文件
 <a href="file:///home/pengshao/.emacs.d/lisp/auto-complete.el">file:///home/pengshao/.emacs.d/lisp/auto-complete.el</a>
-添加上自己想自动补全的mode111
-我这里添加的是org-mode</li>
+添加上自己想自动补全的mode.
+我这里添加的是org-mode.</li>
 <li>添加文件
 <a href="file:///home/pengshao/.emacs.d/lisp/ac-dict/org-mode">file:///home/pengshao/.emacs.d/lisp/ac-dict/org-mode</a>
-里面以行为单位就能设置自己想要的自动不全命令了</li>
+里面以行为单位就能设置自己想要的自动补全的命令了.</li>
 </ol>
 </div>
 </div>

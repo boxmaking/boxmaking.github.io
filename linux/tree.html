@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-09 Sun 21:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>tree-详解</title>
+<title>tree软件-详解</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="tree-详解" />
 <meta name="generator" content="Org Mode" />
@@ -19,7 +19,7 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">tree-详解</h1>
+<h1 class="title">tree软件-详解</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -115,7 +115,6 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 -S	打开ASCII线图形（使用linux控制台模式字体时很有用）。此选项现在等效于`charset=IBM437'，最终将被折旧。
 -Llevel	目录树的最大显示深度。
 -R	递归地遍历树的每个级别目录(请参见-L选项)，并在每个目录下执行树，再次添加`-o 00Tree.html'作为一个新选项。
--HbaseHREF	打开HTML输出，包括HTTP引用。适用于ftp站点。当使用HTML输出时，baseHREF给出基本ftp位置。也就是说，本地目录可能是“/local/ftp/pub”，但是它必须被引用为“<a href="ftp://hostname.organiz.domain/pub%E2%80%9D(baseHREF%E5%BA%94%E8%AF%A5%E6%98%AF%E2%80%9Cftp://hostname.organiz.domain%E2%80%9D)%E3%80%82%E6%8F%90%E7%A4%BA:%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%B8%A6%E6%9C%89%E6%AD%A4%E9%80%89%E9%A1%B9%E7%9A%84ANSI%E8%A1%8C%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8%E4%B8%AD%E4%B8%8D%E8%A6%81%E7%BB%99%E5%87%BA%E5%A4%9A%E4%B8%AA%E7%9B%AE%E5%BD%95%E3%80%82%E5%A6%82%E6%9E%9C%E6%82%A8%E6%83%B3%E9%80%9A%E8%BF%87CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BD%BF%E7%94%A8%E9%A2%9C%E8%89%B2%EF%BC%8C%E9%99%A4%E4%BA%86%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E5%A4%96%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-C%E9%80%89%E9%A1%B9%E5%BC%BA%E5%88%B6%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2">ftp://hostname.organiz.domain/pub%E2%80%9D(baseHREF%E5%BA%94%E8%AF%A5%E6%98%AF%E2%80%9Cftp://hostname.organiz.domain%E2%80%9D)%E3%80%82%E6%8F%90%E7%A4%BA:%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%B8%A6%E6%9C%89%E6%AD%A4%E9%80%89%E9%A1%B9%E7%9A%84ANSI%E8%A1%8C%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%9C%A8%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8%E4%B8%AD%E4%B8%8D%E8%A6%81%E7%BB%99%E5%87%BA%E5%A4%9A%E4%B8%AA%E7%9B%AE%E5%BD%95%E3%80%82%E5%A6%82%E6%9E%9C%E6%82%A8%E6%83%B3%E9%80%9A%E8%BF%87CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BD%BF%E7%94%A8%E9%A2%9C%E8%89%B2%EF%BC%8C%E9%99%A4%E4%BA%86%E8%BF%99%E4%B8%AA%E9%80%89%E9%A1%B9%E5%A4%96%EF%BC%8C%E8%BF%98%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-C%E9%80%89%E9%A1%B9%E5%BC%BA%E5%88%B6%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2</a>。
 -Ttitle	在HTML输出模式下设置标题和H1标题字符串。
 &#x2013;charsetcharset	设置输出HTML和绘图时使用的字符集。
 &#x2013;nolinks	关闭HTML输出中的超链接。
@@ -138,7 +137,7 @@ tree [-adfgilnopqrstuxACDFNS] [-L level [-R]] [-H baseHREF] [-T title]
 显示tree中当前目录和子目录的内容。输出采用图形形式，类似于以下示例：
 </p>
 
-<pre class="example" id="org7cc8820">
+<pre class="example" id="orgfb0b553">
 ps-debian:~/psnote_public/linux$ tree ./
 ./
 ├── after-install-debian.org
@@ -175,7 +174,6 @@ ps-debian:~/psnote_public/linux$ tree ./
 <pre class="src src-shell">$ tree -a /home/pengshao
 <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;/home/pengshao&#25152;&#26377;&#25991;&#20214;</span>
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">+BEGIN_SRC shell</span>
 $ tree -I <span style="color: #00cd66; background-color: #dcdcdc;">'ps*|lib|note'</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#26641;&#27809;&#26377;&#21253;&#21547;ps&#24320;&#22836;&#21644;lib&#21644;note</span>
 
@@ -191,7 +189,6 @@ $ tree -L 1  -d /home/pengshao/tmp/gitlearn/
 
 $ tree -l /home/pengshao/tmp/gitlearn/
 <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#20869;&#37096;&#26377;&#30446;&#24405;&#30340;&#31526;&#21495;&#38142;&#25509;,&#20250;&#26174;&#31034;&#35813;&#30446;&#24405;</span>
-
 
 </pre>
 </div>
