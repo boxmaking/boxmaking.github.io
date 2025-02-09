@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-08 Sat 21:37 -->
+<!-- 2025-02-09 Sun 14:21 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>利用wttr_in添加天气</title>
@@ -50,13 +50,23 @@
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&lt;2025-02-08/Saturday 19:32:10&gt;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#27982;&#21335;&#22825;&#27668;&#30340;&#25805;&#20316;</span>
 (<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-weather</span> ()
   (interactive)
   (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"curl wttr.in/jinan?format=4 2&gt; /dev/null"</span>)))
 
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-weather)
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m w"</span>) #'insert-weather)
+
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#26376;&#30456;&#30340;&#25805;&#20316;</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-pyphoon</span> ()
+  (interactive)
+  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"source ~/mypython/bin/activate &amp;&amp; pyphoon"</span>)))
+
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-pyphoon)
+
 
 
 

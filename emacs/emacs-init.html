@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-08 Sat 21:37 -->
+<!-- 2025-02-09 Sun 14:21 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -40,13 +40,18 @@
 <li><a href="#orgf23d3f5">8. 我的键配置(主要是f1-f10)</a></li>
 <li><a href="#orgf9a1383">9. 日期的配置(没用到也没有测试)</a></li>
 <li><a href="#org2dcf154">10. 备份相关的设置</a></li>
-<li><a href="#orgd349b46">11. frame-title-format设置相关</a>
+<li><a href="#org4558297">11. 启动页面*scratch*显示特定内容</a>
 <ul>
-<li><a href="#org10e082f">11.1. 我的设置</a></li>
-<li><a href="#org18dc752">11.2. frame-title-format选项相关</a></li>
+<li><a href="#orgc3544a8">11.1. 代码解释</a></li>
 </ul>
 </li>
-<li><a href="#org7b3be8e">12. 配置目录的文件树</a></li>
+<li><a href="#orgd349b46">12. frame-title-format设置相关</a>
+<ul>
+<li><a href="#org10e082f">12.1. 我的设置</a></li>
+<li><a href="#org18dc752">12.2. frame-title-format选项相关</a></li>
+</ul>
+</li>
+<li><a href="#org7b3be8e">13. 配置目录的文件树</a></li>
 </ul>
 </div>
 </nav>
@@ -142,6 +147,9 @@ M-x eval-buffer
 (package-initialize)
 
 
+
+
+
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#24049;&#30340;&#19968;&#20123;&#23567;&#30340;&#37197;&#32622;</span>
 (add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/"</span>)
 
@@ -207,8 +215,8 @@ M-x eval-buffer
 (tabbar-mode)
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20999;&#25442;buffer</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">prior&#23601;&#26159;&#19978;&#32763;&#39029;pg up,next&#23601;&#26159;pg dn&#38190;&#30424;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [C-prior] 'previous-buffer)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [C-next] 'next-buffer)</span>
+(global-set-key [C-prior] 'previous-buffer)
+(global-set-key [C-next] 'next-buffer)
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Win&#26356;&#25442;tabbar&#19981;&#38169;&#21543;,&#21069;&#20004;&#20010;&#26159;&#22312;&#19981;&#21516;&#30340;&#20998;&#32452;&#20999;&#25442;,&#21518;&#38754;&#30340;&#26159;&#22312;&#21516;&#32452;&#20999;&#25442;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#20914;&#31361;&#20102;</span>
@@ -242,14 +250,17 @@ M-x eval-buffer
 (global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c s"</span>) 'sr-speedbar-open)
 (global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c x"</span>) 'sr-speedbar-close)
 
-
-
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24320;&#26426;&#40664;&#35748;&#21551;&#21160;speedbar,&#19981;&#29992;&#20102;,&#29616;&#22312;&#29992;sr-speedbar&#20102;</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(speedbar 1)</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25171;&#24320;sr-speedbar</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#22826;&#19981;&#22909;&#29992;&#20102;,&#27599;&#27425;&#37117;&#22810;&#25171;&#24320;&#19968;&#20010;&#31383;&#26684;,&#25152;&#20197;&#24573;&#30053;&#20102;,</span>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(sr-speedbar-open)</span>
 
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">diff</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Select a region and run the command diff-lisp-mark-selected-text-as-a.</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Select another region and run diff-lisp-diff-a-and-b.</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">The difference of two region is displayed in a buffer.</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">diff-lisp</span>)
 
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
@@ -272,7 +283,13 @@ M-x eval-buffer
  )
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-converttime</span>)
+
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312; Emacs &#21551;&#21160;&#26102;&#28165;&#31354; *scratch* &#32531;&#20914;&#21306;&#24182;&#25554;&#20837;&#29305;&#23450;&#20989;&#25968;&#20195;&#30721;</span>
+(setq initial-scratch-message <span style="color: #00cd66; background-color: #dcdcdc;">""</span>) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#28165;&#31354;&#21021;&#22987;&#30340; *scratch* &#28040;&#24687;</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">with-current-buffer</span> <span style="color: #00cd66; background-color: #dcdcdc;">"*scratch*"</span>
+   (<span style="color: #cd0000; background-color: #dcdcdc;">let</span> ((result1 (insert-weather)))
+    (insert (format <span style="color: #00cd66; background-color: #dcdcdc;">" %s\n"</span> result1)))
+  (call-interactively 'insert-pyphoon))
 </pre>
 </div>
 </div>
@@ -857,15 +874,55 @@ M-x eval-buffer
 </div>
 </div>
 
+<div id="outline-container-org4558297" class="outline-2">
+<h2 id="org4558297"><span class="section-number-2">11.</span> 启动页面*scratch*显示特定内容</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+将以下代码添加到你的 Emacs 配置文件中：
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#31034;&#20363;&#20989;&#25968;</span>
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-first-function</span> ()
+  <span style="color: #00cd66; background-color: #dcdcdc;">"&#36820;&#22238;&#19968;&#20010;&#23383;&#31526;&#20018;&#12290;"</span>
+  <span style="color: #00cd66; background-color: #dcdcdc;">"&#36825;&#26159;&#31532;&#19968;&#20010;&#20989;&#25968;&#36820;&#22238;&#30340;&#20869;&#23481;&#12290;"</span>)
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-second-function</span> ()
+  <span style="color: #00cd66; background-color: #dcdcdc;">"&#25171;&#21360;&#19968;&#26465;&#28040;&#24687;&#12290;"</span>
+  (message <span style="color: #00cd66; background-color: #dcdcdc;">"&#36825;&#26159;&#31532;&#20108;&#20010;&#20989;&#25968;&#25171;&#21360;&#30340;&#28040;&#24687;&#12290;"</span>))
 
+<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312; Emacs &#21551;&#21160;&#26102;&#28165;&#31354; *scratch* &#32531;&#20914;&#21306;&#24182;&#35843;&#29992;&#20989;&#25968;</span>
+(setq initial-scratch-message <span style="color: #00cd66; background-color: #dcdcdc;">""</span>)
+(<span style="color: #cd0000; background-color: #dcdcdc;">with-current-buffer</span> <span style="color: #00cd66; background-color: #dcdcdc;">"*scratch*"</span>
+  (<span style="color: #cd0000; background-color: #dcdcdc;">let</span> ((result1 (my-first-function)))
+    (insert (format <span style="color: #00cd66; background-color: #dcdcdc;">"&#31532;&#19968;&#20010;&#20989;&#25968;&#30340;&#32467;&#26524;: %s\n"</span> result1)))
+  (call-interactively 'my-second-function))
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc3544a8" class="outline-3">
+<h3 id="orgc3544a8"><span class="section-number-3">11.1.</span> 代码解释</h3>
+<div class="outline-text-3" id="text-11-1">
+<ol class="org-ol">
+<li>函数定义：定义了 <code>my-first-function</code> 和 <code>my-second-function</code> 两个函数。
+清空初始消息：=setq initial-scratch-message= "" 用于清空 <b>scratch</b> 缓冲区的默认初始消息。
+切换到 <b>scratch</b> 缓冲区：with-current-buffer "<b>scratch</b>" 确保后续操作都在 <b>scratch</b> 缓冲区进行。</li>
+
+<li>调用第一个函数：
+<code>(let ((result1 (my-first-function))) ...)</code> 调用 <code>my-first-function</code> 并将结果存储在 <code>result1</code> 变量中。
+<code>(insert (format "第一个函数的结果: %s\n" result1))</code> 将第一个函数的结果格式化并插入到 <b>scratch</b> 缓冲区。</li>
+
+<li>调用第二个函数：=(call-interactively 'my-second-function)= 交互式地调用 =my-second-function=，该函数会在消息区打印一条消息。</li>
+</ol>
+</div>
+</div>
+</div>
 
 <div id="outline-container-orgd349b46" class="outline-2">
-<h2 id="orgd349b46"><span class="section-number-2">11.</span> frame-title-format设置相关</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="orgd349b46"><span class="section-number-2">12.</span> frame-title-format设置相关</h2>
+<div class="outline-text-2" id="text-12">
 </div>
 <div id="outline-container-org10e082f" class="outline-3">
-<h3 id="org10e082f"><span class="section-number-3">11.1.</span> 我的设置</h3>
-<div class="outline-text-3" id="text-11-1">
+<h3 id="org10e082f"><span class="section-number-3">12.1.</span> 我的设置</h3>
+<div class="outline-text-3" id="text-12-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">buffer name (if the buffer isn't visiting a file)</span>
 (setq frame-title-format
@@ -879,9 +936,9 @@ M-x eval-buffer
 
 
 <div id="outline-container-org18dc752" class="outline-3">
-<h3 id="org18dc752"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
-<div class="outline-text-3" id="text-11-2">
-<pre class="example" id="org2f4aaed">
+<h3 id="org18dc752"><span class="section-number-3">12.2.</span> frame-title-format选项相关</h3>
+<div class="outline-text-3" id="text-12-2">
+<pre class="example" id="org8f7cf58">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -907,13 +964,13 @@ Decimal digits after the % specify field width to which to pad.
 
 
 <div id="outline-container-org7b3be8e" class="outline-2">
-<h2 id="org7b3be8e"><span class="section-number-2">12.</span> 配置目录的文件树</h2>
-<div class="outline-text-2" id="text-12">
+<h2 id="org7b3be8e"><span class="section-number-2">13.</span> 配置目录的文件树</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 
-<pre class="example" id="orge78853d">
+<pre class="example" id="orga019ff8">
 /home/pengshao/.emacs.d/
 ├── ac-comphist.dat
 ├── bookmarks

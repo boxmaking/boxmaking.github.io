@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-09 Sun 14:21 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>linux安装python3+flask</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux,python3,flask" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">linux安装python3+flask</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga1b5ffd">1. 安装python3</a></li>
+<li><a href="#orge1c8951">2. 创建并激活虚拟环境</a></li>
+<li><a href="#org81e62e6">3. 安装flask</a></li>
+<li><a href="#org45c56d7">4. 停用虚拟环境</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orga1b5ffd" class="outline-2">
+<h2 id="orga1b5ffd"><span class="section-number-2">1.</span> 安装python3</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install python3 python3-pip python3-venv
+python3 --version
+pip3 --version
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge1c8951" class="outline-2">
+<h2 id="orge1c8951"><span class="section-number-2">2.</span> 创建并激活虚拟环境</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21019;&#24314;&#21517;&#20026; myenv &#30340;&#34394;&#25311;&#29615;&#22659;</span>
+python3 -m venv mypython
+<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28608;&#27963;&#34394;&#25311;&#29615;&#22659;&#23545;&#20110; Bash &#25110; Zsh &#32456;&#31471;</span>
+<span style="color: #ba55d3; background-color: #dcdcdc;">source</span> myenv/bin/activate
+<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27492;&#26102;&#30340;&#32456;&#31471;&#21069;&#38754;&#20250;&#26377;&#34394;&#25311;&#29615;&#22659;&#30340;&#21517;&#31216;</span>
+(mypython) pengshao@10:~/mypython$ 
+</pre>
+</div>
+<p>
+激活后，终端提示符会显示虚拟环境名称。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81e62e6" class="outline-2">
+<h2 id="org81e62e6"><span class="section-number-2">3.</span> 安装flask</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="https://www.runoob.com/flask/flask-tutorial.html">flask教程</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;&#28608;&#27963;&#30340;&#34394;&#25311;&#29615;&#22659;&#20013;</span>
+pip3 install flask
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45c56d7" class="outline-2">
+<h2 id="org45c56d7"><span class="section-number-2">4.</span> 停用虚拟环境</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23436;&#25104;&#24320;&#21457;&#21518;&#65292;&#20572;&#29992;&#34394;&#25311;&#29615;&#22659;&#65306;</span>
+deactivate
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>
