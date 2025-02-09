@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 14:21 -->
+<!-- 2025-02-09 Sun 15:43 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
@@ -275,7 +275,7 @@
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example" id="org425ffc1">
+<pre class="example" id="org0a2480f">
 #+OPTIONS: H:4
 </pre>
 </div>
@@ -288,7 +288,7 @@
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example" id="orgae4c45e">
+<pre class="example" id="orga8cedff">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -599,7 +599,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example" id="org4431690">
+<pre class="example" id="org84d236f">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -768,7 +768,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example" id="orgd9fa571">
+<pre class="example" id="orga82cef4">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -852,7 +852,7 @@ emacs配置文件中中设置如下的代码就行了
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example" id="org4638ea7">
+<pre class="example" id="org6f88978">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
@@ -869,7 +869,7 @@ Org-mode支持内部链接,也就是锚点
 定义锚点 #<a id="org3bd74b4"></a>
 </p>
 
-<pre class="example" id="org4d5bad2">
+<pre class="example" id="org460c94b">
 [[my-anchor][内部链接]]
 </pre>
 
@@ -896,7 +896,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example" id="orga1e75cc">
+<pre class="example" id="org909e796">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -909,7 +909,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
 </p>
-<pre class="example" id="orgc99d359">
+<pre class="example" id="org931c1c1">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -927,7 +927,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example" id="orgf20833b">
+<pre class="example" id="org62eef41">
 链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
@@ -942,7 +942,7 @@ C-c C-l 就能添加链接了
 <div id="outline-container-orga3bd092" class="outline-3">
 <h3 id="orga3bd092"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example" id="org861d32a">
+<pre class="example" id="org73906dc">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1078,7 +1078,7 @@ C-c C-c,可以对齐表格
 <div id="outline-container-org43fdc51" class="outline-3">
 <h3 id="org43fdc51"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example" id="org7e7133d">
+<pre class="example" id="orgf99bace">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1158,7 +1158,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example" id="org17584b9">
+<pre class="example" id="orgf97c87b">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1175,7 +1175,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example" id="org67bb2ee">
+<pre class="example" id="orgbaa9f0a">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1200,7 +1200,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example" id="org22eca7e">
+<pre class="example" id="orgb39c5f5">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1235,7 +1235,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example" id="org484c15b">
+<pre class="example" id="org16e2d66">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1309,7 +1309,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 </pre>
 
 
-<pre class="example" id="org75e8285">
+<pre class="example" id="org4a17350">
 多行的例子
 使用区块
 </pre></li>
@@ -1361,7 +1361,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML" id="org65c0e07">
+<div class="HTML" id="org287d204">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1606,7 +1606,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example" id="org9ed29fd">
+<pre class="example" id="orgbe1b949">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}
