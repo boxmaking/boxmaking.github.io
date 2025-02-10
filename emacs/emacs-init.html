@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-10 Mon 10:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -53,6 +53,10 @@
 </div>
 </nav>
 
+<figure id="orgad5b5da">
+<img src="emacs/emacs-init.png" alt="emacs-init.png">
+
+</figure>
 
 <div id="outline-container-org5efd35f" class="outline-2">
 <h2 id="org5efd35f"><span class="section-number-2">1.</span> load,load-file</h2>
@@ -286,9 +290,13 @@ M-x eval-region 执行region内的代码</li>
 <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312; Emacs &#21551;&#21160;&#26102;&#28165;&#31354; *scratch* &#32531;&#20914;&#21306;&#24182;&#25554;&#20837;&#29305;&#23450;&#20989;&#25968;&#20195;&#30721;</span>
 (setq initial-scratch-message <span style="color: #00cd66; background-color: #dcdcdc;">""</span>) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#28165;&#31354;&#21021;&#22987;&#30340; *scratch* &#28040;&#24687;</span>
 (<span style="color: #cd0000; background-color: #dcdcdc;">with-current-buffer</span> <span style="color: #00cd66; background-color: #dcdcdc;">"*scratch*"</span>
-   (<span style="color: #cd0000; background-color: #dcdcdc;">let</span> ((result1 (insert-weather)))
-    (insert (format <span style="color: #00cd66; background-color: #dcdcdc;">" %s\n"</span> result1)))
-  (call-interactively 'insert-pyphoon))
+<span style="color: #4f94cd; background-color: #dcdcdc;">;   </span><span style="color: #4f94cd; background-color: #dcdcdc;">(let ((result1 (insert-weather)))</span>
+<span style="color: #4f94cd; background-color: #dcdcdc;">;   </span><span style="color: #4f94cd; background-color: #dcdcdc;">(insert (format " %s\n" result1)))</span>
+  (call-interactively 'insert-nongli)
+  (call-interactively 'insert-weather)
+  (call-interactively 'insert-pyphoon)
+
+   )
 </pre>
 </div>
 </div>
@@ -330,7 +338,7 @@ M-x eval-region 执行region内的代码</li>
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#21551;&#21160;&#26102;&#20505;&#31383;&#21475;&#22823;&#23567;</span>
 (setq default-frame-alist
-'((height . 30) (width . 140) (menu-bar-lines . 10) (tool-bar-lines . 10)))
+'((height . 30) (width . 100) (menu-bar-lines . 10) (tool-bar-lines . 10)))
 
 
 <span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;&#26631;&#39064;&#26639;&#25552;&#31034;&#20320;&#30446;&#21069;&#22312;&#20160;&#20040;&#20301;&#32622;</span>
@@ -655,9 +663,14 @@ M-x eval-region 执行region内的代码</li>
 <span class="linenr">22: </span>(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-pyphoon)
 <span class="linenr">23: </span>
 <span class="linenr">24: </span>
-<span class="linenr">25: </span>
-<span class="linenr">26: </span>
-<span class="linenr">27: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+<span class="linenr">25: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-nongli</span> ()
+<span class="linenr">26: </span>  (interactive)
+<span class="linenr">27: </span>  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/nongli.sh"</span>)))
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m n"</span>) #'insert-nongli)
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>
+<span class="linenr">32: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
 </pre>
 </div>
 <div class="org-src-container">
@@ -984,7 +997,7 @@ M-x eval-region 执行region内的代码</li>
 <div id="outline-container-org18dc752" class="outline-3">
 <h3 id="org18dc752"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
 <div class="outline-text-3" id="text-11-2">
-<pre class="example" id="org5804ff5">
+<pre class="example" id="orgfd7974d">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1016,7 +1029,7 @@ Decimal digits after the % specify field width to which to pad.
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 
-<pre class="example" id="org2690fcf">
+<pre class="example" id="org3571120">
 ./loadfile/
 ├── pengshao-backup.el
 ├── pengshao-calendar.el

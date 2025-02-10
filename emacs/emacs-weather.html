@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-10 Mon 10:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>利用wttr_in添加天气</title>
@@ -68,6 +68,11 @@
 (global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-pyphoon)
 
 
+(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-nongli</span> ()
+  (interactive)
+  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/nongli.sh"</span>)))
+
+(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m n"</span>) #'insert-nongli)
 
 
 (<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
