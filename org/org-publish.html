@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-10 Mon 11:53 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish-tutorial</title>
@@ -33,6 +33,7 @@
 <li><a href="#org9e234d2">4. 清除上下标的设置</a></li>
 <li><a href="#orgbd9faa8">5. 导出的html不显示目录</a></li>
 <li><a href="#orgf930a7e">6. 主页的设置(据说和低版本有区别,我最初用的教程是低版本的,各种错误.)</a></li>
+<li><a href="#orgde164d9">7. 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</a></li>
 </ul>
 </div>
 </nav>
@@ -45,6 +46,7 @@
 <li>做好准备工作后，就可以导出了
 C-c C-e
 然后选择相应的格式，就可以导出对应的文件了。</li>
+
 <li>导出到HTML教程
 <ol class="org-ol">
 <li>借鉴了<a href="https://github.com/lijigang">lijigang</a>的头文件
@@ -61,7 +63,7 @@ css模板<a href="https://github.com/lijigang/org-notes-style">https://github.co
 <li><p>
 然后在org文件的头部添加上加载头文件的语句就可以了
 </p>
-<pre class="example" id="orgf56d03a">
+<pre class="example" id="orgc5041d5">
 #+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
 </pre></li>
 
@@ -242,11 +244,12 @@ Orgmode 发布项目缓存说明
 如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
 </p>
 
-<pre class="example" id="org764ae1c">
+<pre class="example" id="orgdeb7230">
 #+OPTIONS: ^:nil _:nil f:nil toc:t
 </pre>
 </div>
 </div>
+
 
 <div id="outline-container-orgbd9faa8" class="outline-2">
 <h2 id="orgbd9faa8"><span class="section-number-2">5.</span> 导出的html不显示目录</h2>
@@ -266,7 +269,7 @@ Orgmode 发布项目缓存说明
 <li><p>
 配置文件选项设置
 </p>
-<pre class="example" id="orgb921c00">
+<pre class="example" id="org379248b">
 :auto-sitemap t
 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org ...
 :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
@@ -277,7 +280,7 @@ Orgmode 发布项目缓存说明
 <li><p>
 然后，我们只要在我们的 index.org 里 include 这个文件即可：
 </p>
-<pre class="example" id="org7a31bb5">
+<pre class="example" id="orgb72a17f">
 #+INCLUDE: sitemap.org
 </pre>
 
@@ -287,6 +290,128 @@ Orgmode 发布项目缓存说明
 
 <li>我们可以在每个页面的页脚里把这个 sitemap.org 的链接给加上，方便随手访问这个索引。</li>
 </ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgde164d9" class="outline-2">
+<h2 id="orgde164d9"><span class="section-number-2">7.</span> 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Org 模式提供了多种方法来设置图片在导出为 HTML 时的尺寸大小，以下是详细介绍：
+</p>
+
+<ol class="org-ol">
+<li>使用 #+attr_html 属性设置具体尺寸</li>
+</ol>
+<p>
+可以通过 #+attr_html 属性为图片指定固定的宽度和高度。
+</p>
+<pre class="example" id="org858012b">
+
+org
+
+#+attr_html: :width 400px :height 300px
+[[file:your_image.jpg]]
+
+
+</pre>
+<p>
+解释：
+</p>
+
+<p>
+#+attr_html 专门用于控制导出为 HTML 时图片的属性。
+:width 400px 将图片宽度设置为 400 像素，你可以修改此值，也能使用百分比（如 60%）设置相对宽度。
+:height 300px 将图片高度设置为 300 像素，同样可按需调整。
+</p>
+
+
+<ol class="org-ol">
+<li>使用 CSS 样式设置图片尺寸</li>
+</ol>
+<p>
+可以在 Org 文件头部添加 CSS 样式来控制图片尺寸。
+</p>
+<pre class="example" id="org8c73764">
+
+org
+
+#+HTML_HEAD: &lt;style&gt;
+#+HTML_HEAD:   img.custom - image {
+#+HTML_HEAD:     width: 70%;
+#+HTML_HEAD:     height: auto;
+#+HTML_HEAD:   }
+#+HTML_HEAD: &lt;/style&gt;
+
+#+attr_html: :class custom - image
+[[file:your_image.jpg]]
+
+
+</pre>
+<p>
+解释：
+</p>
+
+<p>
+#+HTML_HEAD 用于在导出的 HTML 文件 &lt;head&gt; 部分添加内容。
+img.custom - image 是 CSS 选择器，选择带有 custom - image 类的图片。
+width: 70%; 将图片宽度设置为其父元素宽度的 70%。
+height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
+</p>
+<ol class="org-ol">
+<li>按比例缩放图片</li>
+</ol>
+<p>
+使用 :scale 属性按比例缩放图片。
+</p>
+<pre class="example" id="org69fa7f1">
+
+org
+
+#+attr_html: :scale 0.8
+[[file:your_image.jpg]]
+
+
+</pre>
+<p>
+解释：
+</p>
+
+<p>
+:scale 0.8 将图片按 0.8 的比例缩放，即缩小为原来的 80%。
+</p>
+
+
+<ol class="org-ol">
+<li>动态调整图片大小</li>
+</ol>
+<p>
+利用 CSS 的 max - width 属性让图片根据浏览器窗口大小动态调整。
+</p>
+<pre class="example" id="org24b1730">
+
+org
+
+#+attr_html: :style "max-width: 100%; height: auto;"
+[[file:your_image.jpg]]
+
+
+</pre>
+<p>
+解释：
+</p>
+
+<p>
+max - width: 100%; 确保图片最大宽度不超过其父元素宽度。
+height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
+</p>
+
+
+<p>
+通过上述方法，你能够灵活控制 Org 模式中图片导出为 HTML 时的尺寸大小。
+</p>
 </div>
 </div>
 </div>
