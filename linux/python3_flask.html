@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 14:21 -->
+<!-- 2025-02-10 Mon 23:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux安装python3+flask</title>
@@ -48,11 +48,11 @@ pip3 --version
 <h2 id="orge1c8951"><span class="section-number-2">2.</span> 创建并激活虚拟环境</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21019;&#24314;&#21517;&#20026; myenv &#30340;&#34394;&#25311;&#29615;&#22659;</span>
+<pre class="src src-sh"># 创建名为 myenv 的虚拟环境
 python3 -m venv mypython
-<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28608;&#27963;&#34394;&#25311;&#29615;&#22659;&#23545;&#20110; Bash &#25110; Zsh &#32456;&#31471;</span>
-<span style="color: #ba55d3; background-color: #dcdcdc;">source</span> myenv/bin/activate
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27492;&#26102;&#30340;&#32456;&#31471;&#21069;&#38754;&#20250;&#26377;&#34394;&#25311;&#29615;&#22659;&#30340;&#21517;&#31216;</span>
+# 激活虚拟环境对于 Bash 或 Zsh 终端
+source myenv/bin/activate
+#此时的终端前面会有虚拟环境的名称
 (mypython) pengshao@10:~/mypython$ 
 </pre>
 </div>
@@ -70,7 +70,7 @@ python3 -m venv mypython
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;&#28608;&#27963;&#30340;&#34394;&#25311;&#29615;&#22659;&#20013;</span>
+<pre class="src src-sh"># 在激活的虚拟环境中
 pip3 install flask
 </pre>
 </div>
@@ -81,7 +81,7 @@ pip3 install flask
 <h2 id="org45c56d7"><span class="section-number-2">4.</span> 停用虚拟环境</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23436;&#25104;&#24320;&#21457;&#21518;&#65292;&#20572;&#29992;&#34394;&#25311;&#29615;&#22659;&#65306;</span>
+<pre class="src src-sh"># 完成开发后，停用虚拟环境：
 deactivate
 </pre>
 </div>

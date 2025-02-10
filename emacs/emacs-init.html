@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-10 Mon 12:02 -->
+<!-- 2025-02-10 Mon 23:14 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -21,7 +21,7 @@
 <header>
 <h1 class="title">emacs-配置文件</h1>
 </header>
-<figure id="org0692515">
+<figure id="org262fb25">
 <img src="./emacs-init.png" alt="emacs-init.png" scale="0.5">   
 
 </figure>
@@ -35,8 +35,8 @@
 加载文件,在默认的配置文件中加载的文件
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp">(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/"</span>)
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">***-***</span>)
+<pre class="src src-lisp">(add-to-list 'load-path "~/.emacs.d/loadfile/")
+(require '***-***)
 </pre>
 </div></li>
 
@@ -44,7 +44,7 @@
 想要被加载,插件的.el文件最后一定要proide
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">***-***</span>)
+<pre class="src src-lisp">(provide '***-***)
 </pre>
 </div></li>
 </ol>
@@ -74,7 +74,7 @@ M-x eval-region 执行region内的代码</li>
 都是立即生效，可以马上试验一条语句的效果
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp">(setq frame-title-format <span style="color: #00cd66; background-color: #dcdcdc;">"emacs@%b"</span>) 
+<pre class="src src-lisp">(setq frame-title-format "emacs@%b") 
 </pre>
 </div></li>
 </ol>
@@ -86,181 +86,173 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="org80da61d"><span class="section-number-2">3.</span> 我的配置文件</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao's ~/.emacs.d/init.el</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&lt;2025-02-09/Sunday 19:23:31&gt;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao's ~/.emacs.d/init.el
+;;&lt;2025-02-09/Sunday 19:23:31&gt;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">open-init-file</span>()
+(defun open-init-file()
   (interactive)
-  (find-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/init.el"</span>))
+  (find-file "~/.emacs.d/init.el"))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">package</span>)
-(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"gnu"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://elpa.gnu.org/packages/"</span>)t)
-(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"nongnu"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://elpa.nongnu.org/nongnu/"</span>) t)
-(add-to-list 'package-archives '(<span style="color: #00cd66; background-color: #dcdcdc;">"melpa"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"https://melpa.org/packages/"</span>) t)
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#24049;&#30340;&#19968;&#20123;&#23567;&#30340;&#37197;&#32622;</span>
-(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/"</span>)
+;;自己的一些小的配置
+(add-to-list 'load-path "~/.emacs.d/loadfile/")
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25554;&#20837;&#22825;&#27668;&#30340;&#37197;&#32622;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+;自动插入天气的配置
+(require 'pengshao-openweather)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#20840;&#23616;&#35774;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31532;&#19968;&#39033;&#26159;&#38142;&#25509;,&#31532;&#20108;&#39033;&#26159;&#24453;&#21150;&#20107;&#39033;,&#31532;&#19977;&#39033;&#26159;&#24635;&#32467;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
-(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cl"</span> 'org-store-link)
-(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cc"</span> 'org-capture)
-(global-set-key <span style="color: #00cd66; background-color: #dcdcdc;">"\C-ca"</span> 'org-agenda)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36825;&#19968;&#39033;&#22909;&#20687;&#19981;&#29992;&#20102;&#24050;&#32463;&#24443;&#24213;&#32467;&#26463;&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cb" 'org-iswitchb)</span>
+;;orgmode的全局设置
+;;第一项是链接,第二项是待办事项,第三项是总结
+(require 'pengshao-org-mode)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+;;这一项好像不用了已经彻底结束了
+;;(global-set-key "\C-cb" 'org-iswitchb)
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-publish</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;pengshao-org-publish.el&#25991;&#20214;&#24403;&#20013;&#35774;&#32622;&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(define-key global-map "\C-cp" 'org-publish)</span>
-
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-calendar</span>)
+(require 'pengshao-org-publish)
+;;在pengshao-org-publish.el文件当中设置了
+;;(define-key global-map "\C-cp" 'org-publish)
 
 
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-default</span>)
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-backup</span>)
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-insert-date</span>)
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring</span>)
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">cuamode&#30340;cua-rectangle-mark-mode&#30340;&#24555;&#25463;&#38190;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#30001;&#20110;&#19982;orgmode&#26377;&#20914;&#31361;,&#25105;&#29240;C-return&#25913;&#20026;</span>
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c n"</span>) 'cua-rectangle-mark-mode)
+(require 'pengshao-calendar)
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21152;&#36733;&#19979;&#36733;&#30340;&#25554;&#20214;</span>
+(require 'pengshao-default)
+
+(require 'pengshao-backup)
+
+(require 'pengshao-insert-date)
+
+(require 'pengshao-copy-cut-paste-killring)
 
 
-(add-to-list 'load-path <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/"</span>)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20027;&#39064;&#25554;&#20214;&#30340;&#37197;&#32622;&#25991;&#20214;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">color-theme</span>)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;加载下载的插件
+
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;;主题插件的配置文件
+(require 'color-theme)
 (color-theme-initialize)
 (color-theme-snow)
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">iimage</span>)
+(require 'iimage)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26085;&#21382;&#26174;&#31034;&#20892;&#21382;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">cal-china-x</span>)
+;;cuamode的cua-rectangle-mark-mode的快捷键
+;;由于与orgmode有冲突,我把C-return改为
+(global-set-key (kbd "C-c n") 'cua-rectangle-mark-mode)
+
+;;日历显示农历
+(require 'cal-china-x)
 (setq calendar-mark-holidays-flag t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq mark-holidays-in-calendar t) ; before emacs-25</span>
+;; (setq mark-holidays-in-calendar t) ; before emacs-25
 (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
-(setq cal-china-x-general-holidays '((holiday-lunar 1 15 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20803;&#23477;&#33410;"</span>)))
+(setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
 (setq calendar-holidays
       (append cal-china-x-important-holidays
-              cal-china-x-general-holidays
-              <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">other-holidays</span>
-              ))
+	      cal-china-x-general-holidays
+	      ;;other-holidays
+	      ))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23567;&#23567;&#30340;tabbar-mode</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">tabbar</span>)
+;;小小的tabbar-mode
+(require 'tabbar)
 (tabbar-mode)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20999;&#25442;buffer</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">prior&#23601;&#26159;&#19978;&#32763;&#39029;pg up,next&#23601;&#26159;pg dn&#38190;&#30424;</span>
+;;切换buffer
+;;prior就是上翻页pg up,next就是pg dn键盘
 (global-set-key [C-prior] 'previous-buffer)
 (global-set-key [C-next] 'next-buffer)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Win&#26356;&#25442;tabbar&#19981;&#38169;&#21543;,&#21069;&#20004;&#20010;&#26159;&#22312;&#19981;&#21516;&#30340;&#20998;&#32452;&#20999;&#25442;,&#21518;&#38754;&#30340;&#26159;&#22312;&#21516;&#32452;&#20999;&#25442;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#20914;&#31361;&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [s-up] 'tabbar-backward-group)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [s-down] 'tabbar-backward-group)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [s-left] 'tabbar-backward-tab)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [s-right] 'tabbar-forward-tab)</span>
+;;Win更换tabbar不错吧,前两个是在不同的分组切换,后面的是在同组切换
+;;不知道为什么冲突了
+;;(global-set-key [s-up] 'tabbar-backward-group)
+;;(global-set-key [s-down] 'tabbar-backward-group)
+;;(global-set-key [s-left] 'tabbar-backward-tab)
+;;(global-set-key [s-right] 'tabbar-forward-tab)
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">htmlize</span>)
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">browse-kill-ring</span>)
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c k"</span>) 'browse-kill-ring)
+(require 'browse-kill-ring)
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete</span>)
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">auto-complete-config</span>)
-(add-to-list 'ac-dictionary-directories <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/lisp/ac-dict/"</span>)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict/")
 (ac-config-default)
-(define-key ac-mode-map (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c q"</span>) 'auto-complete)
+(define-key ac-mode-map (kbd "C-c q") 'auto-complete)
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">sr-speedbar</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24038;&#20391;&#26174;&#31034;</span>
+(require 'sr-speedbar)
+;;左侧显示
 (setq sr-speedbar-right-side nil)     
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23485;&#24230;</span>
+;;宽度
 (setq sr-speedbar-width 25)          
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;.&#30340;&#22836;&#25991;&#20214;</span>
-(setq speedbar-directory-unshown-regexp <span style="color: #00cd66; background-color: #dcdcdc;">"^\(\.\.*$\)\'"</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31383;&#21475;&#36339;&#36716;&#36339;&#36807;sr-speedbar</span>
+;;显示.的头文件
+(setq speedbar-directory-unshown-regexp "^\(\.\.*$\)\'")
+;;窗口跳转跳过sr-speedbar
 (setq sr-speedbar-skip-other-window-p t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#24555;&#25463;&#38190;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
+;;设置快捷键
+;(global-set-key [f5] 'sr-speedbar-select-window)
 (global-set-key [f5] 'sr-speedbar-open)
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c s"</span>) 'sr-speedbar-open)
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c x"</span>) 'sr-speedbar-close)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24320;&#26426;&#40664;&#35748;&#21551;&#21160;speedbar,&#19981;&#29992;&#20102;,&#29616;&#22312;&#29992;sr-speedbar&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(speedbar 1)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25171;&#24320;sr-speedbar</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#22826;&#19981;&#22909;&#29992;&#20102;,&#27599;&#27425;&#37117;&#22810;&#25171;&#24320;&#19968;&#20010;&#31383;&#26684;,&#25152;&#20197;&#24573;&#30053;&#20102;,</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(sr-speedbar-open)</span>
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">diff</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Select a region and run the command diff-lisp-mark-selected-text-as-a.</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Select another region and run diff-lisp-diff-a-and-b.</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">The difference of two region is displayed in a buffer.</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">diff-lisp</span>)
-
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#22823;&#32434;&#20027;&#39064;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">org-bullets</span>)
-(add-hook 'org-mode-hook (<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> () (org-bullets-mode 1)))
+(global-set-key (kbd "C-c s") 'sr-speedbar-open)
+(global-set-key (kbd "C-c x") 'sr-speedbar-close)
+;;开机默认启动speedbar,不用了,现在用sr-speedbar了
+;;(speedbar 1)
+;;自动打开sr-speedbar
+;;不知道为什么太不好用了,每次都多打开一个窗格,所以忽略了,
+;;(sr-speedbar-open)
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#38190;&#30424;&#37197;&#32622;&#25918;&#22312;&#26368;&#21518;,&#21482;&#35201;&#26159;&#37197;&#32622;&#20102;F1-F10,&#21644;Home/End&#38190;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25152;&#26377;&#33258;&#24049;&#37197;&#32622;&#30340;&#37117;&#22312;init.el&#20102;,&#26041;&#20415;&#26597;&#25214;</span>
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-key-building</span>)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;键盘配置放在最后,只要是配置了F1-F10,和Home/End键
+;;所有自己配置的都在init.el了,方便查找
+
+(require 'pengshao-key-building)
 (custom-set-variables
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">custom-set-variables was added by Custom.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Your init file should contain only one such instance.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If there is more than one, they won't work right.</span>
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(org-safe-remote-resources
-   '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\`</span><span style="color: #cd8500; background-color: #dcdcdc;">https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\</span><span style="color: #00cd66; background-color: #dcdcdc;">'"</span>))
+   '("\\`https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\'"))
  '(package-selected-packages '(json-mode request)))
 (custom-set-faces
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">custom-set-faces was added by Custom.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If you edit it by hand, you could mess it up, so be careful.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Your init file should contain only one such instance.</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">If there is more than one, they won't work right.</span>
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312; Emacs &#21551;&#21160;&#26102;&#28165;&#31354; *scratch* &#32531;&#20914;&#21306;&#24182;&#25554;&#20837;&#29305;&#23450;&#20989;&#25968;&#20195;&#30721;</span>
-(setq initial-scratch-message <span style="color: #00cd66; background-color: #dcdcdc;">""</span>) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#28165;&#31354;&#21021;&#22987;&#30340; *scratch* &#28040;&#24687;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">with-current-buffer</span> <span style="color: #00cd66; background-color: #dcdcdc;">"*scratch*"</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;   </span><span style="color: #4f94cd; background-color: #dcdcdc;">(let ((result1 (insert-weather)))</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;   </span><span style="color: #4f94cd; background-color: #dcdcdc;">(insert (format " %s\n" result1)))</span>
+;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
+(setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
+(with-current-buffer "*scratch*"
+;   (let ((result1 (insert-weather)))
+;   (insert (format " %s\n" result1)))
   (call-interactively 'insert-nongli)
   (call-interactively 'insert-weather)
   (call-interactively 'insert-pyphoon)
@@ -276,105 +268,105 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="orgdf20f8a"><span class="section-number-2">4.</span> 默认的一些配置</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-default.el---&#40664;&#35748;&#19968;&#23567;&#20123;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-default.el---默认一小些配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#38388;&#25139;&#20351;&#29992;&#33521;&#25991;&#26143;&#26399;</span>
-(setq system-time-locale <span style="color: #00cd66; background-color: #dcdcdc;">"C"</span>)
+;; 时间戳使用英文星期
+(setq system-time-locale "C")
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19996;&#20843;&#21306;&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</span>
+; 东八区（北京时间）
 (setq calendar-time-zone 8)  
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#32534;&#30721;&#36873;&#29992; UTF-8</span>
+;; 编码选用 UTF-8
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20851;&#38381;&#36215;&#21160;&#26102;&#30340;&#37027;&#20010;&#8220;&#24320;&#26426;&#30011;&#38754;&#8221; </span>
+;;关闭起动时的那个“开机画面” 
 (setq inhibit-startup-message t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#26174;&#31034;&#22270;&#29255;</span>
+;;自动显示图片
 (setq org-startup-with-inline-images t)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-below)   ;; &#27178;&#21521;&#20998;&#23631;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(split-window-right)   ;; &#32437;&#21521;&#20998;&#23631;</span>
+;;(split-window-below)   ;; 横向分屏
+;;(split-window-right)   ;; 纵向分屏
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#21551;&#21160;&#26102;&#20505;&#31383;&#21475;&#22823;&#23567;</span>
+;;设置启动时候窗口大小
 (setq default-frame-alist
 '((height . 30) (width . 100) (menu-bar-lines . 10) (tool-bar-lines . 10)))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312;&#26631;&#39064;&#26639;&#25552;&#31034;&#20320;&#30446;&#21069;&#22312;&#20160;&#20040;&#20301;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq frame-title-format "pengshao@%n%b")</span>
+;在标题栏提示你目前在什么位置
+;(setq frame-title-format "pengshao@%n%b")
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">buffer name (if the buffer isn't visiting a file)</span>
+;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
-      '(<span style="color: #00cd66; background-color: #dcdcdc;">""</span> <span style="color: #00cd66; background-color: #dcdcdc;">" &#19978;&#39532;&#25552;&#26538;, &#21435;&#24178;&#20182;&#23064; - "</span>
-        (<span style="color: #ba55d3; background-color: #dcdcdc;">:eval</span> (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name)) <span style="color: #00cd66; background-color: #dcdcdc;">"%b"</span>))))
+      '("" "上古大椿，八千春秋,知途知径，浑然天成"
+	(:eval (if (buffer-file-name)
+		   (abbreviate-file-name (buffer-file-name)) "%b"))))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35821;&#27861;&#39640;&#20142;</span>
+;语法高亮
 (global-font-lock-mode t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25171;&#24320;&#22270;&#29255;&#26174;&#31034;&#21151;&#33021;</span>
+;打开图片显示功能
 (auto-image-file-mode t)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#21015;&#21495;</span>
+;显示列号
 (column-number-mode t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#34892;&#21495;</span>
+;显示行号
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'absolute) 
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#25324;&#21495;&#21305;&#37197;</span>
+;显示括号匹配
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#28155;&#21152;&#25324;&#21495;</span>
+;自动添加括号
 (electric-pair-mode t)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;&#26102;&#38388;&#65292;&#26684;&#24335;&#22914;&#19979;</span>
+;显示时间，格式如下
 (display-time-mode 1)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#37027;&#20010;&#22823;&#22823;&#30340;&#24037;&#20855;&#26639;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(tool-bar-mode nil)</span>
+;去掉那个大大的工具栏
+;;(tool-bar-mode nil)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#28378;&#21160;&#26465;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(scroll-bar-mode nil)</span>
+;去掉滚动条
+;;(scroll-bar-mode nil)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25903;&#25345;emacs&#21644;&#22806;&#37096;&#31243;&#24207;&#30340;&#31896;&#36148;</span>
+;支持emacs和外部程序的粘贴
 (setq x-select-enable-clipboard t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#26174;&#31034; 80&#21015;&#23601;&#25442;&#34892;</span>
+;默认显示 80列就换行
 (setq default-fill-column 80)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19968;&#25171;&#24320;&#23601;&#36215;&#29992; text &#27169;&#24335;&#12290;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq default-major-mode 'text-mode)</span>
+;一打开就起用 text 模式。
+;(setq default-major-mode 'text-mode)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">eshell&#22686;&#21152;&#33258;&#21160;&#34917;&#20840;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24573;&#30053;&#22823;&#23567;&#20889;&#36827;&#34892;&#34917;&#20840;</span>
+;;eshell增加自动补全
+; 忽略大小写进行补全
 (setq eshell-cmpl-ignore-case t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20801;&#35768;&#24490;&#29615;&#34917;&#20840;</span>
+; 允许循环补全
 (setq eshell-cmpl-cycle-completions t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35753; pcomplete &#25903;&#25345;&#24490;&#29615;&#34917;&#20840;</span>
+; 让 pcomplete 支持循环补全
 (setq pcomplete-cycle-completions t) 
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-default</span>)
+(provide 'pengshao-default)
 </pre>
 </div>
 </div>
@@ -385,12 +377,12 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="orge477e60"><span class="section-number-2">5.</span> org-mode相关的两个配置</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-mode.el---orgmode&#30456;&#20851;&#30340;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-org-mode.el---orgmode相关的配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25105;&#30340;&#32534;&#30721;&#35774;&#32622;</span>
+;;我的编码设置
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -398,148 +390,148 @@ M-x eval-region 执行region内的代码</li>
 (setq default-buffer-file-coding-system 'utf-8)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">org-mode&#35821;&#27861;&#39640;&#20142;</span>
+;;org-mode语法高亮
 (setq org-src-fontify-natively t)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20445;&#35777;&#21518;&#32512;&#20026;'.org'&#30340;&#25991;&#20214;&#20250;&#20351;&#29992;Org mode</span>
-(add-to-list 'auto-mode-alist '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\.org\\'"</span> . org-mode))
+;;保证后缀为'.org'的文件会使用Org mode
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cl" 'org-store-link)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#38142;&#25509;</span>
+;;(global-set-key "\C-cl" 'org-store-link)
+;;orgmode的链接
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#40664;&#35748;&#30340;agenda&#25991;&#20214;,&#30340;todo&#30340;&#20840;&#23616;&#25991;&#20214;&#21487;&#20197;&#28155;&#21152;&#22312;&#36825;&#37324;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-ca" 'org-agenda)</span>
+;;设置默认的agenda文件,的todo的全局文件可以添加在这里
+;;(global-set-key "\C-ca" 'org-agenda)
 (setq org-agenda-files
-      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/list-list.org"</span>
-        ))
+      (list "~/public_note/idear/list-list.org"
+	))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cc" 'org-capture)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile,&#36825;&#37324;&#23601;&#26159;org-capture&#30340;&#40664;&#35748;&#25991;&#20214;</span>
-(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/todo-list.org"</span>)
+;;(global-set-key "\C-cc" 'org-capture)
+;;默认的org-notesfile,这里就是org-capture的默认文件
+(setq org-default-notes-file "~/public_note/idear/todo-list.org")
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27599;&#27425;&#26032;&#24314;todo&#21644;&#20570;&#23436;&#37117;&#35201;&#28155;&#21152;&#26102;&#38388;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-todo 'time)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-done 'time)</span>
+;;每次新建todo和做完都要添加时间
+;(setq org-log-todo 'time)
+;(setq org-log-done 'time)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
+;;如果不想在全局范围使用font-lock,可以用下面一句配置来只在Org-mode下打开font-lock选项
+;;(add-hook 'org-mode-hook 'turn-on-font-lock) 
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,#+STARTUP: overview : content : showall : showeverything :</span>
+;;设置org-mode的启动显示选项,#+STARTUP: overview : content : showall : showeverything :
 (setq org-startup-folded 'content)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">prevent editing an invisible part of the buffer&#38450;&#27490;&#32534;&#36753;&#32531;&#20914;&#21306;&#19981;&#21487;&#35265;&#37096;&#20998;</span>
+;; prevent editing an invisible part of the buffer防止编辑缓冲区不可见部分
 (setq org-catch-invisible-edits nil) 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#28155;&#21152;&#33258;&#21160;&#25442;&#34892;&#21151;&#33021;</span>
-(add-hook 'org-mode-hook (<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> () (setq truncate-lines nil)))
+;;为org-mode添加自动换行功能
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#30340;(setq org-startup-indented t)&#32553;&#36827;&#26143;&#21495;</span>
+;;为org-mode的(setq org-startup-indented t)缩进星号
 (setq org-startup-indented t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622; bullet list</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-bullets-bullet-list '("&#9776;" "&#9783;" "&#9775;" "&#9773;"))</span>
+;; 设置 bullet list
+;;(setq org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#22810;&#32452;&#29366;&#24577;&#24207;&#21015;&#65292;&#27599;&#20010;&#8220;#+SEQ_TODO&#8221;&#34892;&#23450;&#20041;&#19968;&#32452;</span>
+;定义多组状态序列，每个“#+SEQ_TODO”行定义一组
 (setq org-todo-keywords
- '((sequence <span style="color: #00cd66; background-color: #dcdcdc;">"TODO(T!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DOING(H!)"</span>  <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DONE(D!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED(C@/!)"</span>)
+ '((sequence "TODO(T!)" "DOING(H!)"  "|" "DONE(D!)" "CANCELED(C@/!)")
 
    ))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">org-todo-keyword-faces</span>
+;; org-todo-keyword-faces
 (setq org-todo-keyword-faces
       '(
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"TODO"</span>      . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FF0033"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FFFF33"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED"</span>  . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"yellow"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"DOING"</span>     . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#990066"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#00FF00"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        ))
+	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
+	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
+	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
+	))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">'org-tag-faces'</span>
+;;'org-tag-faces'
 (setf org-tag-faces
       '(
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#19978;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"black"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#95A5A6"</span>   <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#20241;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"red"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#21152;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"white"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#3498DB"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        ))
+	("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
+	("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
+	("加班" . (:foreground "white" :background "#3498DB" :weight bold))
+	))
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25240;&#21472;&#26102;&#19981;&#20877;&#26174;&#31034;&#12300;...&#12301;, &#25442;&#20010;&#20320;&#21916;&#27426;&#30340;&#31526;&#21495;</span>
-(setq org-ellipsis <span style="color: #00cd66; background-color: #dcdcdc;">"&#9660;"</span>)
+;; 折叠时不再显示「...」, 换个你喜欢的符号
+(setq org-ellipsis "▼")
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
+(provide 'pengshao-org-mode)
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-publish.el---org-publish&#30456;&#20851;&#30340;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-org-publish.el---org-publish相关的配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">ox-publish</span>)
+(require 'ox-publish)
 (setq org-publish-project-alist
       '(
-         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"org"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;&#26159;&#21542;&#36882;&#24402;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-html-publish-to-html  <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20351;&#29992;&#21738;&#20010;&#20989;&#25968;&#26469;&#36827;&#34892;publish&#65288;&#27880;&#65306;org 7&#19982;8&#22312;&#36825;&#20010;&#22320;&#26041;&#26377;&#21306;&#21035;&#65289;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:headline-levels</span> 2   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#30001;&#20110;&#22823;&#32434;&#32467;&#26500;&#20063;&#29992;&#20110;&#21015;&#34920;&#21644;&#20219;&#21153;,&#22240;&#27492;&#21482;&#26377;&#21069;4&#20010;&#32423;&#21035;&#29992;&#20316;&#26631;&#39064;&#26356;&#28145;&#30340;&#32423;&#21035;&#20250;&#34987;&#30475;&#20316;&#39033;&#30446;&#21015;&#34920;,&#25105;&#35774;&#32622;&#30340;2</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-preamble</span> t     <span style="color: #4f94cd; background-color: #dcdcdc;">;&#33258;&#21160;&#21069;&#35328;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:section-numbers</span> t <span style="color: #4f94cd; background-color: #dcdcdc;">;&#31456;&#33410;&#25968;&#23383;&#26159;&#21542;&#26174;&#31034;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:author</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20316;&#32773;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:email</span> <span style="color: #00cd66; background-color: #dcdcdc;">"pengshao58@gmail.com"</span>   <span style="color: #4f94cd; background-color: #dcdcdc;">;&#37038;&#31665;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:auto-sitemap</span> t                  <span style="color: #4f94cd; background-color: #dcdcdc;">; &#33258;&#21160;&#29983;&#25104; sitemap.org &#25991;&#20214;</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-filename</span> <span style="color: #00cd66; background-color: #dcdcdc;">"sitemap.org"</span>  <span style="color: #4f94cd; background-color: #dcdcdc;">; ... call it sitemap.org (it's the default)...</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:sitemap-title</span> <span style="color: #00cd66; background-color: #dcdcdc;">"PengShao's BLOG!"</span>         <span style="color: #4f94cd; background-color: #dcdcdc;">; ... with title</span>
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">:sitemap-file-entry-format "%d %t"   ;&#36825;&#37324;&#37319;&#29992;&#26102;&#38388;+&#26631;&#39064;&#30340;&#26041;&#24335;&#29983;&#25104;sitemap </span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:style-include-default</span> nil  <span style="color: #4f94cd; background-color: #dcdcdc;">;&#31105;&#29992;&#40664;&#35748; css &#26679;&#24335;,&#20351;&#29992;&#33258;&#23450;&#20041;css</span>
+	 ("psnote-org"
+	     :base-directory "~/public_note/"
+	     :base-extension "org"
+	     :publishing-directory "~/public_site/"
+	     :recursive t     ;是否递归
+	     :publishing-function org-html-publish-to-html  ;使用哪个函数来进行publish（注：org 7与8在这个地方有区别）
+	     :headline-levels 2   ;由于大纲结构也用于列表和任务,因此只有前4个级别用作标题更深的级别会被看作项目列表,我设置的2
+	     :auto-preamble t     ;自动前言
+	     :section-numbers t ;章节数字是否显示
+	     :author "pengshao"   ;作者
+	     :email "pengshao58@gmail.com"   ;邮箱
+	     :auto-sitemap t                  ; 自动生成 sitemap.org 文件
+	     :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+	     :sitemap-title "PengShao's BLOG!"         ; ... with title
+	     ;;:sitemap-file-entry-format "%d %t"   ;这里采用时间+标题的方式生成sitemap 
+	     :style-include-default nil  ;禁用默认 css 样式,使用自定义css
 
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;&#20316;&#20026;&#19968;&#20010;&#23383;&#31526;&#20018;&#32473;&#20104; html-head &#21464;&#37327;&#24182;&#25554;&#20837;&#21040;&#29983;&#25104;&#30340; html &#25991;&#20214;&#30340;head&#37096;</span>
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;&#22240;&#27492;&#37324;&#38754;&#30340;&#26576;&#20123;&#23383;&#31526;&#24517;&#39035;&#36991;&#20813;&#36716;&#20041;&#65292;&#27604;&#22914;&#21452;&#24341;&#21495;&#24517;&#39035;&#21152;&#19978;&#21453;&#26012;&#26464;</span>
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;href &#30340;&#36171;&#20540;&#19981;&#20250;&#20570;&#22914;&#20309;&#36716;&#25442;&#65292;&#22240;&#27492;&#24517;&#39035;&#30830;&#20445;&#26159;&#22312;&#29983;&#25104;&#30340; html &#25991;&#20214;&#33021;&#22815;&#35775;&#38382;&#30340;&#32477;&#23545;&#36335;&#24452;&#12290;</span>
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"</span>
-             <span style="color: #4f94cd; background-color: #dcdcdc;">;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:html-postamble</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"</span>
+	     ;作为一个字符串给予 html-head 变量并插入到生成的 html 文件的head部
+	     ;因此里面的某些字符必须避免转义，比如双引号必须加上反斜杠
+	     ;href 的赋值不会做如何转换，因此必须确保是在生成的 html 文件能够访问的绝对路径。
+	     ;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"
+	     ;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"
+	     :html-postamble "&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"
 
-         )
-
-
-
-         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:base-extension</span> <span style="color: #00cd66; background-color: #dcdcdc;">"css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|sh\\|el\\|jpeg\\|html"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-directory</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_site/"</span>
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:recursive</span> t
-             <span style="color: #ba55d3; background-color: #dcdcdc;">:publishing-function</span> org-publish-attachment
-          )
-
-
-         (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:components</span> (<span style="color: #00cd66; background-color: #dcdcdc;">"psnote-org"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"psnote-static"</span>))
-
-
-        ))
-
-
-(define-key global-map <span style="color: #00cd66; background-color: #dcdcdc;">"\C-cp"</span> 'org-publish)
+	 )
 
 
 
+	 ("psnote-static"
+	     :base-directory "~/public_note/"
+	     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|sh\\|el\\|jpeg\\|html"
+	     :publishing-directory "~/public_site/"
+	     :recursive t
+	     :publishing-function org-publish-attachment
+	  )
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-publish</span>)
+
+	 ("psnote" :components ("psnote-org" "psnote-static"))
+
+
+	))
+
+
+(define-key global-map "\C-cp" 'org-publish)
+
+
+
+
+(provide 'pengshao-org-publish)
 </pre>
 </div>
 </div>
@@ -550,200 +542,207 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="orgb3de14e"><span class="section-number-2">6.</span> 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-einsrt-date.el---&#25554;&#20837;&#26102;&#38388;&#26684;&#24335;&#30456;&#20851;&#30340;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-einsrt-date.el---插入时间格式相关的配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-time</span> ()
+(defun my-insert-time ()
   (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d/%A %H:%M:%S&gt;"</span> (current-time))))
+  (insert (format-time-string "&lt;%Y-%m-%d/%A %H:%M:%S&gt;" (current-time))))
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m t"</span>) 'my-insert-time)
+(global-set-key (kbd "C-c m t") 'my-insert-time)
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-date</span> ()
+(defun my-insert-date ()
   (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d-%j/%A&gt;"</span> (current-time))))
+  (insert (format-time-string "&lt;%Y-%m-%d-%j/%A&gt;" (current-time))))
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m d"</span>) 'my-insert-date)
+(global-set-key (kbd "C-c m d") 'my-insert-date)
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-month</span> ()
+(defun my-insert-month ()
   (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%B&gt;"</span> (current-time))))
+  (insert (format-time-string "&lt;%Y-%B&gt;" (current-time))))
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m m"</span>) 'my-insert-month)
+(global-set-key (kbd "C-c m m") 'my-insert-month)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25554;&#20837;&#20170;&#24180;&#30340;&#26102;&#38388;&#36827;&#24230;&#26465;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">make-progress</span> (width percent has-number?)
-  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((done (/ percent 100.0))
-         (done-width (floor (* width done))))
+;;插入今年的时间进度条
+(defun make-progress (width percent has-number?)
+  (let* ((done (/ percent 100.0))
+	 (done-width (floor (* width done))))
     (concat
-     <span style="color: #00cd66; background-color: #dcdcdc;">"["</span>
+     "["
      (make-string done-width ?/)
      (make-string (- width done-width) ? )
-     <span style="color: #00cd66; background-color: #dcdcdc;">"]"</span>
-     (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> has-number? (concat <span style="color: #00cd66; background-color: #dcdcdc;">" "</span> (number-to-string percent) <span style="color: #00cd66; background-color: #dcdcdc;">"%"</span>))
+     "]"
+     (if has-number? (concat " " (number-to-string percent) "%"))
      )))
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-day-progress</span> ()
+(defun insert-day-progress ()
   (interactive)
-  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((today (time-to-day-in-year (current-time)))
-         (percent (floor (* 100 (/ today 365.0)))))
+  (let* ((today (time-to-day-in-year (current-time)))
+	 (percent (floor (* 100 (/ today 365.0)))))
     (insert (make-progress 30 percent t))
     ))
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m y"</span>) 'insert-day-progress)
+(global-set-key (kbd "C-c m y") 'insert-day-progress)
 
-(add-to-list 'org-src-lang-modes '(<span style="color: #00cd66; background-color: #dcdcdc;">"plantuml"</span> . plantuml))
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-insert-date</span>)
+(provide 'pengshao-insert-date)
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-lisp"><span class="linenr"> 1: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span class="linenr"> 2: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span class="linenr"> 3: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-openweather.el---&#33258;&#21160;&#25554;&#20837;&#22825;&#27668;&#30340;&#25945;&#31243;</span>
-<span class="linenr"> 4: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&lt;2025-02-08/Saturday 19:32:10&gt;</span>
-<span class="linenr"> 5: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 3: </span>;;pengshao-openweather.el---自动插入天气的教程
+<span class="linenr"> 4: </span>;;&lt;2025-02-08/Saturday 19:32:10&gt;
+<span class="linenr"> 5: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="linenr"> 6: </span>
-<span class="linenr"> 7: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#27982;&#21335;&#22825;&#27668;&#30340;&#25805;&#20316;</span>
-<span class="linenr"> 8: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-weather</span> ()
+<span class="linenr"> 7: </span>;;添加济南天气的操作
+<span class="linenr"> 8: </span>(defun insert-weather ()
 <span class="linenr"> 9: </span>  (interactive)
-<span class="linenr">10: </span>  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"curl wttr.in/jinan?format=4 2&gt; /dev/null"</span>)))
+<span class="linenr">10: </span>  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
 <span class="linenr">11: </span>
 <span class="linenr">12: </span>
-<span class="linenr">13: </span>(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m w"</span>) #'insert-weather)
+<span class="linenr">13: </span>(global-set-key (kbd "C-c m w") #'insert-weather)
 <span class="linenr">14: </span>
 <span class="linenr">15: </span>
-<span class="linenr">16: </span><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#26376;&#30456;&#30340;&#25805;&#20316;</span>
-<span class="linenr">17: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-pyphoon</span> ()
+<span class="linenr">16: </span>;;添加月相的操作
+<span class="linenr">17: </span>(defun insert-pyphoon ()
 <span class="linenr">18: </span>  (interactive)
-<span class="linenr">19: </span>  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"source ~/mypython/bin/activate &amp;&amp; pyphoon"</span>)))
+<span class="linenr">19: </span>  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
 <span class="linenr">20: </span>
 <span class="linenr">21: </span>
-<span class="linenr">22: </span>(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-pyphoon)
+<span class="linenr">22: </span>(global-set-key (kbd "C-c m o") #'insert-pyphoon)
 <span class="linenr">23: </span>
 <span class="linenr">24: </span>
-<span class="linenr">25: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-nongli</span> ()
+<span class="linenr">25: </span>(defun insert-nongli ()
 <span class="linenr">26: </span>  (interactive)
-<span class="linenr">27: </span>  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/nongli.sh"</span>)))
+<span class="linenr">27: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
 <span class="linenr">28: </span>
-<span class="linenr">29: </span>(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m n"</span>) #'insert-nongli)
+<span class="linenr">29: </span>(global-set-key (kbd "C-c m n") #'insert-nongli)
 <span class="linenr">30: </span>
-<span class="linenr">31: </span>
-<span class="linenr">32: </span>(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+<span class="linenr">31: </span>(defun insert-nonglijian ()
+<span class="linenr">32: </span>  (interactive)
+<span class="linenr">33: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>(global-set-key (kbd "C-c m j") #'insert-nonglijian)
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>
+<span class="linenr">38: </span>
+<span class="linenr">39: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-calendar.el---calendar&#30456;&#20851;&#37197;&#32622;(&#19968;&#30452;&#27809;&#26377;&#35843;&#35797;)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-calendar.el---calendar相关配置(一直没有调试)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#26085;&#21382; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#26085;&#21382;&#30340;&#19968;&#20123;&#39068;&#33394;</span>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; 设置日历 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;设置日历的一些颜色
 (setq calendar-load-hook
-'(<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> ()
-(set-face-foreground 'diary-face <span style="color: #00cd66; background-color: #dcdcdc;">"skyblue"</span>)
-(set-face-background 'holiday-face <span style="color: #00cd66; background-color: #dcdcdc;">"slate blue"</span>)
-(set-face-foreground 'holiday-face <span style="color: #00cd66; background-color: #dcdcdc;">"white"</span>)))
+'(lambda ()
+(set-face-foreground 'diary-face "skyblue")
+(set-face-background 'holiday-face "slate blue")
+(set-face-foreground 'holiday-face "white")))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#25105;&#25152;&#22312;&#22320;&#26041;&#30340;&#32463;&#32428;&#24230;&#65292;calendar&#37324;&#26377;&#20010;&#21151;&#33021;&#26159;&#26085;&#26376;&#39135;&#30340;&#39044;&#27979;&#65292;&#21644;&#20320;&#30340;&#32463;&#32428;&#24230;&#30456;&#32852;&#31995;&#30340;&#12290;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35753;emacs&#33021;&#35745;&#31639;&#26085;&#20986;&#26085;&#33853;&#30340;&#26102;&#38388;&#65292;&#22312; calendar &#19978;&#29992; S &#21363;&#21487;&#30475;&#21040;</span>
+;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
+;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
 (setq calendar-latitude +36.125)
 (setq calendar-longitude +117.786)
-(setq calendar-location-name <span style="color: #00cd66; background-color: #dcdcdc;">"Laiwu"</span>)
+(setq calendar-location-name "Laiwu")
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#38452;&#21382;&#26174;&#31034;&#65292;&#22312; calendar &#19978;&#29992; pC &#26174;&#31034;&#38452;&#21382;</span>
+;; 设置阴历显示，在 calendar 上用 pC 显示阴历
 (setq chinese-calendar-celestial-stem
-[<span style="color: #00cd66; background-color: #dcdcdc;">"&#30002;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#20057;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19993;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19969;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25098;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24049;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24218;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#36763;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#22764;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#30328;"</span>])
+["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
 (setq chinese-calendar-terrestrial-branch
-[<span style="color: #00cd66; background-color: #dcdcdc;">"&#23376;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#19985;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#23493;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#21359;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#36784;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#24051;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25098;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#26410;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#30003;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#37193;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#25100;"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#20133;"</span>])
+["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622; calendar &#30340;&#26174;&#31034;</span>
+;; 设置 calendar 的显示
 (setq calendar-remove-frame-by-deleting t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq calendar-week-start-day 1) ; &#35774;&#32622;&#26143;&#26399;&#19968;&#20026;&#27599;&#21608;&#30340;&#31532;&#19968;&#22825;</span>
-(setq mark-diary-entries-in-calendar t) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#26631;&#35760;calendar&#19978;&#26377;diary&#30340;&#26085;&#26399;</span>
-(setq mark-holidays-in-calendar nil) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20026;&#20102;&#31361;&#20986;&#26377;diary&#30340;&#26085;&#26399;&#65292;calendar&#19978;&#19981;&#26631;&#35760;&#33410;&#26085;</span>
-(setq view-calendar-holidays-initially nil) <span style="color: #4f94cd; background-color: #dcdcdc;">; &#25171;&#24320;calendar&#30340;&#26102;&#20505;&#19981;&#26174;&#31034;&#19968;&#22534;&#33410;&#26085;</span>
+;(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
+(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
+(setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar上不标记节日
+(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21435;&#25481;&#19981;&#20851;&#24515;&#30340;&#33410;&#26085;&#65292;&#35774;&#23450;&#33258;&#24049;&#22312;&#24847;&#30340;&#33410;&#26085;&#65292;&#22312; calendar &#19978;&#29992; h &#26174;&#31034;&#33410;&#26085;</span>
+;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
 (setq christian-holidays nil)
 (setq hebrew-holidays nil)
 (setq islamic-holidays nil)
 (setq solar-holidays nil)
-(setq general-holidays '((holiday-fixed 1 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20803;&#26086;"</span>)
-(holiday-fixed 2 14 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24773;&#20154;&#33410;"</span>)
-(holiday-fixed 3 14 <span style="color: #00cd66; background-color: #dcdcdc;">"&#30333;&#33394;&#24773;&#20154;&#33410;"</span>)
-(holiday-fixed 4 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24858;&#20154;&#33410;"</span>)
-(holiday-fixed 5 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#21171;&#21160;&#33410;"</span>)
-(holiday-float 5 0 2 <span style="color: #00cd66; background-color: #dcdcdc;">"&#27597;&#20146;&#33410;"</span>)
-(holiday-fixed 6 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#20799;&#31461;&#33410;"</span>)
-(holiday-float 6 0 3 <span style="color: #00cd66; background-color: #dcdcdc;">"&#29238;&#20146;&#33410;"</span>)
-(holiday-fixed 7 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24314;&#20826;&#33410;"</span>)
-(holiday-fixed 8 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#24314;&#20891;&#33410;"</span>)
-(holiday-fixed 9 10 <span style="color: #00cd66; background-color: #dcdcdc;">"&#25945;&#24072;&#33410;"</span>)
-(holiday-fixed 10 1 <span style="color: #00cd66; background-color: #dcdcdc;">"&#22269;&#24198;&#33410;"</span>)
-(holiday-fixed 12 25 <span style="color: #00cd66; background-color: #dcdcdc;">"&#22307;&#35806;&#33410;"</span>)))
+(setq general-holidays '((holiday-fixed 1 1 "元旦")
+(holiday-fixed 2 14 "情人节")
+(holiday-fixed 3 14 "白色情人节")
+(holiday-fixed 4 1 "愚人节")
+(holiday-fixed 5 1 "劳动节")
+(holiday-float 5 0 2 "母亲节")
+(holiday-fixed 6 1 "儿童节")
+(holiday-float 6 0 3 "父亲节")
+(holiday-fixed 7 1 "建党节")
+(holiday-fixed 8 1 "建军节")
+(holiday-fixed 9 10 "教师节")
+(holiday-fixed 10 1 "国庆节")
+(holiday-fixed 12 25 "圣诞节")))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#27169;&#24335;&#25903;&#25345;&#21508;&#31181;&#26041;&#24335;&#26469;&#26356;&#25913;&#24403;&#21069;&#26085;&#26399;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#65288;&#36825;&#37324;&#30340;&#8220;&#21069;&#8221;&#26159;&#25351;&#36824;&#27809;&#26377;&#21040;&#26469;&#30340;&#37027;&#19968;&#22825;&#65292;&#8220;&#21518;&#8221;&#26159;&#25351;&#24050;&#32463;&#36807;&#21435;&#30340;&#26085;&#23376;&#65289;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">q &#36864;&#20986;calendar&#27169;&#24335;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-f &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-b &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-n &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#21608;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-p &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#21608;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-} &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#20010;&#26376;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-{ &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#20010;&#26376;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-x ] &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21069;&#19968;&#24180;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-x [ &#35753;&#24403;&#21069;&#26085;&#26399;&#21521;&#21518;&#19968;&#24180;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-a &#31227;&#21160;&#21040;&#24403;&#21069;&#21608;&#30340;&#31532;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-e &#31227;&#21160;&#21040;&#24403;&#21069;&#21608;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-a &#31227;&#21160;&#21040;&#24403;&#21069;&#26376;&#30340;&#31532;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-e &#22810;&#21160;&#21040;&#24403;&#21069;&#26376;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-&lt; &#31227;&#21160;&#21040;&#24403;&#21069;&#24180;&#30340;&#31532;&#19968;&#22825;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-&gt; &#31227;&#21160;&#21040;&#24403;&#21069;&#24180;&#30340;&#26368;&#21518;&#19968;&#22825;</span>
+;;Calendar模式支持各种方式来更改当前日期
+;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
+;; q 退出calendar模式
+;; C-f 让当前日期向前一天
+;; C-b 让当前日期向后一天
+;; C-n 让当前日期向前一周
+;; C-p 让当前日期向后一周
+;; M-} 让当前日期向前一个月
+;; M-{ 让当前日期向后一个月
+;; C-x ] 让当前日期向前一年
+;; C-x [ 让当前日期向后一年
+;; C-a 移动到当前周的第一天
+;; C-e 移动到当前周的最后一天
+;; M-a 移动到当前月的第一天
+;; M-e 多动到当前月的最后一天
+;; M-&lt; 移动到当前年的第一天
+;; M-&gt; 移动到当前年的最后一天
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#27169;&#24335;&#25903;&#25345;&#31227;&#21160;&#22810;&#31181;&#31227;&#21160;&#21040;&#29305;&#29664;&#26085;&#26399;&#30340;&#26041;&#24335;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">g d &#31227;&#21160;&#21040;&#19968;&#20010;&#29305;&#21035;&#30340;&#26085;&#26399;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">o &#20351;&#26576;&#20010;&#29305;&#27530;&#30340;&#26376;&#20998;&#20316;&#20026;&#20013;&#38388;&#30340;&#26376;&#20998;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">. &#31227;&#21160;&#21040;&#24403;&#22825;&#30340;&#26085;&#26399;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">p d &#26174;&#31034;&#26576;&#19968;&#22825;&#22312;&#19968;&#24180;&#20013;&#30340;&#20301;&#32622;&#65292;&#20063;&#26174;&#31034;&#26412;&#24180;&#24230;&#36824;&#26377;&#22810;&#23569;&#22825;&#12290;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">C-c C-l &#21047;&#26032;Calendar&#31383;&#21475;</span>
+;;Calendar模式支持移动多种移动到特珠日期的方式
+;; g d 移动到一个特别的日期
+;; o 使某个特殊的月分作为中间的月分
+;; . 移动到当天的日期
+;; p d 显示某一天在一年中的位置，也显示本年度还有多少天。
+;; C-c C-l 刷新Calendar窗口
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">Calendar&#25903;&#25345;&#29983;&#25104;LATEX&#20195;&#30721;&#12290;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t m &#25353;&#26376;&#29983;&#25104;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t M &#25353;&#26376;&#29983;&#25104;&#19968;&#20010;&#32654;&#21270;&#30340;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t d &#25353;&#24403;&#22825;&#26085;&#26399;&#29983;&#25104;&#19968;&#20010;&#24403;&#22825;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 1 &#22312;&#19968;&#39029;&#19978;&#29983;&#25104;&#36825;&#20010;&#21608;&#30340;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 2 &#22312;&#20004;&#39029;&#19978;&#29983;&#25104;&#36825;&#20010;&#21608;&#30340;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 3 &#29983;&#25104;&#19968;&#20010;ISO-SYTLE&#39118;&#26684;&#30340;&#24403;&#21069;&#21608;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t w 4 &#29983;&#25104;&#19968;&#20010;&#20174;&#21608;&#19968;&#24320;&#22987;&#30340;&#24403;&#21069;&#21608;&#26085;&#21382;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">t y &#29983;&#25104;&#24403;&#21069;&#24180;&#30340;&#26085;&#21382;</span>
+;; Calendar支持生成LATEX代码。
+;; t m 按月生成日历
+;; t M 按月生成一个美化的日历
+;; t d 按当天日期生成一个当天日历
+;; t w 1 在一页上生成这个周的日历
+;; t w 2 在两页上生成这个周的日历
+;; t w 3 生成一个ISO-SYTLE风格的当前周日历
+;; t w 4 生成一个从周一开始的当前周日历
+;; t y 生成当前年的日历
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">EMACS Calendar&#25903;&#25345;&#37197;&#32622;&#33410;&#26085;&#65306;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">h &#26174;&#31034;&#24403;&#21069;&#30340;&#33410;&#26085;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">x &#23450;&#20041;&#24403;&#22825;&#20026;&#26576;&#20010;&#33410;&#26085;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">u &#21462;&#28040;&#24403;&#22825;&#24050;&#34987;&#23450;&#20041;&#30340;&#33410;&#26085;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">e &#26174;&#31034;&#25152;&#26377;&#36825;&#21069;&#21518;&#20849;&#19977;&#20010;&#26376;&#30340;&#33410;&#26085;&#12290;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">M-x holiday &#22312;&#21478;&#22806;&#30340;&#31383;&#21475;&#30340;&#26174;&#31034;&#36825;&#21069;&#21518;&#19977;&#20010;&#26376;&#30340;&#33410;&#26085;&#12290;</span>
-
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21478;&#22806;&#65292;&#36824;&#26377;&#19968;&#20123;&#29305;&#27530;&#30340;&#65292;&#26377;&#24847;&#24605;&#30340;&#21629;&#20196;&#65306;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">S &#26174;&#31034;&#24403;&#22825;&#30340;&#26085;&#20986;&#26085;&#33853;&#26102;&#38388;(&#26159;&#22823;&#20889;&#30340;S)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">p C &#26174;&#31034;&#20892;&#21382;&#21487;&#20197;&#20351;&#29992;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">g C &#20351;&#29992;&#20892;&#21382;&#31227;&#21160;&#26085;&#26399;&#21487;&#20197;&#20351;&#29992;</span>
+;;EMACS Calendar支持配置节日：
+;; h 显示当前的节日
+;; x 定义当天为某个节日
+;; u 取消当天已被定义的节日
+;; e 显示所有这前后共三个月的节日。
+;; M-x holiday 在另外的窗口的显示这前后三个月的节日。
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-calendar</span>)
+;; 另外，还有一些特殊的，有意思的命令：
+;; S 显示当天的日出日落时间(是大写的S)
+;; p C 显示农历可以使用
+;; g C 使用农历移动日期可以使用
+
+
+(provide 'pengshao-calendar)
 </pre>
 </div>
 </div>
@@ -754,35 +753,35 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="orgeaa54ac"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring.el---&#22797;&#21046;&#31896;&#24086;&#30456;&#20851;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-copy-cut-paste-killring.el---复制粘帖相关配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#21521;kill-ring&#20013;&#21152;&#20837;&#37325;&#22797;&#20869;&#23481;</span>
+;不向kill-ring中加入重复内容
 (setq kill-do-not-save-duplicates t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25903;&#25345;&#20013;&#38190;&#31896;&#36148;</span>
+;支持中键粘贴
 (setq mouse-yank-at-point t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22686;&#22823;kill-ring-max</span>
+;;增大kill-ring-max
 (setq kill-ring-max 200)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20851;&#20110;&#27809;&#26377;&#36873;&#20013;&#21306;&#22495;,&#21017;&#40664;&#35748;&#20026;&#36873;&#20013;&#25972;&#34892;&#30340;advice</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#24773;&#20917;&#19979;M-w&#22797;&#21046;&#19968;&#20010;&#21306;&#22495;&#65292;&#20294;&#26159;&#22914;&#26524;&#27809;&#26377;&#21306;&#22495;&#34987;&#36873;&#20013;&#65292;&#21017;&#22797;&#21046;&#24403;&#21069;&#34892;</span>
+;;; 关于没有选中区域,则默认为选中整行的advice
+;;;;默认情况下M-w复制一个区域，但是如果没有区域被选中，则复制当前行
 (defadvice kill-ring-save (before slickcopy activate compile)
-  <span style="color: #00cd66; background-color: #dcdcdc;">"When called interactively with no active region, copy a single line instead."</span>
+  "When called interactively with no active region, copy a single line instead."
   (interactive
-   (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> mark-active (list (region-beginning) (region-end))
-     (message <span style="color: #00cd66; background-color: #dcdcdc;">"welldone,copy this line"</span>)
+   (if mark-active (list (region-beginning) (region-end))
+     (message "welldone,copy this line")
      (list (line-beginning-position)
-           (line-beginning-position 2)))))
+	   (line-beginning-position 2)))))
 
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-copy-cut-paste-killring</span>)
+(provide 'pengshao-copy-cut-paste-killring)
 </pre>
 </div>
 </div>
@@ -793,75 +792,75 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="orgf23d3f5"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-key-building.el --- &#20840;&#23616;&#38190;&#30424;&#32465;&#23450;&#35774;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26368;&#22909;&#25918;&#22312;&#21152;&#36733;&#25991;&#20214;&#30340;&#26368;&#21518;,&#38450;&#27490;&#34987;&#35206;&#30422;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;; pengshao-key-building.el --- 全局键盘绑定设置
+;; 最好放在加载文件的最后,防止被覆盖
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20064;&#24815;&#35774;&#32622;&#65292;Home&#38190;&#35774;&#23450;&#20809;&#26631;&#21040;&#25991;&#20214;&#24320;&#22836;</span>
+;;习惯设置，Home键设定光标到文件开头
 (global-set-key [(home)] 'beginning-of-buffer)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20064;&#24815;&#35774;&#32622;&#65292;End&#38190;&#35774;&#23450;&#20809;&#26631;&#21040;&#25991;&#20214;&#32467;&#23614;</span>
+;;习惯设置，End键设定光标到文件结尾
 (global-set-key [(end)] 'end-of-buffer)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F1&#21040;F10</span>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;F1到F10
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F1,&#25171;&#24320;&#24110;&#21161;&#65292;&#24120;&#29992;&#24110;&#21161;&#26377;info&#21644;woman&#65288;&#23601;&#26159;&#22312;emacs&#20013;&#30475;man&#65289;</span>
+;;F1,打开帮助，常用帮助有info和woman（就是在emacs中看man）
 (global-set-key [f1] 'info)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F2,&#24674;&#22797;&#65292;</span>
+;;F2,恢复，
 (global-set-key [f2] 'undo)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F3,&#21453;&#24674;&#22797;&#65292;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f3] 'redo)</span>
+;;F3,反恢复，
+;(global-set-key [f3] 'redo)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F3,&#24555;&#36895;&#25171;&#24320;&#37197;&#32622;&#25991;&#20214;</span>
+;;F3,快速打开配置文件
 (global-set-key [f3] 'open-init-file)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F4,kill&#24403;&#21069;buffer</span>
+;;F4,kill当前buffer
 (global-set-key [f4] 'kill-this-buffer)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F5,speedbar,&#22312;init.el&#35774;&#32622;&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key (kbd "C-c s") 'sr-speedbar-open)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key (kbd "C-c x") 'sr-speedbar-close)</span>
+;;F5,speedbar,在init.el设置了
+;;(global-set-key [f5] 'sr-speedbar-select-window)
+;;(global-set-key (kbd "C-c s") 'sr-speedbar-open)
+;;(global-set-key (kbd "C-c x") 'sr-speedbar-close)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F6,dired</span>
+;;F6,dired
 (global-set-key [f6] 'dired)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F7,eshell,shell,terminal-emulator</span>
+;;F7,eshell,shell,terminal-emulator
 (global-set-key [f7] 'shell)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F8,list-bookmarks</span>
+;;;F8,list-bookmarks
 (global-set-key [f8] 'list-bookmarks)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F9,bookmark-set</span>
+;;;F9,bookmark-set
 (global-set-key [f9] 'bookmark-set)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#30475;&#26032;&#38395;&#32452;&#65292;&#24120;&#29992;&#30340;&#24456;&#65292;&#19981;&#36807;&#26356;&#22810;&#26102;&#38388;&#29616;&#22312;sir&#37324;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f9] 'gnus)</span>
+;;看新闻组，常用的很，不过更多时间现在sir里
+;;(global-set-key [f9] 'gnus)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">F10&#65292;&#25171;&#24320;&#65295;&#20851;&#38381;&#33756;&#21333;</span>
+;;F10，打开／关闭菜单
 (global-set-key [f10] 'menu-bar-mode)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#32534;&#35793;&#31561;&#65292;&#26242;&#26102;&#36824;&#19981;&#24120;&#29992;&#30340;&#35774;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f11] 'compile)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f12] 'todo-show)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f12] 'gdb)</span>
+;;编译等，暂时还不常用的设置
+;;(global-set-key [f11] 'compile)
+;;(global-set-key [f12] 'todo-show)
+;;(global-set-key [f12] 'gdb)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-key-building</span>)
+
+
+(provide 'pengshao-key-building)
 </pre>
 </div>
 </div>
@@ -872,29 +871,29 @@ M-x eval-region 执行region内的代码</li>
 <h2 id="org2dcf154"><span class="section-number-2">9.</span> 备份相关的设置</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-backup.el--&#22791;&#20221;&#30456;&#20851;&#35774;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-backup.el--备份相关设置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 (setq
- backup-by-copying t    <span style="color: #4f94cd; background-color: #dcdcdc;">;&#33258;&#21160;&#22791;&#20221;</span>
- delete-old-versions t <span style="color: #4f94cd; background-color: #dcdcdc;">; &#33258;&#21160;&#21024;&#38500;&#26087;&#30340;&#22791;&#20221;&#25991;&#20214;</span>
- kept-new-versions 10   <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20445;&#30041;&#26368;&#36817;&#30340;50&#20010;&#22791;&#20221;&#25991;&#20214;</span>
- kept-old-versions 2   <span style="color: #4f94cd; background-color: #dcdcdc;">; &#20445;&#30041;&#26368;&#26089;&#30340;2&#20010;&#22791;&#20221;&#25991;&#20214;</span>
- version-control t    <span style="color: #4f94cd; background-color: #dcdcdc;">; &#22810;&#27425;&#22791;&#20221;</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25226;&#29983;&#25104;&#30340;&#22791;&#20221;&#25991;&#20214;&#25918;&#21040;&#32479;&#19968;&#30340;&#19968;&#20010;&#30446;&#24405;,&#32780;&#19981;&#22312;&#22312;&#25991;&#20214;&#24403;&#21069;&#30446;&#24405;&#29983;&#25104;&#22909;&#22810; ~ #&#30340;&#25991;&#20214;</span>
- <span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#20320;&#32534;&#36753;&#26576;&#20010;&#25991;&#20214;&#26102; &#21518;&#24724;&#20102;&#24819;&#24674;&#22797;&#25104;&#20197;&#21069;&#30340;&#19968;&#20010;&#29256;&#26412; &#20320;&#21487;&#20197;&#21040;&#36825;&#20010;&#30446;&#24405;&#19979;&#25214;&#21040;&#22791;&#20221;&#30340;&#29256;&#26412;</span>
+ backup-by-copying t    ;自动备份
+ delete-old-versions t ; 自动删除旧的备份文件
+ kept-new-versions 10   ; 保留最近的50个备份文件
+ kept-old-versions 2   ; 保留最早的2个备份文件
+ version-control t    ; 多次备份
+ ;; 把生成的备份文件放到统一的一个目录,而不在在文件当前目录生成好多 ~ #的文件
+ ;; 如果你编辑某个文件时 后悔了想恢复成以前的一个版本 你可以到这个目录下找到备份的版本
 
 
- backup-directory-alist `((<span style="color: #00cd66; background-color: #dcdcdc;">".*"</span> . <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/"</span>)) <span style="color: #4f94cd; background-color: #dcdcdc;">;</span>
- auto-save-file-name-transforms `((<span style="color: #00cd66; background-color: #dcdcdc;">".*"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/"</span> t))
- auto-save-list-file-prefix   <span style="color: #00cd66; background-color: #dcdcdc;">"~/emacs.backup/cache/backup_files/saves-"</span>)
+ backup-directory-alist `((".*" . "~/emacs.backup/cache/backup_files/")) ;
+ auto-save-file-name-transforms `((".*" "~/emacs.backup/cache/backup_files/" t))
+ auto-save-list-file-prefix   "~/emacs.backup/cache/backup_files/saves-")
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-backup</span>)
+(provide 'pengshao-backup)
 </pre>
 </div>
 </div>
@@ -908,19 +907,19 @@ M-x eval-region 执行region内的代码</li>
 将以下代码添加到你的 Emacs 配置文件中：
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#31034;&#20363;&#20989;&#25968;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-first-function</span> ()
-  <span style="color: #00cd66; background-color: #dcdcdc;">"&#36820;&#22238;&#19968;&#20010;&#23383;&#31526;&#20018;&#12290;"</span>
-  <span style="color: #00cd66; background-color: #dcdcdc;">"&#36825;&#26159;&#31532;&#19968;&#20010;&#20989;&#25968;&#36820;&#22238;&#30340;&#20869;&#23481;&#12290;"</span>)
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-second-function</span> ()
-  <span style="color: #00cd66; background-color: #dcdcdc;">"&#25171;&#21360;&#19968;&#26465;&#28040;&#24687;&#12290;"</span>
-  (message <span style="color: #00cd66; background-color: #dcdcdc;">"&#36825;&#26159;&#31532;&#20108;&#20010;&#20989;&#25968;&#25171;&#21360;&#30340;&#28040;&#24687;&#12290;"</span>))
+<pre class="src src-lisp">;; 定义示例函数
+(defun my-first-function ()
+  "返回一个字符串。"
+  "这是第一个函数返回的内容。")
+(defun my-second-function ()
+  "打印一条消息。"
+  (message "这是第二个函数打印的消息。"))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22312; Emacs &#21551;&#21160;&#26102;&#28165;&#31354; *scratch* &#32531;&#20914;&#21306;&#24182;&#35843;&#29992;&#20989;&#25968;</span>
-(setq initial-scratch-message <span style="color: #00cd66; background-color: #dcdcdc;">""</span>)
-(<span style="color: #cd0000; background-color: #dcdcdc;">with-current-buffer</span> <span style="color: #00cd66; background-color: #dcdcdc;">"*scratch*"</span>
-  (<span style="color: #cd0000; background-color: #dcdcdc;">let</span> ((result1 (my-first-function)))
-    (insert (format <span style="color: #00cd66; background-color: #dcdcdc;">"&#31532;&#19968;&#20010;&#20989;&#25968;&#30340;&#32467;&#26524;: %s\n"</span> result1)))
+;; 在 Emacs 启动时清空 *scratch* 缓冲区并调用函数
+(setq initial-scratch-message "")
+(with-current-buffer "*scratch*"
+  (let ((result1 (my-first-function)))
+    (insert (format "第一个函数的结果: %s\n" result1)))
   (call-interactively 'my-second-function))
 </pre>
 </div>
@@ -952,11 +951,11 @@ M-x eval-region 执行region内的代码</li>
 <h3 id="org10e082f"><span class="section-number-3">11.1.</span> 我的设置</h3>
 <div class="outline-text-3" id="text-11-1">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">buffer name (if the buffer isn't visiting a file)</span>
+<pre class="src src-lisp">;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
-      '(<span style="color: #00cd66; background-color: #dcdcdc;">""</span> <span style="color: #00cd66; background-color: #dcdcdc;">" &#19978;&#39532;&#25552;&#26538;, &#21435;&#24178;&#20182;&#23064; - "</span>
-        (<span style="color: #ba55d3; background-color: #dcdcdc;">:eval</span> (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name)) <span style="color: #00cd66; background-color: #dcdcdc;">"%b"</span>))))
+      '("" " 上马提枪, 去干他娘 - "
+	(:eval (if (buffer-file-name)
+		   (abbreviate-file-name (buffer-file-name)) "%b"))))
 </pre>
 </div>
 </div>
@@ -966,7 +965,7 @@ M-x eval-region 执行region内的代码</li>
 <div id="outline-container-org18dc752" class="outline-3">
 <h3 id="org18dc752"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
 <div class="outline-text-3" id="text-11-2">
-<pre class="example" id="org2600f82">
+<pre class="example" id="orgd9f0fa9">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -998,7 +997,7 @@ Decimal digits after the % specify field width to which to pad.
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 
-<pre class="example" id="org438e0d7">
+<pre class="example" id="orga594acc">
 ./loadfile/
 ├── pengshao-backup.el
 ├── pengshao-calendar.el

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-10 Mon 12:02 -->
+<!-- 2025-02-10 Mon 23:14 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>利用wttr_in添加天气</title>
@@ -11,6 +11,27 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -25,8 +46,10 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#org8fd2c9f">1. wttr.in</a></li>
-<li><a href="#org235ba37">2. 配置文件</a></li>
-<li><a href="#org2927c0a">3. 设置的快捷键</a></li>
+<li><a href="#orgbbba913">2. pyphoon</a></li>
+<li><a href="#org1d1a4a2">3. 农历API</a></li>
+<li><a href="#org235ba37">4. 配置文件</a></li>
+<li><a href="#org2927c0a">5. 设置的快捷键</a></li>
 </ul>
 </div>
 </nav>
@@ -40,54 +63,117 @@
 </div>
 </div>
 
-<div id="outline-container-org235ba37" class="outline-2">
-<h2 id="org235ba37"><span class="section-number-2">2.</span> 配置文件</h2>
+
+<div id="outline-container-orgbbba913" class="outline-2">
+<h2 id="orgbbba913"><span class="section-number-2">2.</span> pyphoon</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+<a href="https://github.com/chubin/pyphoon">https://github.com/chubin/pyphoon</a>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1d1a4a2" class="outline-2">
+<h2 id="org1d1a4a2"><span class="section-number-2">3.</span> 农历API</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="https://api.aa1.cn/doc/almanac.html">https://api.aa1.cn/doc/almanac.html</a>
+</p>
+
+<p>
+#!/bin/bash
+</p>
+
+<p>
+current<sub>date</sub>=$(date +"%Y-%m-%d")
+</p>
+
+<p>
+response=\((wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=\){current<sub>date</sub>}")
+</p>
+
+<p>
+lunar<sub>GregorianDateTime</sub>=$(echo \(response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>month</sub>=$(echo \(response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>day</sub>=$(echo \(response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>year</sub>=$(echo \(response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>tiangany</sub>=$(echo \(response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>tianganm</sub>=$(echo \(response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>tiangand</sub>=$(echo \(response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>shenwei</sub>=$(echo \(response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*\)')
+lunar<sub>monthname</sub>=$(echo \(response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*\)')
+</p>
+
+
+
+
+<p>
+echo " $lunar<sub>GregorianDateTime</sub> $lunar<sub>monthname</sub> $lunar<sub>month</sub> $lunar<sub>day</sub> $lunar<sub>year</sub> $lunar<sub>tiangany</sub> $lunar<sub>tianganm</sub> $lunar<sub>tiangand</sub> $lunar<sub>shenwei</sub>"
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org235ba37" class="outline-2">
+<h2 id="org235ba37"><span class="section-number-2">4.</span> 配置文件</h2>
+<div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-openweather.el---&#33258;&#21160;&#25554;&#20837;&#22825;&#27668;&#30340;&#25945;&#31243;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&lt;2025-02-08/Saturday 19:32:10&gt;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-openweather.el---自动插入天气的教程
+;;&lt;2025-02-08/Saturday 19:32:10&gt;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#27982;&#21335;&#22825;&#27668;&#30340;&#25805;&#20316;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-weather</span> ()
+;;添加济南天气的操作
+(defun insert-weather ()
   (interactive)
-  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"curl wttr.in/jinan?format=4 2&gt; /dev/null"</span>)))
+  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
 
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m w"</span>) #'insert-weather)
+(global-set-key (kbd "C-c m w") #'insert-weather)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#28155;&#21152;&#26376;&#30456;&#30340;&#25805;&#20316;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-pyphoon</span> ()
+;;添加月相的操作
+(defun insert-pyphoon ()
   (interactive)
-  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"source ~/mypython/bin/activate &amp;&amp; pyphoon"</span>)))
+  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
 
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m o"</span>) #'insert-pyphoon)
+(global-set-key (kbd "C-c m o") #'insert-pyphoon)
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-nongli</span> ()
+(defun insert-nongli ()
   (interactive)
-  (insert (shell-command-to-string <span style="color: #00cd66; background-color: #dcdcdc;">"~/.emacs.d/loadfile/nongli.sh"</span>)))
+  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
 
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m n"</span>) #'insert-nongli)
+(global-set-key (kbd "C-c m n") #'insert-nongli)
+
+(defun insert-nonglijian ()
+  (interactive)
+  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+
+(global-set-key (kbd "C-c m j") #'insert-nonglijian)
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-openweather</span>)
+
+(provide 'pengshao-openweather)
 </pre>
 </div>
 </div>
 </div>
 
+
 <div id="outline-container-org2927c0a" class="outline-2">
-<h2 id="org2927c0a"><span class="section-number-2">3.</span> 设置的快捷键</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-C-c m o  插入月相
-C-c m w 插入济南的天气
-</p>
+<h2 id="org2927c0a"><span class="section-number-2">5.</span> 设置的快捷键</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>C-c m o 插入月相</li>
+
+<li>C-c m w 插入济南的天气</li>
+
+<li>C-c m n 插入农历</li>
+</ul>
 </div>
 </div>
 </div>

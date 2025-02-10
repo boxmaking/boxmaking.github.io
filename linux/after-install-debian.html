@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-10 Mon 23:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的linux软件列表</title>
@@ -55,7 +55,7 @@
 <h2 id="org675a486"><span class="section-number-2">1.</span> 校正日期和时间</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">cp</span> /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime     <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26102;&#21306;&#20026;&#20122;&#27954;/&#19978;&#28023;</span>
+<pre class="src src-shell">$cp /usr/share/zoneinfo/Asia/ShangHai  /etc/localtime     #时区为亚洲/上海
 </pre>
 </div>
 
@@ -63,8 +63,8 @@
 <li>网络校时</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install ntpdate
-$<span style="color: #912cee; background-color: #dcdcdc;">ntpdate</span> 210.72.145.44        <span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20013;&#22269;&#22269;&#23478;&#26102;&#38388;&#26381;&#21153;&#22120;: 210.72.145.44</span>
+<pre class="src src-shell">$apt-get install ntpdate
+$ntpdate 210.72.145.44        # 中国国家时间服务器: 210.72.145.44
 </pre>
 </div>
 
@@ -72,8 +72,8 @@ $<span style="color: #912cee; background-color: #dcdcdc;">ntpdate</span> 210.72.
 <li>手动校时</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> date -s 11/13/2019                <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">2019&#24180;11&#26376;13&#26085;</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> date -s 10:05:30                  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">10&#28857;05&#20998;30&#31186;</span>
+<pre class="src src-shell">$sudo date -s 11/13/2019                #2019年11月13日
+$sudo date -s 10:05:30                  #10点05分30秒
 </pre>
 </div>
 </div>
@@ -88,8 +88,8 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> date -s 10
 <h3 id="org024a7df"><span class="section-number-3">2.1.</span> install-sudo</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">su</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install sudo
+<pre class="src src-shell">$su
+$apt-get install sudo
 </pre>
 </div>
 </div>
@@ -100,12 +100,12 @@ $<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-get install
 <h3 id="orgc47c7da"><span class="section-number-3">2.2.</span> 中文输入环境教程</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install locales
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install fonts-wqy-*
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ibus ibus-gtk ibus-pinyin 
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-dejavu
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-wqy-microhei
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install ttf-wqy-zenhei
+<pre class="src src-sh">$sudo apt-get install locales
+$sudo apt-get install fonts-wqy-*
+$sudo apt-get install ibus ibus-gtk ibus-pinyin 
+$sudo apt-get install ttf-dejavu
+$sudo apt-get install ttf-wqy-microhei
+$sudo apt-get install ttf-wqy-zenhei
 </pre>
 </div>
 </div>
@@ -136,7 +136,7 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get in
 calibre-ebook
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">wget</span> -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin <span style="color: #912cee; background-color: #dcdcdc;">install_dir</span>=~/calibre-bin <span style="color: #912cee; background-color: #dcdcdc;">isolated</span>=y
+<pre class="src src-sh">$wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin install_dir=~/calibre-bin isolated=y
 </pre>
 </div></li>
 </ul>
@@ -202,7 +202,7 @@ calibre-ebook
 FFmpeg
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt install ffmpeg
+<pre class="src src-sh">$sudo apt install ffmpeg
 </pre>
 </div></li>
 <li>vlc</li>
@@ -285,7 +285,7 @@ FFmpeg
 7zip
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install p7zip-full
+<pre class="src src-sh">$sudo apt-get install p7zip-full
 </pre>
 </div></li>
 <li>tar相关
@@ -293,6 +293,7 @@ FFmpeg
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-org51050bf" class="outline-3">
 <h3 id="org51050bf"><span class="section-number-3">2.16.</span> 系统相关</h3>
@@ -306,15 +307,18 @@ psensor
 图形化温度显示器
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install lm-sensors
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install psensor
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">wpitchoune.net/psensor/</span>
+<pre class="src src-sh">$sudo apt-get install lm-sensors
+$sudo apt-get install psensor
+#wpitchoune.net/psensor/
 </pre>
 </div></li>
 <li>gparted
 分区工具是parted的前端</li>
 <li>Proxychains4
 代理,目前没有设置,我都是需要代理的单独设置的</li>
+
+<li>lsblk列出块设备
+lsblk -l</li>
 </ul>
 </div>
 </div>
@@ -352,24 +356,24 @@ scrot一个截图软件
 neofetch 显示带图标的硬件信息
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">          _,met$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">gg</span>.          pengshao@10 
-    ,g$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">$</span>$<span style="color: #912cee; background-color: #dcdcdc;">P</span>.       ----------- 
-  ,g$<span style="color: #912cee; background-color: #dcdcdc;">$P</span><span style="color: #00cd66; background-color: #dcdcdc;">"     """</span>Y$<span style="color: #912cee; background-color: #dcdcdc;">$</span>.<span style="color: #00cd66; background-color: #dcdcdc;">".        OS: Debian GNU/Linux 12 (bookworm) x86_64 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> ,$$P'              `$$$.     Host: VirtualBox 1.2 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">',$$P       ,ggs.     `$$b:   Kernel: 6.1.0-28-amd64 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">`d$$'     ,$P"'   .    $$$    Uptime: 5 hours, 38 mins </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> $$P      d$'     ,    $$P    Packages: 1947 (dpkg) </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> $$:      $$.   -    ,d$$'    Shell: bash 5.2.15 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> $$;      Y$b._   _,d$P'      Resolution: 1440x900 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> Y$$.    `.`"Y$$$$P"'         DE: Xfce 4.18 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;"> `$$b      "-.__              WM: Xfwm4 </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">  `Y$$                        WM Theme: Default </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">   `Y$$.                      Theme: Xfce [GTK2], Adwaita [GTK3] </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">     `$$b.                    Icons: Tango [GTK2], Adwaita [GTK3] </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">       `Y$$b.                 Terminal: gnome-terminal </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">          `"Y$b._             CPU: Intel i5-9400F (6) @ 2.904GHz </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">              `"""            GPU: 00:02.0 VMware SVGA II Adapter </span>
-<span style="color: #00cd66; background-color: #dcdcdc;">                              Memory: 2452MiB / 9944MiB </span>
+<pre class="src src-sh">	  _,met$$$$$gg.          pengshao@10 
+    ,g$$$$$$$$$$$$$$$P.       ----------- 
+  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux 12 (bookworm) x86_64 
+ ,$$P'              `$$$.     Host: VirtualBox 1.2 
+',$$P       ,ggs.     `$$b:   Kernel: 6.1.0-28-amd64 
+`d$$'     ,$P"'   .    $$$    Uptime: 5 hours, 38 mins 
+ $$P      d$'     ,    $$P    Packages: 1947 (dpkg) 
+ $$:      $$.   -    ,d$$'    Shell: bash 5.2.15 
+ $$;      Y$b._   _,d$P'      Resolution: 1440x900 
+ Y$$.    `.`"Y$$$$P"'         DE: Xfce 4.18 
+ `$$b      "-.__              WM: Xfwm4 
+  `Y$$                        WM Theme: Default 
+   `Y$$.                      Theme: Xfce [GTK2], Adwaita [GTK3] 
+     `$$b.                    Icons: Tango [GTK2], Adwaita [GTK3] 
+       `Y$$b.                 Terminal: gnome-terminal 
+	  `"Y$b._             CPU: Intel i5-9400F (6) @ 2.904GHz 
+	      `"""            GPU: 00:02.0 VMware SVGA II Adapter 
+			      Memory: 2452MiB / 9944MiB 
 
 </pre>
 </div></li>
@@ -381,9 +385,9 @@ figlet一个ASCII 字符艺术字
 <pre class="src src-sh">pengshao@10:~$ figlet h e l l o 1 1
  _              _   _           _   _ 
 | |__     ___  | | | |   ___   / | / |
-| <span style="color: #00cd66; background-color: #dcdcdc;">'_ \   / _ \ | | | |  / _ \  | | | |</span>
-<span style="color: #00cd66; background-color: #dcdcdc;">| | | | |  __/ | | | | | (_) | | | | |</span>
-<span style="color: #00cd66; background-color: #dcdcdc;">|_| |_|  \___| |_| |_|  \___/  |_| |_|</span>
+| '_ \   / _ \ | | | |  / _ \  | | | |
+| | | | |  __/ | | | | | (_) | | | | |
+|_| |_|  \___| |_| |_|  \___/  |_| |_|
 
 </pre>
 </div></li>
@@ -393,7 +397,7 @@ ASCII艺术框：box命令
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt-get install boxes
-<span style="color: #ba55d3; background-color: #dcdcdc;">echo</span> <span style="color: #00cd66; background-color: #dcdcdc;">"hello"</span> | boxes -d dog
+echo "hello" | boxes -d dog
 </pre>
 </div></li>
 
@@ -408,9 +412,9 @@ ASCII艺术框：box命令
 asciiview命令
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install aview imagemagick
-$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> shiyanlou.png -driver curses
-$<span style="color: #912cee; background-color: #dcdcdc;">asciiview</span> 20250209.png
+<pre class="src src-sh">$sudo apt-get install aview imagemagick
+$asciiview shiyanlou.png -driver curses
+$asciiview 20250209.png
 </pre>
 </div>
 <p>
@@ -425,7 +429,7 @@ factor命令
 分解因数
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">factor60</span>
+<pre class="src src-shell">$factor60
 </pre>
 </div></li>
 
@@ -436,8 +440,8 @@ factor命令
 pi打印圆周率后小数点若干位
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install pi
-$<span style="color: #912cee; background-color: #dcdcdc;">pi</span> 50
+<pre class="src src-sh">$sudo apt-get install pi
+$pi 50
 </pre>
 </div></li>
 
