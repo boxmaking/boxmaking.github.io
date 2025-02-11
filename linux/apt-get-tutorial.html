@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-11 Tue 19:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>apt-get-tutorial</title>
+<title>apt-get教程使用</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="apt-get" />
 <meta name="generator" content="Org Mode" />
@@ -19,7 +19,7 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">apt-get-tutorial</h1>
+<h1 class="title">apt-get教程使用</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -40,7 +40,7 @@
 <h2 id="org5964811"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">apt</span>-cache show programname
+<pre class="src src-shell">$apt-cache show programname
 </pre>
 </div>
 </div>
@@ -60,9 +60,9 @@ Ctrl+c/z中断后
 解决方法
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall apt-get
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> killall dpkg
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --configure -a
+<pre class="src src-shell">$sudo killall apt-get
+$sudo killall dpkg
+$sudo dpkg --configure -a
 </pre>
 </div>
 </div>
@@ -84,10 +84,10 @@ $<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --con
 <h2 id="orga349593"><span class="section-number-2">3.</span> dpkg安装和卸载软件教程</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg -i ***.deb <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23433;&#35013;</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt-get install -f <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19968;&#33324;&#20250;&#20986;&#29616;&#20381;&#36182;&#20851;&#31995;,&#30452;&#25509;&#36825;&#26679;&#23433;&#35013;&#21363;&#21487;</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg -l  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#30340;&#36719;&#20214;&#21253;&#21517;&#31216;</span>
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> dpkg --remove ***  <span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21368;&#36733;&#36719;&#20214;&#21253;</span>
+<pre class="src src-shell">$sudo dpkg -i ***.deb #安装
+$sudo apt-get install -f #一般会出现依赖关系,直接这样安装即可
+$sudo dpkg -l  #查看所有的软件包名称
+$sudo dpkg --remove ***  #卸载软件包
 </pre>
 </div>
 </div>

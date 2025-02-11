@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-11 Tue 19:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>bash目录快速跳转&#x2014;为目录添加书签</title>
+<title>为bsah添加书签-实现目录快速跳转</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="linux-command, linux" />
 <meta name="generator" content="Org Mode" />
@@ -19,7 +19,7 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">bash目录快速跳转&#x2014;为目录添加书签</h1>
+<h1 class="title">为bsah添加书签-实现目录快速跳转</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -45,7 +45,8 @@
 <h2 id="org3433115"><span class="section-number-2">2.</span> 在shell中快速跳转到常用目录</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-在 Quickly navigate your filesystem from the command-line 中发现了一种将目录加为书签实现快速跳转的好方法.
+在 Quickly navigate your filesystem from the command-line
+中发现了一种将目录加为书签实现快速跳转的好方法.
 </p>
 
 <p>
@@ -54,38 +55,38 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">
-<span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">MARKPATH</span>=$<span style="color: #912cee; background-color: #dcdcdc;">HOME</span>/.marks
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20351;&#29992; jump &#20070;&#31614;&#21517; &#36339;&#36716;&#21040;&#20070;&#31614;&#25351;&#21521;&#30340;&#30446;&#24405;;</span>
-<span style="color: #cd0000; background-color: #dcdcdc;">function</span> <span style="color: #0000cd; background-color: #dcdcdc;">jump</span> { 
-    <span style="color: #ba55d3; background-color: #dcdcdc;">cd</span> -P <span style="color: #00cd66; background-color: #dcdcdc;">"$MARKPATH/$1"</span> 2&gt;/dev/null || <span style="color: #ba55d3; background-color: #dcdcdc;">echo</span> <span style="color: #00cd66; background-color: #dcdcdc;">"No such mark: $1"</span>
-}
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20351;&#29992; mark &#20070;&#31614;&#21517; &#23558;&#24403;&#21069;&#30446;&#24405;&#21152;&#20026;&#20070;&#31614;;</span>
-<span style="color: #cd0000; background-color: #dcdcdc;">function</span> <span style="color: #0000cd; background-color: #dcdcdc;">mark</span> { 
-    mkdir -p <span style="color: #00cd66; background-color: #dcdcdc;">"$MARKPATH"</span>; ln -s <span style="color: #00cd66; background-color: #dcdcdc;">"$(</span><span style="color: #ff00ff;">pwd</span><span style="color: #00cd66; background-color: #dcdcdc;">)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"$MARKPATH/$1"</span>
-}
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20351;&#29992; unmark &#20070;&#31614;&#21517; &#21024;&#38500;&#25481;&#25351;&#23450;&#30340;&#20070;&#31614;.</span>
-<span style="color: #cd0000; background-color: #dcdcdc;">function</span> <span style="color: #0000cd; background-color: #dcdcdc;">unmark</span> { 
-    rm -i <span style="color: #00cd66; background-color: #dcdcdc;">"$MARKPATH/$1"</span>
-}
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20351;&#29992; marks &#20250;&#21015;&#20986;&#25152;&#26377;&#30340;&#20070;&#31614;&#21450;&#20854;&#25152;&#25351;&#21521;&#30340;&#30446;&#24405;;</span>
-<span style="color: #cd0000; background-color: #dcdcdc;">function</span> <span style="color: #0000cd; background-color: #dcdcdc;">marks</span> {
-    ls -l <span style="color: #00cd66; background-color: #dcdcdc;">"$MARKPATH"</span> | sed <span style="color: #00cd66; background-color: #dcdcdc;">'s/  / /g'</span> | cut -d<span style="color: #00cd66; background-color: #dcdcdc;">' '</span> -f9- | sed <span style="color: #00cd66; background-color: #dcdcdc;">'s/ -/\t-/g'</span> &amp;&amp; <span style="color: #ba55d3; background-color: #dcdcdc;">echo</span>
-}
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#34917;&#20840;</span>
-<span style="color: #0000cd; background-color: #dcdcdc;">_completemarks</span>() {
-    <span style="color: #ba55d3; background-color: #dcdcdc;">local</span> <span style="color: #912cee; background-color: #dcdcdc;">curw</span>=${<span style="color: #912cee; background-color: #dcdcdc;">COMP_WORDS</span>[COMP_CWORD]}
-    <span style="color: #ba55d3; background-color: #dcdcdc;">local</span> <span style="color: #912cee; background-color: #dcdcdc;">wordlist</span>=$(<span style="color: #ff00ff;">find $MARKPATH -type l -printf "%f\n"</span>)
-    <span style="color: #912cee; background-color: #dcdcdc;">COMPREPLY</span>=($(<span style="color: #ff00ff;">compgen -W '${wordlist[@]}' -- "$curw"</span>))
-    <span style="color: #cd0000; background-color: #dcdcdc;">return</span> 0
-}
-
-<span style="color: #ba55d3; background-color: #dcdcdc;">complete</span> -F _completemarks jump unmark
+<pre class="src src-shell"><span class="linenr"> 1: </span>
+<span class="linenr"> 2: </span>export MARKPATH=$HOME/.marks
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>#使用 jump 书签名 跳转到书签指向的目录;
+<span class="linenr"> 5: </span>function jump { 
+<span class="linenr"> 6: </span>    cd -P "$MARKPATH/$1" 2&gt;/dev/null || echo "No such mark: $1"
+<span class="linenr"> 7: </span>}
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>#使用 mark 书签名 将当前目录加为书签;
+<span class="linenr">10: </span>function mark { 
+<span class="linenr">11: </span>    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+<span class="linenr">12: </span>}
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>#使用 unmark 书签名 删除掉指定的书签.
+<span class="linenr">15: </span>function unmark { 
+<span class="linenr">16: </span>    rm -i "$MARKPATH/$1"
+<span class="linenr">17: </span>}
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>#使用 marks 会列出所有的书签及其所指向的目录;
+<span class="linenr">20: </span>function marks {
+<span class="linenr">21: </span>    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' &amp;&amp; echo
+<span class="linenr">22: </span>}
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>#自动补全
+<span class="linenr">25: </span>_completemarks() {
+<span class="linenr">26: </span>    local curw=${COMP_WORDS[COMP_CWORD]}
+<span class="linenr">27: </span>    local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+<span class="linenr">28: </span>    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+<span class="linenr">29: </span>    return 0
+<span class="linenr">30: </span>}
+<span class="linenr">31: </span>
+<span class="linenr">32: </span>complete -F _completemarks jump unmark
 </pre>
 </div>
 

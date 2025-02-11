@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-10 Mon 23:14 -->
+<!-- 2025-02-11 Tue 19:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>利用wttr_in添加天气</title>
@@ -11,27 +11,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -81,36 +60,32 @@
 <a href="https://api.aa1.cn/doc/almanac.html">https://api.aa1.cn/doc/almanac.html</a>
 </p>
 
-<p>
-#!/bin/bash
-</p>
-
-<p>
-current<sub>date</sub>=$(date +"%Y-%m-%d")
-</p>
-
-<p>
-response=\((wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=\){current<sub>date</sub>}")
-</p>
-
-<p>
-lunar<sub>GregorianDateTime</sub>=$(echo \(response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>month</sub>=$(echo \(response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>day</sub>=$(echo \(response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>year</sub>=$(echo \(response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>tiangany</sub>=$(echo \(response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>tianganm</sub>=$(echo \(response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>tiangand</sub>=$(echo \(response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>shenwei</sub>=$(echo \(response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*\)')
-lunar<sub>monthname</sub>=$(echo \(response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*\)')
-</p>
-
-
-
-
-<p>
-echo " $lunar<sub>GregorianDateTime</sub> $lunar<sub>monthname</sub> $lunar<sub>month</sub> $lunar<sub>day</sub> $lunar<sub>year</sub> $lunar<sub>tiangany</sub> $lunar<sub>tianganm</sub> $lunar<sub>tiangand</sub> $lunar<sub>shenwei</sub>"
-</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="linenr"> 1: </span>#!/bin/bash
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span># 获取当前日期
+<span class="linenr"> 4: </span>current_date=$(date +"%Y-%m-%d")
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span># 使用 wget 命令获取当天的农历日期，并且静默过程
+<span class="linenr"> 7: </span>response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span># 解析农历日期
+<span class="linenr">10: </span>lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">11: </span>lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">12: </span>lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">13: </span>lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">14: </span>lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">15: </span>lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">16: </span>lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">17: </span>lunar_shenwei=$(echo $response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">18: </span>lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>echo " $lunar_GregorianDateTime $lunar_monthname $lunar_month $lunar_day $lunar_year $lunar_tiangany $lunar_tianganm $lunar_tiangand $lunar_shenwei"
+</pre>
+</div>
 </div>
 </div>
 
@@ -119,45 +94,45 @@ echo " $lunar<sub>GregorianDateTime</sub> $lunar<sub>monthname</sub> $lunar<sub>
 <h2 id="org235ba37"><span class="section-number-2">4.</span> 配置文件</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; -*- coding: utf-8; lexical-binding: t -*-
-;;pengshao-openweather.el---自动插入天气的教程
-;;&lt;2025-02-08/Saturday 19:32:10&gt;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;添加济南天气的操作
-(defun insert-weather ()
-  (interactive)
-  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
-
-
-(global-set-key (kbd "C-c m w") #'insert-weather)
-
-
-;;添加月相的操作
-(defun insert-pyphoon ()
-  (interactive)
-  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
-
-
-(global-set-key (kbd "C-c m o") #'insert-pyphoon)
-
-
-(defun insert-nongli ()
-  (interactive)
-  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
-
-(global-set-key (kbd "C-c m n") #'insert-nongli)
-
-(defun insert-nonglijian ()
-  (interactive)
-  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
-
-(global-set-key (kbd "C-c m j") #'insert-nonglijian)
-
-
-
-(provide 'pengshao-openweather)
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 3: </span>;;pengshao-openweather.el---自动插入天气的教程
+<span class="linenr"> 4: </span>;;&lt;2025-02-08/Saturday 19:32:10&gt;
+<span class="linenr"> 5: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>;;添加济南天气的操作
+<span class="linenr"> 8: </span>(defun insert-weather ()
+<span class="linenr"> 9: </span>  (interactive)
+<span class="linenr">10: </span>  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>(global-set-key (kbd "C-c m w") #'insert-weather)
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>
+<span class="linenr">16: </span>;;添加月相的操作
+<span class="linenr">17: </span>(defun insert-pyphoon ()
+<span class="linenr">18: </span>  (interactive)
+<span class="linenr">19: </span>  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>(global-set-key (kbd "C-c m o") #'insert-pyphoon)
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>(defun insert-nongli ()
+<span class="linenr">26: </span>  (interactive)
+<span class="linenr">27: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>(global-set-key (kbd "C-c m n") #'insert-nongli)
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>(defun insert-nonglijian ()
+<span class="linenr">32: </span>  (interactive)
+<span class="linenr">33: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>(global-set-key (kbd "C-c m j") #'insert-nonglijian)
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>
+<span class="linenr">38: </span>
+<span class="linenr">39: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
 </div>

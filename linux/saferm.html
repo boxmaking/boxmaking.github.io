@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-11 Tue 19:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>安全的rm -rf-命令行实现回收站功能</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="debian, linux-software" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">安全的rm -rf-命令行实现回收站功能</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org684e999">1. 命令行实现回收站功能</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org684e999" class="outline-2">
+<h2 id="org684e999"><span class="section-number-2">1.</span> 命令行实现回收站功能</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><p>
+编写remove.sh文件
+TRASH<sub>DIR</sub>="<i>home/pengshao</i>.trash"
+</p>
+
+<p>
+for i in $*; do
+    STAMP=`date +%s`
+    fileName=`basename $i`
+</p>
+
+<p>
+#移动文件到.trash/
+mv $i \({TRASH_DIR}/\){fileName}
+</p></li>
+</ol>
+
+
+<p>
+done
+</p>
+<ol class="org-ol">
+<li><p>
+编写~/.bashrc文件
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$alias rm="sh ~/shellscript/remove.sh"
+</pre>
+</div></li>
+<li><p>
+加载文件
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$source ~/.bashrc   
+</pre>
+</div></li>
+<li><p>
+定期清理
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">0 0 * * * rm -rf /home/.trash/* 
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>

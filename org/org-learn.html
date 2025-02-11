@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-11 Tue 19:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
@@ -114,8 +114,8 @@
 <h2 id="org1ecafb8"><span class="section-number-2">1.</span> 标题和章节</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<ol class="org-ol">
-<li><a id="orgdb782b9"></a>折叠大纲<br>
+<div id="outline-container-orgdb782b9" class="outline-4">
+<h4 id="orgdb782b9"><span class="section-number-4">1.0.1.</span> 折叠大纲</h4>
 <div class="outline-text-4" id="text-1-0-1">
 <table>
 
@@ -127,17 +127,18 @@
 
 <col  class="org-left">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="org-left">快捷键</td>
-<td class="org-left">命令</td>
-<td class="org-left">说明</td>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">说明</th>
 </tr>
-
+</thead>
+<tbody>
 <tr>
 <td class="org-left">S-TAB</td>
 <td class="org-left">org-shift tab</td>
-<td class="org-left">循环切换整个文档的大纲状态（三种状态：折叠，打开下一级，打开全部）</td>
+<td class="org-left">循环切换整个文档的大纲状态</td>
 </tr>
 
 <tr>
@@ -148,8 +149,10 @@
 </tbody>
 </table>
 </div>
-</li>
-<li><a id="org796c776"></a>在大纲之间移动<br>
+</div>
+
+<div id="outline-container-org796c776" class="outline-4">
+<h4 id="org796c776"><span class="section-number-4">1.0.2.</span> 在大纲之间移动</h4>
 <div class="outline-text-4" id="text-1-0-2">
 <table>
 
@@ -159,12 +162,13 @@
 
 <col  class="org-left">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="org-left">快捷键</td>
-<td class="org-left">说明</td>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">说明</th>
 </tr>
-
+</thead>
+<tbody>
 <tr>
 <td class="org-left">C-c C-n/p</td>
 <td class="org-left">下/上一标题</td>
@@ -187,8 +191,11 @@
 </tbody>
 </table>
 </div>
-</li>
-<li><a id="orgfe1a1d5"></a>基于大纲的编辑<br>
+</div>
+
+
+<div id="outline-container-orgfe1a1d5" class="outline-4">
+<h4 id="orgfe1a1d5"><span class="section-number-4">1.0.3.</span> 基于大纲的编辑</h4>
 <div class="outline-text-4" id="text-1-0-3">
 <table>
 
@@ -198,12 +205,13 @@
 
 <col  class="org-left">
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="org-left">快捷键</td>
-<td class="org-left">说明</td>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">说明</th>
 </tr>
-
+</thead>
+<tbody>
 <tr>
 <td class="org-left">M-RET</td>
 <td class="org-left">插入一个同级标题</td>
@@ -261,8 +269,8 @@
 </tbody>
 </table>
 </div>
-</li>
-</ol>
+</div>
+
 
 
 <div id="outline-container-org1e4e814" class="outline-3">
@@ -275,7 +283,7 @@
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example" id="org7fe2538">
+<pre class="example" id="org03a524f">
 #+OPTIONS: H:4
 </pre>
 </div>
@@ -288,7 +296,7 @@
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example" id="org979bca4">
+<pre class="example" id="org6e02c13">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -411,8 +419,8 @@ M-x emacs-version
 当然你也可以单独为一个文件设置默认的tag列表.
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: @work @home @tennisclub</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: laptop car pc sailboat</span>
+<pre class="src src-org">#+TAGS: @work @home @tennisclub
+#+TAGS: laptop car pc sailboat
 </pre>
 </div></li>
 
@@ -422,7 +430,7 @@ M-x emacs-version
 只需要在文件中加入一个空白的TAG选项即刻
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS:</span>
+<pre class="src src-org">#+TAGS:
 </pre>
 </div></li>
 
@@ -432,7 +440,7 @@ M-x emacs-version
 如果某个文件不想包含该变量所定义的tag,只需要在STARTUP选项行中添加:
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+STARTUP: noptag</span>
+<pre class="src src-org">#+STARTUP: noptag
 </pre>
 </div></li>
 </ul>
@@ -463,7 +471,7 @@ M-x emacs-version
 如果tag只是在当前文件中有效,你可以在文件中设置TAGS选项行像这样:
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)</span>
+<pre class="src src-org">#+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
 </pre>
 </div></li>
 
@@ -471,15 +479,15 @@ M-x emacs-version
 插入tag时会在一个新窗口中显示可用的tag供你选择. 若你想在某个tag之后换行显示,你只需要在它之后插入`\n`即刻:
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: @work(w)  @home(h)  @tennisclub(t) \n laptop(l)  pc(p)    </span>
+<pre class="src src-org">#+TAGS: @work(w)  @home(h)  @tennisclub(t) \n laptop(l)  pc(p)    
 </pre>
 </div>
 <p>
 或者你也可用写成两行
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: @work(w)  @home(h)  @tennisclub(t)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: laptop(l)  pc(p)</span>
+<pre class="src src-org">#+TAGS: @work(w)  @home(h)  @tennisclub(t)
+#+TAGS: laptop(l)  pc(p)
 </pre>
 </div></li>
 
@@ -487,7 +495,7 @@ M-x emacs-version
 用大括号括起来的tag,相互之间只能选择一个标识,例如
 </p>
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #4f94cd; background-color: #dcdcdc;">#+TAGS: { @work(w)  @home(h)  @tennisclub(t) }  laptop(l)  pc(p)</span>
+<pre class="src src-org">#+TAGS: { @work(w)  @home(h)  @tennisclub(t) }  laptop(l)  pc(p)
 </pre>
 </div></li>
 
@@ -529,6 +537,12 @@ M-x emacs-version
 
 <col  class="org-left">
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">功能</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="org-left">C-c \</td>
@@ -557,14 +571,14 @@ M-x emacs-version
 变量'org-tag-faces'设置方法和'org-todo-keyword-faces'的设置方法应该一样
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">'org-tag-faces'</span>
-(setf org-tag-faces '(
-                      (<span style="color: #00cd66; background-color: #dcdcdc;">"&#19978;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"black"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#95A5A6"</span>   <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-                      (<span style="color: #00cd66; background-color: #dcdcdc;">"&#20241;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"red"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-                      <span style="color: #4f94cd; background-color: #dcdcdc;">;("DONE" . (:foreground "white" :background "#3498DB" :weight bold))</span>
-                      )
-      )
-
+<pre class="src src-lisp"><span class="linenr">1: </span>;;'org-tag-faces'
+<span class="linenr">2: </span>(setf org-tag-faces '(
+<span class="linenr">3: </span>		      ("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
+<span class="linenr">4: </span>		      ("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
+<span class="linenr">5: </span>		      ;("DONE" . (:foreground "white" :background "#3498DB" :weight bold))
+<span class="linenr">6: </span>		      )
+<span class="linenr">7: </span>      )
+<span class="linenr">8: </span>
 </pre>
 </div>
 </div>
@@ -582,10 +596,39 @@ M-x emacs-version
 <ol class="org-ol">
 <li>第一种是添加开始和结束的时间
 <ol class="org-ol">
-<li>添加方法
-C-c C-s &#x2013; 添加开始的时间
-C-c C-d &#x2013; 添加结束的时间
-用 C-c C-s 插入的时间是在标题的下面；而 C-c . 插入的时间是在光标处。</li>
+<li><p>
+添加方法
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-c C-s</td>
+<td class="org-left">添加开始的时间</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c C-d</td>
+<td class="org-left">添加结束的时间</td>
+</tr>
+</tbody>
+</table>
+<p>
+用 C-c C-s 插入的时间是在标题的下面；而 C-c . 插入的时间是在光标处
+</p></li>
+
 <li>效果
 DEADLINE: <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-11 Wed&gt; </span></span> SCHEDULED: <span class="timestamp-wrapper"><span class="timestamp">&lt;2020-03-09 Mon&gt;</span></span></li>
 </ol></li>
@@ -599,7 +642,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example" id="org596b8b5">
+<pre class="example" id="orgb29cef4">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -680,61 +723,61 @@ CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 设置格式和配置文件在
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-einsrt-date.el---&#25554;&#20837;&#26102;&#38388;&#26684;&#24335;&#30456;&#20851;&#30340;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-time</span> ()
-  (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d/%A %H:%M:%S&gt;"</span> (current-time))))
-
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m t"</span>) 'my-insert-time)
-
-
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-date</span> ()
-  (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%m-%d-%j/%A&gt;"</span> (current-time))))
-
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m d"</span>) 'my-insert-date)
-
-
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">my-insert-month</span> ()
-  (interactive)
-  (insert (format-time-string <span style="color: #00cd66; background-color: #dcdcdc;">"&lt;%Y-%B&gt;"</span> (current-time))))
-
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m m"</span>) 'my-insert-month)
-
-
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25554;&#20837;&#20170;&#24180;&#30340;&#26102;&#38388;&#36827;&#24230;&#26465;</span>
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">make-progress</span> (width percent has-number?)
-  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((done (/ percent 100.0))
-         (done-width (floor (* width done))))
-    (concat
-     <span style="color: #00cd66; background-color: #dcdcdc;">"["</span>
-     (make-string done-width ?/)
-     (make-string (- width done-width) ? )
-     <span style="color: #00cd66; background-color: #dcdcdc;">"]"</span>
-     (<span style="color: #cd0000; background-color: #dcdcdc;">if</span> has-number? (concat <span style="color: #00cd66; background-color: #dcdcdc;">" "</span> (number-to-string percent) <span style="color: #00cd66; background-color: #dcdcdc;">"%"</span>))
-     )))
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">defun</span> <span style="color: #0000cd; background-color: #dcdcdc;">insert-day-progress</span> ()
-  (interactive)
-  (<span style="color: #cd0000; background-color: #dcdcdc;">let*</span> ((today (time-to-day-in-year (current-time)))
-         (percent (floor (* 100 (/ today 365.0)))))
-    (insert (make-progress 30 percent t))
-    ))
-
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c m y"</span>) 'insert-day-progress)
-
-(add-to-list 'org-src-lang-modes '(<span style="color: #00cd66; background-color: #dcdcdc;">"plantuml"</span> . plantuml))
-
-
-
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-insert-date</span>)
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 3: </span>;;pengshao-einsrt-date.el---插入时间格式相关的配置
+<span class="linenr"> 4: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>(defun my-insert-time ()
+<span class="linenr"> 8: </span>  (interactive)
+<span class="linenr"> 9: </span>  (insert (format-time-string "&lt;%Y-%m-%d/%A %H:%M:%S&gt;" (current-time))))
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>(global-set-key (kbd "C-c m t") 'my-insert-time)
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>(defun my-insert-date ()
+<span class="linenr">16: </span>  (interactive)
+<span class="linenr">17: </span>  (insert (format-time-string "&lt;%Y-%m-%d-%j/%A&gt;" (current-time))))
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>(global-set-key (kbd "C-c m d") 'my-insert-date)
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>(defun my-insert-month ()
+<span class="linenr">24: </span>  (interactive)
+<span class="linenr">25: </span>  (insert (format-time-string "&lt;%Y-%B&gt;" (current-time))))
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>(global-set-key (kbd "C-c m m") 'my-insert-month)
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>;;插入今年的时间进度条
+<span class="linenr">31: </span>(defun make-progress (width percent has-number?)
+<span class="linenr">32: </span>  (let* ((done (/ percent 100.0))
+<span class="linenr">33: </span>	 (done-width (floor (* width done))))
+<span class="linenr">34: </span>    (concat
+<span class="linenr">35: </span>     "["
+<span class="linenr">36: </span>     (make-string done-width ?/)
+<span class="linenr">37: </span>     (make-string (- width done-width) ? )
+<span class="linenr">38: </span>     "]"
+<span class="linenr">39: </span>     (if has-number? (concat " " (number-to-string percent) "%"))
+<span class="linenr">40: </span>     )))
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>(defun insert-day-progress ()
+<span class="linenr">43: </span>  (interactive)
+<span class="linenr">44: </span>  (let* ((today (time-to-day-in-year (current-time)))
+<span class="linenr">45: </span>	 (percent (floor (* 100 (/ today 365.0)))))
+<span class="linenr">46: </span>    (insert (make-progress 30 percent t))
+<span class="linenr">47: </span>    ))
+<span class="linenr">48: </span>
+<span class="linenr">49: </span>(global-set-key (kbd "C-c m y") 'insert-day-progress)
+<span class="linenr">50: </span>
+<span class="linenr">51: </span>(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+<span class="linenr">52: </span>
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>(provide 'pengshao-insert-date)
 </pre>
 </div></li>
 </ol></li>
@@ -756,6 +799,7 @@ S-上,S-下,来设置优先级</dd>
 </dl>
 </div>
 
+
 <div id="outline-container-org3d86cae" class="outline-3">
 <h3 id="org3d86cae"><span class="section-number-3">8.1.</span> 文件状态关键词todo选项和类型关键词todo选项的自定义操作</h3>
 <div class="outline-text-3" id="text-8-1">
@@ -768,7 +812,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example" id="orgcfbea45">
+<pre class="example" id="org79158bf">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -808,8 +852,8 @@ emacs配置文件中中设置如下的代码就行了
 </p>
 <div class="org-src-container">
 <pre class="src src-lisp">(setq org-todo-keywords
-'((sequence <span style="color: #00cd66; background-color: #dcdcdc;">"TODO(T!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DONE(D!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED(C@/!)"</span>)
-  (typ <span style="color: #00cd66; background-color: #dcdcdc;">"&#24037;&#20316;(w)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"&#20241;&#24687;(r)"</span>)
+'((sequence "TODO(T!)" "|" "DONE(D!)" "CANCELED(C@/!)")
+  (typ "工作(w)" "|" "休息(r)")
 ))    
 </pre>
 </div></li>
@@ -820,19 +864,19 @@ emacs配置文件中中设置如下的代码就行了
 </p>
 
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#22810;&#32452;&#29366;&#24577;&#24207;&#21015;&#65292;&#27599;&#20010;&#8220;#+SEQ_TODO&#8221;&#34892;&#23450;&#20041;&#19968;&#32452;</span>
+<pre class="src src-lisp">;定义多组状态序列，每个“#+SEQ_TODO”行定义一组
 (setq org-todo-keywords
-      '((sequence <span style="color: #00cd66; background-color: #dcdcdc;">"TODO(T!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DOING(H!)"</span>  <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DONE(D!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED(C@/!)"</span>)
+      '((sequence "TODO(T!)" "DOING(H!)"  "|" "DONE(D!)" "CANCELED(C@/!)")
 
       ))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">org-todo-keyword-faces</span>
+;; org-todo-keyword-faces
 (setq org-todo-keyword-faces
      '(
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"TODO"</span>      . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FF0033"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FFFF33"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED"</span>  . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"yellow"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"DOING"</span>     . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#990066"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#00FF00"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
+	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
+	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
+	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
      ))
 
 </pre>
@@ -852,7 +896,7 @@ emacs配置文件中中设置如下的代码就行了
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example" id="orgdb3d997">
+<pre class="example" id="org61f1658">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
@@ -869,7 +913,7 @@ Org-mode支持内部链接,也就是锚点
 定义锚点 #<a id="org3bd74b4"></a>
 </p>
 
-<pre class="example" id="org4f4d7ea">
+<pre class="example" id="org46aa787">
 [[my-anchor][内部链接]]
 </pre>
 
@@ -892,11 +936,14 @@ Org-mode支持内部链接,也就是锚点
 <li>Ｃ-u C-c C-l来添加外部文件标签
 或者使用C-c C-l输入file+:来文件链接
 输入完file+:后可以RET来进行补全</li>
+</ol>
 
+
+<ol class="org-ol">
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example" id="orgae016cf">
+<pre class="example" id="org28a71bd">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -908,8 +955,9 @@ Org-mode支持内部链接,也就是锚点
 
 <li><p>
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
+这个经常出错,抛弃了.
 </p>
-<pre class="example" id="org1fa972c">
+<pre class="example" id="orgdf44a54">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -927,7 +975,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example" id="org838d031">
+<pre class="example" id="orgca47615">
 链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
@@ -942,7 +990,7 @@ C-c C-l 就能添加链接了
 <div id="outline-container-orga3bd092" class="outline-3">
 <h3 id="orga3bd092"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example" id="org2ce70f8">
+<pre class="example" id="org8e4d210">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1078,7 +1126,7 @@ C-c C-c,可以对齐表格
 <div id="outline-container-org43fdc51" class="outline-3">
 <h3 id="org43fdc51"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example" id="org87214cb">
+<pre class="example" id="org2b4d9fa">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1092,9 +1140,9 @@ C-c C-c,可以对齐表格
 <h3 id="orga4674b4"><span class="section-number-3">13.2.</span> 也可以通过改变setq org-startup-folded 函数来解决问题</h3>
 <div class="outline-text-3" id="text-13-2">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,&#26377;#+STARTUP: overview : content : showall : showeverything :&#31561;&#20540;</span>
+<pre class="src src-lisp">;;设置org-mode的启动显示选项,有#+STARTUP: overview : content : showall : showeverything :等值
 (setq org-startup-folded 'showall)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">prevent editing an invisible part of the buffer&#38450;&#27490;&#32534;&#36753;&#32531;&#20914;&#21306;&#19981;&#21487;&#35265;&#37096;&#20998;</span>
+;; prevent editing an invisible part of the buffer防止编辑缓冲区不可见部分
 (setq org-catch-invisible-edits nil) 
 </pre>
 </div>
@@ -1158,7 +1206,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example" id="orgf2e578c">
+<pre class="example" id="org97094b2">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1175,7 +1223,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example" id="org97d4337">
+<pre class="example" id="org9b1c30a">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1200,7 +1248,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example" id="org6e86f15">
+<pre class="example" id="orgc8b5d9b">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1235,7 +1283,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example" id="org22ed7e9">
+<pre class="example" id="orgac376c4">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1294,9 +1342,9 @@ but not any simpler
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #ba55d3; background-color: #dcdcdc;">require</span> <span style="color: #00cd66; background-color: #dcdcdc;">'redcarpet'</span>
-md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.new(<span style="color: #00cd66; background-color: #dcdcdc;">"Hello, world."</span>)
-<span style="color: #ba55d3; background-color: #dcdcdc;">puts</span> md.to_html
+<pre class="src src-ruby">require 'redcarpet'
+md = Redcarpet.new("Hello, world.")
+puts md.to_html
 </pre>
 </div></li>
 
@@ -1309,7 +1357,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 </pre>
 
 
-<pre class="example" id="orgb4f09c9">
+<pre class="example" id="org06d745e">
 多行的例子
 使用区块
 </pre></li>
@@ -1361,7 +1409,7 @@ md = <span style="color: #008b8b; background-color: #dcdcdc;">Redcarpet</span>.n
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML" id="org83fffdc">
+<div class="HTML" id="org01fd075">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1388,12 +1436,12 @@ return 0;
 </p>
 
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">-*- coding: utf-8; lexical-binding: t -*-</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">pengshao-org-mode.el---orgmode&#30456;&#20851;&#30340;&#37197;&#32622;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
+<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- coding: utf-8; lexical-binding: t -*-
+;;pengshao-org-mode.el---orgmode相关的配置
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25105;&#30340;&#32534;&#30721;&#35774;&#32622;</span>
+;;我的编码设置
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -1401,88 +1449,88 @@ return 0;
 (setq default-buffer-file-coding-system 'utf-8)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">org-mode&#35821;&#27861;&#39640;&#20142;</span>
+;;org-mode语法高亮
 (setq org-src-fontify-natively t)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20445;&#35777;&#21518;&#32512;&#20026;'.org'&#30340;&#25991;&#20214;&#20250;&#20351;&#29992;Org mode</span>
-(add-to-list 'auto-mode-alist '(<span style="color: #00cd66; background-color: #dcdcdc;">"\\.org\\'"</span> . org-mode))
+;;保证后缀为'.org'的文件会使用Org mode
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cl" 'org-store-link)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">orgmode&#30340;&#38142;&#25509;</span>
+;;(global-set-key "\C-cl" 'org-store-link)
+;;orgmode的链接
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#40664;&#35748;&#30340;agenda&#25991;&#20214;,&#30340;todo&#30340;&#20840;&#23616;&#25991;&#20214;&#21487;&#20197;&#28155;&#21152;&#22312;&#36825;&#37324;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-ca" 'org-agenda)</span>
+;;设置默认的agenda文件,的todo的全局文件可以添加在这里
+;;(global-set-key "\C-ca" 'org-agenda)
 (setq org-agenda-files
-      (list <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/list-list.org"</span>
-        ))
+      (list "~/public_note/idear/list-list.org"
+	))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key "\C-cc" 'org-capture)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#40664;&#35748;&#30340;org-notesfile,&#36825;&#37324;&#23601;&#26159;org-capture&#30340;&#40664;&#35748;&#25991;&#20214;</span>
-(setq org-default-notes-file <span style="color: #00cd66; background-color: #dcdcdc;">"~/public_note/idear/todo-list.org"</span>)
+;;(global-set-key "\C-cc" 'org-capture)
+;;默认的org-notesfile,这里就是org-capture的默认文件
+(setq org-default-notes-file "~/public_note/idear/todo-list.org")
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#27599;&#27425;&#26032;&#24314;todo&#21644;&#20570;&#23436;&#37117;&#35201;&#28155;&#21152;&#26102;&#38388;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-todo 'time)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-log-done 'time)</span>
+;;每次新建todo和做完都要添加时间
+;(setq org-log-todo 'time)
+;(setq org-log-done 'time)
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#19981;&#24819;&#22312;&#20840;&#23616;&#33539;&#22260;&#20351;&#29992;font-lock,&#21487;&#20197;&#29992;&#19979;&#38754;&#19968;&#21477;&#37197;&#32622;&#26469;&#21482;&#22312;Org-mode&#19979;&#25171;&#24320;font-lock&#36873;&#39033;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(add-hook 'org-mode-hook 'turn-on-font-lock) </span>
+;;如果不想在全局范围使用font-lock,可以用下面一句配置来只在Org-mode下打开font-lock选项
+;;(add-hook 'org-mode-hook 'turn-on-font-lock) 
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;org-mode&#30340;&#21551;&#21160;&#26174;&#31034;&#36873;&#39033;,#+STARTUP: overview : content : showall : showeverything :</span>
+;;设置org-mode的启动显示选项,#+STARTUP: overview : content : showall : showeverything :
 (setq org-startup-folded 'content)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">prevent editing an invisible part of the buffer&#38450;&#27490;&#32534;&#36753;&#32531;&#20914;&#21306;&#19981;&#21487;&#35265;&#37096;&#20998;</span>
+;; prevent editing an invisible part of the buffer防止编辑缓冲区不可见部分
 (setq org-catch-invisible-edits nil) 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#28155;&#21152;&#33258;&#21160;&#25442;&#34892;&#21151;&#33021;</span>
-(add-hook 'org-mode-hook (<span style="color: #cd0000; background-color: #dcdcdc;">lambda</span> () (setq truncate-lines nil)))
+;;为org-mode添加自动换行功能
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20026;org-mode&#30340;(setq org-startup-indented t)&#32553;&#36827;&#26143;&#21495;</span>
+;;为org-mode的(setq org-startup-indented t)缩进星号
 (setq org-startup-indented t)
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622; bullet list</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(setq org-bullets-bullet-list '("&#9776;" "&#9783;" "&#9775;" "&#9773;"))</span>
+;; 设置 bullet list
+;;(setq org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23450;&#20041;&#22810;&#32452;&#29366;&#24577;&#24207;&#21015;&#65292;&#27599;&#20010;&#8220;#+SEQ_TODO&#8221;&#34892;&#23450;&#20041;&#19968;&#32452;</span>
+;定义多组状态序列，每个“#+SEQ_TODO”行定义一组
 (setq org-todo-keywords
- '((sequence <span style="color: #00cd66; background-color: #dcdcdc;">"TODO(T!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DOING(H!)"</span>  <span style="color: #00cd66; background-color: #dcdcdc;">"|"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"DONE(D!)"</span> <span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED(C@/!)"</span>)
+ '((sequence "TODO(T!)" "DOING(H!)"  "|" "DONE(D!)" "CANCELED(C@/!)")
 
    ))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">org-todo-keyword-faces</span>
+;; org-todo-keyword-faces
 (setq org-todo-keyword-faces
       '(
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"TODO"</span>      . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FF0033"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#FFFF33"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"CANCELED"</span>  . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"yellow"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"DOING"</span>     . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#990066"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#00FF00"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        ))
+	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
+	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
+	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
+	))
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">'org-tag-faces'</span>
+;;'org-tag-faces'
 (setf org-tag-faces
       '(
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#19978;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"black"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#95A5A6"</span>   <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#20241;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"red"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#2E8B57"</span>  <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        (<span style="color: #00cd66; background-color: #dcdcdc;">"&#21152;&#29677;"</span> . (<span style="color: #ba55d3; background-color: #dcdcdc;">:foreground</span> <span style="color: #00cd66; background-color: #dcdcdc;">"white"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:background</span> <span style="color: #00cd66; background-color: #dcdcdc;">"#3498DB"</span> <span style="color: #ba55d3; background-color: #dcdcdc;">:weight</span> bold))
-        ))
+	("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
+	("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
+	("加班" . (:foreground "white" :background "#3498DB" :weight bold))
+	))
 
 
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">;; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#25240;&#21472;&#26102;&#19981;&#20877;&#26174;&#31034;&#12300;...&#12301;, &#25442;&#20010;&#20320;&#21916;&#27426;&#30340;&#31526;&#21495;</span>
-(setq org-ellipsis <span style="color: #00cd66; background-color: #dcdcdc;">"&#9660;"</span>)
+;; 折叠时不再显示「...」, 换个你喜欢的符号
+(setq org-ellipsis "▼")
 
 
 
-(<span style="color: #cd0000; background-color: #dcdcdc;">provide</span> '<span style="color: #cd8500; background-color: #dcdcdc;">pengshao-org-mode</span>)
+(provide 'pengshao-org-mode)
 </pre>
 </div>
 
@@ -1531,9 +1579,9 @@ x=\sqrt{b}
 添加以下的配置到你的 init 文件
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">org-crypt</span>)
+<pre class="src src-lisp">(require 'org-crypt)
 (org-crypt-use-before-save-magic)
-(setq org-tags-exclude-from-inheritance (quote(<span style="color: #00cd66; background-color: #dcdcdc;">"crypt"</span>)))
+(setq org-tags-exclude-from-inheritance (quote("crypt")))
 (setq org-crypt-key nil)
 </pre>
 </div>
@@ -1606,7 +1654,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example" id="orgdf881e0">
+<pre class="example" id="org4da6dcc">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}

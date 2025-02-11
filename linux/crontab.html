@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-11 Tue 19:52 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>crotab-tutorial</title>
+<title>crotab-周期性执行任务</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="linux-crontab" />
 <meta name="generator" content="Org Mode" />
@@ -19,7 +19,7 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">crotab-tutorial</h1>
+<h1 class="title">crotab-周期性执行任务</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -56,11 +56,15 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 <h2 id="org69aeb28"><span class="section-number-2">2.</span> 而 linux 任务调度的工作主要分为以下两类：</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-1、系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
-2、个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置
+1 系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
+</p>
+
+<p>
+2 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置
 </p>
 </div>
 </div>
+
 
 <div id="outline-container-org753df37" class="outline-2">
 <h2 id="org753df37"><span class="section-number-2">3.</span> 语法</h2>
@@ -92,49 +96,46 @@ crontab 是用来让使用者在固定时间或固定间隔执行程序之用，
 </div>
 </li>
 
+
 <li><a id="orga472460"></a>时间格式如下：<br>
 <div class="outline-text-4" id="text-3-0-2">
-<pre class="example" id="org0f9aaf1">
+<pre class="example" id="org74905d0">
 f1 f2 f3 f4 f5 program
 其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程序。
 当 f1 为 * 时表示每分钟都要执行 program，f2 为 * 时表示每小时都要执行程序，其馀类推
 当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其馀类推
 当 f1 为 */n 时表示每 n 分钟个时间间隔执行一次，f2 为 */n 表示每 n 小时个时间间隔执行一次，其馀类推
 当 f1 为 a, b, c,... 时表示第 a, b, c,... 分钟要执行，f2 为 a, b, c,... 时表示第 a, b, c...个小时要执行，其馀类推
-*    *    *    *    *
--    -    -    -    -
-|    |    |    |    |
-|    |    |    |    +----- 星期中星期几 (0 - 7) (星期天 为0)
-|    |    |    +---------- 月份 (1 - 12) 
-|    |    +--------------- 一个月中的第几天 (1 - 31)
-|    +-------------------- 小时 (0 - 23)
-+------------------------- 分钟 (0 - 59)
-使用者也可以将所有的设定先存放在文件中，用 crontab file 的方式来设定执行时间。
+    *    *    *    *    *
+    -    -    -    -    -
+    |    |    |    |    |
+    |    |    |    |    +----- 星期中星期几 (0 - 7) (星期天 为0)
+    |    |    |    +---------- 月份 (1 - 12) 
+    |    |    +--------------- 一个月中的第几天 (1 - 31)
+    |    +-------------------- 小时 (0 - 23)
+    +------------------------- 分钟 (0 - 59)
+    使用者也可以将所有的设定先存放在文件中，用 crontab file 的方式来设定执行时间。
 </pre>
 </div>
 </li>
 </ol>
 </div>
 
+
 <div id="outline-container-org38c02ee" class="outline-2">
 <h2 id="org38c02ee"><span class="section-number-2">4.</span> 实例</h2>
 <div class="outline-text-2" id="text-4">
-<p>
-每月每天每小时的第 0 分钟执行一次 /bin/ls
-0 * * * * /bin/ls
-</p>
+<ul class="org-ul">
+<li>每月每天每小时的第 0 分钟执行一次 /bin/ls
+0 * * * * /bin/ls</li>
 
-<p>
-在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup
-0 6-12/3 * 12 * /usr/bin/backup
-</p>
+<li>在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup
+0 6-12/3 * 12 * /usr/bin/backup</li>
 
-<p>
-周一到周五每天下午 5:00 寄一封信给 alex@domain.name
-0 17 * * 1-5 mail -s "hi" alex@domain.name &lt; /tmp/maildata
-</p>
+<li>周一到周五每天下午 5:00 寄一封信给 alex@domain.name
+0 17 * * 1-5 mail -s "hi" alex@domain.name &lt; /tmp/maildata</li>
 
-<p>
+<li><p>
 每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分&#x2026;.执行 echo "haha"
 20 0-23/2 * * * echo "haha"
 </p>
@@ -142,7 +143,7 @@ f1 f2 f3 f4 f5 program
 <p>
 下面再看看几个具体的例子：
 </p>
-<pre class="example" id="orga0320df">
+<pre class="example" id="org2936ad5">
 0 */2 * * * /sbin/service httpd restart  意思是每两个小时重启一次apache 
 
 50 7 * * * /sbin/service sshd start  意思是每天7：50开启ssh服务 
@@ -153,18 +154,22 @@ f1 f2 f3 f4 f5 program
 
 1 * * * * /home/bruce/backup  每小时的第一分执行 /home/bruce/backup这个文件 
 
-00 03 * * 1-5 find /home "*.xxx" -mtime +4 -exec rm {} \;  每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。
+00 03 * * 1-5 find /home "*.xxx" -mtime +4 -exec rm {} \;
+每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。
 
-30 6 */10 * * ls  意思是每月的1、11、21、31日是的6：30执行一次ls命令
-</pre>
+3 0 6 */10 * * ls  意思是每月的1、11、21、31日是的6：30执行一次ls命令
+</pre></li>
+</ul>
 </div>
 </div>
+
 
 <div id="outline-container-org7cdcb90" class="outline-2">
 <h2 id="org7cdcb90"><span class="section-number-2">5.</span> 注意</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-当程序在你所指定的时间执行后，系统会寄一封信给你，显示该程序执行的内容，若是你不希望收到这样的信，请在每一行空一格之后加上 &gt; /dev/null 2&gt;&amp;1 即可
+当程序在你所指定的时间执行后，系统会寄一封信给你，显示该程序执行的内容.
+若是你不希望收到这样的信，请在每一行空一格之后加上 &gt; /dev/null 2&gt;&amp;1 即可
 </p>
 </div>
 </div>

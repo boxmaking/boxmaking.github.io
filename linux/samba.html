@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-11 Tue 19:52 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Debian 安装与配置 Samba 详细教程</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="linux-proxy-setting" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Debian 安装与配置 Samba 详细教程</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0647c75">1. 简介</a></li>
+<li><a href="#org67680c7">2. 步骤 1：安装 Samba</a>
+<ul>
+<li><a href="#orgbdeb482">2.1. 更新软件源</a></li>
+<li><a href="#orgf63250f">2.2. 安装软件包</a></li>
+</ul>
+</li>
+<li><a href="#org2f9b778">3. 步骤 2：配置共享目录</a>
+<ul>
+<li><a href="#org39e8499">3.1. 备份原始配置文件</a></li>
+<li><a href="#org7f45f83">3.2. 编辑配置文件</a></li>
+<li><a href="#org3e42349">3.3. 示例配置（添加到文件末尾）</a></li>
+</ul>
+</li>
+<li><a href="#orgc624f07">4. 步骤 3：创建共享目录与用户</a>
+<ul>
+<li><a href="#orgb2e26c6">4.1. 创建共享目录</a></li>
+<li><a href="#org2630495">4.2. 添加系统用户（若不存在）</a></li>
+<li><a href="#orgcaca093">4.3. 设置 Samba 密码</a></li>
+</ul>
+</li>
+<li><a href="#orgd64e9ca">5. 步骤 4：重启服务与防火墙</a>
+<ul>
+<li><a href="#org6f83ae8">5.1. 重启 Samba 服务</a></li>
+<li><a href="#orgdd9c4e5">5.2. 设置开机自启</a></li>
+<li><a href="#org2b2e5aa">5.3. 开放防火墙（若使用 UFW）</a></li>
+</ul>
+</li>
+<li><a href="#org362d4e6">6. 步骤 5：客户端连接测试</a>
+<ul>
+<li><a href="#org8ed067d">6.1. Linux 客户端</a></li>
+<li><a href="#org9266a4a">6.2. Windows 客户端</a></li>
+</ul>
+</li>
+<li><a href="#org05d1029">7. 高级配置</a>
+<ul>
+<li><a href="#org7e5cc7b">7.1. 匿名共享配置</a></li>
+<li><a href="#org136e7c1">7.2. 多用户权限管理</a></li>
+</ul>
+</li>
+<li><a href="#orgf80b2fe">8. 故障排查</a>
+<ul>
+<li><a href="#orge4160be">8.1. 检查服务状态</a></li>
+<li><a href="#org6efbbd3">8.2. 查看日志文件</a></li>
+<li><a href="#org2f6ab83">8.3. 测试配置文件</a></li>
+</ul>
+</li>
+<li><a href="#org51b568b">9. 注意事项</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org0647c75" class="outline-2">
+<h2 id="org0647c75"><span class="section-number-2">1.</span> 简介</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程涵盖以下内容：
+</p>
+<ol class="org-ol">
+<li>安装 Samba 服务</li>
+<li>配置共享目录</li>
+<li>用户权限管理</li>
+<li>防火墙设置</li>
+<li>客户端连接测试</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org67680c7" class="outline-2">
+<h2 id="org67680c7"><span class="section-number-2">2.</span> 步骤 1：安装 Samba</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgbdeb482" class="outline-3">
+<h3 id="orgbdeb482"><span class="section-number-3">2.1.</span> 更新软件源</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-bash">sudo apt update
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf63250f" class="outline-3">
+<h3 id="orgf63250f"><span class="section-number-3">2.2.</span> 安装软件包</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-bash">$sudo apt install samba samba-common smbclient
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2f9b778" class="outline-2">
+<h2 id="org2f9b778"><span class="section-number-2">3.</span> 步骤 2：配置共享目录</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org39e8499" class="outline-3">
+<h3 id="org39e8499"><span class="section-number-3">3.1.</span> 备份原始配置文件</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-bash">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7f45f83" class="outline-3">
+<h3 id="org7f45f83"><span class="section-number-3">3.2.</span> 编辑配置文件</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+<pre class="src src-bash">sudo nano /etc/samba/smb.conf
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3e42349" class="outline-3">
+<h3 id="org3e42349"><span class="section-number-3">3.3.</span> 示例配置（添加到文件末尾）</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-conf">[myshare]
+   comment = My Shared Folder
+   path = /srv/samba/share
+   browseable = yes
+   # 关闭只读（等同于 writable = yes）
+   read only = no
+   # 允许写入
+   writable = yes          
+   # 新建文件权限
+   create mask = 0664
+   # 允许访问的用户/@组（需存在）
+   valid users = pengshaoshare pengshao   
+   write list = pengshaoshare pengshao
+   # 新建目录权限
+   create mask = 0775    
+   directory mask = 0775
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc624f07" class="outline-2">
+<h2 id="orgc624f07"><span class="section-number-2">4.</span> 步骤 3：创建共享目录与用户</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgb2e26c6" class="outline-3">
+<h3 id="orgb2e26c6"><span class="section-number-3">4.1.</span> 创建共享目录</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-bash"><span class="linenr">1: </span>sudo mkdir -p /srv/samba/share
+<span class="linenr">2: </span>sudo chmod 2775 /srv/samba/share
+<span class="linenr">3: </span>sudo chown nobody:nogroup /srv/samba/share
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2630495" class="outline-3">
+<h3 id="org2630495"><span class="section-number-3">4.2.</span> 添加系统用户（若不存在）</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-bash">sudo useradd -M -s /usr/sbin/nologin sambauser
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcaca093" class="outline-3">
+<h3 id="orgcaca093"><span class="section-number-3">4.3.</span> 设置 Samba 密码</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+<pre class="src src-bash">sudo smbpasswd -a sambauser
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd64e9ca" class="outline-2">
+<h2 id="orgd64e9ca"><span class="section-number-2">5.</span> 步骤 4：重启服务与防火墙</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org6f83ae8" class="outline-3">
+<h3 id="org6f83ae8"><span class="section-number-3">5.1.</span> 重启 Samba 服务</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="org-src-container">
+<pre class="src src-bash">sudo systemctl restart smbd.service nmbd.service
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd9c4e5" class="outline-3">
+<h3 id="orgdd9c4e5"><span class="section-number-3">5.2.</span> 设置开机自启</h3>
+<div class="outline-text-3" id="text-5-2">
+<div class="org-src-container">
+<pre class="src src-bash">sudo systemctl enable smbd.service nmbd.service
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b2e5aa" class="outline-3">
+<h3 id="org2b2e5aa"><span class="section-number-3">5.3.</span> 开放防火墙（若使用 UFW）</h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="org-src-container">
+<pre class="src src-bash">sudo ufw allow samba
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org362d4e6" class="outline-2">
+<h2 id="org362d4e6"><span class="section-number-2">6.</span> 步骤 5：客户端连接测试</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org8ed067d" class="outline-3">
+<h3 id="org8ed067d"><span class="section-number-3">6.1.</span> Linux 客户端</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-bash">smbclient //server_ip/myshare -U sambauser
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9266a4a" class="outline-3">
+<h3 id="org9266a4a"><span class="section-number-3">6.2.</span> Windows 客户端</h3>
+<div class="outline-text-3" id="text-6-2">
+<ol class="org-ol">
+<li>文件资源管理器地址栏输入：
+<code>\\server_ip\myshare</code></li>
+<li>使用用户名 <code>sambauser</code> 和设置的密码登录</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org05d1029" class="outline-2">
+<h2 id="org05d1029"><span class="section-number-2">7.</span> 高级配置</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org7e5cc7b" class="outline-3">
+<h3 id="org7e5cc7b"><span class="section-number-3">7.1.</span> 匿名共享配置</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<pre class="src src-conf">[public]
+   path = /srv/samba/public
+   guest ok = yes
+   read only = no
+   create mask = 0777
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org136e7c1" class="outline-3">
+<h3 id="org136e7c1"><span class="section-number-3">7.2.</span> 多用户权限管理</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-conf">[project]
+   valid users = @smbgroup
+   write list = manager
+   read list = staff
+</pre>
+</div>
+<p>
+需创建用户组：
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo groupadd smbgroup
+sudo usermod -aG smbgroup manager
+sudo usermod -aG smbgroup staff
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf80b2fe" class="outline-2">
+<h2 id="orgf80b2fe"><span class="section-number-2">8.</span> 故障排查</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orge4160be" class="outline-3">
+<h3 id="orge4160be"><span class="section-number-3">8.1.</span> 检查服务状态</h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-bash">sudo systemctl status smbd.service
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6efbbd3" class="outline-3">
+<h3 id="org6efbbd3"><span class="section-number-3">8.2.</span> 查看日志文件</h3>
+<div class="outline-text-3" id="text-8-2">
+<div class="org-src-container">
+<pre class="src src-bash">tail -f /var/log/samba/log.smbd
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f6ab83" class="outline-3">
+<h3 id="org2f6ab83"><span class="section-number-3">8.3.</span> 测试配置文件</h3>
+<div class="outline-text-3" id="text-8-3">
+<div class="org-src-container">
+<pre class="src src-bash">testparm
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org51b568b" class="outline-2">
+<h2 id="org51b568b"><span class="section-number-2">9.</span> 注意事项</h2>
+<div class="outline-text-2" id="text-9">
+<ol class="org-ol">
+<li>共享路径权限需与 Samba 配置匹配</li>
+<li>每次修改配置后需重启服务</li>
+<li>建议禁用 root 用户访问</li>
+<li>复杂网络环境需检查 NetBIOS 设置</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>
