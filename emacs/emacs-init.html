@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-11 Tue 21:16 -->
+<!-- 2025-02-11 Tue 21:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -21,7 +21,7 @@
 <header>
 <h1 class="title">emacs-配置文件</h1>
 </header>
-<figure id="org2a83052">
+<figure id="org967461f">
 <img src="./emacs-init.png" alt="emacs-init.png" scale="0.5">   
 
 </figure>
@@ -907,40 +907,24 @@ M-x eval-region 执行region内的代码</li>
 将以下代码添加到你的 Emacs 配置文件中：
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp">;; 定义示例函数
-(defun my-first-function ()
-  "返回一个字符串。"
-  "这是第一个函数返回的内容。")
-(defun my-second-function ()
-  "打印一条消息。"
-  (message "这是第二个函数打印的消息。"))
-
-;; 在 Emacs 启动时清空 *scratch* 缓冲区并调用函数
-(setq initial-scratch-message "")
-(with-current-buffer "*scratch*"
-  (let ((result1 (my-first-function)))
-    (insert (format "第一个函数的结果: %s\n" result1)))
-  (call-interactively 'my-second-function))
+<pre class="src src-lisp">;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
+  (setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
+  (with-current-buffer "*scratch*"
+  ;(let ((result1 (insert-weather)))
+  ;(insert (format " %s\n" result1)))
+    (call-interactively 'insert-nongli)
+    (call-interactively 'insert-weather)
+    (call-interactively 'insert-pyphoon)
+     )
 </pre>
 </div>
 </div>
+
 <div id="outline-container-orgc3544a8" class="outline-3">
 <h3 id="orgc3544a8"><span class="section-number-3">10.1.</span> 代码解释</h3>
-<div class="outline-text-3" id="text-10-1">
-<ol class="org-ol">
-<li>函数定义：定义了 <code>my-first-function</code> 和 <code>my-second-function</code> 两个函数。
-清空初始消息：=setq initial-scratch-message= "" 用于清空 <b>scratch</b> 缓冲区的默认初始消息。
-切换到 <b>scratch</b> 缓冲区：with-current-buffer "<b>scratch</b>" 确保后续操作都在 <b>scratch</b> 缓冲区进行。</li>
+</div>
+</div>
 
-<li>调用第一个函数：
-<code>(let ((result1 (my-first-function))) ...)</code> 调用 <code>my-first-function</code> 并将结果存储在 <code>result1</code> 变量中。
-<code>(insert (format "第一个函数的结果: %s\n" result1))</code> 将第一个函数的结果格式化并插入到 <b>scratch</b> 缓冲区。</li>
-
-<li>调用第二个函数：=(call-interactively 'my-second-function)= 交互式地调用 =my-second-function=，该函数会在消息区打印一条消息。</li>
-</ol>
-</div>
-</div>
-</div>
 
 
 <div id="outline-container-orgd349b46" class="outline-2">
@@ -965,7 +949,7 @@ M-x eval-region 执行region内的代码</li>
 <div id="outline-container-org18dc752" class="outline-3">
 <h3 id="org18dc752"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
 <div class="outline-text-3" id="text-11-2">
-<pre class="example" id="orgb870989">
+<pre class="example" id="org9ada6a2">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -997,7 +981,10 @@ Decimal digits after the % specify field width to which to pad.
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 
-<pre class="example" id="org4b7a8e2">
+<p>
+自己加载的一些小配置
+</p>
+<pre class="example" id="orgff59a0d">
 ./loadfile/
 ├── pengshao-backup.el
 ├── pengshao-calendar.el

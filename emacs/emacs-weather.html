@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-11 Tue 19:52 -->
+<!-- 2025-02-11 Tue 21:50 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>利用wttr_in添加天气</title>
+<title>emacs一键插入-日期,农历,月相,万年历</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="emacs,bookmark" />
 <meta name="generator" content="Org Mode" />
@@ -19,47 +19,84 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">利用wttr<sub>in添加天气</sub></h1>
+<h1 class="title">emacs一键插入-日期,农历,月相,万年历</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8fd2c9f">1. wttr.in</a></li>
-<li><a href="#orgbbba913">2. pyphoon</a></li>
-<li><a href="#org1d1a4a2">3. 农历API</a></li>
-<li><a href="#org235ba37">4. 配置文件</a></li>
-<li><a href="#org2927c0a">5. 设置的快捷键</a></li>
+<li><a href="#orgafa292f">1. wttr.in天气信息的API调取</a></li>
+<li><a href="#org56e6911">2. pyphoon月相的调取</a></li>
+<li><a href="#orgd8610b9">3. 农历API调取地址</a>
+<ul>
+<li><a href="#org03e30a7">3.1. 先写一个shellscript来调取农历API地址中的字符串</a></li>
+<li><a href="#org0cc0621">3.2. 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</a></li>
+<li><a href="#org04828d3">3.3. 然后就能用elisp调用这两个文件</a></li>
+</ul>
+</li>
+<li><a href="#orgaa7cf07">4. 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</a>
+<ul>
+<li><a href="#org6dd2cca">4.1. 效果</a></li>
+<li><a href="#orgc823199">4.2. 设置的快捷键,可以随意调取</a></li>
+</ul>
+</li>
+<li><a href="#org235ba37">5. 配置文件</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org8fd2c9f" class="outline-2">
-<h2 id="org8fd2c9f"><span class="section-number-2">1.</span> wttr.in</h2>
+<div id="outline-container-orgafa292f" class="outline-2">
+<h2 id="orgafa292f"><span class="section-number-2">1.</span> wttr.in天气信息的API调取</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a>
+wttr.in的地址 <a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a>
 </p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr">1: </span>;;添加济南天气的操作
+<span class="linenr">2: </span>(defun insert-weather ()
+<span class="linenr">3: </span>  (interactive)
+<span class="linenr">4: </span>  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>(global-set-key (kbd "C-c m w") #'insert-weather)
+</pre>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-orgbbba913" class="outline-2">
-<h2 id="orgbbba913"><span class="section-number-2">2.</span> pyphoon</h2>
+<div id="outline-container-org56e6911" class="outline-2">
+<h2 id="org56e6911"><span class="section-number-2">2.</span> pyphoon月相的调取</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="https://github.com/chubin/pyphoon">https://github.com/chubin/pyphoon</a>
+pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/chubin/pyphoon</a>
 </p>
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr">1: </span>;;添加月相的操作
+<span class="linenr">2: </span>(defun insert-pyphoon ()
+<span class="linenr">3: </span>  (interactive)
+<span class="linenr">4: </span>  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>(global-set-key (kbd "C-c m o") #'insert-pyphoon)
+</pre>
+</div>
 </div>
 </div>
 
-
-<div id="outline-container-org1d1a4a2" class="outline-2">
-<h2 id="org1d1a4a2"><span class="section-number-2">3.</span> 农历API</h2>
+<div id="outline-container-orgd8610b9" class="outline-2">
+<h2 id="orgd8610b9"><span class="section-number-2">3.</span> 农历API调取地址</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://api.aa1.cn/doc/almanac.html">https://api.aa1.cn/doc/almanac.html</a>
 </p>
+</div>
 
+<div id="outline-container-org03e30a7" class="outline-3">
+<h3 id="org03e30a7"><span class="section-number-3">3.1.</span> 先写一个shellscript来调取农历API地址中的字符串</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+例如这个效果: "2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 "
+配置文件如下:
+</p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr"> 1: </span>#!/bin/bash
 <span class="linenr"> 2: </span>
@@ -89,10 +126,206 @@
 </div>
 </div>
 
+<div id="outline-container-org0cc0621" class="outline-3">
+<h3 id="org0cc0621"><span class="section-number-3">3.2.</span> 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+配置文件如下:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span class="linenr"> 1: </span>#!/bin/bash
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span># 获取当前日期
+<span class="linenr"> 4: </span>current_date=$(date +"%Y-%m-%d")
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span># 使用 wget 命令获取当天的农历日期，并且静默过程
+<span class="linenr"> 7: </span>response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span># 解析农历日期
+<span class="linenr">10: </span>#lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">11: </span>lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">12: </span>lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">13: </span>lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">14: </span>lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">15: </span>lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">16: </span>lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">17: </span>lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">18: </span>#lunar_shenwei=$(echo $response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>echo " &lt;$lunar_monthname-$lunar_month-$lunar_day $lunar_year $lunar_tiangany-$lunar_tianganm-$lunar_tiangand&gt; "
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org04828d3" class="outline-3">
+<h3 id="org04828d3"><span class="section-number-3">3.3.</span> 然后就能用elisp调用这两个文件</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr"> 1: </span>  (defun insert-nongli ()
+<span class="linenr"> 2: </span>  (interactive)
+<span class="linenr"> 3: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>(global-set-key (kbd "C-c m n") #'insert-nongli)
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>(defun insert-nonglijian ()
+<span class="linenr"> 8: </span>  (interactive)
+<span class="linenr"> 9: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>(global-set-key (kbd "C-c m j") #'insert-nonglijian)
+<span class="linenr">12: </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgaa7cf07" class="outline-2">
+<h2 id="orgaa7cf07"><span class="section-number-2">4.</span> 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+将以下代码添加到你的 Emacs 配置文件中：
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr">1: </span>;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
+<span class="linenr">2: </span>  (setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
+<span class="linenr">3: </span>  (with-current-buffer "*scratch*"
+<span class="linenr">4: </span>  ;(let ((result1 (insert-weather)))
+<span class="linenr">5: </span>  ;(insert (format " %s\n" result1)))
+<span class="linenr">6: </span>    (call-interactively 'insert-nongli)
+<span class="linenr">7: </span>    (call-interactively 'insert-weather)
+<span class="linenr">8: </span>    (call-interactively 'insert-pyphoon)
+<span class="linenr">9: </span>     )
+</pre>
+</div>
+</div>
+<div id="outline-container-org6dd2cca" class="outline-3">
+<h3 id="org6dd2cca"><span class="section-number-3">4.1.</span> 效果</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<figure id="orgb403980">
+<img src="emacs-init.png" alt="emacs-init.png">
+
+</figure>
+</div>
+</div>
+
+
+<div id="outline-container-orgc823199" class="outline-3">
+<h3 id="orgc823199"><span class="section-number-3">4.2.</span> 设置的快捷键,可以随意调取</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><p>
+C-c m o 插入月相(刚好是满月)
+</p>
+<div class="ASCII" id="org0874ed6">
+<p>
+		.-------&#x2013;&#x2014;.	 
+	  .&#x2013;'  o     . .   `&#x2013;.	 
+       .-'   .    O   .       . `-.	 
+     -'@   @@@@@@@   .  @@@@@      `-.	 
+   /@@@  @@@@@@@@@@@   @@@@@@@   .    \	 
+  /    o @@@@@@@@@@@   @@@@@@@       . \.	 
+ @@  o   @@@@@@@@@@@.   @@@@@@@   O      \	 
+@@@@   .   @@@@@@@o    @@@@@@@@@@     @@@ \	 
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">@@@@@               . @@@@@@@@@@@@@ o @@@@</td>
+</tr>
+</tbody>
+</table>
+<p>
+@@@@@  O  `.-./  .      @@@@@@@@@@@@    @@  \	 First Quarter +
+ @@@@    &#x2013;`-'       o     @@@@@@@@ @@@@    |	 6  5:40:26
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">@ @@@        `    o      .  @@   . @@@@@@@</td>
+<td class="org-left">Full Moon -</td>
+</tr>
+</tbody>
+</table>
+<p>
+     @@  @         .-.     @@@   @@@@@@@  |	 1  0:10:09
+. @        @@@     `-'   . @@@@   @@@@  o /	 
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">@@   @@@@@ .           @@   .</td>
+</tr>
+</tbody>
+</table>
+<p>
+   @@@@  @\@@    /  .  O    .     o   . /	 
+ o  @@     \ \  /         .    .       /	 
+\     .    .\.-.___   .      .   .-. /'	 
+ \           `-'                `-' /	 
+   -.   o   / |     o    O   .   .-'	 
+     `-.   /     .       .    .-'	 
+	`&#x2013;.       .      .&#x2013;'	 
+	    `-------&#x2013;&#x2014;'	 
+</p>
+
+</div></li>
+
+<li><p>
+C-c m w 插入济南的天气
+</p>
+<pre class="example" id="org9f5a708">
+jinan: 🌦   🌡️+7°C 🌬️↗8km/h
+</pre></li>
+<li><p>
+C-c m n 插入农历
+</p>
+<pre class="example" id="orga852c38">
+2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 
+</pre></li>
+<li><p>
+C-c m j 简介版本的农历
+</p>
+<pre class="example" id="org39fc398">
+&lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; 
+</pre></li>
+<li><p>
+C-c m y 显示出当年时间已经流逝的百分比
+</p>
+<pre class="example" id="org8fad6d5">
+[///                           ] 11%
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
 
 <div id="outline-container-org235ba37" class="outline-2">
-<h2 id="org235ba37"><span class="section-number-2">4.</span> 配置文件</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org235ba37"><span class="section-number-2">5.</span> 配置文件</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
@@ -135,20 +368,6 @@
 <span class="linenr">39: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
-</div>
-</div>
-
-
-<div id="outline-container-org2927c0a" class="outline-2">
-<h2 id="org2927c0a"><span class="section-number-2">5.</span> 设置的快捷键</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li>C-c m o 插入月相</li>
-
-<li>C-c m w 插入济南的天气</li>
-
-<li>C-c m n 插入农历</li>
-</ul>
 </div>
 </div>
 </div>
