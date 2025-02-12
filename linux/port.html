@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux查看端口进程几种方法</title>
@@ -24,9 +24,9 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge15225d">1. netstat</a></li>
-<li><a href="#org43bbf4b">2. ss</a></li>
-<li><a href="#orgcdbacd8">3. lsof</a></li>
+<li><a href="#orgb4241f0">1. netstat</a></li>
+<li><a href="#orgae89756">2. ss</a></li>
+<li><a href="#org7798568">3. lsof</a></li>
 </ul>
 </div>
 </nav>
@@ -34,8 +34,8 @@
 有时候启动应用时会提示端口被占，这时候需要找出占用端口的进程把它kill掉才能正常启动应用。
 </p>
 
-<div id="outline-container-orge15225d" class="outline-2">
-<h2 id="orge15225d"><span class="section-number-2">1.</span> netstat</h2>
+<div id="outline-container-orgb4241f0" class="outline-2">
+<h2 id="orgb4241f0"><span class="section-number-2">1.</span> netstat</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">sudo netstat -pnltu
@@ -76,38 +76,38 @@ udp6       0      0 :::7946                 :::*                                
 </div>
 </div>
 
-<div id="outline-container-org43bbf4b" class="outline-2">
-<h2 id="org43bbf4b"><span class="section-number-2">2.</span> ss</h2>
+<div id="outline-container-orgae89756" class="outline-2">
+<h2 id="orgae89756"><span class="section-number-2">2.</span> ss</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">sudo ss -l -p -t -u -n
 
 Netid  State      Recv-Q Send-Q Local Address:Port               Peer Address:Port              
-udp    UNCONN     0      0         *:980                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=8))
-udp    UNCONN     0      0         *:68                    *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dhclient"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2627,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=6))
-udp    UNCONN     0      0         *:111                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=5),(<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=57))
+udp    UNCONN     0      0         *:980                   *:*                   users:(("rpcbind",pid=10557,fd=8))
+udp    UNCONN     0      0         *:68                    *:*                   users:(("dhclient",pid=2627,fd=6))
+udp    UNCONN     0      0         *:111                   *:*                   users:(("rpcbind",pid=10557,fd=5),("systemd",pid=1,fd=57))
 udp    UNCONN     0      0         *:4789                  *:*                  
-udp    UNCONN     0      0        :::980                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=10))
-udp    UNCONN     0      0        :::111                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=9))
-udp    UNCONN     0      0        :::7946                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=48))
-tcp    LISTEN     0      128       *:111                   *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4),(<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=56))
-tcp    LISTEN     0      128       *:8022                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"sshd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2695,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=3))
-tcp    LISTEN     0      100    127.0.0.1:25                    *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"master"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=3570,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=13))
-tcp    LISTEN     0      128       *:9090                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"systemd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=1,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=26))
-tcp    LISTEN     0      10     127.0.0.1:2628                  *:*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dictd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2707,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=3))
-tcp    LISTEN     0      128      :::2377                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=37))
-tcp    LISTEN     0      128      :::7946                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"dockerd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=14901,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=47))
-tcp    LISTEN     0      128      :::3306                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"docker-proxy"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=15127,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4))
-tcp    LISTEN     0      128      :::111                  :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"rpcbind"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=10557,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=11))
-tcp    LISTEN     0      128      :::8022                 :::*                   users:((<span style="color: #00cd66; background-color: #dcdcdc;">"sshd"</span>,<span style="color: #912cee; background-color: #dcdcdc;">pid</span>=2695,<span style="color: #912cee; background-color: #dcdcdc;">fd</span>=4))
+udp    UNCONN     0      0        :::980                  :::*                   users:(("rpcbind",pid=10557,fd=10))
+udp    UNCONN     0      0        :::111                  :::*                   users:(("rpcbind",pid=10557,fd=9))
+udp    UNCONN     0      0        :::7946                 :::*                   users:(("dockerd",pid=14901,fd=48))
+tcp    LISTEN     0      128       *:111                   *:*                   users:(("rpcbind",pid=10557,fd=4),("systemd",pid=1,fd=56))
+tcp    LISTEN     0      128       *:8022                  *:*                   users:(("sshd",pid=2695,fd=3))
+tcp    LISTEN     0      100    127.0.0.1:25                    *:*                   users:(("master",pid=3570,fd=13))
+tcp    LISTEN     0      128       *:9090                  *:*                   users:(("systemd",pid=1,fd=26))
+tcp    LISTEN     0      10     127.0.0.1:2628                  *:*                   users:(("dictd",pid=2707,fd=3))
+tcp    LISTEN     0      128      :::2377                 :::*                   users:(("dockerd",pid=14901,fd=37))
+tcp    LISTEN     0      128      :::7946                 :::*                   users:(("dockerd",pid=14901,fd=47))
+tcp    LISTEN     0      128      :::3306                 :::*                   users:(("docker-proxy",pid=15127,fd=4))
+tcp    LISTEN     0      128      :::111                  :::*                   users:(("rpcbind",pid=10557,fd=11))
+tcp    LISTEN     0      128      :::8022                 :::*                   users:(("sshd",pid=2695,fd=4))
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgcdbacd8" class="outline-2">
-<h2 id="orgcdbacd8"><span class="section-number-2">3.</span> lsof</h2>
+<div id="outline-container-org7798568" class="outline-2">
+<h2 id="org7798568"><span class="section-number-2">3.</span> lsof</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">sudo lsof -i |grep LISTEN

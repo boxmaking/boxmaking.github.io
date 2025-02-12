@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>grub相关的设置</title>
@@ -24,21 +24,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org632bbdb">1. 更改 GRUB 默认启动项与超时时间</a></li>
+<li><a href="#orgd5a519b">1. 更改 GRUB 默认启动项与超时时间</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org632bbdb" class="outline-2">
-<h2 id="org632bbdb"><span class="section-number-2">1.</span> 更改 GRUB 默认启动项与超时时间</h2>
+<div id="outline-container-orgd5a519b" class="outline-2">
+<h2 id="orgd5a519b"><span class="section-number-2">1.</span> 更改 GRUB 默认启动项与超时时间</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 终端执行：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> gedit /etc/default/grub
+<pre class="src src-shell">$sudo gedit /etc/default/grub
 </pre>
 </div>
 
@@ -58,7 +58,7 @@ GRUB<sub>TIMEOUT</sub> 这一项是超时时间单位为秒.
 更改完毕后:
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> update-grub
+<pre class="src src-shell">$sudo update-grub
 </pre>
 </div>
 </div>

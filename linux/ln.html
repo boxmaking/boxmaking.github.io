@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>链接相关的教程</title>
@@ -24,21 +24,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org736af04">1. 硬链接和软链接</a></li>
-<li><a href="#orgccd050c">2. ln命令选项</a></li>
-<li><a href="#org611fbcd">3. 硬链接</a>
+<li><a href="#org03d9f71">1. 硬链接和软链接</a></li>
+<li><a href="#org088a9f9">2. ln命令选项</a></li>
+<li><a href="#orgc87324c">3. 硬链接</a>
 <ul>
-<li><a href="#orgde28b9e">3.1. 需要查看硬链接的所有文件的位置</a></li>
+<li><a href="#org258f74b">3.1. 需要查看硬链接的所有文件的位置</a></li>
 </ul>
 </li>
-<li><a href="#orgf525e34">4. 符号链接,软连接</a></li>
+<li><a href="#orgaa45ee1">4. 符号链接,软连接</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org736af04" class="outline-2">
-<h2 id="org736af04"><span class="section-number-2">1.</span> 硬链接和软链接</h2>
+<div id="outline-container-org03d9f71" class="outline-2">
+<h2 id="org03d9f71"><span class="section-number-2">1.</span> 硬链接和软链接</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 硬链接:ln source<sub>file</sub> dist<sub>file</sub>
@@ -55,10 +55,10 @@
 </div>
 
 
-<div id="outline-container-orgccd050c" class="outline-2">
-<h2 id="orgccd050c"><span class="section-number-2">2.</span> ln命令选项</h2>
+<div id="outline-container-org088a9f9" class="outline-2">
+<h2 id="org088a9f9"><span class="section-number-2">2.</span> ln命令选项</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org138d989">
+<pre class="example" id="org5026ef6">
 --backup[=CONTROL]  为每个已存在的目标文件创建备份文件
 -b        类似--backup，但不接受任何参数
 -d, -F, --directory   创建指向目录的硬链接(只适用于超级用户)
@@ -80,8 +80,8 @@
 </div>
 
 
-<div id="outline-container-org611fbcd" class="outline-2">
-<h2 id="org611fbcd"><span class="section-number-2">3.</span> 硬链接</h2>
+<div id="outline-container-orgc87324c" class="outline-2">
+<h2 id="orgc87324c"><span class="section-number-2">3.</span> 硬链接</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 建立硬链接时,在另外的目录或本目录中增加目标文件的一个目录项,这样,一个文件就登记在多个目录中.
@@ -108,8 +108,8 @@
 </p>
 </div>
 
-<div id="outline-container-orgde28b9e" class="outline-3">
-<h3 id="orgde28b9e"><span class="section-number-3">3.1.</span> 需要查看硬链接的所有文件的位置</h3>
+<div id="outline-container-org258f74b" class="outline-3">
+<h3 id="org258f74b"><span class="section-number-3">3.1.</span> 需要查看硬链接的所有文件的位置</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>ls -il 查看文件的inode</li>
@@ -120,8 +120,8 @@
 </div>
 
 
-<div id="outline-container-orgf525e34" class="outline-2">
-<h2 id="orgf525e34"><span class="section-number-2">4.</span> 符号链接,软连接</h2>
+<div id="outline-container-orgaa45ee1" class="outline-2">
+<h2 id="orgaa45ee1"><span class="section-number-2">4.</span> 符号链接,软连接</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 与硬链接不同的是,符号链接确实是一个新文件当然它具有不同的I节点号,而硬链接并没有建立新文件。
@@ -148,7 +148,7 @@
 当用ln -s命令列出文件时，可以看到符号链接名后有一个箭头指向源文件或目录，例如
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">lrwxrwxrwx &#8230; 14 jun 20 10:20 /etc/motd-&gt;/original_file
+<pre class="src src-shell">lrwxrwxrwx … 14 jun 20 10:20 /etc/motd-&gt;/original_file
 </pre>
 </div>
 <p>

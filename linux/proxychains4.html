@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>proxychains4使用教程</title>
@@ -24,36 +24,36 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc51a932">1. 安装</a></li>
-<li><a href="#org96b9ab9">2. 配置 proxychains4</a></li>
-<li><a href="#org26def46">3. 使用方法:</a></li>
+<li><a href="#orgd1dd240">1. 安装</a></li>
+<li><a href="#orga17a539">2. 配置 proxychains4</a></li>
+<li><a href="#orga2a9ef2">3. 使用方法:</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgc51a932" class="outline-2">
-<h2 id="orgc51a932"><span class="section-number-2">1.</span> 安装</h2>
+<div id="outline-container-orgd1dd240" class="outline-2">
+<h2 id="orgd1dd240"><span class="section-number-2">1.</span> 安装</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> apt install proxychains4
+<pre class="src src-shell">$sudo apt install proxychains4
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org96b9ab9" class="outline-2">
-<h2 id="org96b9ab9"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
+<div id="outline-container-orga17a539" class="outline-2">
+<h2 id="orga17a539"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> emacs /etc/proxychains4.conf
+<pre class="src src-shell">$sudo emacs /etc/proxychains4.conf
 </pre>
 </div>
 
 <ol class="org-ol">
 <li>将</li>
 </ol>
-<pre class="example" id="orgd07d2a6">
+<pre class="example" id="org16d06c4">
 socks4 127.0.0.1 9095
 更改为
 socks5 127.0.0.1 1080
@@ -70,14 +70,14 @@ proxychains.conf文件说明了代理配置格式.
 </div>
 </div>
 
-<div id="outline-container-org26def46" class="outline-2">
-<h2 id="org26def46"><span class="section-number-2">3.</span> 使用方法:</h2>
+<div id="outline-container-orga2a9ef2" class="outline-2">
+<h2 id="orga2a9ef2"><span class="section-number-2">3.</span> 使用方法:</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在需要代理的命令前加上 proxychains4 即可，如：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">proxychains4</span> curl ip.gs
+<pre class="src src-shell">$proxychains4 curl ip.gs
 </pre>
 </div>
 </div>

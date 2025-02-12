@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux的代理设置</title>
@@ -24,20 +24,20 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6ddf27f">1. 在终端中直接运行命令</a></li>
-<li><a href="#org5c8d811">2. 把代理服务器地址写入shell配置文件.bashrc或者.zshrc</a></li>
-<li><a href="#org4d29091">3. 其他软件的代理设置</a></li>
+<li><a href="#org70e4989">1. 在终端中直接运行命令</a></li>
+<li><a href="#org5341422">2. 把代理服务器地址写入shell配置文件.bashrc或者.zshrc</a></li>
+<li><a href="#orgb1638df">3. 其他软件的代理设置</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org6ddf27f" class="outline-2">
-<h2 id="org6ddf27f"><span class="section-number-2">1.</span> 在终端中直接运行命令</h2>
+<div id="outline-container-org70e4989" class="outline-2">
+<h2 id="org70e4989"><span class="section-number-2">1.</span> 在终端中直接运行命令</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">http_proxy</span>=http://proxyAddress:port 
+<pre class="src src-sh">export http_proxy=http://proxyAddress:port 
 </pre>
 </div>
 
@@ -50,14 +50,14 @@
 如果你用的是ss代理，在当前终端运行以下命令，那么wget curl 这类网络命令都会经过ss代理
 </p>
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">ALL_PROXY</span>=socks5://127.0.0.1:1080
+<pre class="src src-shell">export ALL_PROXY=socks5://127.0.0.1:1080
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5c8d811" class="outline-2">
-<h2 id="org5c8d811"><span class="section-number-2">2.</span> 把代理服务器地址写入shell配置文件.bashrc或者.zshrc</h2>
+<div id="outline-container-org5341422" class="outline-2">
+<h2 id="org5341422"><span class="section-number-2">2.</span> 把代理服务器地址写入shell配置文件.bashrc或者.zshrc</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><p>
@@ -65,8 +65,8 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">http_proxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"http://localhost:port"</span>
-<span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">https_proxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"http://localhost:port"</span>
+<pre class="src src-sh">export http_proxy="http://localhost:port"
+export https_proxy="http://localhost:port"
 </pre>
 </div></li>
 
@@ -75,8 +75,8 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">http_proxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"socks5://127.0.0.1:1080"</span>
-<span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">https_proxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"socks5://127.0.0.1:1080"</span>
+<pre class="src src-sh">export http_proxy="socks5://127.0.0.1:1080"
+export https_proxy="socks5://127.0.0.1:1080"
 </pre>
 </div></li>
 
@@ -85,7 +85,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">export</span> <span style="color: #912cee; background-color: #dcdcdc;">ALL_PROXY</span>=socks5://127.0.0.1:1080
+<pre class="src src-sh">export ALL_PROXY=socks5://127.0.0.1:1080
 </pre>
 </div>
 
@@ -98,7 +98,7 @@ localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">source</span> ~/.bashrc
+<pre class="src src-sh">source ~/.bashrc
 </pre>
 </div>
 
@@ -111,17 +111,17 @@ localhost就是一个域名，域名默认指向 127.0.0.1，两者是一样的�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #ba55d3; background-color: #dcdcdc;">alias</span> <span style="color: #912cee; background-color: #dcdcdc;">setproxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"export ALL_PROXY=socks5://127.0.0.1:1080"</span>
-<span style="color: #ba55d3; background-color: #dcdcdc;">alias</span> <span style="color: #912cee; background-color: #dcdcdc;">unsetproxy</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"unset ALL_PROXY"</span>
-<span style="color: #ba55d3; background-color: #dcdcdc;">alias</span> <span style="color: #912cee; background-color: #dcdcdc;">ip</span>=<span style="color: #00cd66; background-color: #dcdcdc;">"curl -i http://ip.cn"</span>
+<pre class="src src-sh">alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unsetproxy="unset ALL_PROXY"
+alias ip="curl -i http://ip.cn"
 </pre>
 </div></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4d29091" class="outline-2">
-<h2 id="org4d29091"><span class="section-number-2">3.</span> 其他软件的代理设置</h2>
+<div id="outline-container-orgb1638df" class="outline-2">
+<h2 id="orgb1638df"><span class="section-number-2">3.</span> 其他软件的代理设置</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><p>
@@ -135,7 +135,7 @@ apt的代理设置
 在文件末尾加入下面这行
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">Acquire::http::Proxy <span style="color: #00cd66; background-color: #dcdcdc;">"http://proxyAddress:port"</span>
+<pre class="src src-sh">Acquire::http::Proxy "http://proxyAddress:port"
 </pre>
 </div>
 <p>

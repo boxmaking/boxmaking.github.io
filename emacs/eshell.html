@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eshell使用记录</title>
@@ -24,14 +24,14 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org549d07d">1. 打开eshell</a></li>
-<li><a href="#orgcd99418">2. eshell使用自动补全</a></li>
+<li><a href="#orgad9dabf">1. 打开eshell</a></li>
+<li><a href="#org7f275a6">2. eshell使用自动补全</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org549d07d" class="outline-2">
-<h2 id="org549d07d"><span class="section-number-2">1.</span> 打开eshell</h2>
+<div id="outline-container-orgad9dabf" class="outline-2">
+<h2 id="orgad9dabf"><span class="section-number-2">1.</span> 打开eshell</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <code>M-x eshell</code>
@@ -39,15 +39,15 @@
 </div>
 </div>
 
-<div id="outline-container-orgcd99418" class="outline-2">
-<h2 id="orgcd99418"><span class="section-number-2">2.</span> eshell使用自动补全</h2>
+<div id="outline-container-org7f275a6" class="outline-2">
+<h2 id="org7f275a6"><span class="section-number-2">2.</span> eshell使用自动补全</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24573;&#30053;&#22823;&#23567;&#20889;&#36827;&#34892;&#34917;&#20840;</span>
+<pre class="src src-lisp">; 忽略大小写进行补全
 (setq eshell-cmpl-ignore-case t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20801;&#35768;&#24490;&#29615;&#34917;&#20840;</span>
+; 允许循环补全
 (setq eshell-cmpl-cycle-completions t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">; </span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35753; pcomplete &#25903;&#25345;&#24490;&#29615;&#34917;&#20840;</span>
+; 让 pcomplete 支持循环补全
 (setq pcomplete-cycle-completions t) 
 </pre>
 </div>

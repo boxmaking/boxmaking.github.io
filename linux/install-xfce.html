@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>debian安装xfce相关</title>
@@ -24,21 +24,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org27a4f71">1. 要安装最小的 X 窗口，使用以下命令：</a>
+<li><a href="#org17d73cb">1. 要安装最小的 X 窗口，使用以下命令：</a>
 <ul>
-<li><a href="#org8b605c3">1.1. 如果希望完全删除 Gnome，可以依次运行以下命令：</a></li>
+<li><a href="#org084daba">1.1. 如果希望完全删除 Gnome，可以依次运行以下命令：</a></li>
 </ul>
 </li>
-<li><a href="#org1d98af8">2. 安装 Xfce，运行以下命令：</a></li>
-<li><a href="#orgbdd4d89">3. 运行 Xfce</a></li>
+<li><a href="#org507415f">2. 安装 Xfce，运行以下命令：</a></li>
+<li><a href="#org1ec2e09">3. 运行 Xfce</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org27a4f71" class="outline-2">
-<h2 id="org27a4f71"><span class="section-number-2">1.</span> 要安装最小的 X 窗口，使用以下命令：</h2>
+<div id="outline-container-org17d73cb" class="outline-2">
+<h2 id="org17d73cb"><span class="section-number-2">1.</span> 要安装最小的 X 窗口，使用以下命令：</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">aptitude install xorg
@@ -47,13 +47,13 @@
 </div>
 
 
-<div id="outline-container-org8b605c3" class="outline-3">
-<h3 id="org8b605c3"><span class="section-number-3">1.1.</span> 如果希望完全删除 Gnome，可以依次运行以下命令：</h3>
+<div id="outline-container-org084daba" class="outline-3">
+<h3 id="org084daba"><span class="section-number-3">1.1.</span> 如果希望完全删除 Gnome，可以依次运行以下命令：</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
-<pre class="src src-shell">aptitude purge <span style="color: #ff00ff;">`dpkg --get-selections | grep gnome | cut -f 1`</span>
+<pre class="src src-shell">aptitude purge `dpkg --get-selections | grep gnome | cut -f 1`
 aptitude -f install
-aptitude purge <span style="color: #ff00ff;">`dpkg --get-selections | grep deinstall | cut -f 1`</span>
+aptitude purge `dpkg --get-selections | grep deinstall | cut -f 1`
 aptitude -f install
 </pre>
 </div>
@@ -62,8 +62,8 @@ aptitude -f install
 </div>
 
 
-<div id="outline-container-org1d98af8" class="outline-2">
-<h2 id="org1d98af8"><span class="section-number-2">2.</span> 安装 Xfce，运行以下命令：</h2>
+<div id="outline-container-org507415f" class="outline-2">
+<h2 id="org507415f"><span class="section-number-2">2.</span> 安装 Xfce，运行以下命令：</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">aptitude install xfce4
@@ -94,8 +94,8 @@ XFCE 带有很多实用的工具，可以用以下命令安装：
 
 
 
-<div id="outline-container-orgbdd4d89" class="outline-2">
-<h2 id="orgbdd4d89"><span class="section-number-2">3.</span> 运行 Xfce</h2>
+<div id="outline-container-org1ec2e09" class="outline-2">
+<h2 id="org1ec2e09"><span class="section-number-2">3.</span> 运行 Xfce</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 对于 GDM/KDM 选择 xfce4 会话。
@@ -104,7 +104,7 @@ XFCE 带有很多实用的工具，可以用以下命令安装：
 <p>
 对于 startx 在 ~/.xinitrc 里添加一行：
 </p>
-<pre class="example" id="orgfeb7828">
+<pre class="example" id="org4a3e894">
 exec ck-launch-session startxfce4
 </pre>
 
@@ -112,7 +112,7 @@ exec ck-launch-session startxfce4
 <p>
 对于 slim 在 /etc/slim.conf 里添加以下行：
 </p>
-<pre class="example" id="org24b0a8a">
+<pre class="example" id="orge699f35">
 login_cmd exec ck-launch-session /bin/bash -login /etc/X11/Xsession %session
 </pre>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>find-tutorial</title>
@@ -24,16 +24,16 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb9c5c05">1. find 常用命令</a></li>
-<li><a href="#org20749d6">2. exec与xargs区别</a>
+<li><a href="#orgd63beab">1. find 常用命令</a></li>
+<li><a href="#org6164fe5">2. exec与xargs区别</a>
 <ul>
-<li><a href="#org56deb23">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
-<li><a href="#org0df5664">2.2. 出各自的缺点</a></li>
+<li><a href="#orgfcc25e3">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
+<li><a href="#org362ae89">2.2. 出各自的缺点</a></li>
 </ul>
 </li>
-<li><a href="#orgfdc034d">3. -exec使用教程</a>
+<li><a href="#org3729a70">3. -exec使用教程</a>
 <ul>
-<li><a href="#org22556b0">3.1. exec参数说明</a></li>
+<li><a href="#org28bb3fc">3.1. exec参数说明</a></li>
 </ul>
 </li>
 </ul>
@@ -41,8 +41,8 @@
 </nav>
 
 
-<div id="outline-container-orgb9c5c05" class="outline-2">
-<h2 id="orgb9c5c05"><span class="section-number-2">1.</span> find 常用命令</h2>
+<div id="outline-container-orgd63beab" class="outline-2">
+<h2 id="orgd63beab"><span class="section-number-2">1.</span> find 常用命令</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一般格式： find+目录名称+参数
@@ -255,12 +255,12 @@
 </div>
 
 
-<div id="outline-container-org20749d6" class="outline-2">
-<h2 id="org20749d6"><span class="section-number-2">2.</span> exec与xargs区别</h2>
+<div id="outline-container-org6164fe5" class="outline-2">
+<h2 id="org6164fe5"><span class="section-number-2">2.</span> exec与xargs区别</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org56deb23" class="outline-3">
-<h3 id="org56deb23"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
+<div id="outline-container-orgfcc25e3" class="outline-3">
+<h3 id="orgfcc25e3"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>-exec：{}表示命令的参数即为所找到的文件,以；表示comman命令的结束。\是转义符，
@@ -278,15 +278,15 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f
+<pre class="src src-shell">$find test/ -type f
 test/myfile.name
 test/files/role_file
 test/files/install_file
 
-$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f |xargs echo
+$find test/ -type f |xargs echo
 test/myfile.name test/files/role_file test/files/install_file
 
-$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -type f -exec echo {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+$find test/ -type f -exec echo {} \;
 test/myfile.name
 test/files/role_file
 test/files/install_file
@@ -314,24 +314,24 @@ test/files/install_file
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">touch</span> test/<span style="color: #00cd66; background-color: #dcdcdc;">'test zzh'</span>
+<pre class="src src-shell">$touch test/'test zzh'
 
-$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -name *zzh
+$find test/ -name *zzh
 test/test zzh
 
-$<span style="color: #912cee; background-color: #dcdcdc;">find</span> test/ -name *zzh |xargs rm
-rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or directory</span>
-<span style="color: #ff00ff;">rm: cannot remove `</span>zzh<span style="color: #00cd66; background-color: #dcdcdc;">': No such file or directory</span>
+$find test/ -name *zzh |xargs rm
+rm: cannot remove `test/test': No such file or directory
+rm: cannot remove `zzh': No such file or directory
 
-<span style="color: #00cd66; background-color: #dcdcdc;">$find test/ -name *zzh -exec rm {} \;</span>
+$find test/ -name *zzh -exec rm {} \;
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org0df5664" class="outline-3">
-<h3 id="org0df5664"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
+<div id="outline-container-org362ae89" class="outline-3">
+<h3 id="org362ae89"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li>exec 每处理一个文件或者目录，它都需要启动一次命令，效率不好;</li>
@@ -343,8 +343,8 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 </div>
 
 
-<div id="outline-container-orgfdc034d" class="outline-2">
-<h2 id="orgfdc034d"><span class="section-number-2">3.</span> -exec使用教程</h2>
+<div id="outline-container-org3729a70" class="outline-2">
+<h2 id="org3729a70"><span class="section-number-2">3.</span> -exec使用教程</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 综上，如果要使用的命令支持一次处理多个文件，并且也知道这些文件里没有带空格的文件，
@@ -352,8 +352,8 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 </p>
 </div>
 
-<div id="outline-container-org22556b0" class="outline-3">
-<h3 id="org22556b0"><span class="section-number-3">3.1.</span> exec参数说明</h3>
+<div id="outline-container-org28bb3fc" class="outline-3">
+<h3 id="org28bb3fc"><span class="section-number-3">3.1.</span> exec参数说明</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 -exec 参数后面跟的是command命令
@@ -367,16 +367,16 @@ rm: cannot remove <span style="color: #ff00ff;">`test/test': No such file or dir
 查找当前目录下的文件，并对查找结果执行ls -l 命令
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;</span>
-find . -type f -exec ls -l {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+<pre class="src src-sh">#命令
+find . -type f -exec ls -l {} \;
+#输出：
 [root@localhost home]# ls
 1.log  2.log  3.c  4.log  test
 [root@localhost home]# find  -type f
 ./1.log
 ./2.log
 ./3.c
-[root@localhost home]# find -type f -exec ls -l {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# find -type f -exec ls -l {} \;
 -rw-r--r--. 1 root root 0 Nov 14 17:55 ./1.log
 -rw-r--r--. 1 root root 0 Nov 14 17:55 ./2.log
 -rwxrwxrwx. 1 root root 0 Nov 14 18:00 ./3.c
@@ -387,9 +387,9 @@ find . -type f -exec ls -l {} <span style="color: #00cd66; background-color: #dc
 查找当前目录下，24小时内更改过的文件，并进行删除操作删除没有提示
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;</span>
-find -type f -mtime -1 -exec rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;</span>
+<pre class="src src-sh">#命令
+find -type f -mtime -1 -exec rm {} \;
+#输出
 [root@localhost home]# ll
 total 0
 -rw-r--r--. 1 root root 0 Nov 14 17:55 1.log
@@ -400,7 +400,7 @@ drwxr-xr-x. 2 root root 6 Nov 14 18:16 4.log
 drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
 [root@localhost home]# find -type f -mtime -1
 ./5.log
-[root@localhost home]# find -type f -mtime -1 -exec rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# find -type f -mtime -1 -exec rm {} \;
 [root@localhost home]# ls
 1.log  2.log  3.c  4.log  test
 </pre>
@@ -414,9 +414,9 @@ drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
 查找当前目录下文件名以.log结尾且24小时内更改过的文件,并进行安全删除操作,即删除前会进行询问
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;&#65306;</span>
-find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -type f  -mtime -1 -ok rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+<pre class="src src-sh">#命令：
+find -name "*.log" -type f  -mtime -1 -ok rm {} \;
+#输出：
 [root@localhost home]# touch 6.c
 [root@localhost home]# touch 7.c
 [root@localhost home]# ls
@@ -430,7 +430,7 @@ drwxr-xr-x. 2 root root 6 Nov 14 18:16 4.log
 -rw-r--r--. 1 root root 0 Nov 15 18:07 6.log
 -rw-r--r--. 1 root root 0 Nov 15 18:07 7.c
 drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
-[root@localhost home]# find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -mtime -1 -ok rm {} <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# find -name "*.log" -mtime -1 -ok rm {} \;
 &lt; rm ... ./6.log &gt; ? y
 [root@localhost home]# ll
 total 0
@@ -453,30 +453,30 @@ drwxr-xr-x. 2 root root 6 Nov 14 17:55 test
 查找当前目录下的以.log结尾的文件或目录，并移动到test目录下
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#21629;&#20196;&#65306;</span>
-find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -exec mv {} <span style="color: #ba55d3; background-color: #dcdcdc;">test</span> <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#36755;&#20986;&#65306;</span>
+<pre class="src src-sh">#命令：
+find -name "*.log" -exec mv {} test \;
+#输出：
 [root@localhost home]# tree
-<span style="color: #ba55d3; background-color: #dcdcdc;">.</span>
-&#9500;&#9472;&#9472; 1.log
-&#9500;&#9472;&#9472; 2.log
-&#9500;&#9472;&#9472; 3.c
-&#9500;&#9472;&#9472; 4.log
-&#9500;&#9472;&#9472; 7.c
-&#9492;&#9472;&#9472; test
+.
+├── 1.log
+├── 2.log
+├── 3.c
+├── 4.log
+├── 7.c
+└── test
 
 2 directories, 4 files
-[root@localhost home]# find -name <span style="color: #00cd66; background-color: #dcdcdc;">"*.log"</span> -exec mv {} <span style="color: #ba55d3; background-color: #dcdcdc;">test</span> <span style="color: #00cd66; background-color: #dcdcdc;">\;</span>
+[root@localhost home]# find -name "*.log" -exec mv {} test \;
 [root@localhost home]# ls
 3.c  7.c  test
 [root@localhost home]# tree
-<span style="color: #ba55d3; background-color: #dcdcdc;">.</span>
-&#9500;&#9472;&#9472; 3.c
-&#9500;&#9472;&#9472; 7.c
-&#9492;&#9472;&#9472; test
-&#9500;&#9472;&#9472; 1.log
-&#9500;&#9472;&#9472; 2.log
-&#9492;&#9472;&#9472; 4.log
+.
+├── 3.c
+├── 7.c
+└── test
+├── 1.log
+├── 2.log
+└── 4.log
 
 2 directories, 4 files
 </pre>

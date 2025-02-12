@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>存储与文件系统</title>
@@ -24,21 +24,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6d2eadd">1. 基本修养：存储与文件系统</a></li>
-<li><a href="#org959bc10">2. 存储 (Storage)</a></li>
-<li><a href="#orgf8ea614">3. 硬盘 (HDD, Hard Disk Drive)</a></li>
-<li><a href="#org46c9a8d">4. 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</a></li>
-<li><a href="#org40ad84d">5. S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</a></li>
-<li><a href="#org6e676f6">6. 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</a></li>
-<li><a href="#org598e7a6">7. 文件系统 (FS, File System)</a></li>
-<li><a href="#org58709cd">8. 网络文件系统 (Network File System)</a></li>
+<li><a href="#orgf72355c">1. 基本修养：存储与文件系统</a></li>
+<li><a href="#orgfa6200b">2. 存储 (Storage)</a></li>
+<li><a href="#orgf5078d2">3. 硬盘 (HDD, Hard Disk Drive)</a></li>
+<li><a href="#org093aaa9">4. 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</a></li>
+<li><a href="#orgc1619e8">5. S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</a></li>
+<li><a href="#org52c688a">6. 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</a></li>
+<li><a href="#orgb5c4cb5">7. 文件系统 (FS, File System)</a></li>
+<li><a href="#org23ce67d">8. 网络文件系统 (Network File System)</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org6d2eadd" class="outline-2">
-<h2 id="org6d2eadd"><span class="section-number-2">1.</span> 基本修养：存储与文件系统</h2>
+<div id="outline-container-orgf72355c" class="outline-2">
+<h2 id="orgf72355c"><span class="section-number-2">1.</span> 基本修养：存储与文件系统</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 发布于 2019年12月23日    原创作品，转载请注明<a href="https://deerchao.cn/blog/posts/storage.html">来源</a>.
@@ -47,8 +47,8 @@
 </div>
 
 
-<div id="outline-container-org959bc10" class="outline-2">
-<h2 id="org959bc10"><span class="section-number-2">2.</span> 存储 (Storage)</h2>
+<div id="outline-container-orgfa6200b" class="outline-2">
+<h2 id="orgfa6200b"><span class="section-number-2">2.</span> 存储 (Storage)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 存储是用于保有数据的技术。
@@ -65,8 +65,8 @@
 </div>
 
 
-<div id="outline-container-orgf8ea614" class="outline-2">
-<h2 id="orgf8ea614"><span class="section-number-2">3.</span> 硬盘 (HDD, Hard Disk Drive)</h2>
+<div id="outline-container-orgf5078d2" class="outline-2">
+<h2 id="orgf5078d2"><span class="section-number-2">3.</span> 硬盘 (HDD, Hard Disk Drive)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 硬盘是一种电子机械设备，使用转动的磁盘和可平面移动的磁头来存取数据。
@@ -91,8 +91,8 @@
 </div>
 
 
-<div id="outline-container-org46c9a8d" class="outline-2">
-<h2 id="org46c9a8d"><span class="section-number-2">4.</span> 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</h2>
+<div id="outline-container-org093aaa9" class="outline-2">
+<h2 id="org093aaa9"><span class="section-number-2">4.</span> 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 固态硬盘使用闪存芯片存储数据。
@@ -113,8 +113,8 @@
 </div>
 
 
-<div id="outline-container-org40ad84d" class="outline-2">
-<h2 id="org40ad84d"><span class="section-number-2">5.</span> S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</h2>
+<div id="outline-container-orgc1619e8" class="outline-2">
+<h2 id="orgc1619e8"><span class="section-number-2">5.</span> S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 磁盘可能因为机械磨损，材料降级等原因发生故障。为增强数据安全性，现代的磁盘基本都支持通过 S.M.A.R.T. 向软件系统报告自身健康状态。S.M.A.R.T. 标准仅定义了软硬件间通信的接口协议，并未规定具体的监控指标（Attribute, 特性），因此不同厂商的产品或不同的产品系列报告的数据意义并不完全相同。
@@ -139,8 +139,8 @@ S.M.A.R.T 报告的数据中，有一个最基本的状态，代表是否已超�
 </div>
 
 
-<div id="outline-container-org6e676f6" class="outline-2">
-<h2 id="org6e676f6"><span class="section-number-2">6.</span> 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</h2>
+<div id="outline-container-org52c688a" class="outline-2">
+<h2 id="org52c688a"><span class="section-number-2">6.</span> 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，以提升性能和/或安全性。 RAID 有不同的等级，分别达到不同的整合效果。常用的等级有以下几种：
@@ -162,8 +162,8 @@ RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，
 
 
 
-<div id="outline-container-org598e7a6" class="outline-2">
-<h2 id="org598e7a6"><span class="section-number-2">7.</span> 文件系统 (FS, File System)</h2>
+<div id="outline-container-orgb5c4cb5" class="outline-2">
+<h2 id="orgb5c4cb5"><span class="section-number-2">7.</span> 文件系统 (FS, File System)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 文件系统是用于在存储介质上组织和存取数据的软件。它提供了数据分组的抽象机制（文件，目录等），以及在此抽象机制上的操作接口。文件系统有很多种，以适应不同的底层存储机制（如硬盘，光盘，网络等），达到不同的设计目标（如速度，灵活性，安全等）。
@@ -194,8 +194,8 @@ RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，
 
 
 
-<div id="outline-container-org58709cd" class="outline-2">
-<h2 id="org58709cd"><span class="section-number-2">8.</span> 网络文件系统 (Network File System)</h2>
+<div id="outline-container-org23ce67d" class="outline-2">
+<h2 id="org23ce67d"><span class="section-number-2">8.</span> 网络文件系统 (Network File System)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 网络文件系统作为远程文件访问协议的客户端，提供服务器上文件的存取服务。常见的网络文件系统(及类似系统）包括以下几种：

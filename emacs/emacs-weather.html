@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-11 Tue 21:50 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs一键插入-日期,农历,月相,万年历</title>
@@ -24,28 +24,28 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgafa292f">1. wttr.in天气信息的API调取</a></li>
-<li><a href="#org56e6911">2. pyphoon月相的调取</a></li>
-<li><a href="#orgd8610b9">3. 农历API调取地址</a>
+<li><a href="#org6597021">1. wttr.in天气信息的API调取</a></li>
+<li><a href="#org1708b98">2. pyphoon月相的调取</a></li>
+<li><a href="#orgdc9878c">3. 农历API调取地址</a>
 <ul>
-<li><a href="#org03e30a7">3.1. 先写一个shellscript来调取农历API地址中的字符串</a></li>
-<li><a href="#org0cc0621">3.2. 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</a></li>
-<li><a href="#org04828d3">3.3. 然后就能用elisp调用这两个文件</a></li>
+<li><a href="#org8fdd284">3.1. 先写一个shellscript来调取农历API地址中的字符串</a></li>
+<li><a href="#org4c44167">3.2. 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</a></li>
+<li><a href="#org0834e77">3.3. 然后就能用elisp调用这两个文件</a></li>
 </ul>
 </li>
-<li><a href="#orgaa7cf07">4. 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</a>
+<li><a href="#org934967f">4. 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</a>
 <ul>
-<li><a href="#org6dd2cca">4.1. 效果</a></li>
-<li><a href="#orgc823199">4.2. 设置的快捷键,可以随意调取</a></li>
+<li><a href="#org89f73d2">4.1. 效果</a></li>
+<li><a href="#orgab3d7b4">4.2. 设置的快捷键,可以随意调取</a></li>
 </ul>
 </li>
-<li><a href="#org235ba37">5. 配置文件</a></li>
+<li><a href="#org8fab4c7">5. 配置文件</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgafa292f" class="outline-2">
-<h2 id="orgafa292f"><span class="section-number-2">1.</span> wttr.in天气信息的API调取</h2>
+<div id="outline-container-org6597021" class="outline-2">
+<h2 id="org6597021"><span class="section-number-2">1.</span> wttr.in天气信息的API调取</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 wttr.in的地址 <a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a>
@@ -64,8 +64,8 @@ wttr.in的地址 <a href="https://github.com/chubin/wttr.in">https://github.com/
 </div>
 
 
-<div id="outline-container-org56e6911" class="outline-2">
-<h2 id="org56e6911"><span class="section-number-2">2.</span> pyphoon月相的调取</h2>
+<div id="outline-container-org1708b98" class="outline-2">
+<h2 id="org1708b98"><span class="section-number-2">2.</span> pyphoon月相的调取</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/chubin/pyphoon</a>
@@ -82,16 +82,16 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </div>
 </div>
 
-<div id="outline-container-orgd8610b9" class="outline-2">
-<h2 id="orgd8610b9"><span class="section-number-2">3.</span> 农历API调取地址</h2>
+<div id="outline-container-orgdc9878c" class="outline-2">
+<h2 id="orgdc9878c"><span class="section-number-2">3.</span> 农历API调取地址</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="https://api.aa1.cn/doc/almanac.html">https://api.aa1.cn/doc/almanac.html</a>
 </p>
 </div>
 
-<div id="outline-container-org03e30a7" class="outline-3">
-<h3 id="org03e30a7"><span class="section-number-3">3.1.</span> 先写一个shellscript来调取农历API地址中的字符串</h3>
+<div id="outline-container-org8fdd284" class="outline-3">
+<h3 id="org8fdd284"><span class="section-number-3">3.1.</span> 先写一个shellscript来调取农历API地址中的字符串</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 例如这个效果: "2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 "
@@ -126,8 +126,8 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </div>
 </div>
 
-<div id="outline-container-org0cc0621" class="outline-3">
-<h3 id="org0cc0621"><span class="section-number-3">3.2.</span> 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</h3>
+<div id="outline-container-org4c44167" class="outline-3">
+<h3 id="org4c44167"><span class="section-number-3">3.2.</span> 这个效果" &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; "</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 配置文件如下:
@@ -162,8 +162,8 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </div>
 </div>
 
-<div id="outline-container-org04828d3" class="outline-3">
-<h3 id="org04828d3"><span class="section-number-3">3.3.</span> 然后就能用elisp调用这两个文件</h3>
+<div id="outline-container-org0834e77" class="outline-3">
+<h3 id="org0834e77"><span class="section-number-3">3.3.</span> 然后就能用elisp调用这两个文件</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>  (defun insert-nongli ()
@@ -185,8 +185,8 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </div>
 
 
-<div id="outline-container-orgaa7cf07" class="outline-2">
-<h2 id="orgaa7cf07"><span class="section-number-2">4.</span> 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</h2>
+<div id="outline-container-org934967f" class="outline-2">
+<h2 id="org934967f"><span class="section-number-2">4.</span> 还可以在已启动的那个*scratch*页面显示出来,虽然没什么用,但是总比那个啥信息都没有的强.</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 将以下代码添加到你的 Emacs 配置文件中：
@@ -204,11 +204,11 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </pre>
 </div>
 </div>
-<div id="outline-container-org6dd2cca" class="outline-3">
-<h3 id="org6dd2cca"><span class="section-number-3">4.1.</span> 效果</h3>
+<div id="outline-container-org89f73d2" class="outline-3">
+<h3 id="org89f73d2"><span class="section-number-3">4.1.</span> 效果</h3>
 <div class="outline-text-3" id="text-4-1">
 
-<figure id="orgb403980">
+<figure id="org6f696da">
 <img src="emacs-init.png" alt="emacs-init.png">
 
 </figure>
@@ -216,14 +216,14 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 </div>
 
 
-<div id="outline-container-orgc823199" class="outline-3">
-<h3 id="orgc823199"><span class="section-number-3">4.2.</span> 设置的快捷键,可以随意调取</h3>
+<div id="outline-container-orgab3d7b4" class="outline-3">
+<h3 id="orgab3d7b4"><span class="section-number-3">4.2.</span> 设置的快捷键,可以随意调取</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><p>
 C-c m o 插入月相(刚好是满月)
 </p>
-<div class="ASCII" id="org0874ed6">
+<div class="ASCII" id="org760c94f">
 <p>
 		.-------&#x2013;&#x2014;.	 
 	  .&#x2013;'  o     . .   `&#x2013;.	 
@@ -297,25 +297,25 @@ C-c m o 插入月相(刚好是满月)
 <li><p>
 C-c m w 插入济南的天气
 </p>
-<pre class="example" id="org9f5a708">
+<pre class="example" id="org5326e26">
 jinan: 🌦   🌡️+7°C 🌬️↗8km/h
 </pre></li>
 <li><p>
 C-c m n 插入农历
 </p>
-<pre class="example" id="orga852c38">
+<pre class="example" id="orgf1788e9">
 2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 
 </pre></li>
 <li><p>
 C-c m j 简介版本的农历
 </p>
-<pre class="example" id="org39fc398">
+<pre class="example" id="org8854267">
 &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; 
 </pre></li>
 <li><p>
 C-c m y 显示出当年时间已经流逝的百分比
 </p>
-<pre class="example" id="org8fad6d5">
+<pre class="example" id="orgeed91d4">
 [///                           ] 11%
 </pre></li>
 </ul>
@@ -323,8 +323,8 @@ C-c m y 显示出当年时间已经流逝的百分比
 </div>
 </div>
 
-<div id="outline-container-org235ba37" class="outline-2">
-<h2 id="org235ba37"><span class="section-number-2">5.</span> 配置文件</h2>
+<div id="outline-container-org8fab4c7" class="outline-2">
+<h2 id="org8fab4c7"><span class="section-number-2">5.</span> 配置文件</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

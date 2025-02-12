@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-可视化编辑教程</title>
@@ -24,19 +24,19 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4594d16">1. emacs编辑的快捷键 ::</a></li>
-<li><a href="#org485a59a">2. emacs列编辑模式 ::</a></li>
-<li><a href="#orgb995642">3. cua-mode (Common User Access mode) ::</a>
+<li><a href="#org58dea41">1. emacs编辑的快捷键 ::</a></li>
+<li><a href="#org9d1cc9d">2. emacs列编辑模式 ::</a></li>
+<li><a href="#org9d7af75">3. cua-mode (Common User Access mode) ::</a>
 <ul>
-<li><a href="#org3b0a77f">3.1. cua-mode (Common User Access mode)</a></li>
+<li><a href="#org6f4cc93">3.1. cua-mode (Common User Access mode)</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org4594d16" class="outline-2">
-<h2 id="org4594d16"><span class="section-number-2">1.</span> emacs编辑的快捷键 ::</h2>
+<div id="outline-container-org58dea41" class="outline-2">
+<h2 id="org58dea41"><span class="section-number-2">1.</span> emacs编辑的快捷键 ::</h2>
 <div class="outline-text-2" id="text-1">
 <table>
 
@@ -129,8 +129,8 @@
 
 
 
-<div id="outline-container-org485a59a" class="outline-2">
-<h2 id="org485a59a"><span class="section-number-2">2.</span> emacs列编辑模式 ::</h2>
+<div id="outline-container-org9d1cc9d" class="outline-2">
+<h2 id="org9d1cc9d"><span class="section-number-2">2.</span> emacs列编辑模式 ::</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 emacs以C-x r开头的命令来进行矩形操作
@@ -196,8 +196,8 @@ emacs以C-x r开头的命令来进行矩形操作
 </div>
 
 
-<div id="outline-container-orgb995642" class="outline-2">
-<h2 id="orgb995642"><span class="section-number-2">3.</span> cua-mode (Common User Access mode) ::</h2>
+<div id="outline-container-org9d7af75" class="outline-2">
+<h2 id="org9d7af75"><span class="section-number-2">3.</span> cua-mode (Common User Access mode) ::</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 cua-mode也是一种更好的可视化的列模式
@@ -212,8 +212,8 @@ cua-mode和cua-rect是有区别的
 这里我设置了直接在任何模式下启动的快捷键
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">cua-rectangle-mark-mode&#30340;&#24555;&#25463;&#38190;</span>
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c n"</span>) 'cua-rectangle-mark-mode)
+<pre class="src src-lisp">;;cua-rectangle-mark-mode的快捷键
+(global-set-key (kbd "C-c n") 'cua-rectangle-mark-mode)
 </pre>
 </div></li>
 </ul></li>
@@ -229,8 +229,8 @@ cua-mode和cua-rect是有区别的
 </ol>
 </div>
 
-<div id="outline-container-org3b0a77f" class="outline-3">
-<h3 id="org3b0a77f"><span class="section-number-3">3.1.</span> cua-mode (Common User Access mode)</h3>
+<div id="outline-container-org6f4cc93" class="outline-3">
+<h3 id="org6f4cc93"><span class="section-number-3">3.1.</span> cua-mode (Common User Access mode)</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>直接输入字符: 在每行前(或后)都插入这个字符</li>

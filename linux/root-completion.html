@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>root-completion</title>
@@ -24,16 +24,16 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge86f3f6">1. 1. ubuntu bash 自动补齐</a></li>
-<li><a href="#org2e14bda">2. 2. debian下增强bash的自动补全功能</a></li>
-<li><a href="#org0800dd9">3. 3. centos bash自动补全</a></li>
+<li><a href="#org0d1ce43">1. 1. ubuntu bash 自动补齐</a></li>
+<li><a href="#orgc0fa136">2. 2. debian下增强bash的自动补全功能</a></li>
+<li><a href="#orga06bd1a">3. 3. centos bash自动补全</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-orge86f3f6" class="outline-2">
-<h2 id="orge86f3f6"><span class="section-number-2">1.</span> 1. ubuntu bash 自动补齐</h2>
+<div id="outline-container-org0d1ce43" class="outline-2">
+<h2 id="org0d1ce43"><span class="section-number-2">1.</span> 1. ubuntu bash 自动补齐</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 打开~/.bashrc把最后的注释/etc/bash<sub>completion的三行打开</sub>。
@@ -42,8 +42,8 @@
 </div>
 
 
-<div id="outline-container-org2e14bda" class="outline-2">
-<h2 id="org2e14bda"><span class="section-number-2">2.</span> 2. debian下增强bash的自动补全功能</h2>
+<div id="outline-container-orgc0fa136" class="outline-2">
+<h2 id="orgc0fa136"><span class="section-number-2">2.</span> 2. debian下增强bash的自动补全功能</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 根据zhllg的提示，在debian下增强了自动补齐功能，现在很多命令的参数也可以自动补全了。
@@ -54,9 +54,9 @@
 修改/etc/bash.bashrc文件，将
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">if [ -f /etc/bash_completion ]; then</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;"># </span><span style="color: #4f94cd; background-color: #dcdcdc;">. /etc/bash_completion</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">fi</span>
+<pre class="src src-sh">#if [ -f /etc/bash_completion ]; then
+# . /etc/bash_completion
+#fi
 </pre>
 </div>
 <p>
@@ -78,8 +78,8 @@ source /etc/bash.bashrc
 </div>
 
 
-<div id="outline-container-org0800dd9" class="outline-2">
-<h2 id="org0800dd9"><span class="section-number-2">3.</span> 3. centos bash自动补全</h2>
+<div id="outline-container-orga06bd1a" class="outline-2">
+<h2 id="orga06bd1a"><span class="section-number-2">3.</span> 3. centos bash自动补全</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 用过Debian或Ubuntu的用户或许都习惯了其命令行的补全功能，其实在CentOS下也可使实现，只是需要安装bash-completion这个包而已，具体提安装方法：

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git使用代理教程</title>
@@ -24,18 +24,18 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3c5d2a0">1. 基本设置</a></li>
-<li><a href="#orgbc30ba6">2. socks5设置</a></li>
-<li><a href="#orge0ec218">3. http设置,设置了socks5可忽略</a></li>
-<li><a href="#org49e2d6b">4. 针对 github.com 的单独配置：</a></li>
-<li><a href="#orge8b91e5">5. 取消代理</a></li>
+<li><a href="#orga8ea59a">1. 基本设置</a></li>
+<li><a href="#org63bdc52">2. socks5设置</a></li>
+<li><a href="#org66ee0ea">3. http设置,设置了socks5可忽略</a></li>
+<li><a href="#orged0c1dc">4. 针对 github.com 的单独配置：</a></li>
+<li><a href="#org87373cc">5. 取消代理</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org3c5d2a0" class="outline-2">
-<h2 id="org3c5d2a0"><span class="section-number-2">1.</span> 基本设置</h2>
+<div id="outline-container-orga8ea59a" class="outline-2">
+<h2 id="orga8ea59a"><span class="section-number-2">1.</span> 基本设置</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 不需要设置https,反正我设置了心理安慰吧
@@ -43,13 +43,13 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#25152;&#26377;&#35774;&#32622;</span>
+<pre class="src src-shell">#查看所有设置
 git config -l
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#20195;&#29702;</span>
+<pre class="src src-shell">#查看代理
 git config --global --get http.proxy
 </pre>
 </div>
@@ -57,8 +57,8 @@ git config --global --get http.proxy
 </div>
 
 
-<div id="outline-container-orgbc30ba6" class="outline-2">
-<h2 id="orgbc30ba6"><span class="section-number-2">2.</span> socks5设置</h2>
+<div id="outline-container-org63bdc52" class="outline-2">
+<h2 id="org63bdc52"><span class="section-number-2">2.</span> socks5设置</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">git config --global http.proxy socks5://127.0.0.1:1090
@@ -67,11 +67,11 @@ git config --global https.proxy socks5://127.0.0.1:1090
 </div>
 </div>
 </div>
-<div id="outline-container-orge0ec218" class="outline-2">
-<h2 id="orge0ec218"><span class="section-number-2">3.</span> http设置,设置了socks5可忽略</h2>
+<div id="outline-container-org66ee0ea" class="outline-2">
+<h2 id="org66ee0ea"><span class="section-number-2">3.</span> http设置,设置了socks5可忽略</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#20165;&#20165;&#38024;&#23545;http</span>
+<pre class="src src-shell">#仅仅针对http
 git config --global http.proxy http://127.0.0.1:41091
 git config --global https.proxy https://127.0.0.1:41091
 </pre>
@@ -79,15 +79,15 @@ git config --global https.proxy https://127.0.0.1:41091
 </div>
 </div>
 
-<div id="outline-container-org49e2d6b" class="outline-2">
-<h2 id="org49e2d6b"><span class="section-number-2">4.</span> 针对 github.com 的单独配置：</h2>
+<div id="outline-container-orged0c1dc" class="outline-2">
+<h2 id="orged0c1dc"><span class="section-number-2">4.</span> 针对 github.com 的单独配置：</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">socks5&#21327;&#35758;&#65292;1080&#31471;&#21475;&#20462;&#25913;&#25104;&#33258;&#24049;&#30340;&#26412;&#22320;&#20195;&#29702;&#31471;&#21475;</span>
+<pre class="src src-shell">#socks5协议，1080端口修改成自己的本地代理端口
 git config --global http.https://github.com.proxy socks5://127.0.0.1:1090
 git config --global https.https://github.com.proxy socks5://127.0.0.1:1090
 
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">http&#21327;&#35758;&#65292;1081&#31471;&#21475;&#20462;&#25913;&#25104;&#33258;&#24049;&#30340;&#26412;&#22320;&#20195;&#29702;&#31471;&#21475;</span>
+#http协议，1081端口修改成自己的本地代理端口
 git config --global http.https://github.com.proxy https://127.0.0.1:41091
 git config --global https.https://github.com.proxy https://127.0.0.1:41091
 </pre>
@@ -96,11 +96,11 @@ git config --global https.https://github.com.proxy https://127.0.0.1:41091
 </div>
 
 
-<div id="outline-container-orge8b91e5" class="outline-2">
-<h2 id="orge8b91e5"><span class="section-number-2">5.</span> 取消代理</h2>
+<div id="outline-container-org87373cc" class="outline-2">
+<h2 id="org87373cc"><span class="section-number-2">5.</span> 取消代理</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">reset &#20195;&#29702;&#35774;&#32622;</span>
+<pre class="src src-shell">#reset 代理设置
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 </pre>

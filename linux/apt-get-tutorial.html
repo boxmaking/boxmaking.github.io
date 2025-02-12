@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-11 Tue 19:52 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>apt-get教程使用</title>
@@ -24,20 +24,20 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5964811">1. 查看软件包的详细网址和各种依赖情况</a></li>
-<li><a href="#org6ce3ede">2. apt-get意外中断解决办法</a>
+<li><a href="#org0b35c83">1. 查看软件包的详细网址和各种依赖情况</a></li>
+<li><a href="#org76b851f">2. apt-get意外中断解决办法</a>
 <ul>
-<li><a href="#orgcc4d76d">2.1. 尾声</a></li>
+<li><a href="#orgd0f7414">2.1. 尾声</a></li>
 </ul>
 </li>
-<li><a href="#orga349593">3. dpkg安装和卸载软件教程</a></li>
-<li><a href="#org96f6988">4. dpkg使用代理</a></li>
+<li><a href="#orgd64414d">3. dpkg安装和卸载软件教程</a></li>
+<li><a href="#org9e3c0b9">4. dpkg使用代理</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org5964811" class="outline-2">
-<h2 id="org5964811"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
+<div id="outline-container-org0b35c83" class="outline-2">
+<h2 id="org0b35c83"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">$apt-cache show programname
@@ -47,8 +47,8 @@
 </div>
 
 
-<div id="outline-container-org6ce3ede" class="outline-2">
-<h2 id="org6ce3ede"><span class="section-number-2">2.</span> apt-get意外中断解决办法</h2>
+<div id="outline-container-org76b851f" class="outline-2">
+<h2 id="org76b851f"><span class="section-number-2">2.</span> apt-get意外中断解决办法</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ctrl+c/z中断后
@@ -67,8 +67,8 @@ $sudo dpkg --configure -a
 </div>
 </div>
 
-<div id="outline-container-orgcc4d76d" class="outline-3">
-<h3 id="orgcc4d76d"><span class="section-number-3">2.1.</span> 尾声</h3>
+<div id="outline-container-orgd0f7414" class="outline-3">
+<h3 id="orgd0f7414"><span class="section-number-3">2.1.</span> 尾声</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 其实我以前也碰到过这几个个问题,当时没能解决掉,现在终于完成了
@@ -80,8 +80,8 @@ $sudo dpkg --configure -a
 </div>
 
 
-<div id="outline-container-orga349593" class="outline-2">
-<h2 id="orga349593"><span class="section-number-2">3.</span> dpkg安装和卸载软件教程</h2>
+<div id="outline-container-orgd64414d" class="outline-2">
+<h2 id="orgd64414d"><span class="section-number-2">3.</span> dpkg安装和卸载软件教程</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo dpkg -i ***.deb #安装
@@ -94,8 +94,8 @@ $sudo dpkg --remove ***  #卸载软件包
 </div>
 
 
-<div id="outline-container-org96f6988" class="outline-2">
-<h2 id="org96f6988"><span class="section-number-2">4.</span> dpkg使用代理</h2>
+<div id="outline-container-org9e3c0b9" class="outline-2">
+<h2 id="org9e3c0b9"><span class="section-number-2">4.</span> dpkg使用代理</h2>
 </div>
 </div>
 <div id="postamble" class="status">

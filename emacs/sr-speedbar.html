@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sr-speedbar使用教程</title>
@@ -24,16 +24,16 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge55e79a">1. 安装</a></li>
-<li><a href="#org9d6df86">2. 配置</a></li>
-<li><a href="#orgad5c216">3. 快捷键</a></li>
-<li><a href="#org4a9d5c4">4. sr-speedbar 函数解释</a></li>
+<li><a href="#orgea81c7f">1. 安装</a></li>
+<li><a href="#org08208c6">2. 配置</a></li>
+<li><a href="#orgccd1694">3. 快捷键</a></li>
+<li><a href="#org7841736">4. sr-speedbar 函数解释</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orge55e79a" class="outline-2">
-<h2 id="orge55e79a"><span class="section-number-2">1.</span> 安装</h2>
+<div id="outline-container-orgea81c7f" class="outline-2">
+<h2 id="orgea81c7f"><span class="section-number-2">1.</span> 安装</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 地址<a href="https://www.emacswiki.org/emacs/sr-speedbar.el">https://www.emacswiki.org/emacs/sr-speedbar.el</a>
@@ -41,37 +41,37 @@
 </div>
 </div>
 
-<div id="outline-container-org9d6df86" class="outline-2">
-<h2 id="org9d6df86"><span class="section-number-2">2.</span> 配置</h2>
+<div id="outline-container-org08208c6" class="outline-2">
+<h2 id="org08208c6"><span class="section-number-2">2.</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-lisp">(<span style="color: #cd0000; background-color: #dcdcdc;">require</span> '<span style="color: #cd8500; background-color: #dcdcdc;">sr-speedbar</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24038;&#20391;&#26174;&#31034;</span>
+<pre class="src src-lisp">(require 'sr-speedbar)
+;;左侧显示
 (setq sr-speedbar-right-side nil)     
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#23485;&#24230;</span>
+;;宽度
 (setq sr-speedbar-width 25)          
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26174;&#31034;.&#30340;&#22836;&#25991;&#20214;</span>
-(setq speedbar-directory-unshown-regexp <span style="color: #00cd66; background-color: #dcdcdc;">"^\(\.\.*$\)\'"</span>)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#31383;&#21475;&#36339;&#36716;&#36339;&#36807;sr-speedbar</span>
+;;显示.的头文件
+(setq speedbar-directory-unshown-regexp "^\(\.\.*$\)\'")
+;;窗口跳转跳过sr-speedbar
 (setq sr-speedbar-skip-other-window-p t)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#35774;&#32622;&#24555;&#25463;&#38190;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(global-set-key [f5] 'sr-speedbar-select-window)</span>
+;;设置快捷键
+;(global-set-key [f5] 'sr-speedbar-select-window)
 (global-set-key [f5] 'sr-speedbar-open)
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c s"</span>) 'sr-speedbar-open)
-(global-set-key (kbd <span style="color: #00cd66; background-color: #dcdcdc;">"C-c x"</span>) 'sr-speedbar-close)
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#24320;&#26426;&#40664;&#35748;&#21551;&#21160;speedbar,&#19981;&#29992;&#20102;,&#29616;&#22312;&#29992;sr-speedbar&#20102;</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(speedbar 1)</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#33258;&#21160;&#25171;&#24320;sr-speedbar</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#19981;&#30693;&#36947;&#20026;&#20160;&#20040;&#22826;&#19981;&#22909;&#29992;&#20102;,&#27599;&#27425;&#37117;&#22810;&#25171;&#24320;&#19968;&#20010;&#31383;&#26684;,&#25152;&#20197;&#24573;&#30053;&#20102;,</span>
-<span style="color: #4f94cd; background-color: #dcdcdc;">;;</span><span style="color: #4f94cd; background-color: #dcdcdc;">(sr-speedbar-open)</span>
+(global-set-key (kbd "C-c s") 'sr-speedbar-open)
+(global-set-key (kbd "C-c x") 'sr-speedbar-close)
+;;开机默认启动speedbar,不用了,现在用sr-speedbar了
+;;(speedbar 1)
+;;自动打开sr-speedbar
+;;不知道为什么太不好用了,每次都多打开一个窗格,所以忽略了,
+;;(sr-speedbar-open)
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgad5c216" class="outline-2">
-<h2 id="orgad5c216"><span class="section-number-2">3.</span> 快捷键</h2>
+<div id="outline-container-orgccd1694" class="outline-2">
+<h2 id="orgccd1694"><span class="section-number-2">3.</span> 快捷键</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>+-打开文件内部索引</li>
@@ -89,8 +89,8 @@
 </div>
 
 
-<div id="outline-container-org4a9d5c4" class="outline-2">
-<h2 id="org4a9d5c4"><span class="section-number-2">4.</span> sr-speedbar 函数解释</h2>
+<div id="outline-container-org7841736" class="outline-2">
+<h2 id="org7841736"><span class="section-number-2">4.</span> sr-speedbar 函数解释</h2>
 <div class="outline-text-2" id="text-4">
 <dl class="org-dl">
 <dt>sr-speedbar-open</dt><dd>打开Sr Speedbar窗口。</dd>

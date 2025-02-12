@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-09 Sun 21:19 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>root用户使用自定义的配置</title>
@@ -24,21 +24,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5c47bef">1. 为了使得sudo emacs时也可以使用pengshao用户的配置</a></li>
+<li><a href="#orgd98de74">1. 为了使得sudo emacs时也可以使用pengshao用户的配置</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org5c47bef" class="outline-2">
-<h2 id="org5c47bef"><span class="section-number-2">1.</span> 为了使得sudo emacs时也可以使用pengshao用户的配置</h2>
+<div id="outline-container-orgd98de74" class="outline-2">
+<h2 id="orgd98de74"><span class="section-number-2">1.</span> 为了使得sudo emacs时也可以使用pengshao用户的配置</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>创建相应的符号链接到 root用户目录下,代码如下:</li>
 <li>第一行已经不用.emacs这个文件了,全部集成到了.emacs.d这个文件夹了.</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> ln -s /home/pengshao/.emacs /root/
-$<span style="color: #912cee; background-color: #dcdcdc;">sudo</span> ln -s /home/pengshao/.emacs.d/ /root/
+<pre class="src src-shell">$sudo ln -s /home/pengshao/.emacs /root/
+$sudo ln -s /home/pengshao/.emacs.d/ /root/
 </pre>
 </div>
 </div>

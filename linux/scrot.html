@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>scrot-tutorial:一个截屏软件教程</title>
@@ -24,17 +24,17 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb11ef7e">1. 在Linux中安装Scrot</a></li>
-<li><a href="#orgfc1adba">2. 在 Fedora 上安装Scrot：</a></li>
-<li><a href="#org2525de3">3. 用Scrot截屏</a></li>
+<li><a href="#orga32ed1a">1. 在Linux中安装Scrot</a></li>
+<li><a href="#org8b23787">2. 在 Fedora 上安装Scrot：</a></li>
+<li><a href="#org73faf09">3. 用Scrot截屏</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-orgb11ef7e" class="outline-2">
-<h2 id="orgb11ef7e"><span class="section-number-2">1.</span> 在Linux中安装Scrot</h2>
+<div id="outline-container-orga32ed1a" class="outline-2">
+<h2 id="orga32ed1a"><span class="section-number-2">1.</span> 在Linux中安装Scrot</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 在 Debian，Ubuntu 或 Linux Mint 上安装Scrot：
@@ -45,8 +45,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgfc1adba" class="outline-2">
-<h2 id="orgfc1adba"><span class="section-number-2">2.</span> 在 Fedora 上安装Scrot：</h2>
+<div id="outline-container-org8b23787" class="outline-2">
+<h2 id="org8b23787"><span class="section-number-2">2.</span> 在 Fedora 上安装Scrot：</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">sudo yum install scrot
@@ -64,7 +64,7 @@
 <pre class="src src-shell">sudo yum install giblib-devel
 wget http://ift.tt/1hVRsWW
 tar xvfvz scrot-0.8.tar.gz
-<span style="color: #ba55d3; background-color: #dcdcdc;">cd</span> scrot-0.8
+cd scrot-0.8
 ./configure
 make
 sudo make install
@@ -73,8 +73,8 @@ sudo make install
 </div>
 </div>
 
-<div id="outline-container-org2525de3" class="outline-2">
-<h2 id="org2525de3"><span class="section-number-2">3.</span> 用Scrot截屏</h2>
+<div id="outline-container-org73faf09" class="outline-2">
+<h2 id="org73faf09"><span class="section-number-2">3.</span> 用Scrot截屏</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -176,7 +176,7 @@ Scrot允许你在桌面选择一个特定的窗口或定义一个矩形区域来
 </p></li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-shell">$ scrot -e <span style="color: #00cd66; background-color: #dcdcdc;">'mv $f ~/screenshots'</span>
+<pre class="src src-shell">$ scrot -e 'mv $f ~/screenshots'
 </pre>
 </div>
 </div>

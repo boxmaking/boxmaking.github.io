@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-01-10 Fri 21:32 -->
+<!-- 2025-02-12 Wed 12:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>who,last-reboot,top,w,uptime,命令教程</title>
@@ -24,15 +24,15 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8ed0abd">1. 查看系统时间相关命令</a></li>
-<li><a href="#orge697f2e">2. 参考资料：</a></li>
+<li><a href="#org4daa1a3">1. 查看系统时间相关命令</a></li>
+<li><a href="#orga4e7b10">2. 参考资料：</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org8ed0abd" class="outline-2">
-<h2 id="org8ed0abd"><span class="section-number-2">1.</span> 查看系统时间相关命令</h2>
+<div id="outline-container-org4daa1a3" class="outline-2">
+<h2 id="org4daa1a3"><span class="section-number-2">1.</span> 查看系统时间相关命令</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -40,9 +40,9 @@ who 命令查看
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">who -b
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#26368;&#21518;&#19968;&#27425;&#31995;&#32479;&#21551;&#21160;&#30340;&#26102;&#38388;&#12290;</span>
+#查看最后一次系统启动的时间。
 who -r
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#26597;&#30475;&#24403;&#21069;&#31995;&#32479;&#36816;&#34892;&#26102;&#38388;</span>
+#查看当前系统运行时间
 </pre>
 </div></li>
 
@@ -56,7 +56,7 @@ last reboot可以看到Linux系统历史启动的时间
 
 <div class="org-src-container">
 <pre class="src src-shell">last reboot | head -1
-<span style="color: #4f94cd; background-color: #dcdcdc;">#</span><span style="color: #4f94cd; background-color: #dcdcdc;">&#22914;&#26524;&#21482;&#38656;&#35201;&#26597;&#30475;&#26368;&#21518;&#19968;&#27425;Linux&#31995;&#32479;&#21551;&#21160;&#30340;&#26102;&#38388;</span>
+#如果只需要查看最后一次Linux系统启动的时间
 </pre>
 </div></li>
 
@@ -76,18 +76,18 @@ up后表示系统到目前运行了多久时间。反过来推算系统重启时
 <pre class="src src-shell">[root@DB-Server ~]# cat /proc/uptime
 1415.59 1401.42
 
-[root@DB-Server ~]# date -d <span style="color: #00cd66; background-color: #dcdcdc;">"`cut -f1 -d. /proc/uptime` seconds ago"</span>
+[root@DB-Server ~]# date -d "`cut -f1 -d. /proc/uptime` seconds ago"
 Thu May 29 15:24:57 CST 2014
 
-[root@DB-Server ~]# date -d <span style="color: #00cd66; background-color: #dcdcdc;">"$(</span><span style="color: #ff00ff;">awk -F. '{print $1}' /proc/uptime</span><span style="color: #00cd66; background-color: #dcdcdc;">) second ago"</span> +<span style="color: #00cd66; background-color: #dcdcdc;">"%Y-%m-%d %H:%M:%S"</span> 
+[root@DB-Server ~]# date -d "$(awk -F. '{print $1}' /proc/uptime) second ago" +"%Y-%m-%d %H:%M:%S" 
 2014-05-29 15:24:57
 </pre>
 </div></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orge697f2e" class="outline-2">
-<h2 id="orge697f2e"><span class="section-number-2">2.</span> 参考资料：</h2>
+<div id="outline-container-orga4e7b10" class="outline-2">
+<h2 id="orga4e7b10"><span class="section-number-2">2.</span> 参考资料：</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <a href="http://www.thegeekstuff.com/2011/10/linux-reboot-date-and-time/">http://www.thegeekstuff.com/2011/10/linux-reboot-date-and-time/</a>
