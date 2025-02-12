@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-12 Wed 21:25 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -20,9 +20,41 @@
 </div><div id="content" class="content">
 <header>
 <h1 class="title">emacs-配置文件</h1>
-</header>
-<figure id="org4acd4cc">
-<img src="./emacs-init.png" alt="emacs-init.png" scale="0.5">   
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0c4fa05">1. load,load-file</a>
+<ul>
+<li><a href="#orga9a901a">1.1. 关于这些加载项目的差别可以在这个网站查看</a></li>
+</ul>
+</li>
+<li><a href="#orge4402b8">2. 配置文件不用重启就起效</a></li>
+<li><a href="#org883d8b3">3. 我的配置文件</a></li>
+<li><a href="#org3f06c2e">4. 默认的一些配置</a></li>
+<li><a href="#org5f472cf">5. org-mode相关的两个配置</a></li>
+<li><a href="#org77e911c">6. 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</a></li>
+<li><a href="#orgf045b43">7. 关于复制粘帖的一些设置</a></li>
+<li><a href="#orgeb31d54">8. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#orgfb4988a">9. 备份相关的设置</a></li>
+<li><a href="#orge75ea0d">10. 启动页面*scratch*显示特定内容</a>
+<ul>
+<li><a href="#orgf586a5a">10.1. 代码解释</a></li>
+</ul>
+</li>
+<li><a href="#org8187cd7">11. frame-title-format设置相关</a>
+<ul>
+<li><a href="#org090c096">11.1. 我的设置</a></li>
+<li><a href="#orgd3fd917">11.2. frame-title-format选项相关</a></li>
+</ul>
+</li>
+<li><a href="#org463c3e0">12. 配置目录的文件树</a></li>
+</ul>
+</div>
+</nav>
+
+<figure id="orga7a6194">
+<img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
 
@@ -949,7 +981,7 @@ M-x eval-region 执行region内的代码</li>
 <div id="outline-container-orgd3fd917" class="outline-3">
 <h3 id="orgd3fd917"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
 <div class="outline-text-3" id="text-11-2">
-<pre class="example" id="org4899c08">
+<pre class="example" id="org78f4538">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -984,7 +1016,7 @@ Decimal digits after the % specify field width to which to pad.
 <p>
 自己加载的一些小配置
 </p>
-<pre class="example" id="org2c9edbe">
+<pre class="example" id="org11be0e8">
 ./loadfile/
 ├── pengshao-backup.el
 ├── pengshao-calendar.el
