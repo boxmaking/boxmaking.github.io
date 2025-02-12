@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 21:25 -->
+<!-- 2025-02-12 Wed 21:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -31,32 +31,33 @@
 </li>
 <li><a href="#orge4402b8">2. 配置文件不用重启就起效</a></li>
 <li><a href="#org883d8b3">3. 我的配置文件</a></li>
-<li><a href="#org3f06c2e">4. 默认的一些配置</a></li>
-<li><a href="#org5f472cf">5. org-mode相关的两个配置</a></li>
-<li><a href="#org77e911c">6. 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</a></li>
-<li><a href="#orgf045b43">7. 关于复制粘帖的一些设置</a></li>
-<li><a href="#orgeb31d54">8. 我的键配置(主要是f1-f10)</a></li>
-<li><a href="#orgfb4988a">9. 备份相关的设置</a></li>
-<li><a href="#orge75ea0d">10. 启动页面*scratch*显示特定内容</a>
+<li><a href="#org463c3e0">4. 配置目录的文件树</a></li>
+<li><a href="#org3f06c2e">5. 默认的一些配置</a></li>
+<li><a href="#org5f472cf">6. org-mode相关的两个配置</a></li>
+<li><a href="#org77e911c">7. 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</a></li>
+<li><a href="#orgf045b43">8. 关于复制粘帖的一些设置</a></li>
+<li><a href="#orgeb31d54">9. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#orgfb4988a">10. 备份相关的设置</a></li>
+<li><a href="#orge75ea0d">11. 启动页面*scratch*显示特定内容</a>
 <ul>
-<li><a href="#orgf586a5a">10.1. 代码解释</a></li>
+<li><a href="#orgf586a5a">11.1. 代码解释</a></li>
 </ul>
 </li>
-<li><a href="#org8187cd7">11. frame-title-format设置相关</a>
+<li><a href="#org8187cd7">12. frame-title-format设置相关</a>
 <ul>
-<li><a href="#org090c096">11.1. 我的设置</a></li>
-<li><a href="#orgd3fd917">11.2. frame-title-format选项相关</a></li>
+<li><a href="#org090c096">12.1. 我的设置</a></li>
+<li><a href="#orgd3fd917">12.2. frame-title-format选项相关</a></li>
 </ul>
 </li>
-<li><a href="#org463c3e0">12. 配置目录的文件树</a></li>
 </ul>
 </div>
 </nav>
 
-<figure id="orga7a6194">
+<figure id="org35a242d">
 <img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
+
 
 
 <div id="outline-container-org0c4fa05" class="outline-2">
@@ -295,10 +296,35 @@ M-x eval-region 执行region内的代码</li>
 </div>
 </div>
 
+<div id="outline-container-org463c3e0" class="outline-2">
+<h2 id="org463c3e0"><span class="section-number-2">4.</span> 配置目录的文件树</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+[<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
+</p>
+
+<p>
+自己加载的一些小配置
+</p>
+<pre class="example" id="orgfa1dfc1">
+./loadfile/
+├── pengshao-backup.el
+├── pengshao-calendar.el
+├── pengshao-copy-cut-paste-killring.el
+├── pengshao-default.el
+├── pengshao-insert-date.el
+├── pengshao-key-building.el
+├── pengshao-openweather.el
+├── pengshao-org-mode.el
+└── pengshao-org-publish.el
+
+</pre>
+</div>
+</div>
 
 <div id="outline-container-org3f06c2e" class="outline-2">
-<h2 id="org3f06c2e"><span class="section-number-2">4.</span> 默认的一些配置</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="org3f06c2e"><span class="section-number-2">5.</span> 默认的一些配置</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -406,8 +432,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-org5f472cf" class="outline-2">
-<h2 id="org5f472cf"><span class="section-number-2">5.</span> org-mode相关的两个配置</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org5f472cf"><span class="section-number-2">6.</span> org-mode相关的两个配置</h2>
+<div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -571,8 +597,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-org77e911c" class="outline-2">
-<h2 id="org77e911c"><span class="section-number-2">6.</span> 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="org77e911c"><span class="section-number-2">7.</span> 我比较喜欢些东西加入日期,第二个是加入月相和济南天气,calendar的配置我不太用.</h2>
+<div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -782,8 +808,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-orgf045b43" class="outline-2">
-<h2 id="orgf045b43"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="orgf045b43"><span class="section-number-2">8.</span> 关于复制粘帖的一些设置</h2>
+<div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -821,8 +847,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-orgeb31d54" class="outline-2">
-<h2 id="orgeb31d54"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="orgeb31d54"><span class="section-number-2">9.</span> 我的键配置(主要是f1-f10)</h2>
+<div class="outline-text-2" id="text-9">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -900,8 +926,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-orgfb4988a" class="outline-2">
-<h2 id="orgfb4988a"><span class="section-number-2">9.</span> 备份相关的设置</h2>
-<div class="outline-text-2" id="text-9">
+<h2 id="orgfb4988a"><span class="section-number-2">10.</span> 备份相关的设置</h2>
+<div class="outline-text-2" id="text-10">
 <div class="org-src-container">
 <pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; -*- coding: utf-8; lexical-binding: t -*-
@@ -933,8 +959,8 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-orge75ea0d" class="outline-2">
-<h2 id="orge75ea0d"><span class="section-number-2">10.</span> 启动页面*scratch*显示特定内容</h2>
-<div class="outline-text-2" id="text-10">
+<h2 id="orge75ea0d"><span class="section-number-2">11.</span> 启动页面*scratch*显示特定内容</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 将以下代码添加到你的 Emacs 配置文件中：
 </p>
@@ -953,23 +979,23 @@ M-x eval-region 执行region内的代码</li>
 </div>
 
 <div id="outline-container-orgf586a5a" class="outline-3">
-<h3 id="orgf586a5a"><span class="section-number-3">10.1.</span> 代码解释</h3>
+<h3 id="orgf586a5a"><span class="section-number-3">11.1.</span> 代码解释</h3>
 </div>
 </div>
 
 
 
 <div id="outline-container-org8187cd7" class="outline-2">
-<h2 id="org8187cd7"><span class="section-number-2">11.</span> frame-title-format设置相关</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="org8187cd7"><span class="section-number-2">12.</span> frame-title-format设置相关</h2>
+<div class="outline-text-2" id="text-12">
 </div>
 <div id="outline-container-org090c096" class="outline-3">
-<h3 id="org090c096"><span class="section-number-3">11.1.</span> 我的设置</h3>
-<div class="outline-text-3" id="text-11-1">
+<h3 id="org090c096"><span class="section-number-3">12.1.</span> 我的设置</h3>
+<div class="outline-text-3" id="text-12-1">
 <div class="org-src-container">
 <pre class="src src-lisp">;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
-      '("" " 上马提枪, 去干他娘 - "
+      '("" "上古大椿,八千春秋,知途知径,浑然天成."
 	(:eval (if (buffer-file-name)
 		   (abbreviate-file-name (buffer-file-name)) "%b"))))
 </pre>
@@ -979,9 +1005,9 @@ M-x eval-region 执行region内的代码</li>
 
 
 <div id="outline-container-orgd3fd917" class="outline-3">
-<h3 id="orgd3fd917"><span class="section-number-3">11.2.</span> frame-title-format选项相关</h3>
-<div class="outline-text-3" id="text-11-2">
-<pre class="example" id="org78f4538">
+<h3 id="orgd3fd917"><span class="section-number-3">12.2.</span> frame-title-format选项相关</h3>
+<div class="outline-text-3" id="text-12-2">
+<pre class="example" id="org3624934">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1002,33 +1028,6 @@ or when it is found in a cons-cell or a list)
 Decimal digits after the % specify field width to which to pad.
 </pre>
 </div>
-</div>
-</div>
-
-
-<div id="outline-container-org463c3e0" class="outline-2">
-<h2 id="org463c3e0"><span class="section-number-2">12.</span> 配置目录的文件树</h2>
-<div class="outline-text-2" id="text-12">
-<p>
-[<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
-</p>
-
-<p>
-自己加载的一些小配置
-</p>
-<pre class="example" id="org11be0e8">
-./loadfile/
-├── pengshao-backup.el
-├── pengshao-calendar.el
-├── pengshao-copy-cut-paste-killring.el
-├── pengshao-default.el
-├── pengshao-insert-date.el
-├── pengshao-key-building.el
-├── pengshao-openweather.el
-├── pengshao-org-mode.el
-└── pengshao-org-publish.el
-
-</pre>
 </div>
 </div>
 </div>

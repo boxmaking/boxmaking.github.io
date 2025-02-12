@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-12 Wed 21:47 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs一键插入-日期,农历,月相,万年历</title>
@@ -208,8 +208,8 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <h3 id="org89f73d2"><span class="section-number-3">4.1.</span> 效果</h3>
 <div class="outline-text-3" id="text-4-1">
 
-<figure id="org6f696da">
-<img src="emacs-init.png" alt="emacs-init.png">
+<figure id="orgd2cda38">
+<img src="emacs-init1.png" alt="emacs-init1.png">
 
 </figure>
 </div>
@@ -223,99 +223,54 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <li><p>
 C-c m o 插入月相(刚好是满月)
 </p>
-<div class="ASCII" id="org760c94f">
-<p>
-		.-------&#x2013;&#x2014;.	 
-	  .&#x2013;'  o     . .   `&#x2013;.	 
-       .-'   .    O   .       . `-.	 
-     -'@   @@@@@@@   .  @@@@@      `-.	 
-   /@@@  @@@@@@@@@@@   @@@@@@@   .    \	 
-  /    o @@@@@@@@@@@   @@@@@@@       . \.	 
- @@  o   @@@@@@@@@@@.   @@@@@@@   O      \	 
-@@@@   .   @@@@@@@o    @@@@@@@@@@     @@@ \	 
-</p>
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">@@@@@               . @@@@@@@@@@@@@ o @@@@</td>
-</tr>
-</tbody>
-</table>
-<p>
-@@@@@  O  `.-./  .      @@@@@@@@@@@@    @@  \	 First Quarter +
- @@@@    &#x2013;`-'       o     @@@@@@@@ @@@@    |	 6  5:40:26
-</p>
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">@ @@@        `    o      .  @@   . @@@@@@@</td>
-<td class="org-left">Full Moon -</td>
-</tr>
-</tbody>
-</table>
-<p>
-     @@  @         .-.     @@@   @@@@@@@  |	 1  0:10:09
-. @        @@@     `-'   . @@@@   @@@@  o /	 
-</p>
-<table>
-
-
-<colgroup>
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">@@   @@@@@ .           @@   .</td>
-</tr>
-</tbody>
-</table>
-<p>
-   @@@@  @\@@    /  .  O    .     o   . /	 
- o  @@     \ \  /         .    .       /	 
-\     .    .\.-.___   .      .   .-. /'	 
- \           `-'                `-' /	 
-   -.   o   / |     o    O   .   .-'	 
-     `-.   /     .       .    .-'	 
-	`&#x2013;.       .      .&#x2013;'	 
-	    `-------&#x2013;&#x2014;'	 
-</p>
-
-</div></li>
+<pre class="example" id="org4e46930">
+                  .------------.	 
+            .--'  o     . .   `--.	 
+         .-'   .    O   .       . `-.	 
+       -'@   @@@@@@@   .  @@@@@      `-.	 
+     /@@@  @@@@@@@@@@@   @@@@@@@   .    \	 
+    /    o @@@@@@@@@@@   @@@@@@@       . \.	 
+   @@  o   @@@@@@@@@@@.   @@@@@@@   O      \	 
+  @@@@   .   @@@@@@@o    @@@@@@@@@@     @@@ \	 
+ |@@@@@               . @@@@@@@@@@@@@ o @@@@|	 
+ @@@@@  O  `.-./  .      @@@@@@@@@@@@    @@  \	 First Quarter +
+  @@@@    --`-'       o     @@@@@@@@ @@@@    |	 6  5:40:26
+|@ @@@        `    o      .  @@   . @@@@@@@  |	 Full Moon -
+        @@  @         .-.     @@@   @@@@@@@  |	 1  0:10:09
+   . @        @@@     `-'   . @@@@   @@@@  o /	 
+ |      @@   @@@@@ .           @@   .       |	 
+       @@@@  @\@@    /  .  O    .     o   . /	 
+     o  @@     \ \  /         .    .       /	 
+    \     .    .\.-.___   .      .   .-. /'	 
+     \           `-'                `-' /	 
+       -.   o   / |     o    O   .   .-'	 
+         `-.   /     .       .    .-'	 
+            `--.       .      .--'	 
+                `------------'	 
+</pre></li>
 
 <li><p>
 C-c m w 插入济南的天气
 </p>
-<pre class="example" id="org5326e26">
+<pre class="example" id="orgc38869b">
 jinan: 🌦   🌡️+7°C 🌬️↗8km/h
 </pre></li>
 <li><p>
 C-c m n 插入农历
 </p>
-<pre class="example" id="orgf1788e9">
+<pre class="example" id="orgafa51b6">
 2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 
 </pre></li>
 <li><p>
 C-c m j 简介版本的农历
 </p>
-<pre class="example" id="org8854267">
+<pre class="example" id="org2ca2d38">
 &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; 
 </pre></li>
 <li><p>
 C-c m y 显示出当年时间已经流逝的百分比
 </p>
-<pre class="example" id="orgeed91d4">
+<pre class="example" id="org100f7f5">
 [///                           ] 11%
 </pre></li>
 </ul>
