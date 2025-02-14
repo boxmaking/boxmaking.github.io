@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-14 Fri 22:32 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
@@ -283,7 +283,7 @@
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example" id="org16ceb14">
+<pre class="example" id="org183ddea">
 #+OPTIONS: H:4
 </pre>
 </div>
@@ -296,7 +296,7 @@
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example" id="org7d2e2ae">
+<pre class="example" id="org113848a">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -642,7 +642,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example" id="orgb361692">
+<pre class="example" id="orgd1f1762">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -812,7 +812,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example" id="org2df2dd7">
+<pre class="example" id="org1fb14f1">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -896,7 +896,7 @@ emacs配置文件中中设置如下的代码就行了
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example" id="org79f3ee3">
+<pre class="example" id="orgddaf72b">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
@@ -913,7 +913,7 @@ Org-mode支持内部链接,也就是锚点
 定义锚点 #<a id="orga58b313"></a>
 </p>
 
-<pre class="example" id="orgd194511">
+<pre class="example" id="org1eed161">
 [[my-anchor][内部链接]]
 </pre>
 
@@ -943,7 +943,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example" id="orgd8f3a15">
+<pre class="example" id="org624b3d2">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -957,7 +957,7 @@ Org-mode支持内部链接,也就是锚点
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
 这个经常出错,抛弃了.
 </p>
-<pre class="example" id="orgadee74b">
+<pre class="example" id="org933eb38">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -975,7 +975,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example" id="org8926e21">
+<pre class="example" id="orgf841dd7">
 链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
@@ -990,7 +990,7 @@ C-c C-l 就能添加链接了
 <div id="outline-container-orgfd7d8a1" class="outline-3">
 <h3 id="orgfd7d8a1"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example" id="orgaef80c5">
+<pre class="example" id="orga08bc14">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1126,7 +1126,7 @@ C-c C-c,可以对齐表格
 <div id="outline-container-orga90cee6" class="outline-3">
 <h3 id="orga90cee6"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example" id="orgd0a02bc">
+<pre class="example" id="org39196e9">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1206,7 +1206,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example" id="org242eb99">
+<pre class="example" id="org26664f6">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1223,7 +1223,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example" id="orgca9a197">
+<pre class="example" id="org098dd6a">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1248,7 +1248,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example" id="orgad28924">
+<pre class="example" id="orgecf5bbf">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1283,7 +1283,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example" id="org78be44f">
+<pre class="example" id="org561fe8b">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1357,7 +1357,7 @@ puts md.to_html
 </pre>
 
 
-<pre class="example" id="orgb71d5a8">
+<pre class="example" id="orge4f8226">
 多行的例子
 使用区块
 </pre></li>
@@ -1409,7 +1409,7 @@ puts md.to_html
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML" id="org0ed34d5">
+<div class="HTML" id="org17f9d91">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1436,101 +1436,101 @@ return 0;
 </p>
 
 <div class="org-src-container">
-<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; -*- coding: utf-8; lexical-binding: t -*-
-;;pengshao-org-mode.el---orgmode相关的配置
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;我的编码设置
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
-
-
-;;org-mode语法高亮
-(setq org-src-fontify-natively t)
-
-
-;;保证后缀为'.org'的文件会使用Org mode
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-
-
-;;(global-set-key "\C-cl" 'org-store-link)
-;;orgmode的链接
-
-
-;;设置默认的agenda文件,的todo的全局文件可以添加在这里
-;;(global-set-key "\C-ca" 'org-agenda)
-(setq org-agenda-files
-      (list "~/public_note/idear/list-list.org"
-	))
-
-
-;;(global-set-key "\C-cc" 'org-capture)
-;;默认的org-notesfile,这里就是org-capture的默认文件
-(setq org-default-notes-file "~/public_note/idear/todo-list.org")
-
-
-;;每次新建todo和做完都要添加时间
-;(setq org-log-todo 'time)
-;(setq org-log-done 'time)
-
-
-;;如果不想在全局范围使用font-lock,可以用下面一句配置来只在Org-mode下打开font-lock选项
-;;(add-hook 'org-mode-hook 'turn-on-font-lock) 
-
-
-
-;;设置org-mode的启动显示选项,#+STARTUP: overview : content : showall : showeverything :
-(setq org-startup-folded 'content)
-
-;; prevent editing an invisible part of the buffer防止编辑缓冲区不可见部分
-(setq org-catch-invisible-edits nil) 
-
-
-;;为org-mode添加自动换行功能
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-
-;;为org-mode的(setq org-startup-indented t)缩进星号
-(setq org-startup-indented t)
-
-;; 设置 bullet list
-;;(setq org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
-
-;定义多组状态序列，每个“#+SEQ_TODO”行定义一组
-(setq org-todo-keywords
- '((sequence "TODO(T!)" "DOING(H!)"  "|" "DONE(D!)" "CANCELED(C@/!)")
-
-   ))
-
-
-;; org-todo-keyword-faces
-(setq org-todo-keyword-faces
-      '(
-	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
-	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
-	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
-	))
-
-
-;;'org-tag-faces'
-(setf org-tag-faces
-      '(
-	("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
-	("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
-	("加班" . (:foreground "white" :background "#3498DB" :weight bold))
-	))
-
-
-
-;; 折叠时不再显示「...」, 换个你喜欢的符号
-(setq org-ellipsis "▼")
-
-
-
-(provide 'pengshao-org-mode)
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 3: </span>;;pengshao-org-mode.el---orgmode相关的配置
+<span class="linenr"> 4: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 5: </span>
+<span class="linenr"> 6: </span>;;我的编码设置
+<span class="linenr"> 7: </span>(prefer-coding-system 'utf-8)
+<span class="linenr"> 8: </span>(set-default-coding-systems 'utf-8)
+<span class="linenr"> 9: </span>(set-terminal-coding-system 'utf-8)
+<span class="linenr">10: </span>(set-keyboard-coding-system 'utf-8)
+<span class="linenr">11: </span>(setq default-buffer-file-coding-system 'utf-8)
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>;;org-mode语法高亮
+<span class="linenr">15: </span>(setq org-src-fontify-natively t)
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>;;保证后缀为'.org'的文件会使用Org mode
+<span class="linenr">19: </span>(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>;;(global-set-key "\C-cl" 'org-store-link)
+<span class="linenr">23: </span>;;orgmode的链接
+<span class="linenr">24: </span>
+<span class="linenr">25: </span>
+<span class="linenr">26: </span>;;设置默认的agenda文件,的todo的全局文件可以添加在这里
+<span class="linenr">27: </span>;;(global-set-key "\C-ca" 'org-agenda)
+<span class="linenr">28: </span>(setq org-agenda-files
+<span class="linenr">29: </span>      (list "~/public_note/idear/list-list.org"
+<span class="linenr">30: </span>	))
+<span class="linenr">31: </span>
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>;;(global-set-key "\C-cc" 'org-capture)
+<span class="linenr">34: </span>;;默认的org-notesfile,这里就是org-capture的默认文件
+<span class="linenr">35: </span>(setq org-default-notes-file "~/public_note/idear/todo-list.org")
+<span class="linenr">36: </span>
+<span class="linenr">37: </span>
+<span class="linenr">38: </span>;;每次新建todo和做完都要添加时间
+<span class="linenr">39: </span>;(setq org-log-todo 'time)
+<span class="linenr">40: </span>;(setq org-log-done 'time)
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>;;如果不想在全局范围使用font-lock,可以用下面一句配置来只在Org-mode下打开font-lock选项
+<span class="linenr">44: </span>;;(add-hook 'org-mode-hook 'turn-on-font-lock) 
+<span class="linenr">45: </span>
+<span class="linenr">46: </span>
+<span class="linenr">47: </span>
+<span class="linenr">48: </span>;;设置org-mode的启动显示选项,#+STARTUP: overview : content : showall : showeverything :
+<span class="linenr">49: </span>(setq org-startup-folded 'content)
+<span class="linenr">50: </span>
+<span class="linenr">51: </span>;; prevent editing an invisible part of the buffer防止编辑缓冲区不可见部分
+<span class="linenr">52: </span>(setq org-catch-invisible-edits nil) 
+<span class="linenr">53: </span>
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>;;为org-mode添加自动换行功能
+<span class="linenr">56: </span>(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+<span class="linenr">57: </span>
+<span class="linenr">58: </span>;;为org-mode的(setq org-startup-indented t)缩进星号
+<span class="linenr">59: </span>(setq org-startup-indented t)
+<span class="linenr">60: </span>
+<span class="linenr">61: </span>;; 设置 bullet list
+<span class="linenr">62: </span>;;(setq org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
+<span class="linenr">63: </span>
+<span class="linenr">64: </span>;定义多组状态序列，每个“#+SEQ_TODO”行定义一组
+<span class="linenr">65: </span>(setq org-todo-keywords
+<span class="linenr">66: </span> '((sequence "TODO(T!)" "DOING(H!)"  "|" "DONE(D!)" "CANCELED(C@/!)")
+<span class="linenr">67: </span>
+<span class="linenr">68: </span>   ))
+<span class="linenr">69: </span>
+<span class="linenr">70: </span>
+<span class="linenr">71: </span>;; org-todo-keyword-faces
+<span class="linenr">72: </span>(setq org-todo-keyword-faces
+<span class="linenr">73: </span>      '(
+<span class="linenr">74: </span>	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
+<span class="linenr">75: </span>	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
+<span class="linenr">76: </span>	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
+<span class="linenr">77: </span>	))
+<span class="linenr">78: </span>
+<span class="linenr">79: </span>
+<span class="linenr">80: </span>;;'org-tag-faces'
+<span class="linenr">81: </span>(setf org-tag-faces
+<span class="linenr">82: </span>      '(
+<span class="linenr">83: </span>	("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
+<span class="linenr">84: </span>	("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
+<span class="linenr">85: </span>	("加班" . (:foreground "white" :background "#3498DB" :weight bold))
+<span class="linenr">86: </span>	))
+<span class="linenr">87: </span>
+<span class="linenr">88: </span>
+<span class="linenr">89: </span>
+<span class="linenr">90: </span>;; 折叠时不再显示「...」, 换个你喜欢的符号
+<span class="linenr">91: </span>(setq org-ellipsis "▼")
+<span class="linenr">92: </span>
+<span class="linenr">93: </span>
+<span class="linenr">94: </span>
+<span class="linenr">95: </span>(provide 'pengshao-org-mode)
 </pre>
 </div>
 
@@ -1654,7 +1654,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example" id="org44cae79">
+<pre class="example" id="org09f89dd">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}
