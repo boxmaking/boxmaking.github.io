@@ -1,204 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<!-- 2025-02-14 Fri 22:32 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2025-02-14 Fri 23:25 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>2025赛季F1赛事GTD追踪（北京时间）</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="f1,f12025" />
 <meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
 </head>
 <body>
-<div id="content" class="content">
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
 <h1 class="title">2025赛季F1赛事GTD追踪（北京时间）</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -230,7 +52,7 @@
 <li><a href="#org34175d3">26. <code>[24/24]</code> 阿布扎比大奖赛（阿联酋阿布扎比，亚斯码头赛道）#</a></li>
 </ul>
 </div>
-</div>
+</nav>
 
 
 <div id="outline-container-orgda298d8" class="outline-2">
@@ -247,196 +69,253 @@
 <div id="outline-container-orgd101d38" class="outline-2">
 <h2 id="orgd101d38"><span class="section-number-2">2.</span> 2025赛季F1简化赛程表（点击分站名查看详情）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="QUICK_VIEW">QUICK_VIEW</span></span></h2>
 <div class="outline-text-2" id="text-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table>
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-left" />
+<col  class="org-left">
 
-<col  class="org-right" />
+<col  class="org-left">
 
-<col  class="org-left" />
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
 </colgroup>
 <thead>
 <tr>
+<th scope="col" class="org-left">国旗</th>
 <th scope="col" class="org-left">分站名称</th>
 <th scope="col" class="org-left">正赛日期</th>
 <th scope="col" class="org-right">正赛时间</th>
 <th scope="col" class="org-left">赛道特性</th>
+<th scope="col" class="org-left">GPS 地址（链接格式）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="org-left">🇦🇺</td>
 <td class="org-left"><a href="#orgcfa097e">澳大利亚</a></td>
-<td class="org-left">03-16/周日</td>
+<td class="org-left">03-16 / 周日</td>
 <td class="org-right">12:00-14:00</td>
 <td class="org-left">街道赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/-37.8422,144.9832">澳大利亚墨尔本 阿尔伯特公园赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇨🇳</td>
 <td class="org-left"><a href="#org6644bbe">中国</a></td>
-<td class="org-left">03-23/周日</td>
+<td class="org-left">03-23 / 周日</td>
 <td class="org-right">15:00-17:00</td>
 <td class="org-left">⚡冲刺赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/30.9760,121.2551">中国上海 上海国际赛车场</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇯🇵</td>
 <td class="org-left"><a href="#org3e5507f">日本</a></td>
-<td class="org-left">04-06/周日</td>
+<td class="org-left">04-06 / 周日</td>
 <td class="org-right">13:00-15:00</td>
 <td class="org-left">传统高速赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/34.8723,136.7478">日本铃鹿 铃鹿赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇧🇭</td>
 <td class="org-left"><a href="#orgfccd45b">巴林</a></td>
-<td class="org-left">04-13/周日</td>
+<td class="org-left">04-13 / 周日</td>
 <td class="org-right">23:00-01:00</td>
 <td class="org-left">🌃夜赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/26.1943,50.5564">巴林萨基尔 巴林国际赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇸🇦</td>
 <td class="org-left"><a href="#orgf8ec02e">沙特</a></td>
-<td class="org-left">04-20/周日</td>
+<td class="org-left">04-20 / 周日</td>
 <td class="org-right">01:00-03:00</td>
 <td class="org-left">🌃街道夜赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/21.5262,39.1628">沙特阿拉伯吉达 吉达滨海赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇺🇸</td>
 <td class="org-left"><a href="#orge074a20">迈阿密</a></td>
-<td class="org-left">05-04/周日</td>
+<td class="org-left">05-04 / 周日</td>
 <td class="org-right">04:00-06:00</td>
-<td class="org-left">⚡冲刺赛/海滨赛道</td>
+<td class="org-left">⚡冲刺赛 / 海滨赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/25.7843,-80.2106">美国迈阿密 迈阿密国际赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇮🇹</td>
 <td class="org-left"><a href="#orgf5356a1">伊莫拉</a></td>
-<td class="org-left">05-18/周日</td>
+<td class="org-left">05-18 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">历史经典赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/44.3917,11.3211">意大利伊莫拉 恩佐・法拉利赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇲🇨</td>
 <td class="org-left"><a href="#orgb58a0d6">摩纳哥</a></td>
-<td class="org-left">05-25/周日</td>
+<td class="org-left">05-25 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">传奇街道赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/43.7387,7.4231">摩纳哥蒙特卡洛 蒙特卡洛赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇪🇸</td>
 <td class="org-left"><a href="#orgc304267">西班牙</a></td>
-<td class="org-left">06-01/周日</td>
+<td class="org-left">06-01 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">高下压力赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/41.4088,2.1747">西班牙巴塞罗那 加泰罗尼亚赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇨🇦</td>
 <td class="org-left"><a href="#org6daebc0">加拿大</a></td>
-<td class="org-left">06-15/周日</td>
+<td class="org-left">06-15 / 周日</td>
 <td class="org-right">06:00-08:00</td>
 <td class="org-left">湿地高概率</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/45.5085,-73.5761">加拿大蒙特利尔 吉尔斯・维伦纽夫赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇦🇹</td>
 <td class="org-left"><a href="#org042e8a0">奥地利</a></td>
-<td class="org-left">06-29/周日</td>
+<td class="org-left">06-29 / 周日</td>
 <td class="org-right">21:00-23:00</td>
-<td class="org-left">短赛道/多超车点</td>
+<td class="org-left">短赛道 / 多超车点</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/47.2833,14.6058">奥地利斯皮尔伯格 红牛环赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇬🇧</td>
 <td class="org-left"><a href="#org64ff4e1">英国</a></td>
-<td class="org-left">07-06/周日</td>
+<td class="org-left">07-06 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">雨战多发</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/52.0288,-1.0814">英国银石 银石赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇧🇪</td>
 <td class="org-left"><a href="#org4f04cef">比利时</a></td>
-<td class="org-left">07-27/周日</td>
+<td class="org-left">07-27 / 周日</td>
 <td class="org-right">21:00-23:00</td>
-<td class="org-left">⚡冲刺赛/最长赛道</td>
+<td class="org-left">⚡冲刺赛 / 最长赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/50.3658,5.2167">比利时斯帕 斯帕 - 弗朗科尔尚赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇭🇺</td>
 <td class="org-left"><a href="#org4a217b7">匈牙利</a></td>
-<td class="org-left">08-03/周日</td>
+<td class="org-left">08-03 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">低速弯道密集</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/47.4982,19.0403">匈牙利布达佩斯 亨格罗宁赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇳🇱</td>
 <td class="org-left"><a href="#org3e35e40">荷兰</a></td>
-<td class="org-left">08-31/周日</td>
+<td class="org-left">08-31 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">高速弯道组合</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/52.3774,4.6388">荷兰赞德福特 赞德福特赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇮🇹</td>
 <td class="org-left"><a href="#orga9428cd">意大利</a></td>
-<td class="org-left">09-07/周日</td>
+<td class="org-left">09-07 / 周日</td>
 <td class="org-right">21:00-23:00</td>
 <td class="org-left">蒙扎速度殿堂</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/45.5087,9.2625">意大利蒙扎 蒙扎赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇦🇿</td>
 <td class="org-left"><a href="#org729174d">巴库</a></td>
-<td class="org-left">09-21/周日</td>
+<td class="org-left">09-21 / 周日</td>
 <td class="org-right">21:00-23:00</td>
-<td class="org-left">街道赛/长直道</td>
+<td class="org-left">街道赛 / 长直道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/40.3743,49.8677">阿塞拜疆巴库 巴库市街赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇸🇬</td>
 <td class="org-left"><a href="#org5fd8fb0">新加坡</a></td>
-<td class="org-left">10-05/周日</td>
+<td class="org-left">10-05 / 周日</td>
 <td class="org-right">20:00-22:00</td>
 <td class="org-left">🌃最长夜赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/1.2899,103.8500">新加坡 滨海湾赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇺🇸</td>
 <td class="org-left"><a href="#orgb283b37">奥斯汀</a></td>
-<td class="org-left">10-19/周日</td>
+<td class="org-left">10-19 / 周日</td>
 <td class="org-right">04:00-06:00</td>
 <td class="org-left">地形起伏赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/30.2972,-97.7376">美国奥斯汀 美洲赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇲🇽</td>
 <td class="org-left"><a href="#org12ac573">墨西哥</a></td>
-<td class="org-left">10-26/周日</td>
+<td class="org-left">10-26 / 周日</td>
 <td class="org-right">04:00-06:00</td>
 <td class="org-left">高海拔赛道</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/19.4326,-99.1332">墨西哥墨西哥城 罗德里格斯兄弟赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇧🇷</td>
 <td class="org-left"><a href="#org9b12ac0">圣保罗</a></td>
-<td class="org-left">11-10/周一</td>
+<td class="org-left">11-10 / 周一</td>
 <td class="org-right">01:00-03:00</td>
-<td class="org-left">⚡冲刺赛/多变天气</td>
+<td class="org-left">⚡冲刺赛 / 多变天气</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/-23.5994,-46.6824">巴西圣保罗 何塞・卡洛斯・帕斯赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇺🇸</td>
 <td class="org-left"><a href="#org040dcfa">赌城</a></td>
-<td class="org-left">11-23/周日</td>
+<td class="org-left">11-23 / 周日</td>
 <td class="org-right">12:00-14:00</td>
 <td class="org-left">🌃街道夜赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/36.1177,-115.1728">美国拉斯维加斯 拉斯维加斯大道赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇶🇦</td>
 <td class="org-left"><a href="#orgd4142cb">卡塔尔</a></td>
-<td class="org-left">12-01/周一</td>
+<td class="org-left">12-01 / 周一</td>
 <td class="org-right">00:00-02:00</td>
-<td class="org-left">⚡冲刺赛/沙漠气候</td>
+<td class="org-left">⚡冲刺赛 / 沙漠气候</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/25.3416,51.1886">卡塔尔卢塞尔 卢塞尔国际赛道</a></td>
 </tr>
 
 <tr>
+<td class="org-left">🇦🇪</td>
 <td class="org-left"><a href="#org34175d3">阿布扎比</a></td>
-<td class="org-left">12-07/周日</td>
+<td class="org-left">12-07 / 周日</td>
 <td class="org-right">21:00-23:00</td>
-<td class="org-left">黄昏-夜赛</td>
+<td class="org-left">黄昏 - 夜赛</td>
+<td class="org-left"><a href="https://www.google.com/maps/place/24.4681,54.3749">阿联酋阿布扎比 亚斯码头赛道</a></td>
 </tr>
 </tbody>
 </table>
+
+
+
 <ol class="org-ol">
 <li>点击分站名称自动跳转到详细日程章节</li>
 <li>符号标识说明：
