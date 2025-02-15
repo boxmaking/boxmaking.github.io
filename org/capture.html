@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-15 Sat 23:38 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Org-mode Capture 完全指南</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs  org-mode" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Org-mode Capture 完全指南</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgcd19077">1. 基础概念</a>
+<ul>
+<li><a href="#orgb79b149">1.1. Capture 是什么？</a></li>
+<li><a href="#orgc488dab">1.2. 核心三要素</a></li>
+</ul>
+</li>
+<li><a href="#org147572c">2. 基础配置</a>
+<ul>
+<li><a href="#org2cc860d">2.1. 1. 启用 Capture 功能</a></li>
+<li><a href="#org95bd36d">2.2. 2. 全局快捷键配置</a></li>
+</ul>
+</li>
+<li><a href="#orgba2bb17">3. 模板配置详解</a>
+<ul>
+<li><a href="#orgaaa4307">3.1. 基础模板语法</a></li>
+<li><a href="#org2b23c9f">3.2. 参数说明</a></li>
+<li><a href="#orgcceefcb">3.3. 实战模板示例</a></li>
+</ul>
+</li>
+<li><a href="#org560b7c2">4. 高级技巧</a>
+<ul>
+<li><a href="#org2369363">4.1. 1. 动态路径选择</a></li>
+<li><a href="#org6d7ec6c">4.2. 2. 自动添加标签</a></li>
+<li><a href="#org04ec021">4.3. 3. 时间戳控制</a></li>
+<li><a href="#orga4ce889">4.4. 4. 附件支持</a></li>
+</ul>
+</li>
+<li><a href="#orgda84b01">5. 工作流优化</a>
+<ul>
+<li><a href="#org731ce6e">5.1. 1. 快速结束 Capture</a></li>
+<li><a href="#orgb0e412e">5.2. 2. 自动归档配置</a></li>
+<li><a href="#org7ae82bf">5.3. 3. 与 Agenda 集成</a></li>
+</ul>
+</li>
+<li><a href="#org884f47b">6. 常见问题排查</a>
+<ul>
+<li><a href="#org9a1c2ba">6.1. 问题1：模板不生效</a></li>
+<li><a href="#orga880d96">6.2. 问题2：时间戳格式异常</a></li>
+<li><a href="#org69b43c5">6.3. 问题3：中文乱码</a></li>
+</ul>
+</li>
+<li><a href="#org59248a4">7. 配置示例</a>
+<ul>
+<li><a href="#org77f1210">7.1. 完整 GTD 工作流配置</a></li>
+<li><a href="#org88f9999">7.2. 效果演示</a></li>
+</ul>
+</li>
+<li><a href="#orgdf2273b">8. 扩展阅读</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgcd19077" class="outline-2">
+<h2 id="orgcd19077"><span class="section-number-2">1.</span> 基础概念</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgb79b149" class="outline-3">
+<h3 id="orgb79b149"><span class="section-number-3">1.1.</span> Capture 是什么？</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>快速捕获临时想法/任务的「临时缓冲区」</li>
+<li>支持预定义模板快速结构化输入</li>
+<li>自动归档到指定位置（文件/标题）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc488dab" class="outline-3">
+<h3 id="orgc488dab"><span class="section-number-3">1.2.</span> 核心三要素</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>触发快捷键：快速调用 Capture 界面</li>
+<li>模板系统：定义不同场景的输入格式</li>
+<li>归档流程：将内容保存到正确位置</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org147572c" class="outline-2">
+<h2 id="org147572c"><span class="section-number-2">2.</span> 基础配置</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2cc860d" class="outline-3">
+<h3 id="org2cc860d"><span class="section-number-3">2.1.</span> 1. 启用 Capture 功能</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'org-capture)  ; 确保加载模块
+(setq org-capture-templates nil)  ; 清空默认模板
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org95bd36d" class="outline-3">
+<h3 id="org95bd36d"><span class="section-number-3">2.2.</span> 2. 全局快捷键配置</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(global-set-key (kbd "C-c c") 'org-capture)  ; 推荐快捷键
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba2bb17" class="outline-2">
+<h2 id="orgba2bb17"><span class="section-number-2">3.</span> 模板配置详解</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgaaa4307" class="outline-3">
+<h3 id="orgaaa4307"><span class="section-number-3">3.1.</span> 基础模板语法</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-capture-templates
+      '(("key" "Description" entry (file+headline "file.org" "Node")
+	 "* %?\n %i\n %a")))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b23c9f" class="outline-3">
+<h3 id="org2b23c9f"><span class="section-number-3">3.2.</span> 参数说明</h3>
+<div class="outline-text-3" id="text-3-2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字段</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">key</td>
+<td class="org-left">模板快捷键（单字符）</td>
+</tr>
+
+<tr>
+<td class="org-left">Description</td>
+<td class="org-left">模板菜单显示描述</td>
+</tr>
+
+<tr>
+<td class="org-left">entry</td>
+<td class="org-left">内容类型（还可选 item, checkitem）</td>
+</tr>
+
+<tr>
+<td class="org-left">file+headline</td>
+<td class="org-left">归档位置（文件+标题）</td>
+</tr>
+
+<tr>
+<td class="org-left">模板内容</td>
+<td class="org-left">定义内容结构和占位符</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgcceefcb" class="outline-3">
+<h3 id="orgcceefcb"><span class="section-number-3">3.3.</span> 实战模板示例</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-orgdd1cfed" class="outline-4">
+<h4 id="orgdd1cfed"><span class="section-number-4">3.3.1.</span> 通用任务模板</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("t" "Todo" entry (file+headline "~/org/gtd.org" "Inbox")
+"* TODO %?\n %i\n %a\n SCHEDULED: %t")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdcdf1fe" class="outline-4">
+<h4 id="orgdcdf1fe"><span class="section-number-4">3.3.2.</span> 会议记录模板</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("m" "Meeting" entry (file+headline "~/org/notes.org" "Meetings")
+"* %^{Meeting Title} %T\n%?\n** Attendees\n- \n** Action Items\n- ")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdb82b8f" class="outline-4">
+<h4 id="orgdb82b8f"><span class="section-number-4">3.3.3.</span> 快速笔记模板</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("n" "Note" entry (file "~/org/notes.org")
+"* %^{Title}\n%T\n%?\n%i")
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org560b7c2" class="outline-2">
+<h2 id="org560b7c2"><span class="section-number-2">4.</span> 高级技巧</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org2369363" class="outline-3">
+<h3 id="org2369363"><span class="section-number-3">4.1.</span> 1. 动态路径选择</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("p" "Project" entry (file+headline (org-capture-select-target) "Tasks")
+"* TODO %?\n %i")  ; 按 C-c C-c 选择目标文件
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d7ec6c" class="outline-3">
+<h3 id="org6d7ec6c"><span class="section-number-3">4.2.</span> 2. 自动添加标签</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("c" "Code" entry (file+headline "~/org/tech.org" "Snippets")
+"* %? :code:\n#+BEGIN_SRC %^{Language}\n\n#+END_SRC")
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org04ec021" class="outline-3">
+<h3 id="org04ec021"><span class="section-number-3">4.3.</span> 3. 时间戳控制</h3>
+<div class="outline-text-3" id="text-4-3">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">占位符</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">%t</td>
+<td class="org-left">当前时间</td>
+</tr>
+
+<tr>
+<td class="org-left">%T</td>
+<td class="org-left">时间+日期</td>
+</tr>
+
+<tr>
+<td class="org-left">%^t</td>
+<td class="org-left">交互式选择时间</td>
+</tr>
+
+<tr>
+<td class="org-left">%^T</td>
+<td class="org-left">交互式选择日期和时间</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga4ce889" class="outline-3">
+<h3 id="orga4ce889"><span class="section-number-3">4.4.</span> 4. 附件支持</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">("a" "Attachment" entry (file "~/org/attachments.org")
+"* %^{Description}\n%T\n%i\n%(org-attach-attach)")
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda84b01" class="outline-2">
+<h2 id="orgda84b01"><span class="section-number-2">5.</span> 工作流优化</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org731ce6e" class="outline-3">
+<h3 id="org731ce6e"><span class="section-number-3">5.1.</span> 1. 快速结束 Capture</h3>
+<div class="outline-text-3" id="text-5-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-c C-c</td>
+<td class="org-left">保存并退出</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c C-w</td>
+<td class="org-left">保存并选择归档位置</td>
+</tr>
+
+<tr>
+<td class="org-left">C-c C-k</td>
+<td class="org-left">取消捕获</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgb0e412e" class="outline-3">
+<h3 id="orgb0e412e"><span class="section-number-3">5.2.</span> 2. 自动归档配置</h3>
+<div class="outline-text-3" id="text-5-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">;; 自动归档到每日笔记
+(setq org-capture-templates
+      '(("d" "Daily" entry (file+datetree "~/org/diary.org")
+	"* %?\n%T\n%i")))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ae82bf" class="outline-3">
+<h3 id="org7ae82bf"><span class="section-number-3">5.3.</span> 3. 与 Agenda 集成</h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">;; 自动刷新 Agenda 缓存
+(add-hook 'org-capture-after-finalize-hook 'org-agenda-redo-all)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org884f47b" class="outline-2">
+<h2 id="org884f47b"><span class="section-number-2">6.</span> 常见问题排查</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org9a1c2ba" class="outline-3">
+<h3 id="org9a1c2ba"><span class="section-number-3">6.1.</span> 问题1：模板不生效</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>检查 <code>org-capture-templates</code> 语法是否正确</li>
+<li>确认文件路径存在且有写入权限</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga880d96" class="outline-3">
+<h3 id="orga880d96"><span class="section-number-3">6.2.</span> 问题2：时间戳格式异常</h3>
+<div class="outline-text-3" id="text-6-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-time-stamp-custom-formats  ; 自定义时间格式
+      '("&lt;%Y-%m-%d %a&gt;" . "&lt;%Y-%m-%d %a %H:%M&gt;"))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org69b43c5" class="outline-3">
+<h3 id="org69b43c5"><span class="section-number-3">6.3.</span> 问题3：中文乱码</h3>
+<div class="outline-text-3" id="text-6-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-capture-templates
+      '(("c" "中文模板" entry [...])))  ; 确保使用 utf-8 编码
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59248a4" class="outline-2">
+<h2 id="org59248a4"><span class="section-number-2">7.</span> 配置示例</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org77f1210" class="outline-3">
+<h3 id="org77f1210"><span class="section-number-3">7.1.</span> 完整 GTD 工作流配置</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-capture-templates
+      '(("t" "待办事项" entry (file+headline "~/org/gtd.org" "Inbox")
+	"* TODO %?\n %i\n %a\n SCHEDULED: %t")
+	("m" "会议记录" entry (file+headline "~/org/meetings.org" "Records")
+	 "* %^{主题} %T\n%?\n** 参会人\n- \n** 决议事项\n- ")
+	("j" "日记" entry (file+datetree "~/org/diary.org")
+	 "* %?\n%T\n%i\n%U")))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org88f9999" class="outline-3">
+<h3 id="org88f9999"><span class="section-number-3">7.2.</span> 效果演示</h3>
+<div class="outline-text-3" id="text-7-2">
+<ol class="org-ol">
+<li><p>
+按 <code>C-c c t</code> 快速创建待办事项：
+</p>
+<pre class="example">
+* TODO 完成项目文档 
+  SCHEDULED: &lt;2023-10-16 Mon&gt;
+</pre></li>
+
+<li><p>
+按 <code>C-c c m</code> 记录会议：
+</p>
+<pre class="example">
+* 产品需求讨论 &lt;2023-10-16 Mon 14:00&gt; 
+** 参会人
+- 张三
+- 李四
+** 决议事项
+- 确定V1.0功能范围
+</pre></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdf2273b" class="outline-2">
+<h2 id="orgdf2273b"><span class="section-number-2">8.</span> 扩展阅读</h2>
+<div class="outline-text-2" id="text-8">
+<ol class="org-ol">
+<li>官方文档：=C-h i m org &lt;RET&gt; m Capture=</li>
+<li>高级模板语法：使用 <code>%^{PROMPT}</code> 交互式输入</li>
+<li>与 <code>org-roam</code> 集成实现知识管理</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+</div>
+</body>
+</html>
