@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-16 Sun 21:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git使用代理教程</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -24,18 +26,18 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga8ea59a">1. 基本设置</a></li>
-<li><a href="#org63bdc52">2. socks5设置</a></li>
-<li><a href="#org66ee0ea">3. http设置,设置了socks5可忽略</a></li>
-<li><a href="#orged0c1dc">4. 针对 github.com 的单独配置：</a></li>
-<li><a href="#org87373cc">5. 取消代理</a></li>
+<li><a href="#orgf970b87">1. 基本设置</a></li>
+<li><a href="#org6a8f215">2. socks5设置</a></li>
+<li><a href="#orgd494df2">3. http设置,设置了socks5可忽略</a></li>
+<li><a href="#org7e8663c">4. 针对 github.com 的单独配置：</a></li>
+<li><a href="#orgb06f241">5. 取消代理</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-orga8ea59a" class="outline-2">
-<h2 id="orga8ea59a"><span class="section-number-2">1.</span> 基本设置</h2>
+<div id="outline-container-orgf970b87" class="outline-2">
+<h2 id="orgf970b87"><span class="section-number-2">1.</span> 基本设置</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 不需要设置https,反正我设置了心理安慰吧
@@ -57,8 +59,8 @@ git config --global --get http.proxy
 </div>
 
 
-<div id="outline-container-org63bdc52" class="outline-2">
-<h2 id="org63bdc52"><span class="section-number-2">2.</span> socks5设置</h2>
+<div id="outline-container-org6a8f215" class="outline-2">
+<h2 id="org6a8f215"><span class="section-number-2">2.</span> socks5设置</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">git config --global http.proxy socks5://127.0.0.1:1090
@@ -67,8 +69,8 @@ git config --global https.proxy socks5://127.0.0.1:1090
 </div>
 </div>
 </div>
-<div id="outline-container-org66ee0ea" class="outline-2">
-<h2 id="org66ee0ea"><span class="section-number-2">3.</span> http设置,设置了socks5可忽略</h2>
+<div id="outline-container-orgd494df2" class="outline-2">
+<h2 id="orgd494df2"><span class="section-number-2">3.</span> http设置,设置了socks5可忽略</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">#仅仅针对http
@@ -79,8 +81,8 @@ git config --global https.proxy https://127.0.0.1:41091
 </div>
 </div>
 
-<div id="outline-container-orged0c1dc" class="outline-2">
-<h2 id="orged0c1dc"><span class="section-number-2">4.</span> 针对 github.com 的单独配置：</h2>
+<div id="outline-container-org7e8663c" class="outline-2">
+<h2 id="org7e8663c"><span class="section-number-2">4.</span> 针对 github.com 的单独配置：</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-shell">#socks5协议，1080端口修改成自己的本地代理端口
@@ -96,8 +98,8 @@ git config --global https.https://github.com.proxy https://127.0.0.1:41091
 </div>
 
 
-<div id="outline-container-org87373cc" class="outline-2">
-<h2 id="org87373cc"><span class="section-number-2">5.</span> 取消代理</h2>
+<div id="outline-container-orgb06f241" class="outline-2">
+<h2 id="orgb06f241"><span class="section-number-2">5.</span> 取消代理</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-shell">#reset 代理设置
@@ -109,7 +111,9 @@ git config --global --unset https.proxy
 </div>
 </div>
 <div id="postamble" class="status">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

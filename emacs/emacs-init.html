@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-16 Sun 21:13 -->
+<!-- 2025-02-16 Sun 21:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-配置文件</title>
@@ -26,42 +26,42 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org825e79e">1. 我的全部配置自文件</a></li>
-<li><a href="#org75a38f3">2. 配置文件目录,及调用相关.</a>
+<li><a href="#org68f89f2">1. 我的全部配置自文件</a></li>
+<li><a href="#orgf5b2162">2. 配置文件目录,及调用相关.</a>
 <ul>
-<li><a href="#org77e75f5">2.1. 1.配置文件加载调用.</a></li>
-<li><a href="#org23276b5">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
+<li><a href="#org5bf79d7">2.1. 1.配置文件加载调用.</a></li>
+<li><a href="#orgea1200b">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
 </ul>
 </li>
-<li><a href="#orgeb81f80">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
-<li><a href="#orgb9f61e6">4. 自己自定义的一些配置,啥都有.</a></li>
-<li><a href="#org6649d8a">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
-<li><a href="#orga28288d">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
+<li><a href="#org050b7f2">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
+<li><a href="#orgb3fc1d4">4. 自己自定义的一些配置,啥都有.</a></li>
+<li><a href="#orga700eae">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
+<li><a href="#orgf7f8272">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
 <ul>
-<li><a href="#org1236d03">6.1. calendar的配置我不太用.</a></li>
+<li><a href="#org70fec1a">6.1. calendar的配置我不太用.</a></li>
 </ul>
 </li>
-<li><a href="#orgf045b43">7. 关于复制粘帖的一些设置</a></li>
-<li><a href="#orgeb31d54">8. 我的键配置(主要是f1-f10)</a></li>
-<li><a href="#org231c37e">9. 自动备份相关的设置</a></li>
-<li><a href="#org8804970">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
+<li><a href="#orgbcd69f6">7. 关于复制粘帖的一些设置</a></li>
+<li><a href="#org3f28b91">8. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#org275c8c9">9. 自动备份相关的设置</a></li>
+<li><a href="#orgc27cf19">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
 <ul>
-<li><a href="#orge75ea0d">10.1. 启动页面*scratch*显示特定内容</a></li>
-<li><a href="#org2cb8f1a">10.2. frame-title-format设置相关.</a></li>
+<li><a href="#org42c8e03">10.1. 启动页面*scratch*显示特定内容</a></li>
+<li><a href="#org296cd04">10.2. frame-title-format设置相关.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<figure id="org94317b2">
+<figure id="orgcff49ef">
 <img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
 
 
-<div id="outline-container-org825e79e" class="outline-2">
-<h2 id="org825e79e"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
+<div id="outline-container-org68f89f2" class="outline-2">
+<h2 id="org68f89f2"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
@@ -70,16 +70,16 @@
 </div>
 
 
-<div id="outline-container-org75a38f3" class="outline-2">
-<h2 id="org75a38f3"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
+<div id="outline-container-orgf5b2162" class="outline-2">
+<h2 id="orgf5b2162"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org77e75f5" class="outline-3">
-<h3 id="org77e75f5"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
+<div id="outline-container-org5bf79d7" class="outline-3">
+<h3 id="org5bf79d7"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgf2ba190"></a>加载文件,在默认的配置文件中加载的文件<br>
+<li><a id="org5da998d"></a>加载文件,在默认的配置文件中加载的文件<br>
 <div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(add-to-list 'load-path "~/.emacs.d/loadfile/")
@@ -90,7 +90,7 @@
 </li>
 
 
-<li><a id="org4e3bbac"></a>想要被加载,插件的.el文件最后一定要proide<br>
+<li><a id="orga071e17"></a>想要被加载,插件的.el文件最后一定要proide<br>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(provide '***-***)
@@ -100,7 +100,7 @@
 </li>
 
 
-<li><a id="orga9a901a"></a>关于这些加载项目的差别可以在这个网站查看<br>
+<li><a id="orgaa21003"></a>关于这些加载项目的差别可以在这个网站查看<br>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <a href="http://ergoemacs.org/emacs/elisp_library_system.html">http://ergoemacs.org/emacs/elisp_library_system.html</a>
@@ -111,8 +111,8 @@
 </div>
 
 
-<div id="outline-container-org23276b5" class="outline-3">
-<h3 id="org23276b5"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
+<div id="outline-container-orgea1200b" class="outline-3">
+<h3 id="orgea1200b"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -151,7 +151,7 @@
 
 
 <ol class="org-ol">
-<li><a id="org388f330"></a>都是立即生效，可以马上试验一条语句的效果<br>
+<li><a id="orga87c7b4"></a>都是立即生效，可以马上试验一条语句的效果<br>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(setq frame-title-format "emacs@%b") 
@@ -164,8 +164,8 @@
 </div>
 
 
-<div id="outline-container-orgeb81f80" class="outline-2">
-<h2 id="orgeb81f80"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
+<div id="outline-container-org050b7f2" class="outline-2">
+<h2 id="org050b7f2"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;; -*- coding: utf-8; lexical-binding: t -*-
@@ -353,8 +353,8 @@
 </div>
 
 
-<div id="outline-container-orgb9f61e6" class="outline-2">
-<h2 id="orgb9f61e6"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
+<div id="outline-container-orgb3fc1d4" class="outline-2">
+<h2 id="orgb3fc1d4"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -462,8 +462,8 @@
 </div>
 
 
-<div id="outline-container-org6649d8a" class="outline-2">
-<h2 id="org6649d8a"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
+<div id="outline-container-orga700eae" class="outline-2">
+<h2 id="orga700eae"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -629,8 +629,8 @@
 </div>
 
 
-<div id="outline-container-orga28288d" class="outline-2">
-<h2 id="orga28288d"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
+<div id="outline-container-orgf7f8272" class="outline-2">
+<h2 id="orgf7f8272"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -736,8 +736,8 @@
 </div>
 
 
-<div id="outline-container-org1236d03" class="outline-3">
-<h3 id="org1236d03"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
+<div id="outline-container-org70fec1a" class="outline-3">
+<h3 id="org70fec1a"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -848,8 +848,8 @@
 </div>
 
 
-<div id="outline-container-orgf045b43" class="outline-2">
-<h2 id="orgf045b43"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
+<div id="outline-container-orgbcd69f6" class="outline-2">
+<h2 id="orgbcd69f6"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -887,8 +887,8 @@
 </div>
 
 
-<div id="outline-container-orgeb31d54" class="outline-2">
-<h2 id="orgeb31d54"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
+<div id="outline-container-org3f28b91" class="outline-2">
+<h2 id="org3f28b91"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -966,8 +966,8 @@
 </div>
 
 
-<div id="outline-container-org231c37e" class="outline-2">
-<h2 id="org231c37e"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
+<div id="outline-container-org275c8c9" class="outline-2">
+<h2 id="org275c8c9"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -999,12 +999,12 @@
 </div>
 
 
-<div id="outline-container-org8804970" class="outline-2">
-<h2 id="org8804970"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
+<div id="outline-container-orgc27cf19" class="outline-2">
+<h2 id="orgc27cf19"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-orge75ea0d" class="outline-3">
-<h3 id="orge75ea0d"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
+<div id="outline-container-org42c8e03" class="outline-3">
+<h3 id="org42c8e03"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 将以下代码添加到你的 Emacs 配置文件中：
@@ -1026,12 +1026,12 @@
 
 
 
-<div id="outline-container-org2cb8f1a" class="outline-3">
-<h3 id="org2cb8f1a"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
+<div id="outline-container-org296cd04" class="outline-3">
+<h3 id="org296cd04"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
 <div class="outline-text-3" id="text-10-2">
 </div>
 <ol class="org-ol">
-<li><a id="org090c096"></a>我的设置<br>
+<li><a id="org99d8080"></a>我的设置<br>
 <div class="outline-text-4" id="text-10-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>;; buffer name (if the buffer isn't visiting a file)
@@ -1045,9 +1045,9 @@
 </li>
 
 
-<li><a id="orgd3fd917"></a>frame-title-format选项相关<br>
+<li><a id="org77fb2fd"></a>frame-title-format选项相关<br>
 <div class="outline-text-4" id="text-10-2-2">
-<pre class="example" id="orgee8099f">
+<pre class="example" id="orgc1a0287">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1076,7 +1076,7 @@ Decimal digits after the % specify field width to which to pad.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 18:49:55&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-16 Sun 21:13</p>
+<p class="date">Created: 2025-02-16 Sun 21:17</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

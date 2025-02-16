@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-16 Sun 21:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>字符集和编码</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -24,22 +26,22 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgff71230">1. 字符集与编码</a></li>
-<li><a href="#org1b5f484">2. 字符集和编码</a></li>
-<li><a href="#org7aeacd2">3. 代码页</a></li>
-<li><a href="#orgac2dd52">4. ANSI 编码</a></li>
-<li><a href="#org4265b8d">5. Unicode</a></li>
-<li><a href="#orgf7c2c31">6. UTF-8, UTF-16, UTF-32</a></li>
-<li><a href="#orgc709c5d">7. 字节序 (Byte Order)</a></li>
-<li><a href="#org0b50843">8. 字素(Grapheme)与字素簇(Grapheme Cluster)</a></li>
-<li><a href="#orgc5da356">9. Collation</a></li>
-<li><a href="#orgea7ab10">10. MySQL 与 UTF-8</a></li>
+<li><a href="#org07f3f8f">1. 字符集与编码</a></li>
+<li><a href="#org1c9eddf">2. 字符集和编码</a></li>
+<li><a href="#org79a683e">3. 代码页</a></li>
+<li><a href="#org6410a08">4. ANSI 编码</a></li>
+<li><a href="#org0d7e7e1">5. Unicode</a></li>
+<li><a href="#org7f859e7">6. UTF-8, UTF-16, UTF-32</a></li>
+<li><a href="#org027f2f5">7. 字节序 (Byte Order)</a></li>
+<li><a href="#org6c5a128">8. 字素(Grapheme)与字素簇(Grapheme Cluster)</a></li>
+<li><a href="#org1e7281d">9. Collation</a></li>
+<li><a href="#org47fb29b">10. MySQL 与 UTF-8</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgff71230" class="outline-2">
-<h2 id="orgff71230"><span class="section-number-2">1.</span> 字符集与编码</h2>
+<div id="outline-container-org07f3f8f" class="outline-2">
+<h2 id="org07f3f8f"><span class="section-number-2">1.</span> 字符集与编码</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 发布于 2019年9月12日   最后修改于 2019年11月19日    原创作品，转载请注明<a href="https://deerchao.cn/blog/posts/unicode.html">来源</a>.
@@ -49,8 +51,8 @@
 
 
 
-<div id="outline-container-org1b5f484" class="outline-2">
-<h2 id="org1b5f484"><span class="section-number-2">2.</span> 字符集和编码</h2>
+<div id="outline-container-org1c9eddf" class="outline-2">
+<h2 id="org1c9eddf"><span class="section-number-2">2.</span> 字符集和编码</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 字符集(Character Set)是字符的集合，定义系统能处理哪些字符；编码(Encoding)则规定这些字符在计算机内部的表示方式。
@@ -68,8 +70,8 @@
 
 
 
-<div id="outline-container-org7aeacd2" class="outline-2">
-<h2 id="org7aeacd2"><span class="section-number-2">3.</span> 代码页</h2>
+<div id="outline-container-org79a683e" class="outline-2">
+<h2 id="org79a683e"><span class="section-number-2">3.</span> 代码页</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 代码页就是字符集加上编码。
@@ -84,7 +86,7 @@ reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage /f AC
 <p>
 查看系统当前设置的代码页编号：
 </p>
-<pre class="example" id="orgaeadb5b">
+<pre class="example" id="orgad11a4a">
 C:\&gt;reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage /f ACP
 
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage
@@ -104,8 +106,8 @@ C:&gt;
 </div>
 
 
-<div id="outline-container-orgac2dd52" class="outline-2">
-<h2 id="orgac2dd52"><span class="section-number-2">4.</span> ANSI 编码</h2>
+<div id="outline-container-org6410a08" class="outline-2">
+<h2 id="org6410a08"><span class="section-number-2">4.</span> ANSI 编码</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 ANSI 编码代表 Windows 系统中当前代码页对应的编码，亦即系统默认编码。
@@ -118,8 +120,8 @@ ANSI 编码代表 Windows 系统中当前代码页对应的编码，亦即系统
 </div>
 
 
-<div id="outline-container-org4265b8d" class="outline-2">
-<h2 id="org4265b8d"><span class="section-number-2">5.</span> Unicode</h2>
+<div id="outline-container-org0d7e7e1" class="outline-2">
+<h2 id="org0d7e7e1"><span class="section-number-2">5.</span> Unicode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Unicode 是一套标准，包含多语言统一的字符集及其相关编码，以及在这个字符集上进行文本处理的相关规则。
@@ -140,8 +142,8 @@ Unicode 字符集被分为十七个子集(Plane，平面或位面)，每个子�
 </div>
 
 
-<div id="outline-container-orgf7c2c31" class="outline-2">
-<h2 id="orgf7c2c31"><span class="section-number-2">6.</span> UTF-8, UTF-16, UTF-32</h2>
+<div id="outline-container-org7f859e7" class="outline-2">
+<h2 id="org7f859e7"><span class="section-number-2">6.</span> UTF-8, UTF-16, UTF-32</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 这些是 Unicode 标准中规定的几种编码方式。UTF 是 Unicode Transformation Format 的缩写。
@@ -166,8 +168,8 @@ UTF-32 (又称 UCS-4) 是一种定长编码，每个字符使用 32 位来表示
 </div>
 
 
-<div id="outline-container-orgc709c5d" class="outline-2">
-<h2 id="orgc709c5d"><span class="section-number-2">7.</span> 字节序 (Byte Order)</h2>
+<div id="outline-container-org027f2f5" class="outline-2">
+<h2 id="org027f2f5"><span class="section-number-2">7.</span> 字节序 (Byte Order)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 不同系统中处理数值时可能采用的大小端序(Endianness)不同。比如在小端序（Little-endian）的机器上，32 位数字 1 在内存中表示为 4 个字节：01 00 00 00；而在大端序(Big-endian)的机器上则表示为 00 00 00 01。常见的 x86/x64, ARM 等处理器架构使用小端序，OpenRISC, SPARC等则使用大端序。不同系统间通信时，或读取其它系统存储的文件时，需要考虑字节顺序问题。
@@ -188,8 +190,8 @@ UTF-8 编码的基本单位是字节，无需考虑字节序问题。尽管可�
 </div>
 
 
-<div id="outline-container-org0b50843" class="outline-2">
-<h2 id="org0b50843"><span class="section-number-2">8.</span> 字素(Grapheme)与字素簇(Grapheme Cluster)</h2>
+<div id="outline-container-org6c5a128" class="outline-2">
+<h2 id="org6c5a128"><span class="section-number-2">8.</span> 字素(Grapheme)与字素簇(Grapheme Cluster)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 字素是文本在书写时最小的单位，可以被理解为单独的“字”。
@@ -210,8 +212,8 @@ UTF-8 编码的基本单位是字节，无需考虑字节序问题。尽管可�
 </div>
 
 
-<div id="outline-container-orgc5da356" class="outline-2">
-<h2 id="orgc5da356"><span class="section-number-2">9.</span> Collation</h2>
+<div id="outline-container-org1e7281d" class="outline-2">
+<h2 id="org1e7281d"><span class="section-number-2">9.</span> Collation</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Collation 是字符间的排序规则。在一个 Collation 中，对应字符集里所有的字符都有确定的排序先后关系，因而构成了全序关系。
@@ -224,8 +226,8 @@ Collation 是字符间的排序规则。在一个 Collation 中，对应字符�
 </div>
 
 
-<div id="outline-container-orgea7ab10" class="outline-2">
-<h2 id="orgea7ab10"><span class="section-number-2">10.</span> MySQL 与 UTF-8</h2>
+<div id="outline-container-org47fb29b" class="outline-2">
+<h2 id="org47fb29b"><span class="section-number-2">10.</span> MySQL 与 UTF-8</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 在 MySQL 数据库中，存在多个与 Unicode 相关的字符集和排序规则。
@@ -242,7 +244,10 @@ MySQL 中排序规则应该使用 utf8mb4<sub>unicode</sub><sub>ci</sub>，而�
 </div>
 </div>
 <div id="postamble" class="status">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+<p class="date">&#26085;&#26399;: &lt;2020-05-07-128/Thursday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

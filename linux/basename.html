@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-16 Sun 21:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>basename-只提取文件名的好工具</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -24,31 +26,31 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3be43e1">1. basename教程</a>
+<li><a href="#org27db7cb">1. basename教程</a>
 <ul>
-<li><a href="#org12f73f7">1.1. basename介绍</a></li>
-<li><a href="#org33da36e">1.2. basename命令如何工作？</a></li>
-<li><a href="#org8873272">1.3. basename可以处理多个输入吗？</a></li>
-<li><a href="#org9fd6509">1.4. 如何制作basename strip文件扩展名？</a></li>
-<li><a href="#orgc3bff0a">1.5. 如何使用NUL使每一行输出结束？</a></li>
+<li><a href="#org6a7efa6">1.1. basename介绍</a></li>
+<li><a href="#org9f7ae91">1.2. basename命令如何工作？</a></li>
+<li><a href="#orgfd23aa8">1.3. basename可以处理多个输入吗？</a></li>
+<li><a href="#orged45904">1.4. 如何制作basename strip文件扩展名？</a></li>
+<li><a href="#org0231ab8">1.5. 如何使用NUL使每一行输出结束？</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org3be43e1" class="outline-2">
-<h2 id="org3be43e1"><span class="section-number-2">1.</span> basename教程</h2>
+<div id="outline-container-org27db7cb" class="outline-2">
+<h2 id="org27db7cb"><span class="section-number-2">1.</span> basename教程</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org12f73f7" class="outline-3">
-<h3 id="org12f73f7"><span class="section-number-3">1.1.</span> basename介绍</h3>
+<div id="outline-container-org6a7efa6" class="outline-3">
+<h3 id="org6a7efa6"><span class="section-number-3">1.1.</span> basename介绍</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 basename命令允许您从不需要的文件名中去除组件
 以下是该工具的语法：
 </p>
-<pre class="example" id="org1a05312">
+<pre class="example" id="orgf004eba">
 basename NAME [SUFFIX]
 basename OPTION... NAME...
 以下是手册页中所说的内容：
@@ -67,8 +69,8 @@ SUFFIX.
 </div>
 
 
-<div id="outline-container-org33da36e" class="outline-3">
-<h3 id="org33da36e"><span class="section-number-3">1.2.</span> basename命令如何工作？</h3>
+<div id="outline-container-org9f7ae91" class="outline-3">
+<h3 id="org9f7ae91"><span class="section-number-3">1.2.</span> basename命令如何工作？</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 默认情况下，如果运行“basename”命令并将文件的完整路径作为输入，则该命令将在输出中返回文件名。 
@@ -87,8 +89,8 @@ $test.txt
 </div>
 
 
-<div id="outline-container-org8873272" class="outline-3">
-<h3 id="org8873272"><span class="section-number-3">1.3.</span> basename可以处理多个输入吗？</h3>
+<div id="outline-container-orgfd23aa8" class="outline-3">
+<h3 id="orgfd23aa8"><span class="section-number-3">1.3.</span> basename可以处理多个输入吗？</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 可以。 但要实现这一点，您需要使用-a命令行选项。 
@@ -108,8 +110,8 @@ $test.jpg
 </div>
 
 
-<div id="outline-container-org9fd6509" class="outline-3">
-<h3 id="org9fd6509"><span class="section-number-3">1.4.</span> 如何制作basename strip文件扩展名？</h3>
+<div id="outline-container-orged45904" class="outline-3">
+<h3 id="orged45904"><span class="section-number-3">1.4.</span> 如何制作basename strip文件扩展名？</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 有时，您可能只想获取文件名，而不是其扩展名
@@ -129,8 +131,8 @@ $test
 </div>
 
 
-<div id="outline-container-orgc3bff0a" class="outline-3">
-<h3 id="orgc3bff0a"><span class="section-number-3">1.5.</span> 如何使用NUL使每一行输出结束？</h3>
+<div id="outline-container-org0231ab8" class="outline-3">
+<h3 id="org0231ab8"><span class="section-number-3">1.5.</span> 如何使用NUL使每一行输出结束？</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 默认情况下，换行符用作输出中的分隔符。 但是，如果需要，可以强制basename使用NUL作为分隔符
@@ -156,7 +158,10 @@ $test.txttest.jpg
 </div>
 </div>
 <div id="postamble" class="status">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+<p class="date">&#26085;&#26399;: &lt;2020-04-30-121/Thursday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

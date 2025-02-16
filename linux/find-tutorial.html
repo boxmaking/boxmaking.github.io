@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-12 Wed 12:59 -->
+<!-- 2025-02-16 Sun 21:17 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>find-tutorial</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -24,16 +26,16 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd63beab">1. find 常用命令</a></li>
-<li><a href="#org6164fe5">2. exec与xargs区别</a>
+<li><a href="#orgf9bc153">1. find 常用命令</a></li>
+<li><a href="#orgfdd5eb6">2. exec与xargs区别</a>
 <ul>
-<li><a href="#orgfcc25e3">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
-<li><a href="#org362ae89">2.2. 出各自的缺点</a></li>
+<li><a href="#org9c4d5cc">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
+<li><a href="#org5141f21">2.2. 出各自的缺点</a></li>
 </ul>
 </li>
-<li><a href="#org3729a70">3. -exec使用教程</a>
+<li><a href="#orgc189272">3. -exec使用教程</a>
 <ul>
-<li><a href="#org28bb3fc">3.1. exec参数说明</a></li>
+<li><a href="#orgd03fefa">3.1. exec参数说明</a></li>
 </ul>
 </li>
 </ul>
@@ -41,8 +43,8 @@
 </nav>
 
 
-<div id="outline-container-orgd63beab" class="outline-2">
-<h2 id="orgd63beab"><span class="section-number-2">1.</span> find 常用命令</h2>
+<div id="outline-container-orgf9bc153" class="outline-2">
+<h2 id="orgf9bc153"><span class="section-number-2">1.</span> find 常用命令</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一般格式： find+目录名称+参数
@@ -255,12 +257,12 @@
 </div>
 
 
-<div id="outline-container-org6164fe5" class="outline-2">
-<h2 id="org6164fe5"><span class="section-number-2">2.</span> exec与xargs区别</h2>
+<div id="outline-container-orgfdd5eb6" class="outline-2">
+<h2 id="orgfdd5eb6"><span class="section-number-2">2.</span> exec与xargs区别</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfcc25e3" class="outline-3">
-<h3 id="orgfcc25e3"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
+<div id="outline-container-org9c4d5cc" class="outline-3">
+<h3 id="org9c4d5cc"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>-exec：{}表示命令的参数即为所找到的文件,以；表示comman命令的结束。\是转义符，
@@ -330,8 +332,8 @@ $find test/ -name *zzh -exec rm {} \;
 </div>
 
 
-<div id="outline-container-org362ae89" class="outline-3">
-<h3 id="org362ae89"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
+<div id="outline-container-org5141f21" class="outline-3">
+<h3 id="org5141f21"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li>exec 每处理一个文件或者目录，它都需要启动一次命令，效率不好;</li>
@@ -343,8 +345,8 @@ $find test/ -name *zzh -exec rm {} \;
 </div>
 
 
-<div id="outline-container-org3729a70" class="outline-2">
-<h2 id="org3729a70"><span class="section-number-2">3.</span> -exec使用教程</h2>
+<div id="outline-container-orgc189272" class="outline-2">
+<h2 id="orgc189272"><span class="section-number-2">3.</span> -exec使用教程</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 综上，如果要使用的命令支持一次处理多个文件，并且也知道这些文件里没有带空格的文件，
@@ -352,8 +354,8 @@ $find test/ -name *zzh -exec rm {} \;
 </p>
 </div>
 
-<div id="outline-container-org28bb3fc" class="outline-3">
-<h3 id="org28bb3fc"><span class="section-number-3">3.1.</span> exec参数说明</h3>
+<div id="outline-container-orgd03fefa" class="outline-3">
+<h3 id="orgd03fefa"><span class="section-number-3">3.1.</span> exec参数说明</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 -exec 参数后面跟的是command命令
@@ -487,7 +489,9 @@ find -name "*.log" -exec mv {} test \;
 </div>
 </div>
 <div id="postamble" class="status">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
