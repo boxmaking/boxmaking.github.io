@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-14 Fri 22:32 -->
+<!-- 2025-02-16 Sun 21:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的orgmode学习笔记</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -99,7 +101,7 @@
 <li><a href="#org6486248">13.2. 也可以通过改变setq org-startup-folded 函数来解决问题</a></li>
 </ul>
 </li>
-<li><a href="#org97d923d">14. 字体设置</a></li>
+<li><a href="#org97d923d">14. <span class="todo TODO">TODO</span> 字体设置</a></li>
 <li><a href="#org6a412f9">15. <span class="todo TODO">TODO</span> 文档的元数据整理</a></li>
 <li><a href="#org07a30a5">16. <span class="todo TODO">TODO</span> 内容元数据的整理</a></li>
 <li><a href="#org28944c9">17. <span class="todo TODO">TODO</span> 嵌入文件</a></li>
@@ -283,7 +285,7 @@
 或者只是在单个文件中设置：
 </p>
 
-<pre class="example" id="org183ddea">
+<pre class="example" id="orged78ebc">
 #+OPTIONS: H:4
 </pre>
 </div>
@@ -296,7 +298,7 @@
 <p>
 目录表通常会直接插入在文档第一个标题之前。
 </p>
-<pre class="example" id="org113848a">
+<pre class="example" id="org402fc67">
 #+OPTIONS: toc:2 (目录中只显示二级标题)
 #+OPTIONS: toc:nil (无目录)
 </pre>
@@ -642,7 +644,7 @@ org-clock-out &#x2013; 添加结束时间</li>
 <li><p>
 效果
 </p>
-<pre class="example" id="orgd1f1762">
+<pre class="example" id="org58c8c0a">
 :LOGBOOK:
 CLOCK: [2020-03-12 Fri 22:34]--[2020-03-20 Fri 22:34] =&gt; 192:00
 :END:
@@ -812,7 +814,7 @@ S-上,S-下,来设置优先级</dd>
 可以定义多系列的TODO关键词
 可以使用中文关键词。
 </p>
-<pre class="example" id="org1fb14f1">
+<pre class="example" id="orgadb103d">
 #+TYP_TODO: 工作(w!) 学习(s!) 休闲(l!) |
 #+SEQ_TODO: PENDING(p!) TODO(t!) | DONE(d!) ABORT(a@/!)
 </pre></li>
@@ -896,7 +898,7 @@ emacs配置文件中中设置如下的代码就行了
 C-c C-l (org-insert-link)
 </p>
 
-<pre class="example" id="orgddaf72b">
+<pre class="example" id="org5ab6ed2">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 </div>
@@ -913,7 +915,7 @@ Org-mode支持内部链接,也就是锚点
 定义锚点 #<a id="orga58b313"></a>
 </p>
 
-<pre class="example" id="org1eed161">
+<pre class="example" id="orge1c46a8">
 [[my-anchor][内部链接]]
 </pre>
 
@@ -943,7 +945,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 使用的是双括考套住的显示方式,前面是url后面是distable
 </p>
-<pre class="example" id="org624b3d2">
+<pre class="example" id="orge49cff8">
 [[file:emacs.help.org][emacs-help.org]]
 </pre>
 
@@ -957,7 +959,7 @@ Org-mode支持内部链接,也就是锚点
 在输入文件url的时候后面加上双冒号::就能够实现文件内部操作
 这个经常出错,抛弃了.
 </p>
-<pre class="example" id="org933eb38">
+<pre class="example" id="orgf23beab">
 [[file:org-tutorial.org::2]] 就能现实这个文件的第2行
 [[file:org-tutorial.org::emacs]] 这样就是搜索其中的emacs
 </pre></li>
@@ -975,7 +977,7 @@ Org-mode支持内部链接,也就是锚点
 <li><p>
 C-c C-l 就能添加链接了
 </p>
-<pre class="example" id="orgf841dd7">
+<pre class="example" id="orgca40a80">
 链接地址 [[https:www.google.com][google]]
 </pre>
 <p>
@@ -990,7 +992,7 @@ C-c C-l 就能添加链接了
 <div id="outline-container-orgfd7d8a1" class="outline-3">
 <h3 id="orgfd7d8a1"><span class="section-number-3">9.4.</span> 脚注使用</h3>
 <div class="outline-text-3" id="text-9-4">
-<pre class="example" id="orga08bc14">
+<pre class="example" id="orgb0828f0">
 [[链接地址][描述]]  或者 [[链接]]
 </pre>
 <p>
@@ -1126,7 +1128,7 @@ C-c C-c,可以对齐表格
 <div id="outline-container-orga90cee6" class="outline-3">
 <h3 id="orga90cee6"><span class="section-number-3">13.1.</span> likethis</h3>
 <div class="outline-text-3" id="text-13-1">
-<pre class="example" id="org39196e9">
+<pre class="example" id="org3950e34">
 #+STARTUP: overview
 #+STARTUP: content
 #+STARTUP: showall
@@ -1152,9 +1154,11 @@ C-c C-c,可以对齐表格
 
 
 <div id="outline-container-org97d923d" class="outline-2">
-<h2 id="org97d923d"><span class="section-number-2">14.</span> 字体设置</h2>
+<h2 id="org97d923d"><span class="section-number-2">14.</span> <span class="todo TODO">TODO</span> 字体设置</h2>
 <div class="outline-text-2" id="text-14">
-<p>
+<ul class="org-ul">
+<li><p>
+State "TODO"       from              <span class="timestamp-wrapper"><span class="timestamp">[2025-02-16 Sun 21:13]</span></span>
 <b>粗体</b>
 </p>
 
@@ -1180,7 +1184,8 @@ C-c C-c,可以对齐表格
 
 <p>
 等宽字：  <code>git</code>  或者  ～git～
-</p>
+</p></li>
+</ul>
 </div>
 </div>
 
@@ -1206,7 +1211,7 @@ MY PROJECTS    -<b>- mode: org; -</b>-
 <p>
 以 &lt; 开头，然后再以下面一个字母来表示想输入的模板，然后再按一下 TAB 即可。
 </p>
-<pre class="example" id="org26664f6">
+<pre class="example" id="orgb934ed9">
 s	#+BEGIN_SRC ... #+END_SRC 
 e	#+BEGIN_EXAMPLE ... #+END_EXAMPLE
 q	#+BEGIN_QUOTE ... #+END_QUOTE 
@@ -1223,7 +1228,7 @@ I	#+INCLUDE: line
 
 </pre>
 
-<pre class="example" id="org098dd6a">
+<pre class="example" id="org155a276">
 #+TITLE:       the title to be shown (default is the buffer name)
 #+AUTHOR:      the author (default taken from user-full-name)
 #+DATE:        a date, an Org timestamp1, or a format string for format-time-string
@@ -1248,7 +1253,7 @@ I	#+INCLUDE: line
 其中#+OPTIONS是复合的选项，包括：
 </p>
 
-<pre class="example" id="orgecf5bbf">
+<pre class="example" id="orga23b71e">
 
 H:         set the number of headline levels for export
 num:       turn on/off section-numbers
@@ -1283,7 +1288,7 @@ d:         turn on/off inclusion of drawers
 这些元数据可以根据需要设置。建议放在文档的开头部分。如，本文采用的元数据如下：
 </p>
 
-<pre class="example" id="org561fe8b">
+<pre class="example" id="org0d76cd2">
 #+TITLE: org-learn-我的orgmode学习笔记
 #+AUTHOR:pengshao58
 #+EMAIL: pengshao58@gmail.com
@@ -1357,7 +1362,7 @@ puts md.to_html
 </pre>
 
 
-<pre class="example" id="orge4f8226">
+<pre class="example" id="org1936810">
 多行的例子
 使用区块
 </pre></li>
@@ -1409,7 +1414,7 @@ puts md.to_html
 对于导出html以及发布，嵌入html代码就很有用。比如下面的例子适用于格式化为cnblogs的代码块：
 </p>
 
-<div class="HTML" id="org17f9d91">
+<div class="HTML" id="org7231934">
 <p>
 &lt;div class="cnblogs_Highlighter"&gt;
 &lt;pre class="brush:cpp"&gt;
@@ -1654,7 +1659,7 @@ Org 中画树形图
 <p>
 用LaTeX的包 synttree。下面是示例：
 </p>
-<pre class="example" id="org09f89dd">
+<pre class="example" id="orgfcf8ad0">
 \documentclass{article}
 \usepackage{synttree}
 \begin{document}
@@ -1673,7 +1678,10 @@ Org 中画树形图
 </div>
 </div>
 <div id="postamble" class="status">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164487790-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); </script>
+<p class="date">&#26085;&#26399;: &lt;2025-02-11/Tuesday 18:52:11&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-16 Sun 21:13</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-16 Sun 21:03 -->
+<!-- 2025-02-16 Sun 21:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish用org批量导出来建一个静态博客系统</title>
@@ -11,6 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -61,27 +63,21 @@
 <span class="linenr"> 8: </span>#+HTML_HEAD: &lt;link rel="stylesheet" type="text/css" href="../css/org.css" /&gt;
 <span class="linenr"> 9: </span>
 <span class="linenr">10: </span>
-<span class="linenr">11: </span>
-<span class="linenr">12: </span>
+<span class="linenr">11: </span>#+HTML_LINK_UP: ../index.html
+<span class="linenr">12: </span>#+HTML_LINK_HOME: ../index.html
 <span class="linenr">13: </span>
 <span class="linenr">14: </span>
-<span class="linenr">15: </span>
-<span class="linenr">16: </span>#+HTML_LINK_UP: ../index.html
-<span class="linenr">17: </span>#+HTML_LINK_HOME: ../index.html
-<span class="linenr">18: </span>
-<span class="linenr">19: </span>
-<span class="linenr">20: </span>
-<span class="linenr">21: </span>
-<span class="linenr">22: </span>
-<span class="linenr">23: </span>
-<span class="linenr">24: </span>#+STARTUP: showall
+<span class="linenr">15: </span>#+STARTUP: showall
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>#+HTML_HEAD: &lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;
+<span class="linenr">18: </span>#+HTML_HEAD: &lt;span id="busuanzi_container_page_pv"&gt;本文阅读量&lt;span id="busuanzi_value_page_pv"&gt;&lt;/span&gt;次&lt;/span&gt;
 </pre>
 </div></li>
 
 <li><p>
 然后在所要编写的org文件的头部添加上加载头文件的语句就可以了
 </p>
-<pre class="example" id="orgbd0216a">
+<pre class="example" id="org9f565da">
 #+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
 </pre></li>
 </ol></li>
@@ -256,7 +252,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
 </p>
 
-<pre class="example" id="org64e91f4">
+<pre class="example" id="org2983548">
 #+OPTIONS: ^:nil _:nil f:nil toc:t
 </pre>
 </div>
@@ -269,7 +265,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 <p>
 导出html文章不显示目录，
 </p>
-<pre class="example" id="org9475f8e">
+<pre class="example" id="org2238fe3">
 #+OPTIONS: toc:nil
 </pre>
 </div>
@@ -283,7 +279,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 <li><p>
 配置文件选项设置
 </p>
-<pre class="example" id="org9249364">
+<pre class="example" id="org4d8d3b1">
 ;自动导航主页模式
  auto-sitemap t
 ;主页文件的名称
@@ -300,7 +296,7 @@ sitemap-title "我的网站"
 然后，我们只要在我们的 index.org 里 include 这个文件
 系统会自动导出index.html了就.
 </p>
-<pre class="example" id="orgae831dc">
+<pre class="example" id="orgc647f86">
 #+INCLUDE: sitemap.org
 </pre>
 
@@ -323,7 +319,7 @@ sitemap-title "我的网站"
 使用 #+attr_html 属性设置具体尺寸
 可以通过 #+attr_html 属性为图片指定固定的宽度和高度。
 </p>
-<pre class="example" id="org934cd83">
+<pre class="example" id="orgaf03c7f">
 #+attr_html: :width 400px :height 300px
 [[file:your_image.jpg]]
 </pre>
@@ -338,7 +334,7 @@ sitemap-title "我的网站"
 使用 CSS 样式设置图片尺寸
 可以在 Org 文件头部添加 CSS 样式来控制图片尺寸。
 </p>
-<pre class="example" id="orgb7a2e93">
+<pre class="example" id="org91a8174">
 #+HTML_HEAD: &lt;style&gt;
 #+HTML_HEAD:   img.custom - image {
 #+HTML_HEAD:     width: 70%;
@@ -364,7 +360,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 按比例缩放图片
 使用 :scale 属性按比例缩放图片。
 </p>
-<pre class="example" id="org7ed17e0">
+<pre class="example" id="org1985796">
 #+attr_html: :scale 0.8
 [[file:your_image.jpg]]
 </pre>
@@ -377,7 +373,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 动态调整图片大小
 利用 CSS 的 max - width 属性让图片根据浏览器窗口大小动态调整。
 </p>
-<pre class="example" id="org514d379">
+<pre class="example" id="orgb85e989">
 #+attr_html: :style "max-width: 100%; height: auto;"
 [[file:your_image.jpg]]
 </pre>
@@ -460,7 +456,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-11/Tuesday 16:29:10&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-16 Sun 21:03</p>
+<p class="date">Created: 2025-02-16 Sun 21:13</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
