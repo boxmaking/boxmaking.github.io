@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-16 Sun 20:48 -->
+<!-- 2025-02-16 Sun 21:03 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish用org批量导出来建一个静态博客系统</title>
@@ -81,7 +81,7 @@
 <li><p>
 然后在所要编写的org文件的头部添加上加载头文件的语句就可以了
 </p>
-<pre class="example" id="orga18581c">
+<pre class="example" id="orgbd0216a">
 #+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
 </pre></li>
 </ol></li>
@@ -171,7 +171,7 @@
 	     ;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"
 	     ;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"
 	     ;html-postamble "&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"
-	     :HTML_EXPORT_POSTamble: "&lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt; &lt;/script&gt;&lt;span id="busuanzi_container_site_pv"&gt; 本站总访问量 &lt;span id="busuanzi_value_site_pv"&gt; &lt;/span&gt;次 &lt;/span&gt;"
+	     ;HTML_EXPORT_POSTamble: "&lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt; &lt;/script&gt;
 
 	 )
 
@@ -256,7 +256,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
 </p>
 
-<pre class="example" id="org48ac8fa">
+<pre class="example" id="org64e91f4">
 #+OPTIONS: ^:nil _:nil f:nil toc:t
 </pre>
 </div>
@@ -269,7 +269,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 <p>
 导出html文章不显示目录，
 </p>
-<pre class="example" id="org1beb49b">
+<pre class="example" id="org9475f8e">
 #+OPTIONS: toc:nil
 </pre>
 </div>
@@ -283,7 +283,7 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 <li><p>
 配置文件选项设置
 </p>
-<pre class="example" id="org4c0b17f">
+<pre class="example" id="org9249364">
 ;自动导航主页模式
  auto-sitemap t
 ;主页文件的名称
@@ -300,7 +300,7 @@ sitemap-title "我的网站"
 然后，我们只要在我们的 index.org 里 include 这个文件
 系统会自动导出index.html了就.
 </p>
-<pre class="example" id="org7c47e0c">
+<pre class="example" id="orgae831dc">
 #+INCLUDE: sitemap.org
 </pre>
 
@@ -323,7 +323,7 @@ sitemap-title "我的网站"
 使用 #+attr_html 属性设置具体尺寸
 可以通过 #+attr_html 属性为图片指定固定的宽度和高度。
 </p>
-<pre class="example" id="orgd7ed826">
+<pre class="example" id="org934cd83">
 #+attr_html: :width 400px :height 300px
 [[file:your_image.jpg]]
 </pre>
@@ -338,7 +338,7 @@ sitemap-title "我的网站"
 使用 CSS 样式设置图片尺寸
 可以在 Org 文件头部添加 CSS 样式来控制图片尺寸。
 </p>
-<pre class="example" id="orga6d2c60">
+<pre class="example" id="orgb7a2e93">
 #+HTML_HEAD: &lt;style&gt;
 #+HTML_HEAD:   img.custom - image {
 #+HTML_HEAD:     width: 70%;
@@ -364,7 +364,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 按比例缩放图片
 使用 :scale 属性按比例缩放图片。
 </p>
-<pre class="example" id="org5727de5">
+<pre class="example" id="org7ed17e0">
 #+attr_html: :scale 0.8
 [[file:your_image.jpg]]
 </pre>
@@ -377,7 +377,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 动态调整图片大小
 利用 CSS 的 max - width 属性让图片根据浏览器窗口大小动态调整。
 </p>
-<pre class="example" id="orgdc00203">
+<pre class="example" id="org514d379">
 #+attr_html: :style "max-width: 100%; height: auto;"
 [[file:your_image.jpg]]
 </pre>
@@ -460,7 +460,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-11/Tuesday 16:29:10&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-16 Sun 20:48</p>
+<p class="date">Created: 2025-02-16 Sun 21:03</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
