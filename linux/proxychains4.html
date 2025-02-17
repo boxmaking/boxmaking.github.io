@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:00 -->
+<!-- 2025-02-17 Mon 19:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux下proxychains4使用教程</title>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -26,15 +26,15 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge48c453">1. 安装</a></li>
-<li><a href="#org3cb7fb8">2. 配置 proxychains4</a></li>
-<li><a href="#orgcedc8b8">3. 使用方法:</a></li>
+<li><a href="#org45bba3f">1. 安装</a></li>
+<li><a href="#org95a49db">2. 配置 proxychains4</a></li>
+<li><a href="#org0cadb66">3. 使用方法:</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orge48c453" class="outline-2">
-<h2 id="orge48c453"><span class="section-number-2">1.</span> 安装</h2>
+<div id="outline-container-org45bba3f" class="outline-2">
+<h2 id="org45bba3f"><span class="section-number-2">1.</span> 安装</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo apt install proxychains4
@@ -44,8 +44,8 @@
 </div>
 
 
-<div id="outline-container-org3cb7fb8" class="outline-2">
-<h2 id="org3cb7fb8"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
+<div id="outline-container-org95a49db" class="outline-2">
+<h2 id="org95a49db"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo emacs /etc/proxychains4.conf
@@ -55,7 +55,7 @@
 <ol class="org-ol">
 <li>将</li>
 </ol>
-<pre class="example" id="org8737946">
+<pre class="example" id="orgf7d5c22">
 socks4 127.0.0.1 9095
 更改为
 socks5 127.0.0.1 1080
@@ -72,8 +72,8 @@ proxychains.conf文件说明了代理配置格式.
 </div>
 </div>
 
-<div id="outline-container-orgcedc8b8" class="outline-2">
-<h2 id="orgcedc8b8"><span class="section-number-2">3.</span> 使用方法:</h2>
+<div id="outline-container-org0cadb66" class="outline-2">
+<h2 id="org0cadb66"><span class="section-number-2">3.</span> 使用方法:</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在需要代理的命令前加上 proxychains4 即可，如：
@@ -88,7 +88,7 @@ proxychains.conf文件说明了代理配置格式.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-06-28-180/Sunday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:00</p>
+<p class="date">Created: 2025-02-17 Mon 19:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:00 -->
+<!-- 2025-02-17 Mon 19:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux查看端口进程几种方法</title>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -26,9 +26,9 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd02f70f">1. netstat</a></li>
-<li><a href="#org7cd2f72">2. ss</a></li>
-<li><a href="#org25ce560">3. lsof</a></li>
+<li><a href="#orgb5aa209">1. netstat</a></li>
+<li><a href="#orgc1af0b8">2. ss</a></li>
+<li><a href="#orge750af3">3. lsof</a></li>
 </ul>
 </div>
 </nav>
@@ -36,8 +36,8 @@
 有时候启动应用时会提示端口被占，这时候需要找出占用端口的进程把它kill掉才能正常启动应用。
 </p>
 
-<div id="outline-container-orgd02f70f" class="outline-2">
-<h2 id="orgd02f70f"><span class="section-number-2">1.</span> netstat</h2>
+<div id="outline-container-orgb5aa209" class="outline-2">
+<h2 id="orgb5aa209"><span class="section-number-2">1.</span> netstat</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">sudo netstat -pnltu
@@ -78,8 +78,8 @@ udp6       0      0 :::7946                 :::*                                
 </div>
 </div>
 
-<div id="outline-container-org7cd2f72" class="outline-2">
-<h2 id="org7cd2f72"><span class="section-number-2">2.</span> ss</h2>
+<div id="outline-container-orgc1af0b8" class="outline-2">
+<h2 id="orgc1af0b8"><span class="section-number-2">2.</span> ss</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">sudo ss -l -p -t -u -n
@@ -108,8 +108,8 @@ tcp    LISTEN     0      128      :::8022                 :::*                  
 </div>
 </div>
 
-<div id="outline-container-org25ce560" class="outline-2">
-<h2 id="org25ce560"><span class="section-number-2">3.</span> lsof</h2>
+<div id="outline-container-orge750af3" class="outline-2">
+<h2 id="orge750af3"><span class="section-number-2">3.</span> lsof</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">sudo lsof -i |grep LISTEN
@@ -133,7 +133,7 @@ docker-pr 15127      root    4u  IPv6    54641      0t0  TCP *:mysql (LISTEN)
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:00</p>
+<p class="date">Created: 2025-02-17 Mon 19:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

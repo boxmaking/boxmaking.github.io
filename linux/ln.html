@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:00 -->
+<!-- 2025-02-17 Mon 19:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ln-链接命令相关的教程</title>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -26,21 +26,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb811b69">1. 硬链接和软链接</a></li>
-<li><a href="#org81c9b41">2. ln命令选项</a></li>
-<li><a href="#org7ca4369">3. 硬链接</a>
+<li><a href="#orga2d06ff">1. 硬链接和软链接</a></li>
+<li><a href="#org6f17629">2. ln命令选项</a></li>
+<li><a href="#org1bf896b">3. 硬链接</a>
 <ul>
-<li><a href="#org3f1575d">3.1. 需要查看硬链接的所有文件的位置</a></li>
+<li><a href="#orgeb704a6">3.1. 需要查看硬链接的所有文件的位置</a></li>
 </ul>
 </li>
-<li><a href="#org0a29be3">4. 符号链接,软连接</a></li>
+<li><a href="#orgff77e7e">4. 符号链接,软连接</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-orgb811b69" class="outline-2">
-<h2 id="orgb811b69"><span class="section-number-2">1.</span> 硬链接和软链接</h2>
+<div id="outline-container-orga2d06ff" class="outline-2">
+<h2 id="orga2d06ff"><span class="section-number-2">1.</span> 硬链接和软链接</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 硬链接:ln source<sub>file</sub> dist<sub>file</sub>
@@ -57,10 +57,10 @@
 </div>
 
 
-<div id="outline-container-org81c9b41" class="outline-2">
-<h2 id="org81c9b41"><span class="section-number-2">2.</span> ln命令选项</h2>
+<div id="outline-container-org6f17629" class="outline-2">
+<h2 id="org6f17629"><span class="section-number-2">2.</span> ln命令选项</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org5a8ee1c">
+<pre class="example" id="orgfce3d40">
 --backup[=CONTROL]  为每个已存在的目标文件创建备份文件
 -b        类似--backup，但不接受任何参数
 -d, -F, --directory   创建指向目录的硬链接(只适用于超级用户)
@@ -82,8 +82,8 @@
 </div>
 
 
-<div id="outline-container-org7ca4369" class="outline-2">
-<h2 id="org7ca4369"><span class="section-number-2">3.</span> 硬链接</h2>
+<div id="outline-container-org1bf896b" class="outline-2">
+<h2 id="org1bf896b"><span class="section-number-2">3.</span> 硬链接</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 建立硬链接时,在另外的目录或本目录中增加目标文件的一个目录项,这样,一个文件就登记在多个目录中.
@@ -110,8 +110,8 @@
 </p>
 </div>
 
-<div id="outline-container-org3f1575d" class="outline-3">
-<h3 id="org3f1575d"><span class="section-number-3">3.1.</span> 需要查看硬链接的所有文件的位置</h3>
+<div id="outline-container-orgeb704a6" class="outline-3">
+<h3 id="orgeb704a6"><span class="section-number-3">3.1.</span> 需要查看硬链接的所有文件的位置</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>ls -il 查看文件的inode</li>
@@ -122,8 +122,8 @@
 </div>
 
 
-<div id="outline-container-org0a29be3" class="outline-2">
-<h2 id="org0a29be3"><span class="section-number-2">4.</span> 符号链接,软连接</h2>
+<div id="outline-container-orgff77e7e" class="outline-2">
+<h2 id="orgff77e7e"><span class="section-number-2">4.</span> 符号链接,软连接</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 与硬链接不同的是,符号链接确实是一个新文件当然它具有不同的I节点号,而硬链接并没有建立新文件。
@@ -162,7 +162,7 @@
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-05-12-133/Tuesday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:00</p>
+<p class="date">Created: 2025-02-17 Mon 19:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

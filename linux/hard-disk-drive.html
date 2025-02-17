@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:00 -->
+<!-- 2025-02-17 Mon 19:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux硬盘存储相关笔记</title>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -26,29 +26,29 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0c7ed1d">1. 硬盘使用情况</a></li>
-<li><a href="#orge191ebc">2. 挂载相关mount</a>
+<li><a href="#org9769c3e">1. 硬盘使用情况</a></li>
+<li><a href="#org29d5165">2. 挂载相关mount</a>
 <ul>
-<li><a href="#org6a2c6ed">2.1. 首先查看详细的信息</a></li>
-<li><a href="#org0f8ba2a">2.2. 挂载</a></li>
-<li><a href="#orgac83691">2.3. 卸载文件</a></li>
+<li><a href="#org529cf14">2.1. 首先查看详细的信息</a></li>
+<li><a href="#org952b86a">2.2. 挂载</a></li>
+<li><a href="#orgc2524e6">2.3. 卸载文件</a></li>
 </ul>
 </li>
-<li><a href="#orgb2cbb5b">3. 如何开机自动挂在硬盘在某个位置</a>
+<li><a href="#org8db0eb0">3. 如何开机自动挂在硬盘在某个位置</a>
 <ul>
-<li><a href="#orgdcf8471">3.1. fstab方式自动挂载</a></li>
-<li><a href="#org74a174e">3.2. rc.local方式自动挂载 推荐方式.</a></li>
+<li><a href="#org60654e3">3.1. fstab方式自动挂载</a></li>
+<li><a href="#orge6eef46">3.2. rc.local方式自动挂载 推荐方式.</a></li>
 </ul>
 </li>
-<li><a href="#org32bad65">4. 开机自检相关教程</a></li>
+<li><a href="#org10cf959">4. 开机自检相关教程</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org0c7ed1d" class="outline-2">
-<h2 id="org0c7ed1d"><span class="section-number-2">1.</span> 硬盘使用情况</h2>
+<div id="outline-container-org9769c3e" class="outline-2">
+<h2 id="org9769c3e"><span class="section-number-2">1.</span> 硬盘使用情况</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -125,12 +125,12 @@ $lspci
 </div>
 
 
-<div id="outline-container-orge191ebc" class="outline-2">
-<h2 id="orge191ebc"><span class="section-number-2">2.</span> 挂载相关mount</h2>
+<div id="outline-container-org29d5165" class="outline-2">
+<h2 id="org29d5165"><span class="section-number-2">2.</span> 挂载相关mount</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org6a2c6ed" class="outline-3">
-<h3 id="org6a2c6ed"><span class="section-number-3">2.1.</span> 首先查看详细的信息</h3>
+<div id="outline-container-org529cf14" class="outline-3">
+<h3 id="org529cf14"><span class="section-number-3">2.1.</span> 首先查看详细的信息</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo fdisk -l
@@ -198,8 +198,8 @@ I/O 大小(最小/最佳)：512 字节 / 512 字节
 </div>
 
 
-<div id="outline-container-org0f8ba2a" class="outline-3">
-<h3 id="org0f8ba2a"><span class="section-number-3">2.2.</span> 挂载</h3>
+<div id="outline-container-org952b86a" class="outline-3">
+<h3 id="org952b86a"><span class="section-number-3">2.2.</span> 挂载</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo mount.ntfs-3g /dev/sdb6 ./temp/mount-temp/sdb6
@@ -213,8 +213,8 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 </div>
 
 
-<div id="outline-container-orgac83691" class="outline-3">
-<h3 id="orgac83691"><span class="section-number-3">2.3.</span> 卸载文件</h3>
+<div id="outline-container-orgc2524e6" class="outline-3">
+<h3 id="orgc2524e6"><span class="section-number-3">2.3.</span> 卸载文件</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li><p>
@@ -240,12 +240,12 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 </div>
 
 
-<div id="outline-container-orgb2cbb5b" class="outline-2">
-<h2 id="orgb2cbb5b"><span class="section-number-2">3.</span> 如何开机自动挂在硬盘在某个位置</h2>
+<div id="outline-container-org8db0eb0" class="outline-2">
+<h2 id="org8db0eb0"><span class="section-number-2">3.</span> 如何开机自动挂在硬盘在某个位置</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgdcf8471" class="outline-3">
-<h3 id="orgdcf8471"><span class="section-number-3">3.1.</span> fstab方式自动挂载</h3>
+<div id="outline-container-org60654e3" class="outline-3">
+<h3 id="org60654e3"><span class="section-number-3">3.1.</span> fstab方式自动挂载</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li><p>
@@ -268,7 +268,7 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 <p>
 然后查看fstab文件
 </p>
-<pre class="example" id="orgc8cc642">
+<pre class="example" id="org969c391">
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
@@ -352,7 +352,7 @@ Linux可以使用ext2、ext3等类型，此字段须与分区格式化时使用�
 <p>
 常见参数如下：
 </p>
-<pre class="example" id="org52b092e">
+<pre class="example" id="orge1c3b29">
 auto: 系统自动挂载，fstab默认就是这个选项
 defaults: rw, suid, dev, exec, auto, nouser, and async.
 noauto 开机不自动挂载
@@ -406,7 +406,7 @@ user 任何用户都可以挂载
 <li><p>
 在最后添加一行
 </p>
-<pre class="example" id="orgad99bc3">
+<pre class="example" id="org63d1ff6">
 UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 </pre>
 <p>
@@ -419,12 +419,12 @@ UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 
 
 
-<div id="outline-container-org74a174e" class="outline-3">
-<h3 id="org74a174e"><span class="section-number-3">3.2.</span> rc.local方式自动挂载 推荐方式.</h3>
+<div id="outline-container-orge6eef46" class="outline-3">
+<h3 id="orge6eef46"><span class="section-number-3">3.2.</span> rc.local方式自动挂载 推荐方式.</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org6963078"></a>添加rc.local文件<br>
+<li><a id="org6442376"></a>添加rc.local文件<br>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Debian 10和Debian 9一样，没有rc.local文件，导致我们有一些脚本无法设置开机启动，其实rc.local文件在debian 10里面默认没有启动而已。
@@ -503,17 +503,17 @@ exit 0
 </li>
 
 
-<li><a id="org3a42b86"></a>便捷rc.local文件<br></li>
+<li><a id="org7c2d8f6"></a>便捷rc.local文件<br></li>
 </ol>
 </div>
 </div>
 
 
 
-<div id="outline-container-org32bad65" class="outline-2">
-<h2 id="org32bad65"><span class="section-number-2">4.</span> 开机自检相关教程</h2>
+<div id="outline-container-org10cf959" class="outline-2">
+<h2 id="org10cf959"><span class="section-number-2">4.</span> 开机自检相关教程</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example" id="org5fa2954">
+<pre class="example" id="org1b779ac">
 sudo fdisk -l
 [sudo] pengshao 的密码：
 Disk /dev/sdc：931.5 GiB，1000204886016 字节，1953525168 个扇区
@@ -576,7 +576,7 @@ I/O 大小(最小/最佳)：512 字节 / 512 字节
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-07-10/Friday 18:54:15&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:00</p>
+<p class="date">Created: 2025-02-17 Mon 19:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

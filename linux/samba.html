@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:00 -->
+<!-- 2025-02-17 Mon 19:16 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>samba-安装与配置详细教程</title>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -26,61 +26,61 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org83796cb">1. 简介</a></li>
-<li><a href="#org3aaba05">2. 1：安装 Samba</a>
+<li><a href="#org15d0e3c">1. 简介</a></li>
+<li><a href="#orgb8885d6">2. 1：安装 Samba</a>
 <ul>
-<li><a href="#orgab3f7d2">2.1. 更新软件源</a></li>
-<li><a href="#org513caad">2.2. 安装软件包</a></li>
+<li><a href="#org9d252f8">2.1. 更新软件源</a></li>
+<li><a href="#org016a981">2.2. 安装软件包</a></li>
 </ul>
 </li>
-<li><a href="#org60fe269">3. 2：配置软件</a>
+<li><a href="#orgfa04cba">3. 2：配置软件</a>
 <ul>
-<li><a href="#orgc06a265">3.1. 备份原始配置文件</a></li>
-<li><a href="#org91a00f6">3.2. 编辑配置文件</a></li>
-<li><a href="#orgcb000bd">3.3. 示例配置（添加到文件末尾）</a></li>
+<li><a href="#orgeb5c8dc">3.1. 备份原始配置文件</a></li>
+<li><a href="#orgfb79f21">3.2. 编辑配置文件</a></li>
+<li><a href="#orgefdb01f">3.3. 示例配置（添加到文件末尾）</a></li>
 </ul>
 </li>
-<li><a href="#org0413aa4">4. 3：创建共享目录与用户</a>
+<li><a href="#org55b8dd4">4. 3：创建共享目录与用户</a>
 <ul>
-<li><a href="#orgfd48791">4.1. 创建共享目录</a></li>
-<li><a href="#org92f5838">4.2. 添加系统用户（若不存在）</a></li>
-<li><a href="#org3e9408a">4.3. 设置 Samba 密码</a></li>
+<li><a href="#orgc5fec57">4.1. 创建共享目录</a></li>
+<li><a href="#orgd34de40">4.2. 添加系统用户（若不存在）</a></li>
+<li><a href="#org3417d17">4.3. 设置 Samba 密码</a></li>
 </ul>
 </li>
-<li><a href="#org8476916">5. 4：重启服务与防火墙</a>
+<li><a href="#org3e58763">5. 4：重启服务与防火墙</a>
 <ul>
-<li><a href="#org1e250e7">5.1. 重启 Samba 服务</a></li>
-<li><a href="#org797c214">5.2. 设置开机自启</a></li>
-<li><a href="#org2ed6e93">5.3. 开放防火墙（若使用 UFW）</a></li>
+<li><a href="#orgdf4f073">5.1. 重启 Samba 服务</a></li>
+<li><a href="#org4e04f68">5.2. 设置开机自启</a></li>
+<li><a href="#org1475919">5.3. 开放防火墙（若使用 UFW）</a></li>
 </ul>
 </li>
-<li><a href="#org9767dcf">6. 5：客户端连接测试</a>
+<li><a href="#orgfccacd2">6. 5：客户端连接测试</a>
 <ul>
-<li><a href="#orgef3cd10">6.1. Linux 客户端</a></li>
-<li><a href="#org7b97886">6.2. Windows 客户端</a></li>
-<li><a href="#orgcc0e3f1">6.3. iphone&amp;ipad</a></li>
+<li><a href="#org1556561">6.1. Linux 客户端</a></li>
+<li><a href="#orgfa5fbfb">6.2. Windows 客户端</a></li>
+<li><a href="#org6615b8b">6.3. iphone&amp;ipad</a></li>
 </ul>
 </li>
-<li><a href="#org3c00630">7. 高级配置</a>
+<li><a href="#orgdb2399f">7. 高级配置</a>
 <ul>
-<li><a href="#org1901e96">7.1. 匿名共享配置</a></li>
-<li><a href="#orgabbc525">7.2. 多用户权限管理</a></li>
+<li><a href="#org52dfe51">7.1. 匿名共享配置</a></li>
+<li><a href="#orga3fdd14">7.2. 多用户权限管理</a></li>
 </ul>
 </li>
-<li><a href="#orge87c318">8. 故障排查</a>
+<li><a href="#orgee5f7cf">8. 故障排查</a>
 <ul>
-<li><a href="#org5696920">8.1. 检查服务状态</a></li>
-<li><a href="#org01483c4">8.2. 查看日志文件</a></li>
-<li><a href="#org53b6328">8.3. 测试配置文件</a></li>
+<li><a href="#orgae2b666">8.1. 检查服务状态</a></li>
+<li><a href="#orgb57e37b">8.2. 查看日志文件</a></li>
+<li><a href="#org4a841e4">8.3. 测试配置文件</a></li>
 </ul>
 </li>
-<li><a href="#orgfdd54b6">9. 注意事项</a></li>
+<li><a href="#orgc2c1d8d">9. 注意事项</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org83796cb" class="outline-2">
-<h2 id="org83796cb"><span class="section-number-2">1.</span> 简介</h2>
+<div id="outline-container-org15d0e3c" class="outline-2">
+<h2 id="org15d0e3c"><span class="section-number-2">1.</span> 简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程涵盖以下内容：
@@ -96,12 +96,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org3aaba05" class="outline-2">
-<h2 id="org3aaba05"><span class="section-number-2">2.</span> 1：安装 Samba</h2>
+<div id="outline-container-orgb8885d6" class="outline-2">
+<h2 id="orgb8885d6"><span class="section-number-2">2.</span> 1：安装 Samba</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgab3f7d2" class="outline-3">
-<h3 id="orgab3f7d2"><span class="section-number-3">2.1.</span> 更新软件源</h3>
+<div id="outline-container-org9d252f8" class="outline-3">
+<h3 id="org9d252f8"><span class="section-number-3">2.1.</span> 更新软件源</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-bash">sudo apt update
@@ -110,8 +110,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 </div>
 
-<div id="outline-container-org513caad" class="outline-3">
-<h3 id="org513caad"><span class="section-number-3">2.2.</span> 安装软件包</h3>
+<div id="outline-container-org016a981" class="outline-3">
+<h3 id="org016a981"><span class="section-number-3">2.2.</span> 安装软件包</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo apt install samba samba-common smbclient
@@ -122,12 +122,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org60fe269" class="outline-2">
-<h2 id="org60fe269"><span class="section-number-2">3.</span> 2：配置软件</h2>
+<div id="outline-container-orgfa04cba" class="outline-2">
+<h2 id="orgfa04cba"><span class="section-number-2">3.</span> 2：配置软件</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc06a265" class="outline-3">
-<h3 id="orgc06a265"><span class="section-number-3">3.1.</span> 备份原始配置文件</h3>
+<div id="outline-container-orgeb5c8dc" class="outline-3">
+<h3 id="orgeb5c8dc"><span class="section-number-3">3.1.</span> 备份原始配置文件</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-bash">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
@@ -137,8 +137,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org91a00f6" class="outline-3">
-<h3 id="org91a00f6"><span class="section-number-3">3.2.</span> 编辑配置文件</h3>
+<div id="outline-container-orgfb79f21" class="outline-3">
+<h3 id="orgfb79f21"><span class="section-number-3">3.2.</span> 编辑配置文件</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-bash">sudo nano /etc/samba/smb.conf
@@ -148,8 +148,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-orgcb000bd" class="outline-3">
-<h3 id="orgcb000bd"><span class="section-number-3">3.3.</span> 示例配置（添加到文件末尾）</h3>
+<div id="outline-container-orgefdb01f" class="outline-3">
+<h3 id="orgefdb01f"><span class="section-number-3">3.3.</span> 示例配置（添加到文件末尾）</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-conf">[myshare]
@@ -176,12 +176,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org0413aa4" class="outline-2">
-<h2 id="org0413aa4"><span class="section-number-2">4.</span> 3：创建共享目录与用户</h2>
+<div id="outline-container-org55b8dd4" class="outline-2">
+<h2 id="org55b8dd4"><span class="section-number-2">4.</span> 3：创建共享目录与用户</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgfd48791" class="outline-3">
-<h3 id="orgfd48791"><span class="section-number-3">4.1.</span> 创建共享目录</h3>
+<div id="outline-container-orgc5fec57" class="outline-3">
+<h3 id="orgc5fec57"><span class="section-number-3">4.1.</span> 创建共享目录</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-bash"><span class="linenr">1: </span>sudo mkdir -p /srv/samba/share
@@ -193,8 +193,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org92f5838" class="outline-3">
-<h3 id="org92f5838"><span class="section-number-3">4.2.</span> 添加系统用户（若不存在）</h3>
+<div id="outline-container-orgd34de40" class="outline-3">
+<h3 id="orgd34de40"><span class="section-number-3">4.2.</span> 添加系统用户（若不存在）</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-bash">sudo useradd -M -s /usr/sbin/nologin sambauser
@@ -204,8 +204,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org3e9408a" class="outline-3">
-<h3 id="org3e9408a"><span class="section-number-3">4.3.</span> 设置 Samba 密码</h3>
+<div id="outline-container-org3417d17" class="outline-3">
+<h3 id="org3417d17"><span class="section-number-3">4.3.</span> 设置 Samba 密码</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <pre class="src src-bash">sudo smbpasswd -a sambauser
@@ -216,12 +216,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org8476916" class="outline-2">
-<h2 id="org8476916"><span class="section-number-2">5.</span> 4：重启服务与防火墙</h2>
+<div id="outline-container-org3e58763" class="outline-2">
+<h2 id="org3e58763"><span class="section-number-2">5.</span> 4：重启服务与防火墙</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org1e250e7" class="outline-3">
-<h3 id="org1e250e7"><span class="section-number-3">5.1.</span> 重启 Samba 服务</h3>
+<div id="outline-container-orgdf4f073" class="outline-3">
+<h3 id="orgdf4f073"><span class="section-number-3">5.1.</span> 重启 Samba 服务</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-bash">sudo systemctl restart smbd.service nmbd.service
@@ -231,8 +231,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org797c214" class="outline-3">
-<h3 id="org797c214"><span class="section-number-3">5.2.</span> 设置开机自启</h3>
+<div id="outline-container-org4e04f68" class="outline-3">
+<h3 id="org4e04f68"><span class="section-number-3">5.2.</span> 设置开机自启</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-shell"><span class="linenr"> 1: </span>#设置开机自启
@@ -270,8 +270,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org2ed6e93" class="outline-3">
-<h3 id="org2ed6e93"><span class="section-number-3">5.3.</span> 开放防火墙（若使用 UFW）</h3>
+<div id="outline-container-org1475919" class="outline-3">
+<h3 id="org1475919"><span class="section-number-3">5.3.</span> 开放防火墙（若使用 UFW）</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-bash">sudo ufw allow samba
@@ -282,12 +282,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org9767dcf" class="outline-2">
-<h2 id="org9767dcf"><span class="section-number-2">6.</span> 5：客户端连接测试</h2>
+<div id="outline-container-orgfccacd2" class="outline-2">
+<h2 id="orgfccacd2"><span class="section-number-2">6.</span> 5：客户端连接测试</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgef3cd10" class="outline-3">
-<h3 id="orgef3cd10"><span class="section-number-3">6.1.</span> Linux 客户端</h3>
+<div id="outline-container-org1556561" class="outline-3">
+<h3 id="org1556561"><span class="section-number-3">6.1.</span> Linux 客户端</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-bash">smbclient //server_ip/myshare -U sambauser
@@ -297,8 +297,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org7b97886" class="outline-3">
-<h3 id="org7b97886"><span class="section-number-3">6.2.</span> Windows 客户端</h3>
+<div id="outline-container-orgfa5fbfb" class="outline-3">
+<h3 id="orgfa5fbfb"><span class="section-number-3">6.2.</span> Windows 客户端</h3>
 <div class="outline-text-3" id="text-6-2">
 <ol class="org-ol">
 <li>文件资源管理器地址栏输入：
@@ -309,8 +309,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-orgcc0e3f1" class="outline-3">
-<h3 id="orgcc0e3f1"><span class="section-number-3">6.3.</span> iphone&amp;ipad</h3>
+<div id="outline-container-org6615b8b" class="outline-3">
+<h3 id="org6615b8b"><span class="section-number-3">6.3.</span> iphone&amp;ipad</h3>
 <div class="outline-text-3" id="text-6-3">
 <ol class="org-ol">
 <li>在 iPad 上添加文件共享
@@ -329,12 +329,12 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-org3c00630" class="outline-2">
-<h2 id="org3c00630"><span class="section-number-2">7.</span> 高级配置</h2>
+<div id="outline-container-orgdb2399f" class="outline-2">
+<h2 id="orgdb2399f"><span class="section-number-2">7.</span> 高级配置</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org1901e96" class="outline-3">
-<h3 id="org1901e96"><span class="section-number-3">7.1.</span> 匿名共享配置</h3>
+<div id="outline-container-org52dfe51" class="outline-3">
+<h3 id="org52dfe51"><span class="section-number-3">7.1.</span> 匿名共享配置</h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 <pre class="src src-conf">[public]
@@ -348,8 +348,8 @@ Samba 是实现 Linux/Windows 跨平台文件共享的核心工具。本教程�
 </div>
 
 
-<div id="outline-container-orgabbc525" class="outline-3">
-<h3 id="orgabbc525"><span class="section-number-3">7.2.</span> 多用户权限管理</h3>
+<div id="outline-container-orga3fdd14" class="outline-3">
+<h3 id="orga3fdd14"><span class="section-number-3">7.2.</span> 多用户权限管理</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
 <pre class="src src-conf">[project]
@@ -372,12 +372,12 @@ sudo usermod -aG smbgroup staff
 </div>
 
 
-<div id="outline-container-orge87c318" class="outline-2">
-<h2 id="orge87c318"><span class="section-number-2">8.</span> 故障排查</h2>
+<div id="outline-container-orgee5f7cf" class="outline-2">
+<h2 id="orgee5f7cf"><span class="section-number-2">8.</span> 故障排查</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org5696920" class="outline-3">
-<h3 id="org5696920"><span class="section-number-3">8.1.</span> 检查服务状态</h3>
+<div id="outline-container-orgae2b666" class="outline-3">
+<h3 id="orgae2b666"><span class="section-number-3">8.1.</span> 检查服务状态</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-bash">sudo systemctl status smbd.service
@@ -387,8 +387,8 @@ sudo usermod -aG smbgroup staff
 </div>
 
 
-<div id="outline-container-org01483c4" class="outline-3">
-<h3 id="org01483c4"><span class="section-number-3">8.2.</span> 查看日志文件</h3>
+<div id="outline-container-orgb57e37b" class="outline-3">
+<h3 id="orgb57e37b"><span class="section-number-3">8.2.</span> 查看日志文件</h3>
 <div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 <pre class="src src-bash">tail -f /var/log/samba/log.smbd
@@ -398,8 +398,8 @@ sudo usermod -aG smbgroup staff
 </div>
 
 
-<div id="outline-container-org53b6328" class="outline-3">
-<h3 id="org53b6328"><span class="section-number-3">8.3.</span> 测试配置文件</h3>
+<div id="outline-container-org4a841e4" class="outline-3">
+<h3 id="org4a841e4"><span class="section-number-3">8.3.</span> 测试配置文件</h3>
 <div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-bash">testparm
@@ -410,8 +410,8 @@ sudo usermod -aG smbgroup staff
 </div>
 
 
-<div id="outline-container-orgfdd54b6" class="outline-2">
-<h2 id="orgfdd54b6"><span class="section-number-2">9.</span> 注意事项</h2>
+<div id="outline-container-orgc2c1d8d" class="outline-2">
+<h2 id="orgc2c1d8d"><span class="section-number-2">9.</span> 注意事项</h2>
 <div class="outline-text-2" id="text-9">
 <ol class="org-ol">
 <li>共享路径权限需与 Samba 配置匹配</li>
@@ -424,7 +424,7 @@ sudo usermod -aG smbgroup staff
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:00</p>
+<p class="date">Created: 2025-02-17 Mon 19:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
