@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-16 Sun 21:17 -->
+<!-- 2025-02-17 Mon 19:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>youtube-dl使用教程</title>
@@ -26,22 +26,22 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org29b39aa">1. youtube-dl+ffmpeg安装</a></li>
-<li><a href="#org1057b97">2. 更新到最新版</a></li>
-<li><a href="#org14dc9d6">3. youtube-dl使用代理</a></li>
-<li><a href="#org4662cdb">4. 调用arai2,下载</a></li>
-<li><a href="#org6b57ee4">5. youtube-dl下载格式相关</a></li>
-<li><a href="#orge6ee392">6. 批量下载的参数</a></li>
-<li><a href="#org1b52d74">7. 下载youtube播放列表</a></li>
-<li><a href="#orgdd6b735">8. 常用参数</a></li>
-<li><a href="#orgcf9b7f5">9. CONFIGURATION</a></li>
-<li><a href="#org1461bba">10. man youtube-dl</a></li>
+<li><a href="#org81c816a">1. youtube-dl+ffmpeg安装</a></li>
+<li><a href="#orgfcf2f59">2. 更新到最新版</a></li>
+<li><a href="#orgae28011">3. youtube-dl使用代理</a></li>
+<li><a href="#org8e48e1c">4. 调用arai2,下载</a></li>
+<li><a href="#org49f35f5">5. youtube-dl下载格式相关</a></li>
+<li><a href="#org911109a">6. 批量下载的参数</a></li>
+<li><a href="#orgcbd8138">7. 下载youtube播放列表</a></li>
+<li><a href="#org90dcd96">8. 常用参数</a></li>
+<li><a href="#orga184257">9. CONFIGURATION</a></li>
+<li><a href="#org844f883">10. man youtube-dl</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org29b39aa" class="outline-2">
-<h2 id="org29b39aa"><span class="section-number-2">1.</span> youtube-dl+ffmpeg安装</h2>
+<div id="outline-container-org81c816a" class="outline-2">
+<h2 id="org81c816a"><span class="section-number-2">1.</span> youtube-dl+ffmpeg安装</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 下载地址都有<a href="https://ytdl-org.github.io/youtube-dl/download.html">https://ytdl-org.github.io/youtube-dl/download.html</a>]] 
@@ -77,8 +77,8 @@ $sudo chmod a+rx /usr/local/bin/youtube-dl
 </div>
 
 
-<div id="outline-container-org1057b97" class="outline-2">
-<h2 id="org1057b97"><span class="section-number-2">2.</span> 更新到最新版</h2>
+<div id="outline-container-orgfcf2f59" class="outline-2">
+<h2 id="orgfcf2f59"><span class="section-number-2">2.</span> 更新到最新版</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 sudo apt-get youtube-dl -U
@@ -86,8 +86,8 @@ sudo apt-get youtube-dl -U
 </div>
 </div>
 
-<div id="outline-container-org14dc9d6" class="outline-2">
-<h2 id="org14dc9d6"><span class="section-number-2">3.</span> youtube-dl使用代理</h2>
+<div id="outline-container-orgae28011" class="outline-2">
+<h2 id="orgae28011"><span class="section-number-2">3.</span> youtube-dl使用代理</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">#socks5代理
@@ -104,7 +104,7 @@ $youtube-dl --proxy https://127.0.0.1:41091 https://www.youtube.com/watch?v=6_gL
 <p>
 也可以在youtube-dl的配置文件中设置代理.
 </p>
-<pre class="example" id="org98463ef">
+<pre class="example" id="org7ea2e01">
 # Use this proxy
 --proxy 127.0.0.1:41091
 </pre>
@@ -116,8 +116,8 @@ $youtube-dl --proxy https://127.0.0.1:41091 https://www.youtube.com/watch?v=6_gL
 </div>
 
 
-<div id="outline-container-org4662cdb" class="outline-2">
-<h2 id="org4662cdb"><span class="section-number-2">4.</span> 调用arai2,下载</h2>
+<div id="outline-container-org8e48e1c" class="outline-2">
+<h2 id="org8e48e1c"><span class="section-number-2">4.</span> 调用arai2,下载</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh">#下载支持块文件的视频.
@@ -162,8 +162,8 @@ $youtube-dl url --external-downloader aria2c --external-downloader-args "-x 16 "
 </div>
 
 
-<div id="outline-container-org6b57ee4" class="outline-2">
-<h2 id="org6b57ee4"><span class="section-number-2">5.</span> youtube-dl下载格式相关</h2>
+<div id="outline-container-org49f35f5" class="outline-2">
+<h2 id="org49f35f5"><span class="section-number-2">5.</span> youtube-dl下载格式相关</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li><p>
@@ -250,7 +250,7 @@ mp4 + webm 会兼容合成为 .mkv 文件,
 <li><p>
 以特定的质量或格式来下载视频或播放列表。
 </p>
-<pre class="example" id="org1c85298">
+<pre class="example" id="org02b0cc6">
 Youtube-dl 支持以下品质：
  best 选择最佳质量的音/视频文件
  worst 选择质量最差的格式（视频和音频）
@@ -310,8 +310,8 @@ Youtube-dl 支持以下品质：
 
 
 
-<div id="outline-container-orge6ee392" class="outline-2">
-<h2 id="orge6ee392"><span class="section-number-2">6.</span> 批量下载的参数</h2>
+<div id="outline-container-org911109a" class="outline-2">
+<h2 id="org911109a"><span class="section-number-2">6.</span> 批量下载的参数</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li>将链接全部保存到一个文本文件里
@@ -324,7 +324,7 @@ Youtube-dl 支持以下品质：
 </pre>
 </div>
 
-<pre class="example" id="orgfa01f1e">
+<pre class="example" id="org1414b20">
 参数说明 :
 -c 断点续传（如果由于意外原因下载中断了，再次启动下载命令时，可以实现断点续传）
 -i 忽略报错（如果出现某些链接无法打开或者下载的问题，会自动绕过，继续下载其他视频）
@@ -335,10 +335,10 @@ Youtube-dl 支持以下品质：
 </div>
 
 
-<div id="outline-container-org1b52d74" class="outline-2">
-<h2 id="org1b52d74"><span class="section-number-2">7.</span> 下载youtube播放列表</h2>
+<div id="outline-container-orgcbd8138" class="outline-2">
+<h2 id="orgcbd8138"><span class="section-number-2">7.</span> 下载youtube播放列表</h2>
 <div class="outline-text-2" id="text-7">
-<pre class="example" id="org7f3faa1">
+<pre class="example" id="org628be1f">
 youtube-dl -cit https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHRZqpB8fIW
 </pre>
 <p>
@@ -348,7 +348,7 @@ youtube-dl -cit https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHR
 <p>
 例如下载播放列表选择质量最好的MP4格式的视频 -i跳过错误
 </p>
-<pre class="example" id="org5c19847">
+<pre class="example" id="org097cf91">
 youtube-dl -cit -f mp4  https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7zhFu_RWHRZqpB8fIW
 </pre>
 
@@ -368,8 +368,8 @@ youtube-dl -cit -f mp4  https://www.youtube.com/playlist?list=PLCJcQMZOafICYrx7z
 </div>
 
 
-<div id="outline-container-orgdd6b735" class="outline-2">
-<h2 id="orgdd6b735"><span class="section-number-2">8.</span> 常用参数</h2>
+<div id="outline-container-org90dcd96" class="outline-2">
+<h2 id="org90dcd96"><span class="section-number-2">8.</span> 常用参数</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-shell">youtube-dl --list-extractors     #查看支持网站列表
@@ -391,8 +391,8 @@ youtube-dl -f 22 http://www.youtube.com/watch?v=n-BXNXvTvV4
 </div>
 
 
-<div id="outline-container-orgcf9b7f5" class="outline-2">
-<h2 id="orgcf9b7f5"><span class="section-number-2">9.</span> CONFIGURATION</h2>
+<div id="outline-container-orga184257" class="outline-2">
+<h2 id="orga184257"><span class="section-number-2">9.</span> CONFIGURATION</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 On Linux and macOS
@@ -417,10 +417,10 @@ You can also use "&#x2013;config-location PATH" if you want to use custom config
 </div>
 
 
-<div id="outline-container-org1461bba" class="outline-2">
-<h2 id="org1461bba"><span class="section-number-2">10.</span> man youtube-dl</h2>
+<div id="outline-container-org844f883" class="outline-2">
+<h2 id="org844f883"><span class="section-number-2">10.</span> man youtube-dl</h2>
 <div class="outline-text-2" id="text-10">
-<pre class="example" id="org2f78a80">
+<pre class="example" id="org9b2e8d8">
 Usage: youtube-dl [OPTIONS] URL [URL...]
 
 Options:
@@ -612,7 +612,7 @@ Options:
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-04-16/Thursday 23:36:34&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="date">Created: 2025-02-17 Mon 19:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

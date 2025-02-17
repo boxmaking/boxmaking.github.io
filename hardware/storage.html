@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-16 Sun 21:17 -->
+<!-- 2025-02-17 Mon 19:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>存储与文件系统</title>
+<title>linux存储与文件系统</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="linux-command, linux" />
 <meta name="generator" content="Org Mode" />
@@ -21,26 +21,26 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">存储与文件系统</h1>
+<h1 class="title">linux存储与文件系统</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org07ae788">1. 基本修养：存储与文件系统</a></li>
-<li><a href="#org2480cc1">2. 存储 (Storage)</a></li>
-<li><a href="#org8f8cc0b">3. 硬盘 (HDD, Hard Disk Drive)</a></li>
-<li><a href="#orgc751fd3">4. 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</a></li>
-<li><a href="#org11d1b33">5. S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</a></li>
-<li><a href="#orgb406dce">6. 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</a></li>
-<li><a href="#orga951774">7. 文件系统 (FS, File System)</a></li>
-<li><a href="#orgd5c211a">8. 网络文件系统 (Network File System)</a></li>
+<li><a href="#orgd6d5fb8">1. 基本修养：存储与文件系统</a></li>
+<li><a href="#orga60f289">2. 存储 (Storage)</a></li>
+<li><a href="#org869171d">3. 硬盘 (HDD, Hard Disk Drive)</a></li>
+<li><a href="#orgac1713f">4. 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</a></li>
+<li><a href="#org06850e0">5. S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</a></li>
+<li><a href="#org4dfa58b">6. 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</a></li>
+<li><a href="#orgeda6d37">7. 文件系统 (FS, File System)</a></li>
+<li><a href="#org2c900b6">8. 网络文件系统 (Network File System)</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org07ae788" class="outline-2">
-<h2 id="org07ae788"><span class="section-number-2">1.</span> 基本修养：存储与文件系统</h2>
+<div id="outline-container-orgd6d5fb8" class="outline-2">
+<h2 id="orgd6d5fb8"><span class="section-number-2">1.</span> 基本修养：存储与文件系统</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 发布于 2019年12月23日    原创作品，转载请注明<a href="https://deerchao.cn/blog/posts/storage.html">来源</a>.
@@ -49,8 +49,8 @@
 </div>
 
 
-<div id="outline-container-org2480cc1" class="outline-2">
-<h2 id="org2480cc1"><span class="section-number-2">2.</span> 存储 (Storage)</h2>
+<div id="outline-container-orga60f289" class="outline-2">
+<h2 id="orga60f289"><span class="section-number-2">2.</span> 存储 (Storage)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 存储是用于保有数据的技术。
@@ -67,8 +67,8 @@
 </div>
 
 
-<div id="outline-container-org8f8cc0b" class="outline-2">
-<h2 id="org8f8cc0b"><span class="section-number-2">3.</span> 硬盘 (HDD, Hard Disk Drive)</h2>
+<div id="outline-container-org869171d" class="outline-2">
+<h2 id="org869171d"><span class="section-number-2">3.</span> 硬盘 (HDD, Hard Disk Drive)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 硬盘是一种电子机械设备，使用转动的磁盘和可平面移动的磁头来存取数据。
@@ -93,8 +93,8 @@
 </div>
 
 
-<div id="outline-container-orgc751fd3" class="outline-2">
-<h2 id="orgc751fd3"><span class="section-number-2">4.</span> 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</h2>
+<div id="outline-container-orgac1713f" class="outline-2">
+<h2 id="orgac1713f"><span class="section-number-2">4.</span> 固态硬盘 (SDD, Solid-state Drive/Solid-state Disk)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 固态硬盘使用闪存芯片存储数据。
@@ -115,8 +115,8 @@
 </div>
 
 
-<div id="outline-container-org11d1b33" class="outline-2">
-<h2 id="org11d1b33"><span class="section-number-2">5.</span> S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</h2>
+<div id="outline-container-org06850e0" class="outline-2">
+<h2 id="org06850e0"><span class="section-number-2">5.</span> S.M.A.R.T (Self-Monitoring, Analysis and Reporting Technology)</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 磁盘可能因为机械磨损，材料降级等原因发生故障。为增强数据安全性，现代的磁盘基本都支持通过 S.M.A.R.T. 向软件系统报告自身健康状态。S.M.A.R.T. 标准仅定义了软硬件间通信的接口协议，并未规定具体的监控指标（Attribute, 特性），因此不同厂商的产品或不同的产品系列报告的数据意义并不完全相同。
@@ -141,8 +141,8 @@ S.M.A.R.T 报告的数据中，有一个最基本的状态，代表是否已超�
 </div>
 
 
-<div id="outline-container-orgb406dce" class="outline-2">
-<h2 id="orgb406dce"><span class="section-number-2">6.</span> 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</h2>
+<div id="outline-container-org4dfa58b" class="outline-2">
+<h2 id="org4dfa58b"><span class="section-number-2">6.</span> 独立磁盘冗余阵列 (RAID, Redundant Array of Independent Disks)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，以提升性能和/或安全性。 RAID 有不同的等级，分别达到不同的整合效果。常用的等级有以下几种：
@@ -164,8 +164,8 @@ RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，
 
 
 
-<div id="outline-container-orga951774" class="outline-2">
-<h2 id="orga951774"><span class="section-number-2">7.</span> 文件系统 (FS, File System)</h2>
+<div id="outline-container-orgeda6d37" class="outline-2">
+<h2 id="orgeda6d37"><span class="section-number-2">7.</span> 文件系统 (FS, File System)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 文件系统是用于在存储介质上组织和存取数据的软件。它提供了数据分组的抽象机制（文件，目录等），以及在此抽象机制上的操作接口。文件系统有很多种，以适应不同的底层存储机制（如硬盘，光盘，网络等），达到不同的设计目标（如速度，灵活性，安全等）。
@@ -196,8 +196,8 @@ RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，
 
 
 
-<div id="outline-container-orgd5c211a" class="outline-2">
-<h2 id="orgd5c211a"><span class="section-number-2">8.</span> 网络文件系统 (Network File System)</h2>
+<div id="outline-container-org2c900b6" class="outline-2">
+<h2 id="org2c900b6"><span class="section-number-2">8.</span> 网络文件系统 (Network File System)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 网络文件系统作为远程文件访问协议的客户端，提供服务器上文件的存取服务。常见的网络文件系统(及类似系统）包括以下几种：
@@ -222,7 +222,7 @@ RAID 技术用于将多个二级存储设备（下称磁盘）虚拟为一个，
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-05-07-128/Thursday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-16 Sun 21:17</p>
+<p class="date">Created: 2025-02-17 Mon 19:00</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
