@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 20:38 -->
+<!-- 2025-02-17 Mon 23:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的bash-script笔记</title>
@@ -47,33 +47,33 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaea6533">1. shell中的那些初始化文件</a>
+<li><a href="#org1c37d70">1. shell中的那些初始化文件</a>
 <ul>
-<li><a href="#orgaa9ecf0">1.1. ~/.profile</a></li>
+<li><a href="#org0520346">1.1. ~/.profile</a></li>
 </ul>
 </li>
-<li><a href="#org1ad3806">2. 转义符核心概念</a>
+<li><a href="#orge9f8498">2. 转义符核心概念</a>
 <ul>
-<li><a href="#orgbc3cae2">2.1. 转义符（\）</a></li>
-<li><a href="#orge1650d7">2.2. 引号类型</a></li>
-<li><a href="#orga3cb6a9">2.3. 需转义的特殊字符列表</a></li>
-<li><a href="#orgf7e8164">2.4. 详细使用场景</a></li>
-<li><a href="#orgd1aad09">2.5. 最佳实践</a></li>
-<li><a href="#org8592674">2.6. 特殊技巧</a></li>
-<li><a href="#orga8749e9">2.7. 常见错误案例</a></li>
-<li><a href="#org3213106">2.8. 验证练习</a></li>
+<li><a href="#org8b47c3b">2.1. 转义符（\）</a></li>
+<li><a href="#org631d815">2.2. 引号类型</a></li>
+<li><a href="#orgc8ab964">2.3. 需转义的特殊字符列表</a></li>
+<li><a href="#org7e8154c">2.4. 详细使用场景</a></li>
+<li><a href="#org572a1a2">2.5. 最佳实践</a></li>
+<li><a href="#orgee6cf53">2.6. 特殊技巧</a></li>
+<li><a href="#orgae40aae">2.7. 常见错误案例</a></li>
+<li><a href="#org3a1fbb0">2.8. 验证练习</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgaea6533" class="outline-2">
-<h2 id="orgaea6533"><span class="section-number-2">1.</span> shell中的那些初始化文件</h2>
+<div id="outline-container-org1c37d70" class="outline-2">
+<h2 id="org1c37d70"><span class="section-number-2">1.</span> shell中的那些初始化文件</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgaa9ecf0" class="outline-3">
-<h3 id="orgaa9ecf0"><span class="section-number-3">1.1.</span> ~/.profile</h3>
+<div id="outline-container-org0520346" class="outline-3">
+<h3 id="org0520346"><span class="section-number-3">1.1.</span> ~/.profile</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 是sh的配置文件. 
@@ -84,12 +84,12 @@ ksh兼容sh所以也会使用.profile
 </div>
 
 
-<div id="outline-container-org1ad3806" class="outline-2">
-<h2 id="org1ad3806"><span class="section-number-2">2.</span> 转义符核心概念</h2>
+<div id="outline-container-orge9f8498" class="outline-2">
+<h2 id="orge9f8498"><span class="section-number-2">2.</span> 转义符核心概念</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbc3cae2" class="outline-3">
-<h3 id="orgbc3cae2"><span class="section-number-3">2.1.</span> 转义符（\）</h3>
+<div id="outline-container-org8b47c3b" class="outline-3">
+<h3 id="org8b47c3b"><span class="section-number-3">2.1.</span> 转义符（\）</h3>
 <div class="outline-text-3" id="text-2-1">
 <dl class="org-dl">
 <dt>功能</dt><dd>改变字符的原始含义</dd>
@@ -103,8 +103,8 @@ ksh兼容sh所以也会使用.profile
 </div>
 
 
-<div id="outline-container-orge1650d7" class="outline-3">
-<h3 id="orge1650d7"><span class="section-number-3">2.2.</span> 引号类型</h3>
+<div id="outline-container-org631d815" class="outline-3">
+<h3 id="org631d815"><span class="section-number-3">2.2.</span> 引号类型</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -153,8 +153,8 @@ ksh兼容sh所以也会使用.profile
 </div>
 
 
-<div id="outline-container-orga3cb6a9" class="outline-3">
-<h3 id="orga3cb6a9"><span class="section-number-3">2.3.</span> 需转义的特殊字符列表</h3>
+<div id="outline-container-orgc8ab964" class="outline-3">
+<h3 id="orgc8ab964"><span class="section-number-3">2.3.</span> 需转义的特殊字符列表</h3>
 <div class="outline-text-3" id="text-2-3">
 <table>
 
@@ -221,12 +221,12 @@ ksh兼容sh所以也会使用.profile
 </div>
 
 
-<div id="outline-container-orgf7e8164" class="outline-3">
-<h3 id="orgf7e8164"><span class="section-number-3">2.4.</span> 详细使用场景</h3>
+<div id="outline-container-org7e8154c" class="outline-3">
+<h3 id="org7e8154c"><span class="section-number-3">2.4.</span> 详细使用场景</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org6dd499c" class="outline-4">
-<h4 id="org6dd499c"><span class="section-number-4">2.4.1.</span> 场景 1：处理单引号</h4>
+<div id="outline-container-org84dae3b" class="outline-4">
+<h4 id="org84dae3b"><span class="section-number-4">2.4.1.</span> 场景 1：处理单引号</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <div class="org-src-container">
 <pre class="src src-sh"># 错误示范（单引号不能嵌套）
@@ -247,8 +247,8 @@ echo $'This works for \'single quotes\' too'
 </div>
 
 
-<div id="outline-container-org78d441c" class="outline-4">
-<h4 id="org78d441c"><span class="section-number-4">2.4.2.</span> 场景 2：正则表达式处理</h4>
+<div id="outline-container-orgf754380" class="outline-4">
+<h4 id="orgf754380"><span class="section-number-4">2.4.2.</span> 场景 2：正则表达式处理</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 需要转义两次（Shell + 正则引擎）
@@ -261,8 +261,8 @@ grep '\bimportant\b' file.txt
 </div>
 
 
-<div id="outline-container-org249fdec" class="outline-4">
-<h4 id="org249fdec"><span class="section-number-4">2.4.3.</span> 场景 3：JSON 字符串生成</h4>
+<div id="outline-container-orgd9fe339" class="outline-4">
+<h4 id="orgd9fe339"><span class="section-number-4">2.4.3.</span> 场景 3：JSON 字符串生成</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <div class="org-src-container">
 <pre class="src src-sh"># 正确转义嵌套引号
@@ -277,8 +277,8 @@ json_data='{"name": "John", "age": 30}'
 </div>
 
 
-<div id="outline-container-orgd1aad09" class="outline-3">
-<h3 id="orgd1aad09"><span class="section-number-3">2.5.</span> 最佳实践</h3>
+<div id="outline-container-org572a1a2" class="outline-3">
+<h3 id="org572a1a2"><span class="section-number-3">2.5.</span> 最佳实践</h3>
 <div class="outline-text-3" id="text-2-5">
 <ol class="org-ol">
 <li><p>
@@ -312,12 +312,12 @@ done
 </div>
 
 
-<div id="outline-container-org8592674" class="outline-3">
-<h3 id="org8592674"><span class="section-number-3">2.6.</span> 特殊技巧</h3>
+<div id="outline-container-orgee6cf53" class="outline-3">
+<h3 id="orgee6cf53"><span class="section-number-3">2.6.</span> 特殊技巧</h3>
 <div class="outline-text-3" id="text-2-6">
 </div>
-<div id="outline-container-orgc971c81" class="outline-4">
-<h4 id="orgc971c81"><span class="section-number-4">2.6.1.</span> Here Document 转义控制</h4>
+<div id="outline-container-org0d1f2b5" class="outline-4">
+<h4 id="org0d1f2b5"><span class="section-number-4">2.6.1.</span> Here Document 转义控制</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <div class="org-src-container">
 <pre class="src src-sh"># 关闭变量扩展
@@ -335,8 +335,8 @@ EOF
 </div>
 
 
-<div id="outline-container-orgb0ab11c" class="outline-4">
-<h4 id="orgb0ab11c"><span class="section-number-4">2.6.2.</span> ANSI-C Quoting ($'')</h4>
+<div id="outline-container-org117e8b2" class="outline-4">
+<h4 id="org117e8b2"><span class="section-number-4">2.6.2.</span> ANSI-C Quoting ($'')</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 支持转义序列
@@ -354,8 +354,8 @@ echo $'\x48\x65\x6c\x6c\x6f'  # 输出 "Hello"
 </div>
 
 
-<div id="outline-container-orga8749e9" class="outline-3">
-<h3 id="orga8749e9"><span class="section-number-3">2.7.</span> 常见错误案例</h3>
+<div id="outline-container-orgae40aae" class="outline-3">
+<h3 id="orgae40aae"><span class="section-number-3">2.7.</span> 常见错误案例</h3>
 <div class="outline-text-3" id="text-2-7">
 <ol class="org-ol">
 <li><p>
@@ -397,8 +397,8 @@ grep ".*\\d{3}" file    # 或 grep '.*\d{3}' file
 </div>
 
 
-<div id="outline-container-org3213106" class="outline-3">
-<h3 id="org3213106"><span class="section-number-3">2.8.</span> 验证练习</h3>
+<div id="outline-container-org3a1fbb0" class="outline-3">
+<h3 id="org3a1fbb0"><span class="section-number-3">2.8.</span> 验证练习</h3>
 <div class="outline-text-3" id="text-2-8">
 <ol class="org-ol">
 <li><p>
@@ -437,7 +437,7 @@ ls -l "My File\$2023.txt"  # 查看
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 20:38</p>
+<p class="date">Created: 2025-02-17 Mon 23:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

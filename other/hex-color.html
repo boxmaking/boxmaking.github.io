@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:16 -->
+<!-- 2025-02-17 Mon 23:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>十六进制颜色查看</title>
+<title>十六进制HEX色卡查询以及与RGB格式对照表</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="十六进制颜色查看" />
 <meta name="generator" content="Org Mode" />
@@ -21,14 +21,3216 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">十六进制颜色查看</h1>
-</header><p>
-<a href="hex-color.pdf">hex-color.pdf</a>
-</p>
+<h1 class="title">十六进制HEX色卡查询以及与RGB格式对照表</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org365cb10">1. 基础颜色对照表</a></li>
+<li><a href="#org5b1a27c">2. HEX 与 RGB 颜色代码指南</a>
+<ul>
+<li><a href="#org44bbe40">2.1. 基础定义</a></li>
+<li><a href="#org131385c">2.2. 转换规则</a></li>
+<li><a href="#org6217677">2.3. 使用场景</a></li>
+</ul>
+</li>
+<li><a href="#org550844e">3. RGBA 使用指南</a>
+<ul>
+<li><a href="#org07d6742">3.1. 核心定义</a></li>
+<li><a href="#orgb4ab068">3.2. 使用场景</a></li>
+<li><a href="#org2594580">3.3. 代码示例</a></li>
+</ul>
+</li>
+<li><a href="#org2aec23c">4. 红色系</a></li>
+<li><a href="#org015a535">5. 绿色系</a></li>
+<li><a href="#orgb5b89aa">6. 蓝色系</a></li>
+<li><a href="#org0ca460d">7. 黄色系</a></li>
+<li><a href="#orgecfb6d4">8. 棕色系</a></li>
+<li><a href="#org75ebc2e">9. 橙色系</a></li>
+<li><a href="#org84900f4">10. 粉色系</a></li>
+<li><a href="#org873d1ec">11. 紫色系</a></li>
+<li><a href="#org108e6a3">12. 黑色系</a></li>
+<li><a href="#org7a06938">13. 灰色系</a></li>
+<li><a href="#org4d2d163">14. 白色系</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org365cb10" class="outline-2">
+<h2 id="org365cb10"><span class="section-number-2">1.</span> 基础颜色对照表</h2>
+<div class="outline-text-2" id="text-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">颜色名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">HTML样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">红色</td>
+<td class="org-left">#FF0000</td>
+<td class="org-left">255,0,0</td>
+<td class="org-left"><div style="background-color:#FF0000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">绿色</td>
+<td class="org-left">#00FF00</td>
+<td class="org-left">0,255,0</td>
+<td class="org-left"><div style="background-color:#00FF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝色</td>
+<td class="org-left">#0000FF</td>
+<td class="org-left">0,0,255</td>
+<td class="org-left"><div style="background-color:#0000FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄色</td>
+<td class="org-left">#FFFF00</td>
+<td class="org-left">255,255,0</td>
+<td class="org-left"><div style="background-color:#FFFF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青色</td>
+<td class="org-left">#00FFFF</td>
+<td class="org-left">0,255,255</td>
+<td class="org-left"><div style="background-color:#00FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">品红</td>
+<td class="org-left">#FF00FF</td>
+<td class="org-left">255,0,255</td>
+<td class="org-left"><div style="background-color:#FF00FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黑色</td>
+<td class="org-left">#000000</td>
+<td class="org-left">0,0,0</td>
+<td class="org-left"><div style="background-color:#000000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">白色</td>
+<td class="org-left">#FFFFFF</td>
+<td class="org-left">255,255,255</td>
+<td class="org-left"><div style="background-color:#FFFFFF; width:50px; height:20px; border:1px solid #000;"></td>
+</tr>
+
+<tr>
+<td class="org-left">灰色</td>
+<td class="org-left">#808080</td>
+<td class="org-left">128,128,128</td>
+<td class="org-left"><div style="background-color:#808080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">银色</td>
+<td class="org-left">#C0C0C0</td>
+<td class="org-left">192,192,192</td>
+<td class="org-left"><div style="background-color:#C0C0C0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橙色</td>
+<td class="org-left">#FFA500</td>
+<td class="org-left">255,165,0</td>
+<td class="org-left"><div style="background-color:#FFA500; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫色</td>
+<td class="org-left">#800080</td>
+<td class="org-left">128,0,128</td>
+<td class="org-left"><div style="background-color:#800080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">粉红</td>
+<td class="org-left">#FFC0CB</td>
+<td class="org-left">255,192,203</td>
+<td class="org-left"><div style="background-color:#FFC0CB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橄榄色</td>
+<td class="org-left">#808000</td>
+<td class="org-left">128,128,0</td>
+<td class="org-left"><div style="background-color:#808000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">茶色</td>
+<td class="org-left">#A0522D</td>
+<td class="org-left">160,82,45</td>
+<td class="org-left"><div style="background-color:#A0522D; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org5b1a27c" class="outline-2">
+<h2 id="org5b1a27c"><span class="section-number-2">2.</span> HEX 与 RGB 颜色代码指南</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org44bbe40" class="outline-3">
+<h3 id="org44bbe40"><span class="section-number-3">2.1.</span> 基础定义</h3>
+<div class="outline-text-3" id="text-2-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-left">格式</th>
+<th scope="col" class="org-left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">HEX</td>
+<td class="org-left">#开头 + 6位十六进制</td>
+<td class="org-left">#FF5733</td>
+</tr>
+
+<tr>
+<td class="org-left">RGB</td>
+<td class="org-left">三个0-255的整数</td>
+<td class="org-left">rgb(255,87,51)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org131385c" class="outline-3">
+<h3 id="org131385c"><span class="section-number-3">2.2.</span> 转换规则</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>HEX转RGB：
+<ul class="org-ul">
+<li>拆分 HEX 为三组（如 FF 57 33）</li>
+<li>将每组十六进制转为十进制（FF=255，57=87，33=51）</li>
+</ul></li>
+
+<li>RGB转HEX：
+<ul class="org-ul">
+<li>将每个十进制数转为两位十六进制（255→FF，87→57，51→33）</li>
+<li>组合成 #FF5733</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org6217677" class="outline-3">
+<h3 id="org6217677"><span class="section-number-3">2.3.</span> 使用场景</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>✓ 网页开发首选 HEX（CSS简写）</li>
+<li>✓ 动态调色使用 RGB（如 rgba(255,0,0,0.5) 透明效果）</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org550844e" class="outline-2">
+<h2 id="org550844e"><span class="section-number-2">3.</span> RGBA 使用指南</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org07d6742" class="outline-3">
+<h3 id="org07d6742"><span class="section-number-3">3.1.</span> 核心定义</h3>
+<div class="outline-text-3" id="text-3-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">参数</th>
+<th scope="col" class="org-left">说明</th>
+<th scope="col" class="org-right">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">R(红)</td>
+<td class="org-left">红色通道强度</td>
+<td class="org-right">0-255</td>
+</tr>
+
+<tr>
+<td class="org-left">G(绿)</td>
+<td class="org-left">绿色通道强度</td>
+<td class="org-right">0-255</td>
+</tr>
+
+<tr>
+<td class="org-left">B(蓝)</td>
+<td class="org-left">蓝色通道强度</td>
+<td class="org-right">0-255</td>
+</tr>
+
+<tr>
+<td class="org-left">A(Alpha)</td>
+<td class="org-left">透明度（0=全透明，1=不透明）</td>
+<td class="org-right">0.0-1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgb4ab068" class="outline-3">
+<h3 id="orgb4ab068"><span class="section-number-3">3.2.</span> 使用场景</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>半透明遮罩层：rgba(0,0,0,0.5) → 50%黑色遮罩</li>
+<li>渐变背景：linear-gradient(rgba(255,0,0,0.3), rgba(0,0,255,0.7))</li>
+<li>按钮悬浮效果：hover 时增加透明度（如从 1 → 0.8）</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org2594580" class="outline-3">
+<h3 id="org2594580"><span class="section-number-3">3.3.</span> 代码示例</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-css">/* 半透明红色背景 */
+.element {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+/* 带透明边框 */
+.card {
+  border: 2px solid rgba(0, 128, 0, 0.3);
+}
+
+/* 文字阴影效果 */
+.text {
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2aec23c" class="outline-2">
+<h2 id="org2aec23c"><span class="section-number-2">4.</span> 红色系</h2>
+<div class="outline-text-2" id="text-4">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">颜色名称</th>
+<th scope="col" class="org-left">HEX代码</th>
+<th scope="col" class="org-left">RGB代码</th>
+<th scope="col" class="org-left">色卡示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">殷红色</td>
+<td class="org-left">#880808</td>
+<td class="org-left">136,8,8</td>
+<td class="org-left"><div style="background-color:#880808; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">砖红色</td>
+<td class="org-left">#AA4A44</td>
+<td class="org-left">170,74,68</td>
+<td class="org-left"><div style="background-color:#AA4A44; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">朱红色</td>
+<td class="org-left">#EE4B2B</td>
+<td class="org-left">238,75,43</td>
+<td class="org-left"><div style="background-color:#EE4B2B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">棕色</td>
+<td class="org-left">#A52A2A</td>
+<td class="org-left">165,42,42</td>
+<td class="org-left"><div style="background-color:#A52A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">勃艮第色</td>
+<td class="org-left">#800020</td>
+<td class="org-left">128,0,32</td>
+<td class="org-left"><div style="background-color:#800020; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">焦红色</td>
+<td class="org-left">#6E260E</td>
+<td class="org-left">110,38,14</td>
+<td class="org-left"><div style="background-color:#6E260E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">焦橙色</td>
+<td class="org-left">#CC5500</td>
+<td class="org-left">204,85,0</td>
+<td class="org-left"><div style="background-color:#CC5500; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">锡耶纳色</td>
+<td class="org-left">#E97451</td>
+<td class="org-left">233,116,81</td>
+<td class="org-left"><div style="background-color:#E97451; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">拜占庭色</td>
+<td class="org-left">#702963</td>
+<td class="org-left">112,41,99</td>
+<td class="org-left"><div style="background-color:#702963; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">镉红色</td>
+<td class="org-left">#D22B2B</td>
+<td class="org-left">210,43,43</td>
+<td class="org-left"><div style="background-color:#D22B2B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">主教红色</td>
+<td class="org-left">#C41E3A</td>
+<td class="org-left">196,30,58</td>
+<td class="org-left"><div style="background-color:#C41E3A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">洋红色</td>
+<td class="org-left">#D70040</td>
+<td class="org-left">215,0,64</td>
+<td class="org-left"><div style="background-color:#D70040; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">可爱红</td>
+<td class="org-left">#DE3163</td>
+<td class="org-left">222,49,99</td>
+<td class="org-left"><div style="background-color:#DE3163; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">樱桃红</td>
+<td class="org-left">#D2042D</td>
+<td class="org-left">210,4,45</td>
+<td class="org-left"><div style="background-color:#D2042D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">板栗色</td>
+<td class="org-left">#954535</td>
+<td class="org-left">149,69,53</td>
+<td class="org-left"><div style="background-color:#954535; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">酒红色</td>
+<td class="org-left">#811331</td>
+<td class="org-left">129,19,49</td>
+<td class="org-left"><div style="background-color:#811331; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珊瑚粉红</td>
+<td class="org-left">#F88379</td>
+<td class="org-left">248,131,121</td>
+<td class="org-left"><div style="background-color:#F88379; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">科尔多瓦</td>
+<td class="org-left">#814141</td>
+<td class="org-left">129,65,65</td>
+<td class="org-left"><div style="background-color:#814141; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深红色</td>
+<td class="org-left">#DC143C</td>
+<td class="org-left">220,20,60</td>
+<td class="org-left"><div style="background-color:#DC143C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">暗红色</td>
+<td class="org-left">#8B0000</td>
+<td class="org-left">139,0,0</td>
+<td class="org-left"><div style="background-color:#8B0000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">法鲁红</td>
+<td class="org-left">#7B1818</td>
+<td class="org-left">123,24,24</td>
+<td class="org-left"><div style="background-color:#7B1818; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">石榴红</td>
+<td class="org-left">#9A2A2A</td>
+<td class="org-left">154,42,42</td>
+<td class="org-left"><div style="background-color:#9A2A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃木红</td>
+<td class="org-left">#C04000</td>
+<td class="org-left">192,64,0</td>
+<td class="org-left"><div style="background-color:#C04000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">栗色</td>
+<td class="org-left">#800000</td>
+<td class="org-left">128,0,0</td>
+<td class="org-left"><div style="background-color:#800000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玛萨拉色</td>
+<td class="org-left">#986868</td>
+<td class="org-left">152,104,104</td>
+<td class="org-left"><div style="background-color:#986868; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桑树色</td>
+<td class="org-left">#770737</td>
+<td class="org-left">119,7,55</td>
+<td class="org-left"><div style="background-color:#770737; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">霓虹色</td>
+<td class="org-left">#FF3131</td>
+<td class="org-left">255,49,49</td>
+<td class="org-left"><div style="background-color:#FF3131; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">牛血红</td>
+<td class="org-left">#4A0404</td>
+<td class="org-left">74,4,4</td>
+<td class="org-left"><div style="background-color:#4A0404; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和红色</td>
+<td class="org-left">#FAA0A0</td>
+<td class="org-left">250,160,160</td>
+<td class="org-left"><div style="background-color:#FAA0A0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柿子色</td>
+<td class="org-left">#EC5800</td>
+<td class="org-left">236,88,0</td>
+<td class="org-left"><div style="background-color:#EC5800; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">罂红</td>
+<td class="org-left">#E35335</td>
+<td class="org-left">227,83,53</td>
+<td class="org-left"><div style="background-color:#E35335; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">普斯色</td>
+<td class="org-left">#A95C68</td>
+<td class="org-left">169,92,104</td>
+<td class="org-left"><div style="background-color:#A95C68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">树莓红</td>
+<td class="org-left">#E30B5C</td>
+<td class="org-left">227,11,92</td>
+<td class="org-left"><div style="background-color:#E30B5C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红色</td>
+<td class="org-left">#FF0000</td>
+<td class="org-left">255,0,0</td>
+<td class="org-left"><div style="background-color:#FF0000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红棕色</td>
+<td class="org-left">#A52A2A</td>
+<td class="org-left">165,42,42</td>
+<td class="org-left"><div style="background-color:#A52A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红赭石</td>
+<td class="org-left">#913831</td>
+<td class="org-left">145,56,49</td>
+<td class="org-left"><div style="background-color:#913831; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红橙色</td>
+<td class="org-left">#FF4433</td>
+<td class="org-left">255,68,51</td>
+<td class="org-left"><div style="background-color:#FF4433; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红紫色</td>
+<td class="org-left">#953553</td>
+<td class="org-left">149,53,83</td>
+<td class="org-left"><div style="background-color:#953553; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玫瑰红</td>
+<td class="org-left">#C21E56</td>
+<td class="org-left">194,30,86</td>
+<td class="org-left"><div style="background-color:#C21E56; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">宝石红</td>
+<td class="org-left">#E0115F</td>
+<td class="org-left">224,17,95</td>
+<td class="org-left"><div style="background-color:#E0115F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">赤褐色</td>
+<td class="org-left">#80461B</td>
+<td class="org-left">128,70,27</td>
+<td class="org-left"><div style="background-color:#80461B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鲑鱼红</td>
+<td class="org-left">#FA8072</td>
+<td class="org-left">250,128,114</td>
+<td class="org-left"><div style="background-color:#FA8072; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">猩红色</td>
+<td class="org-left">#FF2400</td>
+<td class="org-left">255,36,0</td>
+<td class="org-left"><div style="background-color:#FF2400; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">日落橙</td>
+<td class="org-left">#FA5F55</td>
+<td class="org-left">250,95,85</td>
+<td class="org-left"><div style="background-color:#FA5F55; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">兵马俑</td>
+<td class="org-left">#E3735E</td>
+<td class="org-left">227,115,94</td>
+<td class="org-left"><div style="background-color:#E3735E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">托斯卡纳红</td>
+<td class="org-left">#7C3030</td>
+<td class="org-left">124,48,48</td>
+<td class="org-left"><div style="background-color:#7C3030; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">提利昂紫</td>
+<td class="org-left">#630330</td>
+<td class="org-left">99,3,48</td>
+<td class="org-left"><div style="background-color:#630330; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">威尼斯红</td>
+<td class="org-left">#A42A04</td>
+<td class="org-left">164,42,4</td>
+<td class="org-left"><div style="background-color:#A42A04; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">朱红色</td>
+<td class="org-left">#E34234</td>
+<td class="org-left">227,66,52</td>
+<td class="org-left"><div style="background-color:#E34234; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">酒红色</td>
+<td class="org-left">#722F37</td>
+<td class="org-left">114,47,55</td>
+<td class="org-left"><div style="background-color:#722F37; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org015a535" class="outline-2">
+<h2 id="org015a535"><span class="section-number-2">5.</span> 绿色系</h2>
+<div class="outline-text-2" id="text-5">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">颜色名称</th>
+<th scope="col" class="org-left">HEX代码</th>
+<th scope="col" class="org-left">RGB代码</th>
+<th scope="col" class="org-left">色卡示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">水绿色</td>
+<td class="org-left">#00FFFF</td>
+<td class="org-left">0,255,255</td>
+<td class="org-left"><div style="background-color:#00FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">海蓝色</td>
+<td class="org-left">#7FFFD4</td>
+<td class="org-left">127,255,212</td>
+<td class="org-left"><div style="background-color:#7FFFD4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">军绿色</td>
+<td class="org-left">#454B1B</td>
+<td class="org-left">69,75,27</td>
+<td class="org-left"><div style="background-color:#454B1B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝绿色</td>
+<td class="org-left">#088F8F</td>
+<td class="org-left">8,143,143</td>
+<td class="org-left"><div style="background-color:#088F8F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亮绿色</td>
+<td class="org-left">#AAFF00</td>
+<td class="org-left">170,255,0</td>
+<td class="org-left"><div style="background-color:#AAFF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">学员蓝</td>
+<td class="org-left">#5F9EA0</td>
+<td class="org-left">95,158,160</td>
+<td class="org-left"><div style="background-color:#5F9EA0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">镉绿色</td>
+<td class="org-left">#097969</td>
+<td class="org-left">9,121,105</td>
+<td class="org-left"><div style="background-color:#097969; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青瓷色</td>
+<td class="org-left">#AFE1AF</td>
+<td class="org-left">175,225,175</td>
+<td class="org-left"><div style="background-color:#AFE1AF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">沙特勒斯</td>
+<td class="org-left">#DFFF00</td>
+<td class="org-left">223,255,0</td>
+<td class="org-left"><div style="background-color:#DFFF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄水晶</td>
+<td class="org-left">#E4D00A</td>
+<td class="org-left">228,208,10</td>
+<td class="org-left"><div style="background-color:#E4D00A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青色</td>
+<td class="org-left">#00FFFF</td>
+<td class="org-left">0,255,255</td>
+<td class="org-left"><div style="background-color:#00FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深绿色</td>
+<td class="org-left">#023020</td>
+<td class="org-left">2,48,32</td>
+<td class="org-left"><div style="background-color:#023020; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">电蓝色</td>
+<td class="org-left">#7DF9FF</td>
+<td class="org-left">125,249,255</td>
+<td class="org-left"><div style="background-color:#7DF9FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">翠绿色</td>
+<td class="org-left">#50C878</td>
+<td class="org-left">80,200,120</td>
+<td class="org-left"><div style="background-color:#50C878; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桉树绿</td>
+<td class="org-left">#5F8575</td>
+<td class="org-left">95,133,117</td>
+<td class="org-left"><div style="background-color:#5F8575; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">植物绿</td>
+<td class="org-left">#4F7942</td>
+<td class="org-left">79,121,66</td>
+<td class="org-left"><div style="background-color:#4F7942; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">森林绿</td>
+<td class="org-left">#228B22</td>
+<td class="org-left">34,139,34</td>
+<td class="org-left"><div style="background-color:#228B22; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">草绿色</td>
+<td class="org-left">#7CFC00</td>
+<td class="org-left">124,252,0</td>
+<td class="org-left"><div style="background-color:#7CFC00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">绿色</td>
+<td class="org-left">#008000</td>
+<td class="org-left">0,128,0</td>
+<td class="org-left"><div style="background-color:#008000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">猎人绿</td>
+<td class="org-left">#355E3B</td>
+<td class="org-left">53,94,59</td>
+<td class="org-left"><div style="background-color:#355E3B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">翠绿色</td>
+<td class="org-left">#00A36C</td>
+<td class="org-left">0,163,108</td>
+<td class="org-left"><div style="background-color:#00A36C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">丛林绿</td>
+<td class="org-left">#2AAA8A</td>
+<td class="org-left">42,170,138</td>
+<td class="org-left"><div style="background-color:#2AAA8A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">凯利绿</td>
+<td class="org-left">#4CBB17</td>
+<td class="org-left">76,187,23</td>
+<td class="org-left"><div style="background-color:#4CBB17; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅绿色</td>
+<td class="org-left">#90EE90</td>
+<td class="org-left">144,238,144</td>
+<td class="org-left"><div style="background-color:#90EE90; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">石灰绿</td>
+<td class="org-left">#32CD32</td>
+<td class="org-left">50,205,50</td>
+<td class="org-left"><div style="background-color:#32CD32; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">林肯绿</td>
+<td class="org-left">#478778</td>
+<td class="org-left">71,135,120</td>
+<td class="org-left"><div style="background-color:#478778; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">孔雀石绿</td>
+<td class="org-left">#0BDA51</td>
+<td class="org-left">11,218,81</td>
+<td class="org-left"><div style="background-color:#0BDA51; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">薄荷绿</td>
+<td class="org-left">#98FB98</td>
+<td class="org-left">152,251,152</td>
+<td class="org-left"><div style="background-color:#98FB98; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">苔藓绿</td>
+<td class="org-left">#8A9A5B</td>
+<td class="org-left">138,154,91</td>
+<td class="org-left"><div style="background-color:#8A9A5B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">霓虹绿</td>
+<td class="org-left">#0FFF50</td>
+<td class="org-left">15,255,80</td>
+<td class="org-left"><div style="background-color:#0FFF50; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">尼安扎色</td>
+<td class="org-left">#ECFFDC</td>
+<td class="org-left">236,255,220</td>
+<td class="org-left"><div style="background-color:#ECFFDC; width:50px; height:20px; border:1px solid #000;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橄榄绿</td>
+<td class="org-left">#808000</td>
+<td class="org-left">128,128,0</td>
+<td class="org-left"><div style="background-color:#808000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和绿色</td>
+<td class="org-left">#C1E1C1</td>
+<td class="org-left">193,225,193</td>
+<td class="org-left"><div style="background-color:#C1E1C1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">梨黄色</td>
+<td class="org-left">#C9CC3F</td>
+<td class="org-left">201,204,63</td>
+<td class="org-left"><div style="background-color:#C9CC3F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橄榄石</td>
+<td class="org-left">#B4C424</td>
+<td class="org-left">180,196,36</td>
+<td class="org-left"><div style="background-color:#B4C424; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">开心果绿</td>
+<td class="org-left">#93C572</td>
+<td class="org-left">147,197,114</td>
+<td class="org-left"><div style="background-color:#93C572; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">知更鸟蛋蓝色</td>
+<td class="org-left">#96DED1</td>
+<td class="org-left">150,222,209</td>
+<td class="org-left"><div style="background-color:#96DED1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鼠尾草绿</td>
+<td class="org-left">#8A9A5B</td>
+<td class="org-left">138,154,91</td>
+<td class="org-left"><div style="background-color:#8A9A5B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">海绿色</td>
+<td class="org-left">#2E8B57</td>
+<td class="org-left">46,139,87</td>
+<td class="org-left"><div style="background-color:#2E8B57; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">海泡绿</td>
+<td class="org-left">#9FE2BF</td>
+<td class="org-left">159,226,191</td>
+<td class="org-left"><div style="background-color:#9FE2BF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">三叶草绿</td>
+<td class="org-left">#009E60</td>
+<td class="org-left">0,158,96</td>
+<td class="org-left"><div style="background-color:#009E60; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">春绿色</td>
+<td class="org-left">#00FF7F</td>
+<td class="org-left">0,255,127</td>
+<td class="org-left"><div style="background-color:#00FF7F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">水鸭色</td>
+<td class="org-left">#008080</td>
+<td class="org-left">0,128,128</td>
+<td class="org-left"><div style="background-color:#008080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">松石绿</td>
+<td class="org-left">#40E0D0</td>
+<td class="org-left">64,224,208</td>
+<td class="org-left"><div style="background-color:#40E0D0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">维加斯黄</td>
+<td class="org-left">#C4B454</td>
+<td class="org-left">196,180,84</td>
+<td class="org-left"><div style="background-color:#C4B454; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">维迪格里斯</td>
+<td class="org-left">#40B5AD</td>
+<td class="org-left">64,181,173</td>
+<td class="org-left"><div style="background-color:#40B5AD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">维里迪安</td>
+<td class="org-left">#40826D</td>
+<td class="org-left">64,130,109</td>
+<td class="org-left"><div style="background-color:#40826D; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgb5b89aa" class="outline-2">
+<h2 id="orgb5b89aa"><span class="section-number-2">6.</span> 蓝色系</h2>
+<div class="outline-text-2" id="text-6">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">水绿色</td>
+<td class="org-left">#00FFFF</td>
+<td class="org-left">0,255,255</td>
+<td class="org-left"><div style="background-color:#00FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">天蓝色</td>
+<td class="org-left">#F0FFFF</td>
+<td class="org-left">240,255,255</td>
+<td class="org-left"><div style="background-color:#F0FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅蓝色</td>
+<td class="org-left">#89CFF0</td>
+<td class="org-left">137,207,240</td>
+<td class="org-left"><div style="background-color:#89CFF0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝色</td>
+<td class="org-left">#0000FF</td>
+<td class="org-left">0,0,255</td>
+<td class="org-left"><div style="background-color:#0000FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝灰色</td>
+<td class="org-left">#7393B3</td>
+<td class="org-left">115,147,179</td>
+<td class="org-left"><div style="background-color:#7393B3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝绿色</td>
+<td class="org-left">#088F8F</td>
+<td class="org-left">8,143,143</td>
+<td class="org-left"><div style="background-color:#088F8F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亮蓝色</td>
+<td class="org-left">#0096FF</td>
+<td class="org-left">0,150,255</td>
+<td class="org-left"><div style="background-color:#0096FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">学员蓝</td>
+<td class="org-left">#5F9EA0</td>
+<td class="org-left">95,158,160</td>
+<td class="org-left"><div style="background-color:#5F9EA0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">钴蓝色</td>
+<td class="org-left">#0047AB</td>
+<td class="org-left">0,71,171</td>
+<td class="org-left"><div style="background-color:#0047AB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">矢车菊蓝</td>
+<td class="org-left">#6495ED</td>
+<td class="org-left">100,149,237</td>
+<td class="org-left"><div style="background-color:#6495ED; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青色</td>
+<td class="org-left">#00FFFF</td>
+<td class="org-left">0,255,255</td>
+<td class="org-left"><div style="background-color:#00FFFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深蓝色</td>
+<td class="org-left">#00008B</td>
+<td class="org-left">0,0,139</td>
+<td class="org-left"><div style="background-color:#00008B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">牛仔蓝</td>
+<td class="org-left">#6F8FAF</td>
+<td class="org-left">111,143,175</td>
+<td class="org-left"><div style="background-color:#6F8FAF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">埃及蓝</td>
+<td class="org-left">#1434A4</td>
+<td class="org-left">20,52,164</td>
+<td class="org-left"><div style="background-color:#1434A4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">电蓝色</td>
+<td class="org-left">#7DF9FF</td>
+<td class="org-left">125,249,255</td>
+<td class="org-left"><div style="background-color:#7DF9FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青光色</td>
+<td class="org-left">#6082B6</td>
+<td class="org-left">96,130,182</td>
+<td class="org-left"><div style="background-color:#6082B6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">翠绿色</td>
+<td class="org-left">#00A36C</td>
+<td class="org-left">0,163,108</td>
+<td class="org-left"><div style="background-color:#00A36C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">靛蓝色</td>
+<td class="org-left">#3F00FF</td>
+<td class="org-left">63,0,255</td>
+<td class="org-left"><div style="background-color:#3F00FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">虹膜色</td>
+<td class="org-left">#5D3FD3</td>
+<td class="org-left">93,63,211</td>
+<td class="org-left"><div style="background-color:#5D3FD3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅蓝色</td>
+<td class="org-left">#ADD8E6</td>
+<td class="org-left">173,216,230</td>
+<td class="org-left"><div style="background-color:#ADD8E6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">午夜蓝</td>
+<td class="org-left">#191970</td>
+<td class="org-left">25,25,112</td>
+<td class="org-left"><div style="background-color:#191970; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">海军蓝</td>
+<td class="org-left">#000080</td>
+<td class="org-left">0,0,128</td>
+<td class="org-left"><div style="background-color:#000080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">霓虹蓝</td>
+<td class="org-left">#1F51FF</td>
+<td class="org-left">31,81,255</td>
+<td class="org-left"><div style="background-color:#1F51FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">淡蓝色</td>
+<td class="org-left">#A7C7E7</td>
+<td class="org-left">167,199,231</td>
+<td class="org-left"><div style="background-color:#A7C7E7; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">长春花色</td>
+<td class="org-left">#CCCCFF</td>
+<td class="org-left">204,204,255</td>
+<td class="org-left"><div style="background-color:#CCCCFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">粉蓝色</td>
+<td class="org-left">#B6D0E2</td>
+<td class="org-left">182,208,226</td>
+<td class="org-left"><div style="background-color:#B6D0E2; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">知更鸟蛋蓝</td>
+<td class="org-left">#96DED1</td>
+<td class="org-left">150,222,209</td>
+<td class="org-left"><div style="background-color:#96DED1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">宝蓝色</td>
+<td class="org-left">#4169E1</td>
+<td class="org-left">65,105,225</td>
+<td class="org-left"><div style="background-color:#4169E1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">宝石蓝</td>
+<td class="org-left">#0F52BA</td>
+<td class="org-left">15,82,186</td>
+<td class="org-left"><div style="background-color:#0F52BA; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">海泡绿</td>
+<td class="org-left">#9FE2BF</td>
+<td class="org-left">159,226,191</td>
+<td class="org-left"><div style="background-color:#9FE2BF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">天蓝色</td>
+<td class="org-left">#87CEEB</td>
+<td class="org-left">135,206,235</td>
+<td class="org-left"><div style="background-color:#87CEEB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">钢蓝色</td>
+<td class="org-left">#4682B4</td>
+<td class="org-left">70,130,180</td>
+<td class="org-left"><div style="background-color:#4682B4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">水鸭色</td>
+<td class="org-left">#008080</td>
+<td class="org-left">0,128,128</td>
+<td class="org-left"><div style="background-color:#008080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">松石绿</td>
+<td class="org-left">#40E0D0</td>
+<td class="org-left">64,224,208</td>
+<td class="org-left"><div style="background-color:#40E0D0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">群青色</td>
+<td class="org-left">#0437F2</td>
+<td class="org-left">4,55,242</td>
+<td class="org-left"><div style="background-color:#0437F2; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">维迪格里斯</td>
+<td class="org-left">#40B5AD</td>
+<td class="org-left">64,181,173</td>
+<td class="org-left"><div style="background-color:#40B5AD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">扎弗尔</td>
+<td class="org-left">#0818A8</td>
+<td class="org-left">8,24,168</td>
+<td class="org-left"><div style="background-color:#0818A8; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org0ca460d" class="outline-2">
+<h2 id="org0ca460d"><span class="section-number-2">7.</span> 黄色系</h2>
+<div class="outline-text-2" id="text-7">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">杏仁色</td>
+<td class="org-left">#EADDCA</td>
+<td class="org-left">234,221,202</td>
+<td class="org-left"><div style="background-color:#EADDCA; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">琥珀黄</td>
+<td class="org-left">#FFBF00</td>
+<td class="org-left">255,191,0</td>
+<td class="org-left"><div style="background-color:#FFBF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">杏黄色</td>
+<td class="org-left">#FBCEB1</td>
+<td class="org-left">251,206,177</td>
+<td class="org-left"><div style="background-color:#FBCEB1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">米色</td>
+<td class="org-left">#F5F5DC</td>
+<td class="org-left">245,245,220</td>
+<td class="org-left"><div style="background-color:#F5F5DC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄铜色</td>
+<td class="org-left">#E1C16E</td>
+<td class="org-left">225,193,110</td>
+<td class="org-left"><div style="background-color:#E1C16E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亮黄色</td>
+<td class="org-left">#FFEA00</td>
+<td class="org-left">255,234,0</td>
+<td class="org-left"><div style="background-color:#FFEA00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">镉黄色</td>
+<td class="org-left">#FDDA0D</td>
+<td class="org-left">253,218,13</td>
+<td class="org-left"><div style="background-color:#FDDA0D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">金丝雀黄</td>
+<td class="org-left">#FFFF8F</td>
+<td class="org-left">255,255,143</td>
+<td class="org-left"><div style="background-color:#FFFF8F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">沙特勒斯</td>
+<td class="org-left">#DFFF00</td>
+<td class="org-left">223,255,0</td>
+<td class="org-left"><div style="background-color:#DFFF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">水晶黄</td>
+<td class="org-left">#E4D00A</td>
+<td class="org-left">228,208,10</td>
+<td class="org-left"><div style="background-color:#E4D00A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玉米丝</td>
+<td class="org-left">#FFF8DC</td>
+<td class="org-left">255,248,220</td>
+<td class="org-left"><div style="background-color:#FFF8DC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">奶油色</td>
+<td class="org-left">#FFFDD0</td>
+<td class="org-left">255,253,208</td>
+<td class="org-left"><div style="background-color:#FFFDD0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">暗黄色</td>
+<td class="org-left">#8B8000</td>
+<td class="org-left">139,128,0</td>
+<td class="org-left"><div style="background-color:#8B8000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">沙漠黄</td>
+<td class="org-left">#FAD5A5</td>
+<td class="org-left">250,213,165</td>
+<td class="org-left"><div style="background-color:#FAD5A5; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">本色</td>
+<td class="org-left">#C2B280</td>
+<td class="org-left">194,178,128</td>
+<td class="org-left"><div style="background-color:#C2B280; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亚麻黄</td>
+<td class="org-left">#EEDC82</td>
+<td class="org-left">238,220,130</td>
+<td class="org-left"><div style="background-color:#EEDC82; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">藤黄色</td>
+<td class="org-left">#E49B0F</td>
+<td class="org-left">228,155,15</td>
+<td class="org-left"><div style="background-color:#E49B0F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">金色</td>
+<td class="org-left">#FFD700</td>
+<td class="org-left">255,215,0</td>
+<td class="org-left"><div style="background-color:#FFD700; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">金黄色</td>
+<td class="org-left">#FFC000</td>
+<td class="org-left">255,192,0</td>
+<td class="org-left"><div style="background-color:#FFC000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">植物黄</td>
+<td class="org-left">#DAA520</td>
+<td class="org-left">218,165,32</td>
+<td class="org-left"><div style="background-color:#DAA520; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蝶黄色</td>
+<td class="org-left">#FCF55F</td>
+<td class="org-left">252,245,95</td>
+<td class="org-left"><div style="background-color:#FCF55F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">象牙白</td>
+<td class="org-left">#FFFFF0</td>
+<td class="org-left">255,255,240</td>
+<td class="org-left"><div style="background-color:#FFFFF0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">茉莉花</td>
+<td class="org-left">#F8DE7E</td>
+<td class="org-left">248,222,126</td>
+<td class="org-left"><div style="background-color:#F8DE7E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">卡其黄</td>
+<td class="org-left">#F0E68C</td>
+<td class="org-left">240,230,140</td>
+<td class="org-left"><div style="background-color:#F0E68C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柠檬黄</td>
+<td class="org-left">#FAFA33</td>
+<td class="org-left">250,250,51</td>
+<td class="org-left"><div style="background-color:#FAFA33; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玉米黄</td>
+<td class="org-left">#FBEC5D</td>
+<td class="org-left">251,236,93</td>
+<td class="org-left"><div style="background-color:#FBEC5D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">芒果黄</td>
+<td class="org-left">#F4BB44</td>
+<td class="org-left">244,187,68</td>
+<td class="org-left"><div style="background-color:#F4BB44; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">芥末黄</td>
+<td class="org-left">#FFDB58</td>
+<td class="org-left">255,219,88</td>
+<td class="org-left"><div style="background-color:#FFDB58; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">那不勒斯黄</td>
+<td class="org-left">#FADA5E</td>
+<td class="org-left">250,218,94</td>
+<td class="org-left"><div style="background-color:#FADA5E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">纳瓦霍白</td>
+<td class="org-left">#FFDEAD</td>
+<td class="org-left">255,222,173</td>
+<td class="org-left"><div style="background-color:#FFDEAD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">尼安扎</td>
+<td class="org-left">#ECFFDC</td>
+<td class="org-left">236,255,220</td>
+<td class="org-left"><div style="background-color:#ECFFDC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和黄</td>
+<td class="org-left">#FFFAA0</td>
+<td class="org-left">255,250,160</td>
+<td class="org-left"><div style="background-color:#FFFAA0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃色</td>
+<td class="org-left">#FFE5B4</td>
+<td class="org-left">255,229,180</td>
+<td class="org-left"><div style="background-color:#FFE5B4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">梨黄色</td>
+<td class="org-left">#C9CC3F</td>
+<td class="org-left">201,204,63</td>
+<td class="org-left"><div style="background-color:#C9CC3F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橄榄石</td>
+<td class="org-left">#B4C424</td>
+<td class="org-left">180,196,36</td>
+<td class="org-left"><div style="background-color:#B4C424; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">开心果绿</td>
+<td class="org-left">#93C572</td>
+<td class="org-left">147,197,114</td>
+<td class="org-left"><div style="background-color:#93C572; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">番红花</td>
+<td class="org-left">#F4C430</td>
+<td class="org-left">244,196,48</td>
+<td class="org-left"><div style="background-color:#F4C430; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">香草</td>
+<td class="org-left">#F3E5AB</td>
+<td class="org-left">243,229,171</td>
+<td class="org-left"><div style="background-color:#F3E5AB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">维加斯黄</td>
+<td class="org-left">#C4B454</td>
+<td class="org-left">196,180,84</td>
+<td class="org-left"><div style="background-color:#C4B454; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">小麦色</td>
+<td class="org-left">#F5DEB3</td>
+<td class="org-left">245,222,179</td>
+<td class="org-left"><div style="background-color:#F5DEB3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄色</td>
+<td class="org-left">#FFFF00</td>
+<td class="org-left">255,255,0</td>
+<td class="org-left"><div style="background-color:#FFFF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄橙</td>
+<td class="org-left">#FFAA33</td>
+<td class="org-left">255,170,51</td>
+<td class="org-left"><div style="background-color:#FFAA33; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgecfb6d4" class="outline-2">
+<h2 id="orgecfb6d4"><span class="section-number-2">8.</span> 棕色系</h2>
+<div class="outline-text-2" id="text-8">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">杏仁色</td>
+<td class="org-left">#EADDCA</td>
+<td class="org-left">234,221,202</td>
+<td class="org-left"><div style="background-color:#EADDCA; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄铜色</td>
+<td class="org-left">#E1C16E</td>
+<td class="org-left">225,193,110</td>
+<td class="org-left"><div style="background-color:#E1C16E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青铜色</td>
+<td class="org-left">#CD7F32</td>
+<td class="org-left">205,127,50</td>
+<td class="org-left"><div style="background-color:#CD7F32; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">棕色</td>
+<td class="org-left">#A52A2A</td>
+<td class="org-left">165,42,42</td>
+<td class="org-left"><div style="background-color:#A52A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">巴福色</td>
+<td class="org-left">#DAA06D</td>
+<td class="org-left">218,160,109</td>
+<td class="org-left"><div style="background-color:#DAA06D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">勃艮第色</td>
+<td class="org-left">#800020</td>
+<td class="org-left">128,0,32</td>
+<td class="org-left"><div style="background-color:#800020; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">锡耶纳</td>
+<td class="org-left">#E97451</td>
+<td class="org-left">233,116,81</td>
+<td class="org-left"><div style="background-color:#E97451; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">翁伯</td>
+<td class="org-left">#6E260E</td>
+<td class="org-left">110,38,14</td>
+<td class="org-left"><div style="background-color:#6E260E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">骆驼色</td>
+<td class="org-left">#C19A6B</td>
+<td class="org-left">193,154,107</td>
+<td class="org-left"><div style="background-color:#C19A6B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">板栗色</td>
+<td class="org-left">#954535</td>
+<td class="org-left">149,69,53</td>
+<td class="org-left"><div style="background-color:#954535; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">巧克力色</td>
+<td class="org-left">#7B3F00</td>
+<td class="org-left">123,63,0</td>
+<td class="org-left"><div style="background-color:#7B3F00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">肉桂色</td>
+<td class="org-left">#D27D2D</td>
+<td class="org-left">210,125,45</td>
+<td class="org-left"><div style="background-color:#D27D2D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">咖啡色</td>
+<td class="org-left">#6F4E37</td>
+<td class="org-left">111,78,55</td>
+<td class="org-left"><div style="background-color:#6F4E37; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">干邑</td>
+<td class="org-left">#834333</td>
+<td class="org-left">131,67,51</td>
+<td class="org-left"><div style="background-color:#834333; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">铜色</td>
+<td class="org-left">#B87333</td>
+<td class="org-left">184,115,51</td>
+<td class="org-left"><div style="background-color:#B87333; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">科尔多瓦</td>
+<td class="org-left">#814141</td>
+<td class="org-left">129,65,65</td>
+<td class="org-left"><div style="background-color:#814141; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深棕色</td>
+<td class="org-left">#5C4033</td>
+<td class="org-left">92,64,51</td>
+<td class="org-left"><div style="background-color:#5C4033; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深红色</td>
+<td class="org-left">#8B0000</td>
+<td class="org-left">139,0,0</td>
+<td class="org-left"><div style="background-color:#8B0000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深棕褐色</td>
+<td class="org-left">#988558</td>
+<td class="org-left">152,133,88</td>
+<td class="org-left"><div style="background-color:#988558; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">本色</td>
+<td class="org-left">#C2B280</td>
+<td class="org-left">194,178,128</td>
+<td class="org-left"><div style="background-color:#C2B280; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">休耕地</td>
+<td class="org-left">#C19A6B</td>
+<td class="org-left">193,154,107</td>
+<td class="org-left"><div style="background-color:#C19A6B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鹿色</td>
+<td class="org-left">#E5AA70</td>
+<td class="org-left">229,170,112</td>
+<td class="org-left"><div style="background-color:#E5AA70; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">石榴色</td>
+<td class="org-left">#9A2A2A</td>
+<td class="org-left">154,42,42</td>
+<td class="org-left"><div style="background-color:#9A2A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">金棕色</td>
+<td class="org-left">#966919</td>
+<td class="org-left">150,105,25</td>
+<td class="org-left"><div style="background-color:#966919; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">卡其色</td>
+<td class="org-left">#F0E68C</td>
+<td class="org-left">240,230,140</td>
+<td class="org-left"><div style="background-color:#F0E68C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅棕色</td>
+<td class="org-left">#C4A484</td>
+<td class="org-left">196,164,132</td>
+<td class="org-left"><div style="background-color:#C4A484; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃木色</td>
+<td class="org-left">#C04000</td>
+<td class="org-left">192,64,0</td>
+<td class="org-left"><div style="background-color:#C04000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">栗色</td>
+<td class="org-left">#800000</td>
+<td class="org-left">128,0,0</td>
+<td class="org-left"><div style="background-color:#800000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">抹茶色</td>
+<td class="org-left">#967969</td>
+<td class="org-left">150,121,105</td>
+<td class="org-left"><div style="background-color:#967969; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">裸色</td>
+<td class="org-left">#F2D2BD</td>
+<td class="org-left">242,210,189</td>
+<td class="org-left"><div style="background-color:#F2D2BD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">赭石</td>
+<td class="org-left">#CC7722</td>
+<td class="org-left">204,119,34</td>
+<td class="org-left"><div style="background-color:#CC7722; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橄榄绿</td>
+<td class="org-left">#808000</td>
+<td class="org-left">128,128,0</td>
+<td class="org-left"><div style="background-color:#808000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">牛血红</td>
+<td class="org-left">#4A0404</td>
+<td class="org-left">74,4,4</td>
+<td class="org-left"><div style="background-color:#4A0404; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">普斯色</td>
+<td class="org-left">#A95C68</td>
+<td class="org-left">169,92,104</td>
+<td class="org-left"><div style="background-color:#A95C68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红棕色</td>
+<td class="org-left">#A52A2A</td>
+<td class="org-left">165,42,42</td>
+<td class="org-left"><div style="background-color:#A52A2A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红赭石</td>
+<td class="org-left">#913831</td>
+<td class="org-left">145,56,49</td>
+<td class="org-left"><div style="background-color:#913831; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">赤褐色</td>
+<td class="org-left">#80461B</td>
+<td class="org-left">128,70,27</td>
+<td class="org-left"><div style="background-color:#80461B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">马鞍棕色</td>
+<td class="org-left">#8B4513</td>
+<td class="org-left">139,69,19</td>
+<td class="org-left"><div style="background-color:#8B4513; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">沙色</td>
+<td class="org-left">#C2B280</td>
+<td class="org-left">194,178,128</td>
+<td class="org-left"><div style="background-color:#C2B280; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">西耶娜</td>
+<td class="org-left">#A0522D</td>
+<td class="org-left">160,82,45</td>
+<td class="org-left"><div style="background-color:#A0522D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鞣色</td>
+<td class="org-left">#D2B48C</td>
+<td class="org-left">210,180,140</td>
+<td class="org-left"><div style="background-color:#D2B48C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">灰褐色</td>
+<td class="org-left">#483C32</td>
+<td class="org-left">72,60,50</td>
+<td class="org-left"><div style="background-color:#483C32; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">托斯卡纳红</td>
+<td class="org-left">#7C3030</td>
+<td class="org-left">124,48,48</td>
+<td class="org-left"><div style="background-color:#7C3030; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">小麦色</td>
+<td class="org-left">#F5DEB3</td>
+<td class="org-left">245,222,179</td>
+<td class="org-left"><div style="background-color:#F5DEB3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">酒红色</td>
+<td class="org-left">#722F37</td>
+<td class="org-left">114,47,55</td>
+<td class="org-left"><div style="background-color:#722F37; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org75ebc2e" class="outline-2">
+<h2 id="org75ebc2e"><span class="section-number-2">9.</span> 橙色系</h2>
+<div class="outline-text-2" id="text-9">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">琥珀色</td>
+<td class="org-left">#FFBF00</td>
+<td class="org-left">255,191,0</td>
+<td class="org-left"><div style="background-color:#FFBF00; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">杏色</td>
+<td class="org-left">#FBCEB1</td>
+<td class="org-left">251,206,177</td>
+<td class="org-left"><div style="background-color:#FBCEB1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">汤色</td>
+<td class="org-left">#F2D2BD</td>
+<td class="org-left">242,210,189</td>
+<td class="org-left"><div style="background-color:#F2D2BD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亮橙色</td>
+<td class="org-left">#FFAC1C</td>
+<td class="org-left">255,172,28</td>
+<td class="org-left"><div style="background-color:#FFAC1C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青铜色</td>
+<td class="org-left">#CD7F32</td>
+<td class="org-left">205,127,50</td>
+<td class="org-left"><div style="background-color:#CD7F32; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">巴福色</td>
+<td class="org-left">#DAA06D</td>
+<td class="org-left">218,160,109</td>
+<td class="org-left"><div style="background-color:#DAA06D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">焦橙色</td>
+<td class="org-left">#CC5500</td>
+<td class="org-left">204,85,0</td>
+<td class="org-left"><div style="background-color:#CC5500; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">锡耶纳</td>
+<td class="org-left">#E97451</td>
+<td class="org-left">233,116,81</td>
+<td class="org-left"><div style="background-color:#E97451; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">奶油糖果</td>
+<td class="org-left">#E3963E</td>
+<td class="org-left">227,150,62</td>
+<td class="org-left"><div style="background-color:#E3963E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">镉橙</td>
+<td class="org-left">#F28C28</td>
+<td class="org-left">242,140,40</td>
+<td class="org-left"><div style="background-color:#F28C28; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">肉桂色</td>
+<td class="org-left">#D27D2D</td>
+<td class="org-left">210,125,45</td>
+<td class="org-left"><div style="background-color:#D27D2D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">铜色</td>
+<td class="org-left">#B87333</td>
+<td class="org-left">184,115,51</td>
+<td class="org-left"><div style="background-color:#B87333; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珊瑚色</td>
+<td class="org-left">#FF7F50</td>
+<td class="org-left">255,127,80</td>
+<td class="org-left"><div style="background-color:#FF7F50; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珊瑚粉</td>
+<td class="org-left">#F88379</td>
+<td class="org-left">248,131,121</td>
+<td class="org-left"><div style="background-color:#F88379; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深橙色</td>
+<td class="org-left">#8B4000</td>
+<td class="org-left">139,64,0</td>
+<td class="org-left"><div style="background-color:#8B4000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">沙漠色</td>
+<td class="org-left">#FAD5A5</td>
+<td class="org-left">250,213,165</td>
+<td class="org-left"><div style="background-color:#FAD5A5; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">藤黄</td>
+<td class="org-left">#E49B0F</td>
+<td class="org-left">228,155,15</td>
+<td class="org-left"><div style="background-color:#E49B0F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">金黄色</td>
+<td class="org-left">#FFC000</td>
+<td class="org-left">255,192,0</td>
+<td class="org-left"><div style="background-color:#FFC000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">菊科植物</td>
+<td class="org-left">#DAA520</td>
+<td class="org-left">218,165,32</td>
+<td class="org-left"><div style="background-color:#DAA520; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅橙色</td>
+<td class="org-left">#FFD580</td>
+<td class="org-left">255,213,128</td>
+<td class="org-left"><div style="background-color:#FFD580; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃木色</td>
+<td class="org-left">#C04000</td>
+<td class="org-left">192,64,0</td>
+<td class="org-left"><div style="background-color:#C04000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">芒果黄</td>
+<td class="org-left">#F4BB44</td>
+<td class="org-left">244,187,68</td>
+<td class="org-left"><div style="background-color:#F4BB44; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">纳瓦霍白</td>
+<td class="org-left">#FFDEAD</td>
+<td class="org-left">255,222,173</td>
+<td class="org-left"><div style="background-color:#FFDEAD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">霓虹橙</td>
+<td class="org-left">#FF5F1F</td>
+<td class="org-left">255,95,31</td>
+<td class="org-left"><div style="background-color:#FF5F1F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">赭石</td>
+<td class="org-left">#CC7722</td>
+<td class="org-left">204,119,34</td>
+<td class="org-left"><div style="background-color:#CC7722; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橙色</td>
+<td class="org-left">#FFA500</td>
+<td class="org-left">255,165,0</td>
+<td class="org-left"><div style="background-color:#FFA500; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和橙色</td>
+<td class="org-left">#FAC898</td>
+<td class="org-left">250,200,152</td>
+<td class="org-left"><div style="background-color:#FAC898; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃色</td>
+<td class="org-left">#FFE5B4</td>
+<td class="org-left">255,229,180</td>
+<td class="org-left"><div style="background-color:#FFE5B4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柿子色</td>
+<td class="org-left">#EC5800</td>
+<td class="org-left">236,88,0</td>
+<td class="org-left"><div style="background-color:#EC5800; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">粉红橙</td>
+<td class="org-left">#F89880</td>
+<td class="org-left">248,152,128</td>
+<td class="org-left"><div style="background-color:#F89880; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">罂红</td>
+<td class="org-left">#E35335</td>
+<td class="org-left">227,83,53</td>
+<td class="org-left"><div style="background-color:#E35335; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">南瓜橙</td>
+<td class="org-left">#FF7518</td>
+<td class="org-left">255,117,24</td>
+<td class="org-left"><div style="background-color:#FF7518; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红橙色</td>
+<td class="org-left">#FF4433</td>
+<td class="org-left">255,68,51</td>
+<td class="org-left"><div style="background-color:#FF4433; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">安全橙</td>
+<td class="org-left">#FF5F15</td>
+<td class="org-left">255,95,21</td>
+<td class="org-left"><div style="background-color:#FF5F15; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鲑鱼色</td>
+<td class="org-left">#FA8072</td>
+<td class="org-left">250,128,114</td>
+<td class="org-left"><div style="background-color:#FA8072; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">贝壳色</td>
+<td class="org-left">#FFF5EE</td>
+<td class="org-left">255,245,238</td>
+<td class="org-left"><div style="background-color:#FFF5EE; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">西耶娜</td>
+<td class="org-left">#A0522D</td>
+<td class="org-left">160,82,45</td>
+<td class="org-left"><div style="background-color:#A0522D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">日落橙</td>
+<td class="org-left">#FA5F55</td>
+<td class="org-left">250,95,85</td>
+<td class="org-left"><div style="background-color:#FA5F55; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">橘黄色</td>
+<td class="org-left">#F08000</td>
+<td class="org-left">240,128,0</td>
+<td class="org-left"><div style="background-color:#F08000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">兵马俑</td>
+<td class="org-left">#E3735E</td>
+<td class="org-left">227,115,94</td>
+<td class="org-left"><div style="background-color:#E3735E; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">黄橙</td>
+<td class="org-left">#FFAA33</td>
+<td class="org-left">255,170,51</td>
+<td class="org-left"><div style="background-color:#FFAA33; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org84900f4" class="outline-2">
+<h2 id="org84900f4"><span class="section-number-2">10.</span> 粉色系</h2>
+<div class="outline-text-2" id="text-10">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">苋菜</td>
+<td class="org-left">#9F2B68</td>
+<td class="org-left">159,43,104</td>
+<td class="org-left"><div style="background-color:#9F2B68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">汤色</td>
+<td class="org-left">#F2D2BD</td>
+<td class="org-left">242,210,189</td>
+<td class="org-left"><div style="background-color:#F2D2BD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">萌萌哒</td>
+<td class="org-left">#DE3163</td>
+<td class="org-left">222,49,99</td>
+<td class="org-left"><div style="background-color:#DE3163; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">葡萄酒红</td>
+<td class="org-left">#811331</td>
+<td class="org-left">129,19,49</td>
+<td class="org-left"><div style="background-color:#811331; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珊瑚色</td>
+<td class="org-left">#FF7F50</td>
+<td class="org-left">255,127,80</td>
+<td class="org-left"><div style="background-color:#FF7F50; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珊瑚粉红</td>
+<td class="org-left">#F88379</td>
+<td class="org-left">248,131,121</td>
+<td class="org-left"><div style="background-color:#F88379; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深红色</td>
+<td class="org-left">#DC143C</td>
+<td class="org-left">220,20,60</td>
+<td class="org-left"><div style="background-color:#DC143C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深粉色</td>
+<td class="org-left">#AA336A</td>
+<td class="org-left">170,51,106</td>
+<td class="org-left"><div style="background-color:#AA336A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玫瑰色</td>
+<td class="org-left">#C9A9A6</td>
+<td class="org-left">201,169,166</td>
+<td class="org-left"><div style="background-color:#C9A9A6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫红色</td>
+<td class="org-left">#FF00FF</td>
+<td class="org-left">255,0,255</td>
+<td class="org-left"><div style="background-color:#FF00FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">热粉色</td>
+<td class="org-left">#FF69B4</td>
+<td class="org-left">255,105,180</td>
+<td class="org-left"><div style="background-color:#FF69B4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅粉色</td>
+<td class="org-left">#FFB6C1</td>
+<td class="org-left">255,182,193</td>
+<td class="org-left"><div style="background-color:#FFB6C1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">品红</td>
+<td class="org-left">#FF00FF</td>
+<td class="org-left">255,0,255</td>
+<td class="org-left"><div style="background-color:#FF00FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">千禧粉色</td>
+<td class="org-left">#F3CFC6</td>
+<td class="org-left">243,207,198</td>
+<td class="org-left"><div style="background-color:#F3CFC6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桑树</td>
+<td class="org-left">#770737</td>
+<td class="org-left">119,7,55</td>
+<td class="org-left"><div style="background-color:#770737; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">霓虹粉色</td>
+<td class="org-left">#FF10F0</td>
+<td class="org-left">255,16,240</td>
+<td class="org-left"><div style="background-color:#FF10F0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">兰花</td>
+<td class="org-left">#DA70D6</td>
+<td class="org-left">218,112,214</td>
+<td class="org-left"><div style="background-color:#DA70D6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和粉红色</td>
+<td class="org-left">#F8C8DC</td>
+<td class="org-left">248,200,220</td>
+<td class="org-left"><div style="background-color:#F8C8DC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和红色</td>
+<td class="org-left">#FA9A9A</td>
+<td class="org-left">250,160,160</td>
+<td class="org-left"><div style="background-color:#FA9A9A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">粉红色</td>
+<td class="org-left">#FFC0CB</td>
+<td class="org-left">255,192,203</td>
+<td class="org-left"><div style="background-color:#FFC0CB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">粉红橙</td>
+<td class="org-left">#F89880</td>
+<td class="org-left">248,152,128</td>
+<td class="org-left"><div style="background-color:#F89880; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">李子</td>
+<td class="org-left">#673147</td>
+<td class="org-left">103,49,71</td>
+<td class="org-left"><div style="background-color:#673147; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">普斯色</td>
+<td class="org-left">#A95C68</td>
+<td class="org-left">169,92,104</td>
+<td class="org-left"><div style="background-color:#A95C68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫色</td>
+<td class="org-left">#800080</td>
+<td class="org-left">128,0,128</td>
+<td class="org-left"><div style="background-color:#800080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">树莓色</td>
+<td class="org-left">#E30B5C</td>
+<td class="org-left">227,11,92</td>
+<td class="org-left"><div style="background-color:#E30B5C; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红紫色</td>
+<td class="org-left">#953553</td>
+<td class="org-left">149,53,83</td>
+<td class="org-left"><div style="background-color:#953553; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玫瑰色</td>
+<td class="org-left">#F33A6A</td>
+<td class="org-left">243,58,106</td>
+<td class="org-left"><div style="background-color:#F33A6A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玫瑰金</td>
+<td class="org-left">#E0BFB8</td>
+<td class="org-left">224,191,184</td>
+<td class="org-left"><div style="background-color:#E0BFB8; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玫瑰红</td>
+<td class="org-left">#C21E56</td>
+<td class="org-left">194,30,86</td>
+<td class="org-left"><div style="background-color:#C21E56; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">宝石红</td>
+<td class="org-left">#E0115F</td>
+<td class="org-left">224,17,95</td>
+<td class="org-left"><div style="background-color:#E0115F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鲑鱼色</td>
+<td class="org-left">#FA8072</td>
+<td class="org-left">250,128,114</td>
+<td class="org-left"><div style="background-color:#FA8072; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">贝壳色</td>
+<td class="org-left">#FFF5EE</td>
+<td class="org-left">255,245,238</td>
+<td class="org-left"><div style="background-color:#FFF5EE; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓟色</td>
+<td class="org-left">#D8BFD8</td>
+<td class="org-left">216,191,216</td>
+<td class="org-left"><div style="background-color:#D8BFD8; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">西瓜粉色</td>
+<td class="org-left">#E37383</td>
+<td class="org-left">227,115,131</td>
+<td class="org-left"><div style="background-color:#E37383; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org873d1ec" class="outline-2">
+<h2 id="org873d1ec"><span class="section-number-2">11.</span> 紫色系</h2>
+<div class="outline-text-2" id="text-11">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">苋菜色</td>
+<td class="org-left">#9F2B68</td>
+<td class="org-left">159,43,104</td>
+<td class="org-left"><div style="background-color:#9F2B68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亮紫色</td>
+<td class="org-left">#BF40BF</td>
+<td class="org-left">191,64,191</td>
+<td class="org-left"><div style="background-color:#BF40BF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">勃艮第色</td>
+<td class="org-left">#800020</td>
+<td class="org-left">128,0,32</td>
+<td class="org-left"><div style="background-color:#800020; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">拜占庭色</td>
+<td class="org-left">#702963</td>
+<td class="org-left">112,41,99</td>
+<td class="org-left"><div style="background-color:#702963; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">暗粉色</td>
+<td class="org-left">#AA336A</td>
+<td class="org-left">170,51,106</td>
+<td class="org-left"><div style="background-color:#AA336A; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深紫色</td>
+<td class="org-left">#301934</td>
+<td class="org-left">48,25,52</td>
+<td class="org-left"><div style="background-color:#301934; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">茄紫色</td>
+<td class="org-left">#483248</td>
+<td class="org-left">72,50,72</td>
+<td class="org-left"><div style="background-color:#483248; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">虹膜色</td>
+<td class="org-left">#5D3FD3</td>
+<td class="org-left">93,63,211</td>
+<td class="org-left"><div style="background-color:#5D3FD3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">薰衣草色</td>
+<td class="org-left">#E6E6FA</td>
+<td class="org-left">230,230,250</td>
+<td class="org-left"><div style="background-color:#E6E6FA; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅紫色</td>
+<td class="org-left">#CBC3E3</td>
+<td class="org-left">203,195,227</td>
+<td class="org-left"><div style="background-color:#CBC3E3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅紫色</td>
+<td class="org-left">#CF9FFF</td>
+<td class="org-left">207,159,255</td>
+<td class="org-left"><div style="background-color:#CF9FFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫丁香</td>
+<td class="org-left">#AA98A9</td>
+<td class="org-left">170,152,169</td>
+<td class="org-left"><div style="background-color:#AA98A9; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫红色</td>
+<td class="org-left">#E0B0FF</td>
+<td class="org-left">224,176,255</td>
+<td class="org-left"><div style="background-color:#E0B0FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">淡紫色</td>
+<td class="org-left">#915F6D</td>
+<td class="org-left">145,95,109</td>
+<td class="org-left"><div style="background-color:#915F6D; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桑树</td>
+<td class="org-left">#770737</td>
+<td class="org-left">119,7,55</td>
+<td class="org-left"><div style="background-color:#770737; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">兰花色</td>
+<td class="org-left">#DA70D6</td>
+<td class="org-left">218,112,214</td>
+<td class="org-left"><div style="background-color:#DA70D6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">柔和紫色</td>
+<td class="org-left">#C3B1E1</td>
+<td class="org-left">195,177,225</td>
+<td class="org-left"><div style="background-color:#C3B1E1; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">长春花色</td>
+<td class="org-left">#CCCCFF</td>
+<td class="org-left">204,204,255</td>
+<td class="org-left"><div style="background-color:#CCCCFF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">李子</td>
+<td class="org-left">#673147</td>
+<td class="org-left">103,49,71</td>
+<td class="org-left"><div style="background-color:#673147; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">普斯色</td>
+<td class="org-left">#A95C68</td>
+<td class="org-left">169,92,104</td>
+<td class="org-left"><div style="background-color:#A95C68; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫色</td>
+<td class="org-left">#800080</td>
+<td class="org-left">128,0,128</td>
+<td class="org-left"><div style="background-color:#800080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">石英紫色</td>
+<td class="org-left">#51414F</td>
+<td class="org-left">81,65,79</td>
+<td class="org-left"><div style="background-color:#51414F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">红紫色</td>
+<td class="org-left">#953553</td>
+<td class="org-left">149,53,83</td>
+<td class="org-left"><div style="background-color:#953553; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓟色</td>
+<td class="org-left">#D8BFD8</td>
+<td class="org-left">216,191,216</td>
+<td class="org-left"><div style="background-color:#D8BFD8; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">提利昂紫</td>
+<td class="org-left">#630330</td>
+<td class="org-left">99,3,48</td>
+<td class="org-left"><div style="background-color:#630330; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫色</td>
+<td class="org-left">#7F00FF</td>
+<td class="org-left">127,0,255</td>
+<td class="org-left"><div style="background-color:#7F00FF; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">酒红色</td>
+<td class="org-left">#722F37</td>
+<td class="org-left">114,47,55</td>
+<td class="org-left"><div style="background-color:#722F37; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">紫藤色</td>
+<td class="org-left">#BDB5D5</td>
+<td class="org-left">189,181,213</td>
+<td class="org-left"><div style="background-color:#BDB5D5; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org108e6a3" class="outline-2">
+<h2 id="org108e6a3"><span class="section-number-2">12.</span> 黑色系</h2>
+<div class="outline-text-2" id="text-12">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">黑色</td>
+<td class="org-left">#000000</td>
+<td class="org-left">0,0,0</td>
+<td class="org-left"><div style="background-color:#000000; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">木炭黑</td>
+<td class="org-left">#36454F</td>
+<td class="org-left">54,69,79</td>
+<td class="org-left"><div style="background-color:#36454F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深绿色</td>
+<td class="org-left">#023020</td>
+<td class="org-left">2,48,32</td>
+<td class="org-left"><div style="background-color:#023020; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深紫色</td>
+<td class="org-left">#301934</td>
+<td class="org-left">48,25,52</td>
+<td class="org-left"><div style="background-color:#301934; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">墨黑色</td>
+<td class="org-left">#343434</td>
+<td class="org-left">52,52,52</td>
+<td class="org-left"><div style="background-color:#343434; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">甘草色</td>
+<td class="org-left">#1B1212</td>
+<td class="org-left">27,18,18</td>
+<td class="org-left"><div style="background-color:#1B1212; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">哑光黑</td>
+<td class="org-left">#28282B</td>
+<td class="org-left">40,40,43</td>
+<td class="org-left"><div style="background-color:#28282B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">午夜蓝</td>
+<td class="org-left">#191970</td>
+<td class="org-left">25,25,112</td>
+<td class="org-left"><div style="background-color:#191970; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玛瑙色</td>
+<td class="org-left">#353935</td>
+<td class="org-left">53,57,53</td>
+<td class="org-left"><div style="background-color:#353935; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org7a06938" class="outline-2">
+<h2 id="org7a06938"><span class="section-number-2">13.</span> 灰色系</h2>
+<div class="outline-text-2" id="text-13">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">青灰色</td>
+<td class="org-left">#B2BEB5</td>
+<td class="org-left">178,190,181</td>
+<td class="org-left"><div style="background-color:#B2BEB5; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蓝灰色</td>
+<td class="org-left">#7393B3</td>
+<td class="org-left">115,147,179</td>
+<td class="org-left"><div style="background-color:#7393B3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">木炭色</td>
+<td class="org-left">#36454F</td>
+<td class="org-left">54,69,79</td>
+<td class="org-left"><div style="background-color:#36454F; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">深灰色</td>
+<td class="org-left">#A9A9A9</td>
+<td class="org-left">169,169,169</td>
+<td class="org-left"><div style="background-color:#A9A9A9; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青光色</td>
+<td class="org-left">#6082B6</td>
+<td class="org-left">96,130,182</td>
+<td class="org-left"><div style="background-color:#6082B6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">灰色</td>
+<td class="org-left">#808080</td>
+<td class="org-left">128,128,128</td>
+<td class="org-left"><div style="background-color:#808080; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">青铜灰色</td>
+<td class="org-left">#818589</td>
+<td class="org-left">129,133,137</td>
+<td class="org-left"><div style="background-color:#818589; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">浅灰色</td>
+<td class="org-left">#D3D3D3</td>
+<td class="org-left">211,211,211</td>
+<td class="org-left"><div style="background-color:#D3D3D3; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">锡色</td>
+<td class="org-left">#899499</td>
+<td class="org-left">137,148,153</td>
+<td class="org-left"><div style="background-color:#899499; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">铂色</td>
+<td class="org-left">#E5E4E2</td>
+<td class="org-left">229,228,226</td>
+<td class="org-left"><div style="background-color:#E5E4E2; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">鼠尾草绿</td>
+<td class="org-left">#8A9A5B</td>
+<td class="org-left">138,154,91</td>
+<td class="org-left"><div style="background-color:#8A9A5B; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">银灰色</td>
+<td class="org-left">#C0C0C0</td>
+<td class="org-left">192,192,192</td>
+<td class="org-left"><div style="background-color:#C0C0C0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">板岩灰</td>
+<td class="org-left">#708090</td>
+<td class="org-left">112,128,144</td>
+<td class="org-left"><div style="background-color:#708090; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">烟灰色</td>
+<td class="org-left">#848884</td>
+<td class="org-left">132,136,132</td>
+<td class="org-left"><div style="background-color:#848884; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">钢灰色</td>
+<td class="org-left">#71797E</td>
+<td class="org-left">113,121,126</td>
+<td class="org-left"><div style="background-color:#71797E; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org4d2d163" class="outline-2">
+<h2 id="org4d2d163"><span class="section-number-2">14.</span> 白色系</h2>
+<div class="outline-text-2" id="text-14">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">HEX</th>
+<th scope="col" class="org-left">RGB</th>
+<th scope="col" class="org-left">颜色样本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">砇色</td>
+<td class="org-left">#EDEADE</td>
+<td class="org-left">237,234,222</td>
+<td class="org-left"><div style="background-color:#EDEADE; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">米白色</td>
+<td class="org-left">#F5F5DC</td>
+<td class="org-left">245,245,220</td>
+<td class="org-left"><div style="background-color:#F5F5DC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">骨白色</td>
+<td class="org-left">#F9F6EE</td>
+<td class="org-left">249,246,238</td>
+<td class="org-left"><div style="background-color:#F9F6EE; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">玉米黄</td>
+<td class="org-left">#FFF8DC</td>
+<td class="org-left">255,248,220</td>
+<td class="org-left"><div style="background-color:#FFF8DC; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">奶油色</td>
+<td class="org-left">#FFFDD0</td>
+<td class="org-left">255,253,208</td>
+<td class="org-left"><div style="background-color:#FFFDD0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">蛋壳灰</td>
+<td class="org-left">#F0EAD6</td>
+<td class="org-left">240,234,214</td>
+<td class="org-left"><div style="background-color:#F0EAD6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">象牙白</td>
+<td class="org-left">#FFFFF0</td>
+<td class="org-left">255,255,240</td>
+<td class="org-left"><div style="background-color:#FFFFF0; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">亚麻灰</td>
+<td class="org-left">#E9DCC9</td>
+<td class="org-left">233,220,201</td>
+<td class="org-left"><div style="background-color:#E9DCC9; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">纳瓦霍白</td>
+<td class="org-left">#FFDEAD</td>
+<td class="org-left">255,222,173</td>
+<td class="org-left"><div style="background-color:#FFDEAD; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">灰白</td>
+<td class="org-left">#FAF9F6</td>
+<td class="org-left">250,249,246</td>
+<td class="org-left"><div style="background-color:#FAF9F6; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">羊皮纸</td>
+<td class="org-left">#FCF5E5</td>
+<td class="org-left">252,245,229</td>
+<td class="org-left"><div style="background-color:#FCF5E5; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">桃色</td>
+<td class="org-left">#FFE5B4</td>
+<td class="org-left">255,229,180</td>
+<td class="org-left"><div style="background-color:#FFE5B4; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">珍珠白</td>
+<td class="org-left">#E2DFD2</td>
+<td class="org-left">226,223,210</td>
+<td class="org-left"><div style="background-color:#E2DFD2; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">贝壳色</td>
+<td class="org-left">#FFF5EE</td>
+<td class="org-left">255,245,238</td>
+<td class="org-left"><div style="background-color:#FFF5EE; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">香草色</td>
+<td class="org-left">#F3E5AB</td>
+<td class="org-left">243,229,171</td>
+<td class="org-left"><div style="background-color:#F3E5AB; width:50px; height:20px;"></td>
+</tr>
+
+<tr>
+<td class="org-left">白色</td>
+<td class="org-left">#FFFFFF</td>
+<td class="org-left">255,255,255</td>
+<td class="org-left"><div style="background-color:#FFFFFF; width:50px; height:20px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:16</p>
+<p class="date">Created: 2025-02-17 Mon 23:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

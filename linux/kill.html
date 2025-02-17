@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 19:16 -->
+<!-- 2025-02-17 Mon 23:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux-kill命令</title>
@@ -26,13 +26,13 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org287c40a">1. 精通Linux的“kill”命令</a></li>
-<li><a href="#org80a4588">2. Kill命令和信号</a></li>
-<li><a href="#orgc3d30ff">3. 使用"kill"的语法是：</a></li>
-<li><a href="#orgc534958">4. PKill</a></li>
-<li><a href="#org6126a94">5. Killall</a></li>
-<li><a href="#org9cc071f">6. xkill</a></li>
-<li><a href="#org19a4065">7. 结论</a></li>
+<li><a href="#org9e6c4fc">1. 精通Linux的“kill”命令</a></li>
+<li><a href="#org0bd0205">2. Kill命令和信号</a></li>
+<li><a href="#org891b325">3. 使用"kill"的语法是：</a></li>
+<li><a href="#org73418f5">4. PKill</a></li>
+<li><a href="#org0442fe6">5. Killall</a></li>
+<li><a href="#orgf47cb09">6. xkill</a></li>
+<li><a href="#org9a3d292">7. 结论</a></li>
 </ul>
 </div>
 </nav>
@@ -40,8 +40,8 @@
 
 
 
-<div id="outline-container-org287c40a" class="outline-2">
-<h2 id="org287c40a"><span class="section-number-2">1.</span> 精通Linux的“kill”命令</h2>
+<div id="outline-container-org9e6c4fc" class="outline-2">
+<h2 id="org9e6c4fc"><span class="section-number-2">1.</span> 精通Linux的“kill”命令</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 无论你使用哪种操作系统，你一定会遇到某个行为失常的应用，它把自己锁死并拒绝关闭。在Linux(还有Mac)，你可以用一个"kill"命令强制终结它。在这个教程中，我们将展示给你多种方式使用"kill"命令终结应用。
@@ -49,8 +49,8 @@
 </div>
 </div>
 
-<div id="outline-container-org80a4588" class="outline-2">
-<h2 id="org80a4588"><span class="section-number-2">2.</span> Kill命令和信号</h2>
+<div id="outline-container-org0bd0205" class="outline-2">
+<h2 id="org0bd0205"><span class="section-number-2">2.</span> Kill命令和信号</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 总共有60个你可以使用的信号，但是基本上你只需要知道SIGTERM(15)和SIGKILL(9)。
@@ -73,8 +73,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc3d30ff" class="outline-2">
-<h2 id="orgc3d30ff"><span class="section-number-2">3.</span> 使用"kill"的语法是：</h2>
+<div id="outline-container-org891b325" class="outline-2">
+<h2 id="org891b325"><span class="section-number-2">3.</span> 使用"kill"的语法是：</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 kill [信号或选项] PID(s)
@@ -124,8 +124,8 @@ kill SIGKILL PID 或者  kill -9 PID
 </div>
 
 
-<div id="outline-container-orgc534958" class="outline-2">
-<h2 id="orgc534958"><span class="section-number-2">4.</span> PKill</h2>
+<div id="outline-container-org73418f5" class="outline-2">
+<h2 id="org73418f5"><span class="section-number-2">4.</span> PKill</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 "pkill"命令允许使用扩展的正则表达式和其它匹配方式。你现在可以使用应用的进程名kill掉它们，而不是使用PID。例如，要kill掉Firefox浏览器，只需要运行命令：
@@ -151,8 +151,8 @@ kill SIGKILL PID 或者  kill -9 PID
 </div>
 </div>
 
-<div id="outline-container-org6126a94" class="outline-2">
-<h2 id="org6126a94"><span class="section-number-2">5.</span> Killall</h2>
+<div id="outline-container-org0442fe6" class="outline-2">
+<h2 id="org0442fe6"><span class="section-number-2">5.</span> Killall</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 killall同样使用进程名替代PID，并且它会kill掉所有的同名进程
@@ -176,8 +176,8 @@ killall同样使用进程名替代PID，并且它会kill掉所有的同名进程
 
 
 
-<div id="outline-container-org9cc071f" class="outline-2">
-<h2 id="org9cc071f"><span class="section-number-2">6.</span> xkill</h2>
+<div id="outline-container-orgf47cb09" class="outline-2">
+<h2 id="orgf47cb09"><span class="section-number-2">6.</span> xkill</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 xkill 是图形方式kill一个应用。当你在终端键入"xkill"，你的光标将立刻变成一个"十字"。你只需要做的是在不正常的应用上点击一下，它就会立刻kill掉这个应用。如果你经常用的话，你也可以添加一个键盘快捷键来激活xkill。
@@ -185,8 +185,8 @@ xkill 是图形方式kill一个应用。当你在终端键入"xkill"，你的光
 </div>
 </div>
 
-<div id="outline-container-org19a4065" class="outline-2">
-<h2 id="org19a4065"><span class="section-number-2">7.</span> 结论</h2>
+<div id="outline-container-org9a3d292" class="outline-2">
+<h2 id="org9a3d292"><span class="section-number-2">7.</span> 结论</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 当应用不正常而导致系统挂起的时候，人们往往重启计算机并且再一次开启所有的任务。而有了这些"kill"命令，你将能够更好的处理不正常的应用，从而避免导致系统崩溃。当你不想因一个不正常的进程而导致服务器宕机时，它尤其的有用。
@@ -196,7 +196,7 @@ xkill 是图形方式kill一个应用。当你在终端键入"xkill"，你的光
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 19:16</p>
+<p class="date">Created: 2025-02-17 Mon 23:20</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
