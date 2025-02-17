@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-02-17 Mon 20:38 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>我的bash-script笔记</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="bash笔记" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">我的bash-script笔记</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgaea6533">1. shell中的那些初始化文件</a>
+<ul>
+<li><a href="#orgaa9ecf0">1.1. ~/.profile</a></li>
+</ul>
+</li>
+<li><a href="#org1ad3806">2. 转义符核心概念</a>
+<ul>
+<li><a href="#orgbc3cae2">2.1. 转义符（\）</a></li>
+<li><a href="#orge1650d7">2.2. 引号类型</a></li>
+<li><a href="#orga3cb6a9">2.3. 需转义的特殊字符列表</a></li>
+<li><a href="#orgf7e8164">2.4. 详细使用场景</a></li>
+<li><a href="#orgd1aad09">2.5. 最佳实践</a></li>
+<li><a href="#org8592674">2.6. 特殊技巧</a></li>
+<li><a href="#orga8749e9">2.7. 常见错误案例</a></li>
+<li><a href="#org3213106">2.8. 验证练习</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgaea6533" class="outline-2">
+<h2 id="orgaea6533"><span class="section-number-2">1.</span> shell中的那些初始化文件</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgaa9ecf0" class="outline-3">
+<h3 id="orgaa9ecf0"><span class="section-number-3">1.1.</span> ~/.profile</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+是sh的配置文件. 
+ksh兼容sh所以也会使用.profile
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1ad3806" class="outline-2">
+<h2 id="org1ad3806"><span class="section-number-2">2.</span> 转义符核心概念</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgbc3cae2" class="outline-3">
+<h3 id="orgbc3cae2"><span class="section-number-3">2.1.</span> 转义符（\）</h3>
+<div class="outline-text-3" id="text-2-1">
+<dl class="org-dl">
+<dt>功能</dt><dd>改变字符的原始含义</dd>
+<dt>适用场景</dt><dd><ol class="org-ol">
+<li>处理特殊字符（如 $ ` " ! 等）</li>
+<li>续行符（行尾的 \ 表示命令延续到下一行）</li>
+<li>转义空格（当路径包含空格时）</li>
+</ol></dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-orge1650d7" class="outline-3">
+<h3 id="orge1650d7"><span class="section-number-3">2.2.</span> 引号类型</h3>
+<div class="outline-text-3" id="text-2-2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-left">特性</th>
+<th scope="col" class="org-left">变量扩展</th>
+<th scope="col" class="org-left">命令替换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">单引号</td>
+<td class="org-left">完全保留字面值</td>
+<td class="org-left">不支持</td>
+<td class="org-left">不支持</td>
+</tr>
+
+<tr>
+<td class="org-left">双引号</td>
+<td class="org-left">允许变量扩展和命令替换</td>
+<td class="org-left">支持</td>
+<td class="org-left">支持</td>
+</tr>
+
+<tr>
+<td class="org-left">无引号</td>
+<td class="org-left">自动分割单词/展开通配符</td>
+<td class="org-left">支持</td>
+<td class="org-left">支持</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orga3cb6a9" class="outline-3">
+<h3 id="orga3cb6a9"><span class="section-number-3">2.3.</span> 需转义的特殊字符列表</h3>
+<div class="outline-text-3" id="text-2-3">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字符</th>
+<th scope="col" class="org-left">需转义场景</th>
+<th scope="col" class="org-left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">$</td>
+<td class="org-left">当需要显示美元符号时</td>
+<td class="org-left">echo "Cost: \$100"</td>
+</tr>
+
+<tr>
+<td class="org-left">`</td>
+<td class="org-left">所有场景（反引号有特殊含义）</td>
+<td class="org-left">echo "Use \`ls\`"</td>
+</tr>
+
+<tr>
+<td class="org-left">"</td>
+<td class="org-left">双引号内部</td>
+<td class="org-left">echo "He said \"Hi\""</td>
+</tr>
+
+<tr>
+<td class="org-left">'</td>
+<td class="org-left">单引号内部（无法直接转义）</td>
+<td class="org-left">见下方特殊技巧</td>
+</tr>
+
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">当需要显示反斜杠时</td>
+<td class="org-left">echo "Path: C:\\Users"</td>
+</tr>
+
+<tr>
+<td class="org-left">!</td>
+<td class="org-left">在交互式脚本中使用历史扩展时</td>
+<td class="org-left">echo "Important\! "</td>
+</tr>
+
+<tr>
+<td class="org-left">空格</td>
+<td class="org-left">在无引号字符串中保留空格时</td>
+<td class="org-left">mv file\ name.txt</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgf7e8164" class="outline-3">
+<h3 id="orgf7e8164"><span class="section-number-3">2.4.</span> 详细使用场景</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-org6dd499c" class="outline-4">
+<h4 id="org6dd499c"><span class="section-number-4">2.4.1.</span> 场景 1：处理单引号</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<div class="org-src-container">
+<pre class="src src-sh"># 错误示范（单引号不能嵌套）
+# echo 'It's a problem'
+
+# 正确方案 1：混合引号
+echo "It's a solution"
+
+# 正确方案 2：转义符（仅限双引号内）
+echo 'She said "Don'"'"'t do that"'
+# 解释：通过分段拼接 'She said "Don' + "'" + 't do that"'
+
+# 正确方案 3：使用 $'' 语法（支持转义）
+echo $'This works for \'single quotes\' too'
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org78d441c" class="outline-4">
+<h4 id="org78d441c"><span class="section-number-4">2.4.2.</span> 场景 2：正则表达式处理</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<div class="org-src-container">
+<pre class="src src-sh"># 需要转义两次（Shell + 正则引擎）
+grep "\\bimportant\\b" file.txt
+# 等效写法
+grep '\bimportant\b' file.txt
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org249fdec" class="outline-4">
+<h4 id="org249fdec"><span class="section-number-4">2.4.3.</span> 场景 3：JSON 字符串生成</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<div class="org-src-container">
+<pre class="src src-sh"># 正确转义嵌套引号
+json_data="{\"name\": \"John\", \"age\": 30}"
+
+# 使用单引号简化
+json_data='{"name": "John", "age": 30}'
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd1aad09" class="outline-3">
+<h3 id="orgd1aad09"><span class="section-number-3">2.5.</span> 最佳实践</h3>
+<div class="outline-text-3" id="text-2-5">
+<ol class="org-ol">
+<li><p>
+<i>优先使用双引号</i> :: 保护空格和特殊字符，同时允许变量扩展
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 安全处理带空格文件名
+for file in "My Document"*.txt; do
+    echo "Processing: $file"
+done
+</pre>
+</div></li>
+
+<li><p>
+<i>单引号用于纯文本</i> :: 当内容不需要任何扩展时
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">echo '$$$ 价格未定 $$$'
+# 输出：$$$ 价格未定 $$$
+</pre>
+</div></li>
+
+<li><i>转义符使用原则</i> ::
+<ul class="org-ul">
+<li>在双引号内转义 $ ` " \ 和 !</li>
+<li>在单引号内无法使用转义符（除了结尾续行符）</li>
+<li>无引号时必须转义空格和特殊字符</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org8592674" class="outline-3">
+<h3 id="org8592674"><span class="section-number-3">2.6.</span> 特殊技巧</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-orgc971c81" class="outline-4">
+<h4 id="orgc971c81"><span class="section-number-4">2.6.1.</span> Here Document 转义控制</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<div class="org-src-container">
+<pre class="src src-sh"># 关闭变量扩展
+cat &lt;&lt;'EOF'
+This $will NOT expand
+EOF
+
+# 允许变量扩展
+cat &lt;&lt;EOF
+This $will expand
+EOF
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb0ab11c" class="outline-4">
+<h4 id="orgb0ab11c"><span class="section-number-4">2.6.2.</span> ANSI-C Quoting ($'')</h4>
+<div class="outline-text-4" id="text-2-6-2">
+<div class="org-src-container">
+<pre class="src src-sh"># 支持转义序列
+echo $'Line 1\nLine 2\tTabbed'
+# 输出：
+# Line 1
+# Line 2   Tabbed
+
+# 处理不可打印字符
+echo $'\x48\x65\x6c\x6c\x6f'  # 输出 "Hello"
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga8749e9" class="outline-3">
+<h3 id="orga8749e9"><span class="section-number-3">2.7.</span> 常见错误案例</h3>
+<div class="outline-text-3" id="text-2-7">
+<ol class="org-ol">
+<li><p>
+<i>路径处理错误</i> ::
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 错误：空格导致参数分割
+rm My Document.txt      # 尝试删除两个文件
+# 正确：
+rm "My Document.txt"    # 或 My\ Document.txt
+</pre>
+</div></li>
+
+<li><p>
+<i>嵌套引号错误</i> ::
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 错误：引号不匹配
+echo "He said "Hello""
+# 正确：
+echo "He said \"Hello\""
+# 或
+echo 'He said "Hello"'
+</pre>
+</div></li>
+
+<li><p>
+<i>正则表达式错误</i> ::
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># 错误：未正确转义
+grep ".*\d{3}" file     # 实际传递的正则式是 .*d{3}
+# 正确：
+grep ".*\\d{3}" file    # 或 grep '.*\d{3}' file
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org3213106" class="outline-3">
+<h3 id="org3213106"><span class="section-number-3">2.8.</span> 验证练习</h3>
+<div class="outline-text-3" id="text-2-8">
+<ol class="org-ol">
+<li><p>
+写出能正确输出以下文本的命令：
+<i>She said "Don't do that!"</i>
+</p>
+
+<p>
+答案：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">echo "She said \"Don't do that!\""
+# 或
+echo 'She said "Don'"'"'t do that!"'
+</pre>
+</div></li>
+
+<li><p>
+处理包含特殊字符的文件名：
+<i>My File$2023.txt</i>
+</p>
+
+<p>
+答案：
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">touch "My File\$2023.txt"  # 创建
+ls -l "My File\$2023.txt"  # 查看
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-02-17 Mon 20:38</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
