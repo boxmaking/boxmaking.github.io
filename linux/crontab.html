@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-17 Mon 23:20 -->
+<!-- 2025-02-23 Sun 13:36 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>crotab-周期性执行任务自动化系统</title>
@@ -26,18 +26,18 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb1fddef">1. crontab简介</a></li>
-<li><a href="#org8dcf499">2. 而 linux 任务调度的工作主要分为以下两类：</a></li>
-<li><a href="#org7e38bbf">3. 语法</a></li>
-<li><a href="#orgc0995c3">4. 实例</a></li>
-<li><a href="#org08741b8">5. 注意</a></li>
-<li><a href="#org1a7ac6c">6. 后记</a></li>
+<li><a href="#org5cf708f">1. crontab简介</a></li>
+<li><a href="#orgdc2dedc">2. 而 linux 任务调度的工作主要分为以下两类：</a></li>
+<li><a href="#orgd2af08d">3. 语法</a></li>
+<li><a href="#org501d062">4. 实例</a></li>
+<li><a href="#org9ba906c">5. 注意</a></li>
+<li><a href="#org65a1e52">6. 后记</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgb1fddef" class="outline-2">
-<h2 id="orgb1fddef"><span class="section-number-2">1.</span> crontab简介</h2>
+<div id="outline-container-org5cf708f" class="outline-2">
+<h2 id="org5cf708f"><span class="section-number-2">1.</span> crontab简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 是用来定期执行程序的命令
@@ -54,8 +54,8 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 </div>
 
 
-<div id="outline-container-org8dcf499" class="outline-2">
-<h2 id="org8dcf499"><span class="section-number-2">2.</span> 而 linux 任务调度的工作主要分为以下两类：</h2>
+<div id="outline-container-orgdc2dedc" class="outline-2">
+<h2 id="orgdc2dedc"><span class="section-number-2">2.</span> 而 linux 任务调度的工作主要分为以下两类：</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 1 系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
@@ -68,8 +68,8 @@ crond 命令每分锺会定期检查是否有要执行的工作，如果有要�
 </div>
 
 
-<div id="outline-container-org7e38bbf" class="outline-2">
-<h2 id="org7e38bbf"><span class="section-number-2">3.</span> 语法</h2>
+<div id="outline-container-orgd2af08d" class="outline-2">
+<h2 id="orgd2af08d"><span class="section-number-2">3.</span> 语法</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 crontab [ -u user ] file
@@ -85,7 +85,7 @@ crontab 是用来让使用者在固定时间或固定间隔执行程序之用，
 </div>
 
 <ol class="org-ol">
-<li><a id="org3e6eef7"></a>参数说明：<br>
+<li><a id="orgd9355ed"></a>参数说明：<br>
 <div class="outline-text-4" id="text-3-0-1">
 <p>
 -e : 执行文字编辑器来设定时程表，请先设定 VISUAL 环境变数来指定使用那个文字编辑器(比如说 setenv VISUAL joe)
@@ -99,9 +99,9 @@ crontab 是用来让使用者在固定时间或固定间隔执行程序之用，
 </li>
 
 
-<li><a id="orgc9cbc21"></a>时间格式如下：<br>
+<li><a id="org2bb4d42"></a>时间格式如下：<br>
 <div class="outline-text-4" id="text-3-0-2">
-<pre class="example" id="org3a3bef1">
+<pre class="example" id="orgf2998d9">
 f1 f2 f3 f4 f5 program
 其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程序。
 当 f1 为 * 时表示每分钟都要执行 program，f2 为 * 时表示每小时都要执行程序，其馀类推
@@ -124,8 +124,8 @@ f1 f2 f3 f4 f5 program
 </div>
 
 
-<div id="outline-container-orgc0995c3" class="outline-2">
-<h2 id="orgc0995c3"><span class="section-number-2">4.</span> 实例</h2>
+<div id="outline-container-org501d062" class="outline-2">
+<h2 id="org501d062"><span class="section-number-2">4.</span> 实例</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>每月每天每小时的第 0 分钟执行一次 /bin/ls
@@ -145,7 +145,7 @@ f1 f2 f3 f4 f5 program
 <p>
 下面再看看几个具体的例子：
 </p>
-<pre class="example" id="org8575ca2">
+<pre class="example" id="org6e60ce5">
 0 */2 * * * /sbin/service httpd restart  意思是每两个小时重启一次apache 
 
 50 7 * * * /sbin/service sshd start  意思是每天7：50开启ssh服务 
@@ -166,8 +166,8 @@ f1 f2 f3 f4 f5 program
 </div>
 
 
-<div id="outline-container-org08741b8" class="outline-2">
-<h2 id="org08741b8"><span class="section-number-2">5.</span> 注意</h2>
+<div id="outline-container-org9ba906c" class="outline-2">
+<h2 id="org9ba906c"><span class="section-number-2">5.</span> 注意</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 当程序在你所指定的时间执行后，系统会寄一封信给你，显示该程序执行的内容.
@@ -177,8 +177,8 @@ f1 f2 f3 f4 f5 program
 </div>
 
 
-<div id="outline-container-org1a7ac6c" class="outline-2">
-<h2 id="org1a7ac6c"><span class="section-number-2">6.</span> 后记</h2>
+<div id="outline-container-org65a1e52" class="outline-2">
+<h2 id="org65a1e52"><span class="section-number-2">6.</span> 后记</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 任何系统管理员权限内的任务都必须位于 /etc 内，这是因为它们都是配置文件。如果您有一些需要以管理员身份每天(daily)、每周(weekly)或每月(monthly)运行的定时任务，请将它们放置在 /etc/cron.{daily,weekly,monthly} 中。它们将在 /etc/crontab 中被激活，然后按照文件名的字典顺序依次运行。
@@ -197,7 +197,7 @@ f1 f2 f3 f4 f5 program
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-11/Tuesday 19:27:33&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-17 Mon 23:20</p>
+<p class="date">Created: 2025-02-23 Sun 13:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
