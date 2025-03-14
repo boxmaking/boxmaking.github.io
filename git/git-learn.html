@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-23 Sun 13:36 -->
+<!-- 2025-03-14 Fri 19:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git-学习笔记</title>
@@ -26,45 +26,44 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org739618d">1. git set proxy</a></li>
-<li><a href="#org2b2c868">2. git设置信息: git config</a></li>
-<li><a href="#orge66d32a">3. 建立repository: git init</a></li>
-<li><a href="#org17ab46f">4. git添加文件: git add <b>*</b>.***/git commit</a></li>
-<li><a href="#orgc69fd76">5. repository status: git status</a></li>
-<li><a href="#org45be895">6. 查看文件不同: git diff <b>*</b>.***/git</a></li>
-<li><a href="#org409f292">7. 版本的回退: git reset &#x2013;hard HEAD^</a>
+<li><a href="#orgf3eb9cc">1. git set proxy</a></li>
+<li><a href="#orge770203">2. git设置信息: git config</a></li>
+<li><a href="#org01ee9b0">3. 建立repository: git init</a></li>
+<li><a href="#org1ecd32a">4. git添加文件: git add <b>*</b>.***/git commit</a></li>
+<li><a href="#org2538384">5. repository status: git status</a></li>
+<li><a href="#org70b3931">6. 查看文件不同: git diff <b>*</b>.***/git</a></li>
+<li><a href="#orgdb19365">7. 版本的回退: git reset &#x2013;hard HEAD^</a>
 <ul>
-<li><a href="#org0bf55b5">7.1. 在Git中，用HEAD表示当前版本</a></li>
-<li><a href="#org2d372bd">7.2. 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</a></li>
-<li><a href="#org984be10">7.3. 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</a></li>
+<li><a href="#orgf91b61c">7.1. 在Git中，用HEAD表示当前版本</a></li>
+<li><a href="#org1ddf104">7.2. 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</a></li>
+<li><a href="#org975aa9a">7.3. 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</a></li>
 </ul>
 </li>
-<li><a href="#org1068615">8. 操作日志: git log/git reflog</a></li>
-<li><a href="#org342a763">9. working dirctory + Repository+stage概念</a></li>
-<li><a href="#orge622953">10. 撤销修改: git checkout &#x2013; ./my-first-git.org</a></li>
-<li><a href="#orga2b31ef">11. 删除文件: git rm <b>*</b>.***</a>
+<li><a href="#org89ab074">8. 操作日志: git log/git reflog</a></li>
+<li><a href="#org1b62857">9. working dirctory + Repository+stage概念</a></li>
+<li><a href="#orgf2cbd62">10. 撤销修改: git checkout &#x2013; ./my-first-git.org</a></li>
+<li><a href="#org0ab9b79">11. 删除文件: git rm <b>*</b>.***</a>
 <ul>
-<li><a href="#org276b3cc">11.1. 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</a></li>
-<li><a href="#orgce4d617">11.2. 删错了恢复: git checkout &#x2013; ./***.***</a></li>
+<li><a href="#org78fa21f">11.1. 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</a></li>
+<li><a href="#org01d6eff">11.2. 删错了恢复: git checkout &#x2013; ./***.***</a></li>
 </ul>
 </li>
-<li><a href="#org032d91a">12. 远程仓库: github 使用教程</a>
+<li><a href="#orgf947294">12. 远程仓库: github 使用教程</a>
 <ul>
-<li><a href="#org527ebcc">12.1. 本地上传远程库</a></li>
-<li><a href="#orgc6017e4">12.2. 远程仓库的clone</a></li>
+<li><a href="#orgd5ac5cd">12.1. 本地上传远程库</a></li>
+<li><a href="#org23279ad">12.2. 远程仓库的clone</a></li>
 </ul>
 </li>
-<li><a href="#org2241769">13. 快速添加许可证文件</a></li>
-<li><a href="#org0603fe0">14. 工作区去除大量已删除文件</a></li>
-<li><a href="#orge1a011e">15. 没有任何改动的提交</a></li>
-<li><a href="#org580ee54">16. 美化相关</a></li>
+<li><a href="#orgeb4191a">13. 快速添加许可证文件</a></li>
+<li><a href="#org091b1d7">14. 工作区去除大量已删除文件</a></li>
+<li><a href="#org3d84660">15. 没有任何改动的提交</a></li>
+<li><a href="#org45dd0bf">16. 美化相关</a></li>
 </ul>
 </div>
 </nav>
 
-
-<div id="outline-container-org739618d" class="outline-2">
-<h2 id="org739618d"><span class="section-number-2">1.</span> git set proxy</h2>
+<div id="outline-container-orgf3eb9cc" class="outline-2">
+<h2 id="orgf3eb9cc"><span class="section-number-2">1.</span> git set proxy</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 git设置代理教程
@@ -74,8 +73,8 @@ git设置代理教程
 </div>
 
 
-<div id="outline-container-org2b2c868" class="outline-2">
-<h2 id="org2b2c868"><span class="section-number-2">2.</span> git设置信息: git config</h2>
+<div id="outline-container-orge770203" class="outline-2">
+<h2 id="orge770203"><span class="section-number-2">2.</span> git设置信息: git config</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>所有的配置都在~/.gitconfig内</li>
@@ -119,7 +118,7 @@ Git 命令自定义别名
 <li><p>
 要添加一个别名， 一种方法是打开 ~/.gitconfig 文件并添加如下内容：
 </p>
-<pre class="example" id="org72759c2">
+<pre class="example" id="orgc1cf4ad">
 [alias]
 co = checkout
 cm = commit
@@ -215,8 +214,8 @@ $ git config --global alias.ac 'add -A . &amp;&amp; commit'
 
 
 
-<div id="outline-container-orge66d32a" class="outline-2">
-<h2 id="orge66d32a"><span class="section-number-2">3.</span> 建立repository: git init</h2>
+<div id="outline-container-org01ee9b0" class="outline-2">
+<h2 id="org01ee9b0"><span class="section-number-2">3.</span> 建立repository: git init</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 git init&#x2014;添加当前目录为git仓库
@@ -230,8 +229,8 @@ Initialized empty Git repository in /home/pengshao/tmp/gitlearn/.git/
 </div>
 
 
-<div id="outline-container-org17ab46f" class="outline-2">
-<h2 id="org17ab46f"><span class="section-number-2">4.</span> git添加文件: git add <b>*</b>.***/git commit</h2>
+<div id="outline-container-org1ecd32a" class="outline-2">
+<h2 id="org1ecd32a"><span class="section-number-2">4.</span> git添加文件: git add <b>*</b>.***/git commit</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><p>
@@ -295,8 +294,8 @@ $ git commit -m "add 3 files."
 </div>
 
 
-<div id="outline-container-orgc69fd76" class="outline-2">
-<h2 id="orgc69fd76"><span class="section-number-2">5.</span> repository status: git status</h2>
+<div id="outline-container-org2538384" class="outline-2">
+<h2 id="org2538384"><span class="section-number-2">5.</span> repository status: git status</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>修改2.org这个文件</li>
@@ -324,8 +323,8 @@ pengshao@ps-debian:~/tmp/gitlearn$
 </div>
 
 
-<div id="outline-container-org45be895" class="outline-2">
-<h2 id="org45be895"><span class="section-number-2">6.</span> 查看文件不同: git diff <b>*</b>.***/git</h2>
+<div id="outline-container-org70b3931" class="outline-2">
+<h2 id="org70b3931"><span class="section-number-2">6.</span> 查看文件不同: git diff <b>*</b>.***/git</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 git diff&#x2014;查看文件的不同之处
@@ -406,12 +405,12 @@ pengshao@ps-debian:~/tmp/gitlearn$
 </div>
 
 
-<div id="outline-container-org409f292" class="outline-2">
-<h2 id="org409f292"><span class="section-number-2">7.</span> 版本的回退: git reset &#x2013;hard HEAD^</h2>
+<div id="outline-container-orgdb19365" class="outline-2">
+<h2 id="orgdb19365"><span class="section-number-2">7.</span> 版本的回退: git reset &#x2013;hard HEAD^</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org0bf55b5" class="outline-3">
-<h3 id="org0bf55b5"><span class="section-number-3">7.1.</span> 在Git中，用HEAD表示当前版本</h3>
+<div id="outline-container-orgf91b61c" class="outline-3">
+<h3 id="orgf91b61c"><span class="section-number-3">7.1.</span> 在Git中，用HEAD表示当前版本</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 HEAD^: 上一个版本就是
@@ -427,8 +426,8 @@ HEAD is now at b0c58a0 这是我的第一个git文件
 </div>
 </div>
 
-<div id="outline-container-org2d372bd" class="outline-3">
-<h3 id="org2d372bd"><span class="section-number-3">7.2.</span> 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</h3>
+<div id="outline-container-org1ddf104" class="outline-3">
+<h3 id="org1ddf104"><span class="section-number-3">7.2.</span> 也可以红SHA1计算出来的那个大的数字&#x2013;版本号来代替HEAD^</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
 <pre class="src src-shell">$ git reset --hard b0c58a0
@@ -442,8 +441,8 @@ HEAD is now at b0c58a0 这是我的第一个git文件
 </div>
 
 
-<div id="outline-container-org984be10" class="outline-3">
-<h3 id="org984be10"><span class="section-number-3">7.3.</span> 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</h3>
+<div id="outline-container-org975aa9a" class="outline-3">
+<h3 id="org975aa9a"><span class="section-number-3">7.3.</span> 如果关掉电脑找不到版本号了可以通过: git reflog来找到全部的版本号码</h3>
 <div class="outline-text-3" id="text-7-3">
 <div class="org-src-container">
 <pre class="src src-shell">pengshao@ps-debian:~/tmp/gitlearn$ git reflog
@@ -458,12 +457,12 @@ pengshao@ps-debian:~/tmp/gitlearn$
 </div>
 
 
-<div id="outline-container-org1068615" class="outline-2">
-<h2 id="org1068615"><span class="section-number-2">8.</span> 操作日志: git log/git reflog</h2>
+<div id="outline-container-org89ab074" class="outline-2">
+<h2 id="org89ab074"><span class="section-number-2">8.</span> 操作日志: git log/git reflog</h2>
 </div>
 
-<div id="outline-container-org342a763" class="outline-2">
-<h2 id="org342a763"><span class="section-number-2">9.</span> working dirctory + Repository+stage概念</h2>
+<div id="outline-container-org1b62857" class="outline-2">
+<h2 id="org1b62857"><span class="section-number-2">9.</span> working dirctory + Repository+stage概念</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 <img src="iamge/workingdirectory.jpeg" alt="workingdirectory.jpeg">
@@ -481,8 +480,8 @@ pengshao@ps-debian:~/tmp/gitlearn$
 </div>
 
 
-<div id="outline-container-orge622953" class="outline-2">
-<h2 id="orge622953"><span class="section-number-2">10.</span> 撤销修改: git checkout &#x2013; ./my-first-git.org</h2>
+<div id="outline-container-orgf2cbd62" class="outline-2">
+<h2 id="orgf2cbd62"><span class="section-number-2">10.</span> 撤销修改: git checkout &#x2013; ./my-first-git.org</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 git checkout    可以撤销没有提交到stage的修改
@@ -492,12 +491,12 @@ git reset HEAD  可以撤销掉提交到stage的修改
 </div>
 
 
-<div id="outline-container-orga2b31ef" class="outline-2">
-<h2 id="orga2b31ef"><span class="section-number-2">11.</span> 删除文件: git rm <b>*</b>.***</h2>
+<div id="outline-container-org0ab9b79" class="outline-2">
+<h2 id="org0ab9b79"><span class="section-number-2">11.</span> 删除文件: git rm <b>*</b>.***</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-org276b3cc" class="outline-3">
-<h3 id="org276b3cc"><span class="section-number-3">11.1.</span> 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</h3>
+<div id="outline-container-org78fa21f" class="outline-3">
+<h3 id="org78fa21f"><span class="section-number-3">11.1.</span> 用rm或者git rm删掉的文件也是一个针对版本库的修改项目</h3>
 <div class="outline-text-3" id="text-11-1">
 <p>
 git rm <b>*</b>.*** 从而在版本库中同步删除
@@ -506,18 +505,18 @@ git commit -m '<b><b>**</b></b>' 来提交到版本库中
 </div>
 </div>
 
-<div id="outline-container-orgce4d617" class="outline-3">
-<h3 id="orgce4d617"><span class="section-number-3">11.2.</span> 删错了恢复: git checkout &#x2013; ./***.***</h3>
+<div id="outline-container-org01d6eff" class="outline-3">
+<h3 id="org01d6eff"><span class="section-number-3">11.2.</span> 删错了恢复: git checkout &#x2013; ./***.***</h3>
 </div>
 </div>
 
 
-<div id="outline-container-org032d91a" class="outline-2">
-<h2 id="org032d91a"><span class="section-number-2">12.</span> 远程仓库: github 使用教程</h2>
+<div id="outline-container-orgf947294" class="outline-2">
+<h2 id="orgf947294"><span class="section-number-2">12.</span> 远程仓库: github 使用教程</h2>
 <div class="outline-text-2" id="text-12">
 </div>
-<div id="outline-container-org527ebcc" class="outline-3">
-<h3 id="org527ebcc"><span class="section-number-3">12.1.</span> 本地上传远程库</h3>
+<div id="outline-container-orgd5ac5cd" class="outline-3">
+<h3 id="orgd5ac5cd"><span class="section-number-3">12.1.</span> 本地上传远程库</h3>
 <div class="outline-text-3" id="text-12-1">
 <ol class="org-ol">
 <li>在github上面 create a new repository</li>
@@ -575,8 +574,8 @@ Git不但会把本地的master分支内容推送的远程新的master分支
 </div>
 
 
-<div id="outline-container-orgc6017e4" class="outline-3">
-<h3 id="orgc6017e4"><span class="section-number-3">12.2.</span> 远程仓库的clone</h3>
+<div id="outline-container-org23279ad" class="outline-3">
+<h3 id="org23279ad"><span class="section-number-3">12.2.</span> 远程仓库的clone</h3>
 <div class="outline-text-3" id="text-12-2">
 <p>
 要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆
@@ -585,8 +584,8 @@ Git不但会把本地的master分支内容推送的远程新的master分支
 </div>
 </div>
 
-<div id="outline-container-org2241769" class="outline-2">
-<h2 id="org2241769"><span class="section-number-2">13.</span> 快速添加许可证文件</h2>
+<div id="outline-container-orgeb4191a" class="outline-2">
+<h2 id="orgeb4191a"><span class="section-number-2">13.</span> 快速添加许可证文件</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 创建一个仓库时，Github会为你提供一个预置的软件许可列表：
@@ -606,8 +605,8 @@ Git不但会把本地的master分支内容推送的远程新的master分支
 </div>
 </div>
 
-<div id="outline-container-org0603fe0" class="outline-2">
-<h2 id="org0603fe0"><span class="section-number-2">14.</span> 工作区去除大量已删除文件</h2>
+<div id="outline-container-org091b1d7" class="outline-2">
+<h2 id="org091b1d7"><span class="section-number-2">14.</span> 工作区去除大量已删除文件</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 当用 /bin/rm 命令删除了大量文件之后
@@ -643,8 +642,8 @@ Changes to be committed:
 </div>
 </div>
 
-<div id="outline-container-orge1a011e" class="outline-2">
-<h2 id="orge1a011e"><span class="section-number-2">15.</span> 没有任何改动的提交</h2>
+<div id="outline-container-org3d84660" class="outline-2">
+<h2 id="org3d84660"><span class="section-number-2">15.</span> 没有任何改动的提交</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 可以使用&#x2013;allow-empty选项强制创建一个没有任何改动的提交：
@@ -669,8 +668,8 @@ Changes to be committed:
 
 
 
-<div id="outline-container-org580ee54" class="outline-2">
-<h2 id="org580ee54"><span class="section-number-2">16.</span> 美化相关</h2>
+<div id="outline-container-org45dd0bf" class="outline-2">
+<h2 id="org45dd0bf"><span class="section-number-2">16.</span> 美化相关</h2>
 <div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li><p>
@@ -695,8 +694,9 @@ git status加上-sb选项:
 </div>
 </div>
 <div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-03-14-073/Friday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-23 Sun 13:36</p>
+<p class="date">Created: 2025-03-14 Fri 19:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-23 Sun 13:36 -->
+<!-- 2025-03-14 Fri 19:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Org-mode Capture 完全指南</title>
@@ -26,64 +26,64 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4b41bda">1. 基础概念</a>
+<li><a href="#orgde17e75">1. 基础概念</a>
 <ul>
-<li><a href="#orgf0dffe0">1.1. Capture 是什么？</a></li>
-<li><a href="#org9fff12e">1.2. 核心三要素</a></li>
+<li><a href="#orgb319272">1.1. Capture 是什么？</a></li>
+<li><a href="#org927a58c">1.2. 核心三要素</a></li>
 </ul>
 </li>
-<li><a href="#org1130ea5">2. 基础配置</a>
+<li><a href="#orgf535d7a">2. 基础配置</a>
 <ul>
-<li><a href="#org90c3311">2.1. 1. 启用 Capture 功能</a></li>
-<li><a href="#org325d97a">2.2. 2. 全局快捷键配置</a></li>
+<li><a href="#orgaa45610">2.1. 1. 启用 Capture 功能</a></li>
+<li><a href="#orgd1560c3">2.2. 2. 全局快捷键配置</a></li>
 </ul>
 </li>
-<li><a href="#orgbc60745">3. 模板配置详解</a>
+<li><a href="#org32820bc">3. 模板配置详解</a>
 <ul>
-<li><a href="#org3102fbb">3.1. 基础模板语法</a></li>
-<li><a href="#org172a75b">3.2. 参数说明</a></li>
-<li><a href="#org6558fd9">3.3. 实战模板示例</a></li>
+<li><a href="#org3de1af5">3.1. 基础模板语法</a></li>
+<li><a href="#org9a623f8">3.2. 参数说明</a></li>
+<li><a href="#orgfeb01ec">3.3. 实战模板示例</a></li>
 </ul>
 </li>
-<li><a href="#org39f632e">4. 高级技巧</a>
+<li><a href="#org2b7fe8a">4. 高级技巧</a>
 <ul>
-<li><a href="#orgacf5260">4.1. 1. 动态路径选择</a></li>
-<li><a href="#org4b17d89">4.2. 2. 自动添加标签</a></li>
-<li><a href="#org362e385">4.3. 3. 时间戳控制</a></li>
-<li><a href="#orge3ac3f5">4.4. 4. 附件支持</a></li>
+<li><a href="#orge6e1af1">4.1. 1. 动态路径选择</a></li>
+<li><a href="#orgaa4215c">4.2. 2. 自动添加标签</a></li>
+<li><a href="#orgfc7bd6d">4.3. 3. 时间戳控制</a></li>
+<li><a href="#org2f15734">4.4. 4. 附件支持</a></li>
 </ul>
 </li>
-<li><a href="#orgabade16">5. 工作流优化</a>
+<li><a href="#orgaa8eea1">5. 工作流优化</a>
 <ul>
-<li><a href="#orgd650750">5.1. 1. 快速结束 Capture</a></li>
-<li><a href="#orgc789c5d">5.2. 2. 自动归档配置</a></li>
-<li><a href="#org6fd00cf">5.3. 3. 与 Agenda 集成</a></li>
+<li><a href="#orga8ee09f">5.1. 1. 快速结束 Capture</a></li>
+<li><a href="#org7a239be">5.2. 2. 自动归档配置</a></li>
+<li><a href="#org742cbf2">5.3. 3. 与 Agenda 集成</a></li>
 </ul>
 </li>
-<li><a href="#org8030e81">6. 常见问题排查</a>
+<li><a href="#orgad85236">6. 常见问题排查</a>
 <ul>
-<li><a href="#org9b96e19">6.1. 问题1：模板不生效</a></li>
-<li><a href="#org6008452">6.2. 问题2：时间戳格式异常</a></li>
-<li><a href="#orgf16e767">6.3. 问题3：中文乱码</a></li>
+<li><a href="#org0f1e6b4">6.1. 问题1：模板不生效</a></li>
+<li><a href="#orgdd2d1b0">6.2. 问题2：时间戳格式异常</a></li>
+<li><a href="#org7ab8fde">6.3. 问题3：中文乱码</a></li>
 </ul>
 </li>
-<li><a href="#org86ce3d0">7. 配置示例</a>
+<li><a href="#org4fc88fc">7. 配置示例</a>
 <ul>
-<li><a href="#orgbe5bc11">7.1. 完整 GTD 工作流配置</a></li>
-<li><a href="#org231761b">7.2. 效果演示</a></li>
+<li><a href="#org076e8a4">7.1. 完整 GTD 工作流配置</a></li>
+<li><a href="#org4e282dc">7.2. 效果演示</a></li>
 </ul>
 </li>
-<li><a href="#org40c6d86">8. 扩展阅读</a></li>
+<li><a href="#org2c1ee6d">8. 扩展阅读</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org4b41bda" class="outline-2">
-<h2 id="org4b41bda"><span class="section-number-2">1.</span> 基础概念</h2>
+<div id="outline-container-orgde17e75" class="outline-2">
+<h2 id="orgde17e75"><span class="section-number-2">1.</span> 基础概念</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgf0dffe0" class="outline-3">
-<h3 id="orgf0dffe0"><span class="section-number-3">1.1.</span> Capture 是什么？</h3>
+<div id="outline-container-orgb319272" class="outline-3">
+<h3 id="orgb319272"><span class="section-number-3">1.1.</span> Capture 是什么？</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>快速捕获临时想法/任务的「临时缓冲区」</li>
@@ -93,8 +93,8 @@
 </div>
 </div>
 
-<div id="outline-container-org9fff12e" class="outline-3">
-<h3 id="org9fff12e"><span class="section-number-3">1.2.</span> 核心三要素</h3>
+<div id="outline-container-org927a58c" class="outline-3">
+<h3 id="org927a58c"><span class="section-number-3">1.2.</span> 核心三要素</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>触发快捷键：快速调用 Capture 界面</li>
@@ -105,12 +105,12 @@
 </div>
 </div>
 
-<div id="outline-container-org1130ea5" class="outline-2">
-<h2 id="org1130ea5"><span class="section-number-2">2.</span> 基础配置</h2>
+<div id="outline-container-orgf535d7a" class="outline-2">
+<h2 id="orgf535d7a"><span class="section-number-2">2.</span> 基础配置</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org90c3311" class="outline-3">
-<h3 id="org90c3311"><span class="section-number-3">2.1.</span> 1. 启用 Capture 功能</h3>
+<div id="outline-container-orgaa45610" class="outline-3">
+<h3 id="orgaa45610"><span class="section-number-3">2.1.</span> 1. 启用 Capture 功能</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(require 'org-capture)  ; 确保加载模块
@@ -120,8 +120,8 @@
 </div>
 </div>
 
-<div id="outline-container-org325d97a" class="outline-3">
-<h3 id="org325d97a"><span class="section-number-3">2.2.</span> 2. 全局快捷键配置</h3>
+<div id="outline-container-orgd1560c3" class="outline-3">
+<h3 id="orgd1560c3"><span class="section-number-3">2.2.</span> 2. 全局快捷键配置</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(global-set-key (kbd "C-c c") 'org-capture)  ; 推荐快捷键
@@ -131,12 +131,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgbc60745" class="outline-2">
-<h2 id="orgbc60745"><span class="section-number-2">3.</span> 模板配置详解</h2>
+<div id="outline-container-org32820bc" class="outline-2">
+<h2 id="org32820bc"><span class="section-number-2">3.</span> 模板配置详解</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3102fbb" class="outline-3">
-<h3 id="org3102fbb"><span class="section-number-3">3.1.</span> 基础模板语法</h3>
+<div id="outline-container-org3de1af5" class="outline-3">
+<h3 id="org3de1af5"><span class="section-number-3">3.1.</span> 基础模板语法</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq org-capture-templates
@@ -147,8 +147,8 @@
 </div>
 </div>
 
-<div id="outline-container-org172a75b" class="outline-3">
-<h3 id="org172a75b"><span class="section-number-3">3.2.</span> 参数说明</h3>
+<div id="outline-container-org9a623f8" class="outline-3">
+<h3 id="org9a623f8"><span class="section-number-3">3.2.</span> 参数说明</h3>
 <div class="outline-text-3" id="text-3-2">
 <table>
 
@@ -194,12 +194,12 @@
 </div>
 </div>
 
-<div id="outline-container-org6558fd9" class="outline-3">
-<h3 id="org6558fd9"><span class="section-number-3">3.3.</span> 实战模板示例</h3>
+<div id="outline-container-orgfeb01ec" class="outline-3">
+<h3 id="orgfeb01ec"><span class="section-number-3">3.3.</span> 实战模板示例</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-orgfa689d7" class="outline-4">
-<h4 id="orgfa689d7"><span class="section-number-4">3.3.1.</span> 通用任务模板</h4>
+<div id="outline-container-orga3dd542" class="outline-4">
+<h4 id="orga3dd542"><span class="section-number-4">3.3.1.</span> 通用任务模板</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("t" "Todo" entry (file+headline "~/org/gtd.org" "Inbox")
@@ -209,8 +209,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6ef9469" class="outline-4">
-<h4 id="org6ef9469"><span class="section-number-4">3.3.2.</span> 会议记录模板</h4>
+<div id="outline-container-org9b3b570" class="outline-4">
+<h4 id="org9b3b570"><span class="section-number-4">3.3.2.</span> 会议记录模板</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("m" "Meeting" entry (file+headline "~/org/notes.org" "Meetings")
@@ -220,8 +220,8 @@
 </div>
 </div>
 
-<div id="outline-container-orga1e7551" class="outline-4">
-<h4 id="orga1e7551"><span class="section-number-4">3.3.3.</span> 快速笔记模板</h4>
+<div id="outline-container-org20b9bf8" class="outline-4">
+<h4 id="org20b9bf8"><span class="section-number-4">3.3.3.</span> 快速笔记模板</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("n" "Note" entry (file "~/org/notes.org")
@@ -233,12 +233,12 @@
 </div>
 </div>
 
-<div id="outline-container-org39f632e" class="outline-2">
-<h2 id="org39f632e"><span class="section-number-2">4.</span> 高级技巧</h2>
+<div id="outline-container-org2b7fe8a" class="outline-2">
+<h2 id="org2b7fe8a"><span class="section-number-2">4.</span> 高级技巧</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgacf5260" class="outline-3">
-<h3 id="orgacf5260"><span class="section-number-3">4.1.</span> 1. 动态路径选择</h3>
+<div id="outline-container-orge6e1af1" class="outline-3">
+<h3 id="orge6e1af1"><span class="section-number-3">4.1.</span> 1. 动态路径选择</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("p" "Project" entry (file+headline (org-capture-select-target) "Tasks")
@@ -248,8 +248,8 @@
 </div>
 </div>
 
-<div id="outline-container-org4b17d89" class="outline-3">
-<h3 id="org4b17d89"><span class="section-number-3">4.2.</span> 2. 自动添加标签</h3>
+<div id="outline-container-orgaa4215c" class="outline-3">
+<h3 id="orgaa4215c"><span class="section-number-3">4.2.</span> 2. 自动添加标签</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("c" "Code" entry (file+headline "~/org/tech.org" "Snippets")
@@ -259,8 +259,8 @@
 </div>
 </div>
 
-<div id="outline-container-org362e385" class="outline-3">
-<h3 id="org362e385"><span class="section-number-3">4.3.</span> 3. 时间戳控制</h3>
+<div id="outline-container-orgfc7bd6d" class="outline-3">
+<h3 id="orgfc7bd6d"><span class="section-number-3">4.3.</span> 3. 时间戳控制</h3>
 <div class="outline-text-3" id="text-4-3">
 <table>
 
@@ -301,8 +301,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge3ac3f5" class="outline-3">
-<h3 id="orge3ac3f5"><span class="section-number-3">4.4.</span> 4. 附件支持</h3>
+<div id="outline-container-org2f15734" class="outline-3">
+<h3 id="org2f15734"><span class="section-number-3">4.4.</span> 4. 附件支持</h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">("a" "Attachment" entry (file "~/org/attachments.org")
@@ -313,12 +313,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgabade16" class="outline-2">
-<h2 id="orgabade16"><span class="section-number-2">5.</span> 工作流优化</h2>
+<div id="outline-container-orgaa8eea1" class="outline-2">
+<h2 id="orgaa8eea1"><span class="section-number-2">5.</span> 工作流优化</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgd650750" class="outline-3">
-<h3 id="orgd650750"><span class="section-number-3">5.1.</span> 1. 快速结束 Capture</h3>
+<div id="outline-container-orga8ee09f" class="outline-3">
+<h3 id="orga8ee09f"><span class="section-number-3">5.1.</span> 1. 快速结束 Capture</h3>
 <div class="outline-text-3" id="text-5-1">
 <table>
 
@@ -354,8 +354,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc789c5d" class="outline-3">
-<h3 id="orgc789c5d"><span class="section-number-3">5.2.</span> 2. 自动归档配置</h3>
+<div id="outline-container-org7a239be" class="outline-3">
+<h3 id="org7a239be"><span class="section-number-3">5.2.</span> 2. 自动归档配置</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 自动归档到每日笔记
@@ -367,8 +367,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6fd00cf" class="outline-3">
-<h3 id="org6fd00cf"><span class="section-number-3">5.3.</span> 3. 与 Agenda 集成</h3>
+<div id="outline-container-org742cbf2" class="outline-3">
+<h3 id="org742cbf2"><span class="section-number-3">5.3.</span> 3. 与 Agenda 集成</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 自动刷新 Agenda 缓存
@@ -379,12 +379,12 @@
 </div>
 </div>
 
-<div id="outline-container-org8030e81" class="outline-2">
-<h2 id="org8030e81"><span class="section-number-2">6.</span> 常见问题排查</h2>
+<div id="outline-container-orgad85236" class="outline-2">
+<h2 id="orgad85236"><span class="section-number-2">6.</span> 常见问题排查</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org9b96e19" class="outline-3">
-<h3 id="org9b96e19"><span class="section-number-3">6.1.</span> 问题1：模板不生效</h3>
+<div id="outline-container-org0f1e6b4" class="outline-3">
+<h3 id="org0f1e6b4"><span class="section-number-3">6.1.</span> 问题1：模板不生效</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>检查 <code>org-capture-templates</code> 语法是否正确</li>
@@ -393,8 +393,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6008452" class="outline-3">
-<h3 id="org6008452"><span class="section-number-3">6.2.</span> 问题2：时间戳格式异常</h3>
+<div id="outline-container-orgdd2d1b0" class="outline-3">
+<h3 id="orgdd2d1b0"><span class="section-number-3">6.2.</span> 问题2：时间戳格式异常</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq org-time-stamp-custom-formats  ; 自定义时间格式
@@ -404,8 +404,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgf16e767" class="outline-3">
-<h3 id="orgf16e767"><span class="section-number-3">6.3.</span> 问题3：中文乱码</h3>
+<div id="outline-container-org7ab8fde" class="outline-3">
+<h3 id="org7ab8fde"><span class="section-number-3">6.3.</span> 问题3：中文乱码</h3>
 <div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq org-capture-templates
@@ -416,12 +416,12 @@
 </div>
 </div>
 
-<div id="outline-container-org86ce3d0" class="outline-2">
-<h2 id="org86ce3d0"><span class="section-number-2">7.</span> 配置示例</h2>
+<div id="outline-container-org4fc88fc" class="outline-2">
+<h2 id="org4fc88fc"><span class="section-number-2">7.</span> 配置示例</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgbe5bc11" class="outline-3">
-<h3 id="orgbe5bc11"><span class="section-number-3">7.1.</span> 完整 GTD 工作流配置</h3>
+<div id="outline-container-org076e8a4" class="outline-3">
+<h3 id="org076e8a4"><span class="section-number-3">7.1.</span> 完整 GTD 工作流配置</h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq org-capture-templates
@@ -436,8 +436,8 @@
 </div>
 </div>
 
-<div id="outline-container-org231761b" class="outline-3">
-<h3 id="org231761b"><span class="section-number-3">7.2.</span> 效果演示</h3>
+<div id="outline-container-org4e282dc" class="outline-3">
+<h3 id="org4e282dc"><span class="section-number-3">7.2.</span> 效果演示</h3>
 <div class="outline-text-3" id="text-7-2">
 <ol class="org-ol">
 <li><p>
@@ -464,8 +464,8 @@
 </div>
 </div>
 
-<div id="outline-container-org40c6d86" class="outline-2">
-<h2 id="org40c6d86"><span class="section-number-2">8.</span> 扩展阅读</h2>
+<div id="outline-container-org2c1ee6d" class="outline-2">
+<h2 id="org2c1ee6d"><span class="section-number-2">8.</span> 扩展阅读</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li>官方文档：=C-h i m org &lt;RET&gt; m Capture=</li>
@@ -478,7 +478,7 @@
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-15/Saturday 23:36:42&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-23 Sun 13:36</p>
+<p class="date">Created: 2025-03-14 Fri 19:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-23 Sun 13:36 -->
+<!-- 2025-03-14 Fri 19:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>设置MobileOrg,让org如影随形</title>
@@ -26,31 +26,31 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org39f5db3">1. 教程的英文地址</a></li>
-<li><a href="#org5771ee8">2. 配置MobileOrg同步</a>
+<li><a href="#org6aed4af">1. 教程的英文地址</a></li>
+<li><a href="#org59d6688">2. 配置MobileOrg同步</a>
 <ul>
-<li><a href="#orgd2cdd28">2.1. 概述</a></li>
-<li><a href="#org3c6cff3">2.2. 基础配置</a></li>
-<li><a href="#org0dce769">2.3. 同步文件配置</a></li>
-<li><a href="#orgc0ac5e8">2.4. 属性抽屉处理</a></li>
-<li><a href="#org04a34f3">2.5. 日程视图配置</a></li>
+<li><a href="#orgc62d6a5">2.1. 概述</a></li>
+<li><a href="#org85570b5">2.2. 基础配置</a></li>
+<li><a href="#orge85706e">2.3. 同步文件配置</a></li>
+<li><a href="#orga9023d1">2.4. 属性抽屉处理</a></li>
+<li><a href="#org75305cb">2.5. 日程视图配置</a></li>
 </ul>
 </li>
-<li><a href="#org95375f6">3. 使用说明</a>
+<li><a href="#org4472c08">3. 使用说明</a>
 <ul>
-<li><a href="#orgce77225">3.1. 同步流程</a></li>
-<li><a href="#org11a776b">3.2. 注意事项</a></li>
+<li><a href="#org5831377">3.1. 同步流程</a></li>
+<li><a href="#orgf28a761">3.2. 注意事项</a></li>
 </ul>
 </li>
-<li><a href="#org296a6d6">4. 故障排查</a></li>
+<li><a href="#orgfc0a8ec">4. 故障排查</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org39f5db3" class="outline-2">
-<h2 id="org39f5db3"><span class="section-number-2">1.</span> 教程的英文地址</h2>
+<div id="outline-container-org6aed4af" class="outline-2">
+<h2 id="org6aed4af"><span class="section-number-2">1.</span> 教程的英文地址</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://nakkaya.com/2010/03/19/org-mode-in-your-pocket-setting-up-mobileorg/">https://nakkaya.com/2010/03/19/org-mode-in-your-pocket-setting-up-mobileorg/</a>
@@ -59,12 +59,12 @@
 </div>
 
 
-<div id="outline-container-org5771ee8" class="outline-2">
-<h2 id="org5771ee8"><span class="section-number-2">2.</span> 配置MobileOrg同步</h2>
+<div id="outline-container-org59d6688" class="outline-2">
+<h2 id="org59d6688"><span class="section-number-2">2.</span> 配置MobileOrg同步</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd2cdd28" class="outline-3">
-<h3 id="orgd2cdd28"><span class="section-number-3">2.1.</span> 概述</h3>
+<div id="outline-container-orgc62d6a5" class="outline-3">
+<h3 id="orgc62d6a5"><span class="section-number-3">2.1.</span> 概述</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提供完整的Emacs配置模板。
@@ -72,12 +72,12 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org3c6cff3" class="outline-3">
-<h3 id="org3c6cff3"><span class="section-number-3">2.2.</span> 基础配置</h3>
+<div id="outline-container-org85570b5" class="outline-3">
+<h3 id="org85570b5"><span class="section-number-3">2.2.</span> 基础配置</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgcc472d5" class="outline-4">
-<h4 id="orgcc472d5"><span class="section-number-4">2.2.1.</span> 文件目录设置</h4>
+<div id="outline-container-org99a6760" class="outline-4">
+<h4 id="org99a6760"><span class="section-number-4">2.2.1.</span> 文件目录设置</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 设置主Org目录(需先创建目录)
@@ -90,8 +90,8 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org78fb203" class="outline-4">
-<h4 id="org78fb203"><span class="section-number-4">2.2.2.</span> WebDAV同步配置</h4>
+<div id="outline-container-org54b16ed" class="outline-4">
+<h4 id="org54b16ed"><span class="section-number-4">2.2.2.</span> WebDAV同步配置</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; WebDAV挂载点设置(MacOS示例)
@@ -106,8 +106,8 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org0dce769" class="outline-3">
-<h3 id="org0dce769"><span class="section-number-3">2.3.</span> 同步文件配置</h3>
+<div id="outline-container-orge85706e" class="outline-3">
+<h3 id="orge85706e"><span class="section-number-3">2.3.</span> 同步文件配置</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 指定需要同步的文件列表
@@ -117,8 +117,8 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-orgc0ac5e8" class="outline-3">
-<h3 id="orgc0ac5e8"><span class="section-number-3">2.4.</span> 属性抽屉处理</h3>
+<div id="outline-container-orga9023d1" class="outline-3">
+<h3 id="orga9023d1"><span class="section-number-3">2.4.</span> 属性抽屉处理</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 禁用自动生成ID(注意可能影响子任务识别)
@@ -126,7 +126,7 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </pre>
 </div>
 
-<div class="WARNING" id="org1227438">
+<div class="WARNING" id="orgabe1b23">
 <p>
 警告：禁用属性抽屉后，具有相同标题的嵌套子任务可能无法正确识别！
 建议保留ID生成功能，除非文件结构简单无重复标题
@@ -136,12 +136,12 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org04a34f3" class="outline-3">
-<h3 id="org04a34f3"><span class="section-number-3">2.5.</span> 日程视图配置</h3>
+<div id="outline-container-org75305cb" class="outline-3">
+<h3 id="org75305cb"><span class="section-number-3">2.5.</span> 日程视图配置</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orgbecb838" class="outline-4">
-<h4 id="orgbecb838"><span class="section-number-4">2.5.1.</span> 自定义议程视图</h4>
+<div id="outline-container-org878d1dc" class="outline-4">
+<h4 id="org878d1dc"><span class="section-number-4">2.5.1.</span> 自定义议程视图</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq org-agenda-custom-commands
@@ -157,8 +157,8 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-orgdacac0d" class="outline-4">
-<h4 id="orgdacac0d"><span class="section-number-4">2.5.2.</span> 优化显示设置</h4>
+<div id="outline-container-orgf96e6e4" class="outline-4">
+<h4 id="orgf96e6e4"><span class="section-number-4">2.5.2.</span> 优化显示设置</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">;; 过滤空日期提升可读性
@@ -170,12 +170,12 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org95375f6" class="outline-2">
-<h2 id="org95375f6"><span class="section-number-2">3.</span> 使用说明</h2>
+<div id="outline-container-org4472c08" class="outline-2">
+<h2 id="org4472c08"><span class="section-number-2">3.</span> 使用说明</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgce77225" class="outline-3">
-<h3 id="orgce77225"><span class="section-number-3">3.1.</span> 同步流程</h3>
+<div id="outline-container-org5831377" class="outline-3">
+<h3 id="org5831377"><span class="section-number-3">3.1.</span> 同步流程</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li>执行 <code>M-x org-mobile-push</code> 推送数据到WebDAV</li>
@@ -185,8 +185,8 @@ MobileOrg是iOS端管理Org文件的工具，支持WebDAV同步。本文档提�
 </div>
 </div>
 
-<div id="outline-container-org11a776b" class="outline-3">
-<h3 id="org11a776b"><span class="section-number-3">3.2.</span> 注意事项</h3>
+<div id="outline-container-orgf28a761" class="outline-3">
+<h3 id="orgf28a761"><span class="section-number-3">3.2.</span> 注意事项</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>确保WebDAV目录可写: <code>chmod -R 755 /Volumes/nakkaya.com/org</code></li>
@@ -210,8 +210,8 @@ mkdir -p /Volumes/nakkaya.com/org/
 </div>
 </div>
 
-<div id="outline-container-org296a6d6" class="outline-2">
-<h2 id="org296a6d6"><span class="section-number-2">4.</span> 故障排查</h2>
+<div id="outline-container-orgfc0a8ec" class="outline-2">
+<h2 id="orgfc0a8ec"><span class="section-number-2">4.</span> 故障排查</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>检查文件权限: <code>ls -l /Volumes/nakkaya.com/org</code></li>
@@ -224,7 +224,7 @@ mkdir -p /Volumes/nakkaya.com/org/
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-15/Saturday 21:57:15&gt;</p>
 <p class="author">&#20316;&#32773;: nakkayadotcom</p>
-<p class="date">Created: 2025-02-23 Sun 13:36</p>
+<p class="date">Created: 2025-03-14 Fri 19:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

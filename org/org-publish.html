@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-11 Tue 09:48 -->
+<!-- 2025-03-14 Fri 19:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-publish用org批量导出来建一个静态博客系统</title>
@@ -26,21 +26,21 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org87ed1a2">1. 导出的html使用头文件调取本地css文件(安全稳定可定制不依赖网络)</a></li>
-<li><a href="#orgba5c598">2. 批量导出文件</a></li>
-<li><a href="#orgfa480c5">3. 批量导出跳过旧文件导出的情况</a></li>
-<li><a href="#orgb4c27c1">4. 清除上下标的设置</a></li>
-<li><a href="#org190c360">5. 导出的html不显示目录</a></li>
-<li><a href="#orgfb8dfcb">6. 主页的设置</a></li>
-<li><a href="#org2e12785">7. 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</a></li>
-<li><a href="#org8cb7c0a">8. 自动删除已经删除掉org原始文件的html文件(不如手动稳定,也懒得去弄了)</a></li>
+<li><a href="#org3fa198b">1. 导出的html使用头文件调取本地css文件(安全稳定可定制不依赖网络)</a></li>
+<li><a href="#orgafdf3f1">2. 批量导出文件</a></li>
+<li><a href="#orga66add5">3. 批量导出跳过旧文件导出的情况</a></li>
+<li><a href="#org699faa9">4. 清除上下标的设置</a></li>
+<li><a href="#org3807506">5. 导出的html不显示目录</a></li>
+<li><a href="#orgaa0db9d">6. 主页的设置</a></li>
+<li><a href="#orgf44869a">7. 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</a></li>
+<li><a href="#org8ad95ff">8. 自动删除已经删除掉org原始文件的html文件(不如手动稳定,也懒得去弄了)</a></li>
 </ul>
 </div>
 </nav>
 
 
-<div id="outline-container-org87ed1a2" class="outline-2">
-<h2 id="org87ed1a2"><span class="section-number-2">1.</span> 导出的html使用头文件调取本地css文件(安全稳定可定制不依赖网络)</h2>
+<div id="outline-container-org3fa198b" class="outline-2">
+<h2 id="org3fa198b"><span class="section-number-2">1.</span> 导出的html使用头文件调取本地css文件(安全稳定可定制不依赖网络)</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>C-c C-e
@@ -77,7 +77,7 @@
 <li><p>
 然后在所要编写的org文件的头部添加上加载头文件的语句就可以了
 </p>
-<pre class="example" id="org49dc328">
+<pre class="example" id="org78a0bb5">
 #+SETUPFILE: ~/.emacs.d/org-other-file/org-level-1.org
 </pre></li>
 </ol></li>
@@ -128,8 +128,8 @@
 
 
 
-<div id="outline-container-orgba5c598" class="outline-2">
-<h2 id="orgba5c598"><span class="section-number-2">2.</span> 批量导出文件</h2>
+<div id="outline-container-orgafdf3f1" class="outline-2">
+<h2 id="orgafdf3f1"><span class="section-number-2">2.</span> 批量导出文件</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 教程直接就是配置文件
@@ -200,8 +200,8 @@
 </div>
 
 
-<div id="outline-container-orgfa480c5" class="outline-2">
-<h2 id="orgfa480c5"><span class="section-number-2">3.</span> 批量导出跳过旧文件导出的情况</h2>
+<div id="outline-container-orga66add5" class="outline-2">
+<h2 id="orga66add5"><span class="section-number-2">3.</span> 批量导出跳过旧文件导出的情况</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>本来认为org只发布修改过的文件是它对比了org文件和导出文件的时间戳。
@@ -242,8 +242,8 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 
 
 
-<div id="outline-container-orgb4c27c1" class="outline-2">
-<h2 id="orgb4c27c1"><span class="section-number-2">4.</span> 清除上下标的设置</h2>
+<div id="outline-container-org699faa9" class="outline-2">
+<h2 id="org699faa9"><span class="section-number-2">4.</span> 清除上下标的设置</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 导出时如果需要目录(类似本文开头), 
@@ -252,34 +252,34 @@ Orgmode 发布项目缓存说明(一直也没弄明白,用不到,懒得了解放
 如果不想让org-mode误会, 也要在metadata中注明. 于是, 每次写笔记时, 开头就要加一行
 </p>
 
-<pre class="example" id="orgb78a34a">
+<pre class="example" id="orgc2120ca">
 #+OPTIONS: ^:nil _:nil f:nil toc:t
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-org190c360" class="outline-2">
-<h2 id="org190c360"><span class="section-number-2">5.</span> 导出的html不显示目录</h2>
+<div id="outline-container-org3807506" class="outline-2">
+<h2 id="org3807506"><span class="section-number-2">5.</span> 导出的html不显示目录</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 导出html文章不显示目录，
 </p>
-<pre class="example" id="orge932974">
+<pre class="example" id="org1d65da3">
 #+OPTIONS: toc:nil
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-orgfb8dfcb" class="outline-2">
-<h2 id="orgfb8dfcb"><span class="section-number-2">6.</span> 主页的设置</h2>
+<div id="outline-container-orgaa0db9d" class="outline-2">
+<h2 id="orgaa0db9d"><span class="section-number-2">6.</span> 主页的设置</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li><p>
 配置文件选项设置
 </p>
-<pre class="example" id="org853b447">
+<pre class="example" id="org2bab28b">
 ;自动导航主页模式
  auto-sitemap t
 ;主页文件的名称
@@ -296,7 +296,7 @@ sitemap-title "我的网站"
 然后，我们只要在我们的 index.org 里 include 这个文件
 系统会自动导出index.html了就.
 </p>
-<pre class="example" id="org7a73372">
+<pre class="example" id="org92298e0">
 #+INCLUDE: sitemap.org
 </pre>
 
@@ -311,15 +311,15 @@ sitemap-title "我的网站"
 
 
 
-<div id="outline-container-org2e12785" class="outline-2">
-<h2 id="org2e12785"><span class="section-number-2">7.</span> 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</h2>
+<div id="outline-container-orgf44869a" class="outline-2">
+<h2 id="orgf44869a"><span class="section-number-2">7.</span> 在 Org 模式中将图片导出为 HTML 时设置尺寸大小</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li><p>
 使用 #+attr_html 属性设置具体尺寸
 可以通过 #+attr_html 属性为图片指定固定的宽度和高度。
 </p>
-<pre class="example" id="org016a210">
+<pre class="example" id="org6d762e2">
 #+attr_html: :width 400px :height 300px
 [[file:your_image.jpg]]
 </pre>
@@ -334,7 +334,7 @@ sitemap-title "我的网站"
 使用 CSS 样式设置图片尺寸
 可以在 Org 文件头部添加 CSS 样式来控制图片尺寸。
 </p>
-<pre class="example" id="org81521c8">
+<pre class="example" id="org23795e9">
 #+HTML_HEAD: &lt;style&gt;
 #+HTML_HEAD:   img.custom - image {
 #+HTML_HEAD:     width: 70%;
@@ -360,7 +360,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 按比例缩放图片
 使用 :scale 属性按比例缩放图片。
 </p>
-<pre class="example" id="org528e2e3">
+<pre class="example" id="org97c5a67">
 #+attr_html: :scale 0.8
 [[file:your_image.jpg]]
 </pre>
@@ -373,7 +373,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 动态调整图片大小
 利用 CSS 的 max - width 属性让图片根据浏览器窗口大小动态调整。
 </p>
-<pre class="example" id="orgef76d0a">
+<pre class="example" id="org31813a8">
 #+attr_html: :style "max-width: 100%; height: auto;"
 [[file:your_image.jpg]]
 </pre>
@@ -391,8 +391,8 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 </div>
 
 
-<div id="outline-container-org8cb7c0a" class="outline-2">
-<h2 id="org8cb7c0a"><span class="section-number-2">8.</span> 自动删除已经删除掉org原始文件的html文件(不如手动稳定,也懒得去弄了)</h2>
+<div id="outline-container-org8ad95ff" class="outline-2">
+<h2 id="org8ad95ff"><span class="section-number-2">8.</span> 自动删除已经删除掉org原始文件的html文件(不如手动稳定,也懒得去弄了)</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 虽然有这个功能,我也想用
@@ -456,7 +456,7 @@ height: auto; 保持图片原始宽高比，根据宽度自动调整高度。
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-11/Tuesday 16:29:10&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-11 Tue 09:48</p>
+<p class="date">Created: 2025-03-14 Fri 19:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

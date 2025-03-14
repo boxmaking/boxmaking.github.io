@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-02-23 Sun 13:36 -->
+<!-- 2025-03-14 Fri 19:51 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>用BASH实现多文件同时添加或删除的编辑操作</title>
@@ -47,36 +47,36 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org702bb57">1. 添加文本方法一：当前目录下的文件（不递归子目录）</a>
+<li><a href="#org6235861">1. 添加文本方法一：当前目录下的文件（不递归子目录）</a>
 <ul>
-<li><a href="#orgd88d1c4">1.1. 代码逐行解释</a></li>
-<li><a href="#orgcf3c2d5">1.2. 总结</a></li>
+<li><a href="#org2f67e69">1.1. 代码逐行解释</a></li>
+<li><a href="#org3f91f8a">1.2. 总结</a></li>
 </ul>
 </li>
-<li><a href="#org0ff4b4e">2. 添加文本方法二：当前目录下的文件（递归子目录）</a>
+<li><a href="#org6b7a4bb">2. 添加文本方法二：当前目录下的文件（递归子目录）</a>
 <ul>
-<li><a href="#org9aba366">2.1. 整体功能概述</a></li>
-<li><a href="#org428676d">2.2. 总结</a></li>
+<li><a href="#org528c93f">2.1. 整体功能概述</a></li>
+<li><a href="#orga859a86">2.2. 总结</a></li>
 </ul>
 </li>
-<li><a href="#orgce8f0fd">3. 删除文本方法一：直接操作（推荐）</a>
+<li><a href="#org59c0075">3. 删除文本方法一：直接操作（推荐）</a>
 <ul>
-<li><a href="#orgf12b0f4">3.1. 整体功能概述</a></li>
-<li><a href="#org3860f7b">3.2. 总结</a></li>
+<li><a href="#orgacdc46c">3.1. 整体功能概述</a></li>
+<li><a href="#org3ae246e">3.2. 总结</a></li>
 </ul>
 </li>
-<li><a href="#orgad43a37">4. 删除文本方法二：安全操作（备份原文件）</a>
+<li><a href="#orgfd6d7bb">4. 删除文本方法二：安全操作（备份原文件）</a>
 <ul>
-<li><a href="#org038bde8">4.1. 整体功能概述</a></li>
-<li><a href="#orgd38f800">4.2. 总结</a></li>
+<li><a href="#org9b5e101">4.1. 整体功能概述</a></li>
+<li><a href="#orge29ffa7">4.2. 总结</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org702bb57" class="outline-2">
-<h2 id="org702bb57"><span class="section-number-2">1.</span> 添加文本方法一：当前目录下的文件（不递归子目录）</h2>
+<div id="outline-container-org6235861" class="outline-2">
+<h2 id="org6235861"><span class="section-number-2">1.</span> 添加文本方法一：当前目录下的文件（不递归子目录）</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span>for file in *.org; do
@@ -88,12 +88,12 @@
 </div>
 
 
-<div id="outline-container-orgd88d1c4" class="outline-3">
-<h3 id="orgd88d1c4"><span class="section-number-3">1.1.</span> 代码逐行解释</h3>
+<div id="outline-container-org2f67e69" class="outline-3">
+<h3 id="org2f67e69"><span class="section-number-3">1.1.</span> 代码逐行解释</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgc8852ee" class="outline-4">
-<h4 id="orgc8852ee"><span class="section-number-4">1.1.1.</span> for file in *.org; do</h4>
+<div id="outline-container-org9241899" class="outline-4">
+<h4 id="org9241899"><span class="section-number-4">1.1.1.</span> for file in *.org; do</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 for &#x2026; in &#x2026;; do：这是 bash 中的 for 循环结构，用于遍历一组元素。
@@ -105,8 +105,8 @@ do：表示循环体的开始。
 </div>
 
 
-<div id="outline-container-org1d699d9" class="outline-4">
-<h4 id="org1d699d9"><span class="section-number-4">1.1.2.</span> { printf "要添加的代码（末尾自动换行）\n"; cat "$file"; } &gt; "$file.tmp"</h4>
+<div id="outline-container-org0e7824e" class="outline-4">
+<h4 id="org0e7824e"><span class="section-number-4">1.1.2.</span> { printf "要添加的代码（末尾自动换行）\n"; cat "$file"; } &gt; "$file.tmp"</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 { &#x2026; }：这是 bash 中的命令组语法，用于将多个命令组合在一起，当作一个整体来处理。
@@ -118,8 +118,8 @@ cat "$file"：cat 命令用于读取文件内容并输出到标准输出，"$fil
 </div>
 
 
-<div id="outline-container-orgf1f959a" class="outline-4">
-<h4 id="orgf1f959a"><span class="section-number-4">1.1.3.</span> &amp;&amp; mv "$file.tmp" "$file"</h4>
+<div id="outline-container-orge2aa45e" class="outline-4">
+<h4 id="orge2aa45e"><span class="section-number-4">1.1.3.</span> &amp;&amp; mv "$file.tmp" "$file"</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 &amp;&amp;：这是逻辑与运算符，只有当它前面的命令执行成功（返回状态码为 0）时，才会执行后面的命令。
@@ -129,8 +129,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </div>
 
 
-<div id="outline-container-org95a41af" class="outline-4">
-<h4 id="org95a41af"><span class="section-number-4">1.1.4.</span> done</h4>
+<div id="outline-container-org4f4eff2" class="outline-4">
+<h4 id="org4f4eff2"><span class="section-number-4">1.1.4.</span> done</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 表示 for 循环体的结束。
@@ -140,8 +140,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </div>
 
 
-<div id="outline-container-orgcf3c2d5" class="outline-3">
-<h3 id="orgcf3c2d5"><span class="section-number-3">1.2.</span> 总结</h3>
+<div id="outline-container-org3f91f8a" class="outline-3">
+<h3 id="org3f91f8a"><span class="section-number-3">1.2.</span> 总结</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 整个程序通过 for 循环遍历当前目录下所有 .org 文件，对于每个文件，先将指定的代码行和原文件内容输出到一个临时文件，然后将临时文件重命名为原文件，最终实现了在每个 .org 文件开头添加指定代码行的功能。
@@ -151,8 +151,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </div>
 
 
-<div id="outline-container-org0ff4b4e" class="outline-2">
-<h2 id="org0ff4b4e"><span class="section-number-2">2.</span> 添加文本方法二：当前目录下的文件（递归子目录）</h2>
+<div id="outline-container-org6b7a4bb" class="outline-2">
+<h2 id="org6b7a4bb"><span class="section-number-2">2.</span> 添加文本方法二：当前目录下的文件（递归子目录）</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span>find . -name "*.org" -exec sh -c '
@@ -164,8 +164,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </div>
 </div>
 
-<div id="outline-container-org9aba366" class="outline-3">
-<h3 id="org9aba366"><span class="section-number-3">2.1.</span> 整体功能概述</h3>
+<div id="outline-container-org528c93f" class="outline-3">
+<h3 id="org528c93f"><span class="section-number-3">2.1.</span> 整体功能概述</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 这段代码的主要功能是在当前目录（.）及其所有子目录中查找所有扩展名为 .org 的文件，然后在每个找到的 .org 文件开头添加一行指定的代码（“要添加的代码”），并覆盖原文件内容。下面我们来详细解释代码的每一部分。
@@ -173,8 +173,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </p>
 </div>
 
-<div id="outline-container-org6c4e8ce" class="outline-4">
-<h4 id="org6c4e8ce"><span class="section-number-4">2.1.1.</span> find . -name "*.org"</h4>
+<div id="outline-container-org13a4943" class="outline-4">
+<h4 id="org13a4943"><span class="section-number-4">2.1.1.</span> find . -name "*.org"</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 find：这是一个用于在文件系统中查找文件和目录的强大命令。
@@ -185,8 +185,8 @@ find：这是一个用于在文件系统中查找文件和目录的强大命令�
 </div>
 
 
-<div id="outline-container-org4dad1e7" class="outline-4">
-<h4 id="org4dad1e7"><span class="section-number-4">2.1.2.</span> -exec sh -c '</h4>
+<div id="outline-container-org717f96c" class="outline-4">
+<h4 id="org717f96c"><span class="section-number-4">2.1.2.</span> -exec sh -c '</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 -exec：find 命令的一个选项，用于对找到的每个文件执行指定的命令。
@@ -198,8 +198,8 @@ sh 是一个常用的 shell 解释器，用于执行 shell 脚本。
 </div>
 
 
-<div id="outline-container-orge1d8846" class="outline-4">
-<h4 id="orge1d8846"><span class="section-number-4">2.1.3.</span> file="$1";</h4>
+<div id="outline-container-orgeb9e194" class="outline-4">
+<h4 id="orgeb9e194"><span class="section-number-4">2.1.3.</span> file="$1";</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 在 sh -c 执行的命令中，$1 是一个位置参数，它会被替换为 find 命令找到的当前文件的名称。这行代码将当前文件的名称赋值给变量 file，方便后续使用。
@@ -208,8 +208,8 @@ sh 是一个常用的 shell 解释器，用于执行 shell 脚本。
 </div>
 
 
-<div id="outline-container-org6881be3" class="outline-4">
-<h4 id="org6881be3"><span class="section-number-4">2.1.4.</span> { printf "要添加的代码\n"; cat "$file"; } &gt; "$file.tmp"</h4>
+<div id="outline-container-org980f89b" class="outline-4">
+<h4 id="org980f89b"><span class="section-number-4">2.1.4.</span> { printf "要添加的代码\n"; cat "$file"; } &gt; "$file.tmp"</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <p>
 { &#x2026; }：这是 bash 中的命令组语法，用于将多个命令组合在一起当作一个整体处理。
@@ -221,8 +221,8 @@ cat "$file"：cat 命令用于读取文件内容并输出到标准输出，"$fil
 </div>
 
 
-<div id="outline-container-orgaa05190" class="outline-4">
-<h4 id="orgaa05190"><span class="section-number-4">2.1.5.</span> &amp;&amp; mv "$file.tmp" "$file"</h4>
+<div id="outline-container-orgaa09541" class="outline-4">
+<h4 id="orgaa09541"><span class="section-number-4">2.1.5.</span> &amp;&amp; mv "$file.tmp" "$file"</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 &amp;&amp;：逻辑与运算符，只有当它前面的命令执行成功（返回状态码为 0）时，才会执行后面的命令。
@@ -232,8 +232,8 @@ mv "$file.tmp" "$file"：mv 是移动（重命名）文件的命令，这里将�
 </div>
 
 
-<div id="outline-container-org80dcb11" class="outline-4">
-<h4 id="org80dcb11"><span class="section-number-4">2.1.6.</span> ' _ {} \;</h4>
+<div id="outline-container-org0b155b9" class="outline-4">
+<h4 id="org0b155b9"><span class="section-number-4">2.1.6.</span> ' _ {} \;</h4>
 <div class="outline-text-4" id="text-2-1-6">
 <p>
 _：sh -c 会将第一个参数作为脚本名，这里用 _ 来占位。
@@ -245,8 +245,8 @@ _：sh -c 会将第一个参数作为脚本名，这里用 _ 来占位。
 </div>
 
 
-<div id="outline-container-org428676d" class="outline-3">
-<h3 id="org428676d"><span class="section-number-3">2.2.</span> 总结</h3>
+<div id="outline-container-orga859a86" class="outline-3">
+<h3 id="orga859a86"><span class="section-number-3">2.2.</span> 总结</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 整个程序结合了 find 命令的文件查找功能和 sh -c 的命令执行功能，先找出所有 .org 文件，然后对每个文件在开头添加指定代码行，通过临时文件的方式完成文件内容的修改并覆盖原文件。
@@ -257,8 +257,8 @@ _：sh -c 会将第一个参数作为脚本名，这里用 _ 来占位。
 
 
 
-<div id="outline-container-orgce8f0fd" class="outline-2">
-<h2 id="orgce8f0fd"><span class="section-number-2">3.</span> 删除文本方法一：直接操作（推荐）</h2>
+<div id="outline-container-org59c0075" class="outline-2">
+<h2 id="org59c0075"><span class="section-number-2">3.</span> 删除文本方法一：直接操作（推荐）</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span>  find . -maxdepth 2 -name "*.org" -exec sed -i \
@@ -269,8 +269,8 @@ _：sh -c 会将第一个参数作为脚本名，这里用 _ 来占位。
 </div>
 
 
-<div id="outline-container-orgf12b0f4" class="outline-3">
-<h3 id="orgf12b0f4"><span class="section-number-3">3.1.</span> 整体功能概述</h3>
+<div id="outline-container-orgacdc46c" class="outline-3">
+<h3 id="orgacdc46c"><span class="section-number-3">3.1.</span> 整体功能概述</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 这段代码的主要功能是在当前目录（.）及其下最多两层子目录中查找所有扩展名为 .org 的文件，然后使用 sed 命令从这些文件里删除包含指定文本的行。
@@ -279,8 +279,8 @@ _：sh -c 会将第一个参数作为脚本名，这里用 _ 来占位。
 </div>
 
 
-<div id="outline-container-org54df96e" class="outline-4">
-<h4 id="org54df96e"><span class="section-number-4">3.1.1.</span> find . -maxdepth 2 -name "*.org"</h4>
+<div id="outline-container-org2258197" class="outline-4">
+<h4 id="org2258197"><span class="section-number-4">3.1.1.</span> find . -maxdepth 2 -name "*.org"</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 find：这是一个用于在文件系统中查找文件和目录的强大命令。
@@ -292,8 +292,8 @@ find：这是一个用于在文件系统中查找文件和目录的强大命令�
 </div>
 
 
-<div id="outline-container-org76826eb" class="outline-4">
-<h4 id="org76826eb"><span class="section-number-4">3.1.2.</span> -exec</h4>
+<div id="outline-container-org29c1513" class="outline-4">
+<h4 id="org29c1513"><span class="section-number-4">3.1.2.</span> -exec</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 -exec 是 find 命令的一个重要选项，它的作用是对查找到的每个文件执行指定的命令。其基本语法是 -exec command {} \;，其中 {} 是一个占位符，代表当前找到的文件，\; 是命令结束的标志。
@@ -302,8 +302,8 @@ find：这是一个用于在文件系统中查找文件和目录的强大命令�
 </div>
 
 
-<div id="outline-container-orga1d94f7" class="outline-4">
-<h4 id="orga1d94f7"><span class="section-number-4">3.1.3.</span> sed -i</h4>
+<div id="outline-container-org2721085" class="outline-4">
+<h4 id="org2721085"><span class="section-number-4">3.1.3.</span> sed -i</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 sed：是一个流编辑器，常用于对文本进行替换、删除、插入等操作。它逐行处理输入的文本，并根据用户提供的脚本对文本进行修改。
@@ -313,8 +313,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </div>
 
 
-<div id="outline-container-org6766d16" class="outline-4">
-<h4 id="org6766d16"><span class="section-number-4">3.1.4.</span> -e '/需要删除的文本/d'</h4>
+<div id="outline-container-org3e0815e" class="outline-4">
+<h4 id="org3e0815e"><span class="section-number-4">3.1.4.</span> -e '/需要删除的文本/d'</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 -e：sed 命令的选项，用于指定要执行的脚本命令。可以使用多个 -e 选项来依次执行多个不同的脚本命令。
@@ -324,8 +324,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </div>
 
 
-<div id="outline-container-org439570b" class="outline-4">
-<h4 id="org439570b"><span class="section-number-4">3.1.5.</span> -e '/需要删除的文本2/d'</h4>
+<div id="outline-container-org187ade5" class="outline-4">
+<h4 id="org187ade5"><span class="section-number-4">3.1.5.</span> -e '/需要删除的文本2/d'</h4>
 <div class="outline-text-4" id="text-3-1-5">
 <p>
 同理，这也是一个 sed 脚本命令。它会查找包含 需要删除的文本2 的行，并将这些行从文本中删除。
@@ -333,8 +333,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </div>
 </div>
 
-<div id="outline-container-orgcfb7e00" class="outline-4">
-<h4 id="orgcfb7e00"><span class="section-number-4">3.1.6.</span> {} 和 \;</h4>
+<div id="outline-container-org3336449" class="outline-4">
+<h4 id="org3336449"><span class="section-number-4">3.1.6.</span> {} 和 \;</h4>
 <div class="outline-text-4" id="text-3-1-6">
 <p>
 {}：如前面所述，是 find 命令 -exec 选项的占位符，代表当前找到的 .org 文件。在执行 sed 命令时，{} 会被替换为具体的文件名。
@@ -345,8 +345,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </div>
 
 
-<div id="outline-container-org3860f7b" class="outline-3">
-<h3 id="org3860f7b"><span class="section-number-3">3.2.</span> 总结</h3>
+<div id="outline-container-org3ae246e" class="outline-3">
+<h3 id="org3ae246e"><span class="section-number-3">3.2.</span> 总结</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 整个代码通过 find 命令筛选出符合条件的 .org 文件，然后使用 sed 命令对这些文件进行处理，删除其中包含指定文本的行，并且直接修改原文件。
@@ -357,8 +357,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 
 
 
-<div id="outline-container-orgad43a37" class="outline-2">
-<h2 id="orgad43a37"><span class="section-number-2">4.</span> 删除文本方法二：安全操作（备份原文件）</h2>
+<div id="outline-container-orgfd6d7bb" class="outline-2">
+<h2 id="orgfd6d7bb"><span class="section-number-2">4.</span> 删除文本方法二：安全操作（备份原文件）</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh"><span class="linenr">1: </span>  find . -maxdepth 2 -name "*.org" -exec sed -i.bak \
@@ -368,8 +368,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </div>
 </div>
 
-<div id="outline-container-org038bde8" class="outline-3">
-<h3 id="org038bde8"><span class="section-number-3">4.1.</span> 整体功能概述</h3>
+<div id="outline-container-org9b5e101" class="outline-3">
+<h3 id="org9b5e101"><span class="section-number-3">4.1.</span> 整体功能概述</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 该代码会在当前目录（.）及其下最多两层子目录中查找所有扩展名为 .org 的文件，接着使用 sed 命令删除这些文件中包含指定文本的行，同时会为每个被修改的文件创建一个备份。
@@ -377,8 +377,8 @@ sed：是一个流编辑器，常用于对文本进行替换、删除、插入�
 </p>
 </div>
 
-<div id="outline-container-org2df96b6" class="outline-4">
-<h4 id="org2df96b6"><span class="section-number-4">4.1.1.</span> find . -maxdepth 2 -name "*.org"</h4>
+<div id="outline-container-org94396cd" class="outline-4">
+<h4 id="org94396cd"><span class="section-number-4">4.1.1.</span> find . -maxdepth 2 -name "*.org"</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 find：这是一个在文件系统中查找文件和目录的命令。
@@ -390,8 +390,8 @@ find：这是一个在文件系统中查找文件和目录的命令。
 </div>
 
 
-<div id="outline-container-org1f04bcd" class="outline-4">
-<h4 id="org1f04bcd"><span class="section-number-4">4.1.2.</span> -exec</h4>
+<div id="outline-container-org8ef7515" class="outline-4">
+<h4 id="org8ef7515"><span class="section-number-4">4.1.2.</span> -exec</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 -exec 是 find 命令的一个关键选项，它的作用是对查找到的每个文件执行指定的命令。其语法结构为 -exec command {} \;，其中 {} 是一个占位符，代表当前找到的文件，\; 是命令结束的标志。
@@ -400,8 +400,8 @@ find：这是一个在文件系统中查找文件和目录的命令。
 </div>
 
 
-<div id="outline-container-org1ff21ee" class="outline-4">
-<h4 id="org1ff21ee"><span class="section-number-4">4.1.3.</span> sed -i.bak</h4>
+<div id="outline-container-org0966a19" class="outline-4">
+<h4 id="org0966a19"><span class="section-number-4">4.1.3.</span> sed -i.bak</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 sed：是一个强大的流编辑器，用于对文本进行替换、删除、插入等操作。它逐行读取输入的文本，并根据用户提供的脚本对文本进行相应修改。
@@ -411,8 +411,8 @@ sed：是一个强大的流编辑器，用于对文本进行替换、删除、�
 </div>
 
 
-<div id="outline-container-orgad1d466" class="outline-4">
-<h4 id="orgad1d466"><span class="section-number-4">4.1.4.</span> -e '/需要删除的文本/d'</h4>
+<div id="outline-container-org2ccd1cc" class="outline-4">
+<h4 id="org2ccd1cc"><span class="section-number-4">4.1.4.</span> -e '/需要删除的文本/d'</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <p>
 -e：sed 命令的选项，用于指定要执行的脚本命令。可以使用多个 -e 选项来依次执行多个不同的脚本命令。
@@ -422,8 +422,8 @@ sed：是一个强大的流编辑器，用于对文本进行替换、删除、�
 </div>
 
 
-<div id="outline-container-org8fc38f9" class="outline-4">
-<h4 id="org8fc38f9"><span class="section-number-4">4.1.5.</span> -e '/需要删除的文本2/d'</h4>
+<div id="outline-container-org7c90873" class="outline-4">
+<h4 id="org7c90873"><span class="section-number-4">4.1.5.</span> -e '/需要删除的文本2/d'</h4>
 <div class="outline-text-4" id="text-4-1-5">
 <p>
 同理，这也是一个 sed 脚本命令。它会查找包含 需要删除的文本2 的行，并将这些行从文本中删除。
@@ -439,8 +439,8 @@ sed：是一个强大的流编辑器，用于对文本进行替换、删除、�
 </div>
 
 
-<div id="outline-container-orgd38f800" class="outline-3">
-<h3 id="orgd38f800"><span class="section-number-3">4.2.</span> 总结</h3>
+<div id="outline-container-orge29ffa7" class="outline-3">
+<h3 id="orge29ffa7"><span class="section-number-3">4.2.</span> 总结</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 整个代码通过 find 命令定位到符合条件的 .org 文件，然后使用 sed 命令对这些文件进行修改，删除包含指定文本的行，并且会为每个修改的文件创建一个备份。
@@ -452,7 +452,7 @@ sed：是一个强大的流编辑器，用于对文本进行替换、删除、�
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-02-23 Sun 13:36</p>
+<p class="date">Created: 2025-03-14 Fri 19:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
