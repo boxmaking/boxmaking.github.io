@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magit-学习笔记</title>
@@ -26,44 +26,44 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf50d3c1">1. Magit：Emacs 强大的 Git 客户端</a></li>
-<li><a href="#org60e29cd">2. 一、安装与基础配置</a>
+<li><a href="#orgc4a258a">1. Magit：Emacs 强大的 Git 客户端</a></li>
+<li><a href="#org9d23f7c">2. 一、安装与基础配置</a>
 <ul>
-<li><a href="#org43bba2c">2.1. 1. 安装Magit</a></li>
-<li><a href="#org35c131a">2.2. 2. 克隆仓库</a></li>
+<li><a href="#org6d3f6b1">2.1. 1. 安装Magit</a></li>
+<li><a href="#orge24639d">2.2. 2. 克隆仓库</a></li>
 </ul>
 </li>
-<li><a href="#org126812c">3. 二、核心操作流程</a>
+<li><a href="#orgce7e79d">3. 二、核心操作流程</a>
 <ul>
-<li><a href="#org6c72c93">3.1. 1. 查看项目状态</a></li>
-<li><a href="#org664e90c">3.2. 2. 文件暂存与撤销</a></li>
-<li><a href="#orgac9d7cd">3.3. 3. 提交变更</a></li>
-<li><a href="#org8e94a5d">3.4. 4. 推送与拉取</a></li>
+<li><a href="#org4ff1377">3.1. 1. 查看项目状态</a></li>
+<li><a href="#org2712dda">3.2. 2. 文件暂存与撤销</a></li>
+<li><a href="#org094288b">3.3. 3. 提交变更</a></li>
+<li><a href="#org5dfb20b">3.4. 4. 推送与拉取</a></li>
 </ul>
 </li>
-<li><a href="#orgbed4547">4. 三、分支与合并</a>
+<li><a href="#org6bc11ed">4. 三、分支与合并</a>
 <ul>
-<li><a href="#org4e27944">4.1. 1. 分支操作</a></li>
-<li><a href="#orgd549f36">4.2. 2. 合并与变基</a></li>
+<li><a href="#org2731bbd">4.1. 1. 分支操作</a></li>
+<li><a href="#orge1ecd01">4.2. 2. 合并与变基</a></li>
 </ul>
 </li>
-<li><a href="#orgfecb4e9">5. 四、高级功能</a>
+<li><a href="#orgaf214b9">5. 四、高级功能</a>
 <ul>
-<li><a href="#orge24bbbd">5.1. 1. 日志查看与过滤</a></li>
-<li><a href="#org4f442e5">5.2. 2. 解决冲突</a></li>
-<li><a href="#org363248e">5.3. 3. 暂存管理（Stashing）</a></li>
-<li><a href="#orgfa44b46">5.4. 4. 模块化操作</a></li>
+<li><a href="#orga12f309">5.1. 1. 日志查看与过滤</a></li>
+<li><a href="#orgb356006">5.2. 2. 解决冲突</a></li>
+<li><a href="#orgdb2818a">5.3. 3. 暂存管理（Stashing）</a></li>
+<li><a href="#orgd30bc9b">5.4. 4. 模块化操作</a></li>
 </ul>
 </li>
-<li><a href="#orgeccd32e">6. 五、快捷键与帮助</a></li>
-<li><a href="#org26b1be7">7. 六、实践建议</a></li>
-<li><a href="#orgc621373">8. 参考资料</a></li>
+<li><a href="#org79765f9">6. 五、快捷键与帮助</a></li>
+<li><a href="#orgb37f869">7. 六、实践建议</a></li>
+<li><a href="#orgf5bef6f">8. 参考资料</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgf50d3c1" class="outline-2">
-<h2 id="orgf50d3c1"><span class="section-number-2">1.</span> Magit：Emacs 强大的 Git 客户端</h2>
+<div id="outline-container-orgc4a258a" class="outline-2">
+<h2 id="orgc4a258a"><span class="section-number-2">1.</span> Magit：Emacs 强大的 Git 客户端</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用。核心功能教程如下：
@@ -71,12 +71,12 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org60e29cd" class="outline-2">
-<h2 id="org60e29cd"><span class="section-number-2">2.</span> 一、安装与基础配置</h2>
+<div id="outline-container-org9d23f7c" class="outline-2">
+<h2 id="org9d23f7c"><span class="section-number-2">2.</span> 一、安装与基础配置</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org43bba2c" class="outline-3">
-<h3 id="org43bba2c"><span class="section-number-3">2.1.</span> 1. 安装Magit</h3>
+<div id="outline-container-org6d3f6b1" class="outline-3">
+<h3 id="org6d3f6b1"><span class="section-number-3">2.1.</span> 1. 安装Magit</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>通过 <code>package-install</code> 安装</li>
@@ -91,8 +91,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org35c131a" class="outline-3">
-<h3 id="org35c131a"><span class="section-number-3">2.2.</span> 2. 克隆仓库</h3>
+<div id="outline-container-orge24639d" class="outline-3">
+<h3 id="orge24639d"><span class="section-number-3">2.2.</span> 2. 克隆仓库</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>使用命令 <code>M-x magit-clone</code></li>
@@ -102,12 +102,12 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org126812c" class="outline-2">
-<h2 id="org126812c"><span class="section-number-2">3.</span> 二、核心操作流程</h2>
+<div id="outline-container-orgce7e79d" class="outline-2">
+<h2 id="orgce7e79d"><span class="section-number-2">3.</span> 二、核心操作流程</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org6c72c93" class="outline-3">
-<h3 id="org6c72c93"><span class="section-number-3">3.1.</span> 1. 查看项目状态</h3>
+<div id="outline-container-org4ff1377" class="outline-3">
+<h3 id="org4ff1377"><span class="section-number-3">3.1.</span> 1. 查看项目状态</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>执行 <code>magit-status</code> (默认快捷键 <code>C-x g</code>)</li>
@@ -117,8 +117,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org664e90c" class="outline-3">
-<h3 id="org664e90c"><span class="section-number-3">3.2.</span> 2. 文件暂存与撤销</h3>
+<div id="outline-container-org2712dda" class="outline-3">
+<h3 id="org2712dda"><span class="section-number-3">3.2.</span> 2. 文件暂存与撤销</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>暂存文件：光标移至文件按 =s=，或选中区域后批量暂存</li>
@@ -128,8 +128,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgac9d7cd" class="outline-3">
-<h3 id="orgac9d7cd"><span class="section-number-3">3.3.</span> 3. 提交变更</h3>
+<div id="outline-container-org094288b" class="outline-3">
+<h3 id="org094288b"><span class="section-number-3">3.3.</span> 3. 提交变更</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>按 <code>c c</code> 进入提交消息编辑模式</li>
@@ -139,8 +139,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org8e94a5d" class="outline-3">
-<h3 id="org8e94a5d"><span class="section-number-3">3.4.</span> 4. 推送与拉取</h3>
+<div id="outline-container-org5dfb20b" class="outline-3">
+<h3 id="org5dfb20b"><span class="section-number-3">3.4.</span> 4. 推送与拉取</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>推送提交：按 <code>P p</code> (大写P后小写p)</li>
@@ -150,12 +150,12 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgbed4547" class="outline-2">
-<h2 id="orgbed4547"><span class="section-number-2">4.</span> 三、分支与合并</h2>
+<div id="outline-container-org6bc11ed" class="outline-2">
+<h2 id="org6bc11ed"><span class="section-number-2">4.</span> 三、分支与合并</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org4e27944" class="outline-3">
-<h3 id="org4e27944"><span class="section-number-3">4.1.</span> 1. 分支操作</h3>
+<div id="outline-container-org2731bbd" class="outline-3">
+<h3 id="org2731bbd"><span class="section-number-3">4.1.</span> 1. 分支操作</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>创建分支：按 <code>b c</code> 输入新分支名</li>
@@ -165,8 +165,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgd549f36" class="outline-3">
-<h3 id="orgd549f36"><span class="section-number-3">4.2.</span> 2. 合并与变基</h3>
+<div id="outline-container-orge1ecd01" class="outline-3">
+<h3 id="orge1ecd01"><span class="section-number-3">4.2.</span> 2. 合并与变基</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>合并分支：按 <code>m m</code> 选择待合并分支</li>
@@ -176,12 +176,12 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgfecb4e9" class="outline-2">
-<h2 id="orgfecb4e9"><span class="section-number-2">5.</span> 四、高级功能</h2>
+<div id="outline-container-orgaf214b9" class="outline-2">
+<h2 id="orgaf214b9"><span class="section-number-2">5.</span> 四、高级功能</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orge24bbbd" class="outline-3">
-<h3 id="orge24bbbd"><span class="section-number-3">5.1.</span> 1. 日志查看与过滤</h3>
+<div id="outline-container-orga12f309" class="outline-3">
+<h3 id="orga12f309"><span class="section-number-3">5.1.</span> 1. 日志查看与过滤</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>按 <code>l l</code> 查看提交日志，支持参数（如 ~-n150~）</li>
@@ -190,8 +190,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org4f442e5" class="outline-3">
-<h3 id="org4f442e5"><span class="section-number-3">5.2.</span> 2. 解决冲突</h3>
+<div id="outline-container-orgb356006" class="outline-3">
+<h3 id="orgb356006"><span class="section-number-3">5.2.</span> 2. 解决冲突</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>冲突文件标记后按 <code>E</code> 进入编辑模式</li>
@@ -200,8 +200,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org363248e" class="outline-3">
-<h3 id="org363248e"><span class="section-number-3">5.3.</span> 3. 暂存管理（Stashing）</h3>
+<div id="outline-container-orgdb2818a" class="outline-3">
+<h3 id="orgdb2818a"><span class="section-number-3">5.3.</span> 3. 暂存管理（Stashing）</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>暂存修改：按 <code>z s</code> 输入名称</li>
@@ -210,8 +210,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgfa44b46" class="outline-3">
-<h3 id="orgfa44b46"><span class="section-number-3">5.4.</span> 4. 模块化操作</h3>
+<div id="outline-container-orgd30bc9b" class="outline-3">
+<h3 id="orgd30bc9b"><span class="section-number-3">5.4.</span> 4. 模块化操作</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>子模块管理：~M-x magit-submodule~</li>
@@ -221,8 +221,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgeccd32e" class="outline-2">
-<h2 id="orgeccd32e"><span class="section-number-2">6.</span> 五、快捷键与帮助</h2>
+<div id="outline-container-org79765f9" class="outline-2">
+<h2 id="org79765f9"><span class="section-number-2">6.</span> 五、快捷键与帮助</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>按 <code>?</code> 显示所有快捷键</li>
@@ -231,8 +231,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-org26b1be7" class="outline-2">
-<h2 id="org26b1be7"><span class="section-number-2">7.</span> 六、实践建议</h2>
+<div id="outline-container-orgb37f869" class="outline-2">
+<h2 id="orgb37f869"><span class="section-number-2">7.</span> 六、实践建议</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Spacemacs 集成：通过 <code>SPC g s</code> 快速调用</li>
@@ -242,8 +242,8 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 </div>
 </div>
 
-<div id="outline-container-orgc621373" class="outline-2">
-<h2 id="orgc621373"><span class="section-number-2">8.</span> 参考资料</h2>
+<div id="outline-container-orgf5bef6f" class="outline-2">
+<h2 id="orgf5bef6f"><span class="section-number-2">8.</span> 参考资料</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li><a href="https://magit.vc/manual/">官方文档</a></li>
@@ -255,7 +255,7 @@ Magit 通过交互式界面极大简化 Git 操作，适合全阶段用户使用
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-03-14-073/Friday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

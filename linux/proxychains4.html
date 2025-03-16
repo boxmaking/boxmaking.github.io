@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux下proxychains4使用教程</title>
@@ -26,15 +26,15 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga3bd62c">1. 安装</a></li>
-<li><a href="#org734dfdb">2. 配置 proxychains4</a></li>
-<li><a href="#orgf9da357">3. 使用方法:</a></li>
+<li><a href="#org919bfbd">1. 安装</a></li>
+<li><a href="#orgd684ba2">2. 配置 proxychains4</a></li>
+<li><a href="#org5fbc51e">3. 使用方法:</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orga3bd62c" class="outline-2">
-<h2 id="orga3bd62c"><span class="section-number-2">1.</span> 安装</h2>
+<div id="outline-container-org919bfbd" class="outline-2">
+<h2 id="org919bfbd"><span class="section-number-2">1.</span> 安装</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo apt install proxychains4
@@ -44,8 +44,8 @@
 </div>
 
 
-<div id="outline-container-org734dfdb" class="outline-2">
-<h2 id="org734dfdb"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
+<div id="outline-container-orgd684ba2" class="outline-2">
+<h2 id="orgd684ba2"><span class="section-number-2">2.</span> 配置 proxychains4</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo emacs /etc/proxychains4.conf
@@ -55,7 +55,7 @@
 <ol class="org-ol">
 <li>将</li>
 </ol>
-<pre class="example" id="org43a295e">
+<pre class="example" id="orgd7b2f40">
 socks4 127.0.0.1 9095
 更改为
 socks5 127.0.0.1 1080
@@ -72,8 +72,8 @@ proxychains.conf文件说明了代理配置格式.
 </div>
 </div>
 
-<div id="outline-container-orgf9da357" class="outline-2">
-<h2 id="orgf9da357"><span class="section-number-2">3.</span> 使用方法:</h2>
+<div id="outline-container-org5fbc51e" class="outline-2">
+<h2 id="org5fbc51e"><span class="section-number-2">3.</span> 使用方法:</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在需要代理的命令前加上 proxychains4 即可，如：
@@ -88,7 +88,7 @@ proxychains.conf文件说明了代理配置格式.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-06-28-180/Sunday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

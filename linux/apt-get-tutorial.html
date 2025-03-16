@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>apt-get教程使用</title>
@@ -26,20 +26,20 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7b29560">1. 查看软件包的详细网址和各种依赖情况</a></li>
-<li><a href="#orgcf1af1a">2. apt-get意外中断解决办法</a>
+<li><a href="#orgdbdddc8">1. 查看软件包的详细网址和各种依赖情况</a></li>
+<li><a href="#org9573489">2. apt-get意外中断解决办法</a>
 <ul>
-<li><a href="#orgad01745">2.1. 尾声</a></li>
+<li><a href="#orgb6828e2">2.1. 尾声</a></li>
 </ul>
 </li>
-<li><a href="#org299b302">3. dpkg安装和卸载软件教程</a></li>
-<li><a href="#org667b723">4. dpkg使用代理</a></li>
+<li><a href="#org4c464c1">3. dpkg安装和卸载软件教程</a></li>
+<li><a href="#org7933fd0">4. dpkg使用代理</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org7b29560" class="outline-2">
-<h2 id="org7b29560"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
+<div id="outline-container-orgdbdddc8" class="outline-2">
+<h2 id="orgdbdddc8"><span class="section-number-2">1.</span> 查看软件包的详细网址和各种依赖情况</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-shell">$apt-cache show programname
@@ -49,8 +49,8 @@
 </div>
 
 
-<div id="outline-container-orgcf1af1a" class="outline-2">
-<h2 id="orgcf1af1a"><span class="section-number-2">2.</span> apt-get意外中断解决办法</h2>
+<div id="outline-container-org9573489" class="outline-2">
+<h2 id="org9573489"><span class="section-number-2">2.</span> apt-get意外中断解决办法</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Ctrl+c/z中断后
@@ -69,8 +69,8 @@ $sudo dpkg --configure -a
 </div>
 </div>
 
-<div id="outline-container-orgad01745" class="outline-3">
-<h3 id="orgad01745"><span class="section-number-3">2.1.</span> 尾声</h3>
+<div id="outline-container-orgb6828e2" class="outline-3">
+<h3 id="orgb6828e2"><span class="section-number-3">2.1.</span> 尾声</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 其实我以前也碰到过这几个个问题,当时没能解决掉,现在终于完成了
@@ -82,8 +82,8 @@ $sudo dpkg --configure -a
 </div>
 
 
-<div id="outline-container-org299b302" class="outline-2">
-<h2 id="org299b302"><span class="section-number-2">3.</span> dpkg安装和卸载软件教程</h2>
+<div id="outline-container-org4c464c1" class="outline-2">
+<h2 id="org4c464c1"><span class="section-number-2">3.</span> dpkg安装和卸载软件教程</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo dpkg -i ***.deb #安装
@@ -96,14 +96,14 @@ $sudo dpkg --remove ***  #卸载软件包
 </div>
 
 
-<div id="outline-container-org667b723" class="outline-2">
-<h2 id="org667b723"><span class="section-number-2">4.</span> dpkg使用代理</h2>
+<div id="outline-container-org7933fd0" class="outline-2">
+<h2 id="org7933fd0"><span class="section-number-2">4.</span> dpkg使用代理</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 21:05:41&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

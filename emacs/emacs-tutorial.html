@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs-原装教程文件训练</title>
@@ -26,56 +26,56 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgec6d1b7">1. 基本命令</a></li>
-<li><a href="#orga82f210">2. 一些小技巧</a></li>
-<li><a href="#org2dd6bc8">3. 比较重要的快捷键&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span></span></a></li>
-<li><a href="#orgd15e5ec">4. 基本的光标控制（BASIC CURSOR CONTROL）</a>
+<li><a href="#org23b4b13">1. 基本命令</a></li>
+<li><a href="#org65ff15d">2. 一些小技巧</a></li>
+<li><a href="#org9ff9ec1">3. 比较重要的快捷键&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span></span></a></li>
+<li><a href="#org5a07a17">4. 基本的光标控制（BASIC CURSOR CONTROL）</a>
 <ul>
-<li><a href="#org8b598f5">4.1. 使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令</a></li>
-<li><a href="#orgba57b83">4.2. M-f (META-f) &#x2013; M-b (META)</a></li>
-<li><a href="#orga632aa7">4.3. C-a 和 C-e 可以将光标移动到</a></li>
-<li><a href="#org8b882a0">4.4. C-u 然后输入数字作为参数，最后再输入命令</a></li>
-<li><a href="#orga1d9eda">4.5. 总结重要命令&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="______">光标移动相关</span></span></a></li>
-<li><a href="#org79ae134">4.6. 如果 emacs 失去响应（if emacs stops responding）</a></li>
+<li><a href="#org9487c2c">4.1. 使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令</a></li>
+<li><a href="#org0097e47">4.2. M-f (META-f) &#x2013; M-b (META)</a></li>
+<li><a href="#org093c1b3">4.3. C-a 和 C-e 可以将光标移动到</a></li>
+<li><a href="#org1afaf3a">4.4. C-u 然后输入数字作为参数，最后再输入命令</a></li>
+<li><a href="#orge61c307">4.5. 总结重要命令&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="______">光标移动相关</span></span></a></li>
+<li><a href="#orgbd723c3">4.6. 如果 emacs 失去响应（if emacs stops responding）</a></li>
 </ul>
 </li>
-<li><a href="#orgb36a632">5. 窗格（WINDOWS）</a></li>
-<li><a href="#orgb7b59ad">6. 插入与删除（INSERTING AND DELETING）</a>
+<li><a href="#org8d70526">5. 窗格（WINDOWS）</a></li>
+<li><a href="#org509b4e1">6. 插入与删除（INSERTING AND DELETING）</a>
 <ul>
-<li><a href="#orgd49f52a">6.1. 下面是一个关于“删除”操作的小结：&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">删除相关</span></span></a></li>
-<li><a href="#org4f4ca53">6.2. copy,cut,paste</a></li>
+<li><a href="#org9541b45">6.1. 下面是一个关于“删除”操作的小结：&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">删除相关</span></span></a></li>
+<li><a href="#org4dae842">6.2. copy,cut,paste</a></li>
 </ul>
 </li>
-<li><a href="#orge266c5a">7. 撤销（UNDO）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">撤销相关</span></span></a></li>
-<li><a href="#org090d116">8. 文件（FILE）</a></li>
-<li><a href="#org1f0fdd3">9. 缓冲区（BUFFER）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_______">切换缓冲区相关</span></span></a></li>
-<li><a href="#orgdb2d53a">10. 命令集扩展（EXTENDING THE COMMAND SET）</a>
+<li><a href="#org371ff1b">7. 撤销（UNDO）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">撤销相关</span></span></a></li>
+<li><a href="#orge6f1c7e">8. 文件（FILE）</a></li>
+<li><a href="#org803df87">9. 缓冲区（BUFFER）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_______">切换缓冲区相关</span></span></a></li>
+<li><a href="#orga069569">10. 命令集扩展（EXTENDING THE COMMAND SET）</a>
 <ul>
-<li><a href="#org56c52ed">10.1. replace-string（字符串替换）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">替换相关</span></span></a></li>
+<li><a href="#orgbe2fb74">10.1. replace-string（字符串替换）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">替换相关</span></span></a></li>
 </ul>
 </li>
-<li><a href="#orgdd5feec">11. 自动保存（AUTO SAVE）</a></li>
-<li><a href="#orge51e196">12. 回显区（ECHO AREA）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="___">回显区</span></span></a></li>
-<li><a href="#orgde2bbd4">13. 状态栏（MODE LINE）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">状态栏相关</span></span></a></li>
-<li><a href="#orgbedd98e">14. 搜索（SEARCHING）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="____">搜索相关</span></span></a></li>
-<li><a href="#org67dc825">15. 多窗格（MULTIPLE WINDOWS）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_____">多窗口相关</span></span></a></li>
-<li><a href="#org7415c85">16. 多窗口（MULTIPLE FRAMES）</a></li>
-<li><a href="#org97cc7bf">17. 递归编辑（RECURSIVE EDITING LEVELS）</a></li>
-<li><a href="#orgc0af530">18. 获得更多帮助（GETTING MORE HELP）</a></li>
-<li><a href="#org0fbdd4a">19. 更多教程相关,和教程注释</a>
+<li><a href="#org938f474">11. 自动保存（AUTO SAVE）</a></li>
+<li><a href="#org3da51f4">12. 回显区（ECHO AREA）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="___">回显区</span></span></a></li>
+<li><a href="#org85b7a02">13. 状态栏（MODE LINE）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">状态栏相关</span></span></a></li>
+<li><a href="#orgf5e5cdc">14. 搜索（SEARCHING）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="____">搜索相关</span></span></a></li>
+<li><a href="#org974c865">15. 多窗格（MULTIPLE WINDOWS）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_____">多窗口相关</span></span></a></li>
+<li><a href="#orgaf48342">16. 多窗口（MULTIPLE FRAMES）</a></li>
+<li><a href="#org3a922a2">17. 递归编辑（RECURSIVE EDITING LEVELS）</a></li>
+<li><a href="#orgaaa35e6">18. 获得更多帮助（GETTING MORE HELP）</a></li>
+<li><a href="#org67d9069">19. 更多教程相关,和教程注释</a>
 <ul>
-<li><a href="#org7018062">19.1. 总结（CONCLUSION）</a></li>
-<li><a href="#orga735750">19.2. 翻译（TRANSLATION）</a></li>
-<li><a href="#orgf4d5125">19.3. 版权声明（COPYING）</a></li>
-<li><a href="#orged45f9b">19.4. 更多精彩（MORE FEATURES）</a></li>
+<li><a href="#org6d142f8">19.1. 总结（CONCLUSION）</a></li>
+<li><a href="#org8b6852e">19.2. 翻译（TRANSLATION）</a></li>
+<li><a href="#org4d74ad7">19.3. 版权声明（COPYING）</a></li>
+<li><a href="#orgc89e7e0">19.4. 更多精彩（MORE FEATURES）</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgec6d1b7" class="outline-2">
-<h2 id="orgec6d1b7"><span class="section-number-2">1.</span> 基本命令</h2>
+<div id="outline-container-org23b4b13" class="outline-2">
+<h2 id="org23b4b13"><span class="section-number-2">1.</span> 基本命令</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>Emacs 键盘命令通常包含 
@@ -106,8 +106,8 @@ C-f 就表示：按住 CONTROL 键再输入 f
 </div>
 
 
-<div id="outline-container-orga82f210" class="outline-2">
-<h2 id="orga82f210"><span class="section-number-2">2.</span> 一些小技巧</h2>
+<div id="outline-container-org65ff15d" class="outline-2">
+<h2 id="org65ff15d"><span class="section-number-2">2.</span> 一些小技巧</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>输入特殊字符
@@ -119,8 +119,8 @@ C-f 就表示：按住 CONTROL 键再输入 f
 </div>
 
 
-<div id="outline-container-org2dd6bc8" class="outline-2">
-<h2 id="org2dd6bc8"><span class="section-number-2">3.</span> 比较重要的快捷键&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span></span></h2>
+<div id="outline-container-org9ff9ec1" class="outline-2">
+<h2 id="org9ff9ec1"><span class="section-number-2">3.</span> 比较重要的快捷键&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span></span></h2>
 <div class="outline-text-2" id="text-3">
 <p>
 C-v     向前移动一屏
@@ -131,12 +131,12 @@ C-l     重绘屏幕，并将光标所在行置于屏幕的中央
 </div>
 
 
-<div id="outline-container-orgd15e5ec" class="outline-2">
-<h2 id="orgd15e5ec"><span class="section-number-2">4.</span> 基本的光标控制（BASIC CURSOR CONTROL）</h2>
+<div id="outline-container-org5a07a17" class="outline-2">
+<h2 id="org5a07a17"><span class="section-number-2">4.</span> 基本的光标控制（BASIC CURSOR CONTROL）</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org8b598f5" class="outline-3">
-<h3 id="org8b598f5"><span class="section-number-3">4.1.</span> 使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令</h3>
+<div id="outline-container-org9487c2c" class="outline-3">
+<h3 id="org9487c2c"><span class="section-number-3">4.1.</span> 使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 P N B F”四个字母分别代表了四个词
@@ -155,8 +155,8 @@ F 则代表 forward（前进）
 </div>
 </div>
 
-<div id="outline-container-orgba57b83" class="outline-3">
-<h3 id="orgba57b83"><span class="section-number-3">4.2.</span> M-f (META-f) &#x2013; M-b (META)</h3>
+<div id="outline-container-org0097e47" class="outline-3">
+<h3 id="org0097e47"><span class="section-number-3">4.2.</span> M-f (META-f) &#x2013; M-b (META)</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 M-f 会移动到这个词的末尾
@@ -168,7 +168,7 @@ M-b 的功能类似，只是方向相反。
 
 
 <ol class="org-ol">
-<li><a id="orgc3c3789"></a>请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系<br>
+<li><a id="orgd723737"></a>请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系<br>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 通常的惯例是
@@ -180,8 +180,8 @@ CONTROL系列组合键用来操作“与语言无关的基本单位（比如字�
 </ol>
 </div>
 
-<div id="outline-container-orga632aa7" class="outline-3">
-<h3 id="orga632aa7"><span class="section-number-3">4.3.</span> C-a 和 C-e 可以将光标移动到</h3>
+<div id="outline-container-org093c1b3" class="outline-3">
+<h3 id="org093c1b3"><span class="section-number-3">4.3.</span> C-a 和 C-e 可以将光标移动到</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 “一行”的头部和尾部；而 M-a 和 M-e 则将光标移动到“一句”的头部和尾部。
@@ -197,7 +197,7 @@ CONTROL系列组合键用来操作“与语言无关的基本单位（比如字�
 
 
 <ol class="org-ol">
-<li><a id="org3d8f8fa"></a>注意，在大部分键盘上，小于号（&lt;）需要用上档键（Shift）来输入，所以在这<br>
+<li><a id="org9df4705"></a>注意，在大部分键盘上，小于号（&lt;）需要用上档键（Shift）来输入，所以在这<br>
 <div class="outline-text-4" id="text-4-3-1">
 <p>
 些键盘上你应该用 Shift 键来输入 M-&lt;，如果不按 Shift 键，你输入的会是
@@ -206,7 +206,7 @@ M-comma（META 逗号）。
 </div>
 </li>
 
-<li><a id="org60953ed"></a>推荐你学习 C-b 、C-f 、C-n 、和 C-p<br>
+<li><a id="org78995d2"></a>推荐你学习 C-b 、C-f 、C-n 、和 C-p<br>
 <div class="outline-text-4" id="text-4-3-2">
 <p>
 （1）它们在任何键盘上都能用。
@@ -218,8 +218,8 @@ M-comma（META 逗号）。
 </ol>
 </div>
 
-<div id="outline-container-org8b882a0" class="outline-3">
-<h3 id="org8b882a0"><span class="section-number-3">4.4.</span> C-u 然后输入数字作为参数，最后再输入命令</h3>
+<div id="outline-container-org1afaf3a" class="outline-3">
+<h3 id="org1afaf3a"><span class="section-number-3">4.4.</span> C-u 然后输入数字作为参数，最后再输入命令</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 如果你有META （或EDIT 或 ALT）键，那么还有另一种办法：按住 META 键不放，然后输入数字。不过我们还是建议你用 C-u，因为它在任何终端机上都能用。这种数字参数也称为“前缀参数”，意思是说这个参数是先于使用它的命令而输入的。
@@ -232,7 +232,7 @@ M-comma（META 逗号）。
 
 
 <ol class="org-ol">
-<li><a id="org9e0683b"></a>而 C-v 和 M-v 则属于另一种类型的例外。当给定一个参数时，它们将滚动你指<br>
+<li><a id="org2b3328b"></a>而 C-v 和 M-v 则属于另一种类型的例外。当给定一个参数时，它们将滚动你指<br>
 <div class="outline-text-4" id="text-4-4-1">
 <p>
 定的“行数”，而不是“屏数”。举例来说，C-u 8 C-v 将文本向下滚动 8 行。
@@ -241,8 +241,8 @@ M-comma（META 逗号）。
 </li>
 </ol>
 </div>
-<div id="outline-container-orga1d9eda" class="outline-3">
-<h3 id="orga1d9eda"><span class="section-number-3">4.5.</span> 总结重要命令&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="______">光标移动相关</span></span></h3>
+<div id="outline-container-orge61c307" class="outline-3">
+<h3 id="orge61c307"><span class="section-number-3">4.5.</span> 总结重要命令&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="______">光标移动相关</span></span></h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 c-f     向右移动一个字符
@@ -287,8 +287,8 @@ M-g M-g       移动到某行
 </div>
 
 
-<div id="outline-container-org79ae134" class="outline-3">
-<h3 id="org79ae134"><span class="section-number-3">4.6.</span> 如果 emacs 失去响应（if emacs stops responding）</h3>
+<div id="outline-container-orgbd723c3" class="outline-3">
+<h3 id="orgbd723c3"><span class="section-number-3">4.6.</span> 如果 emacs 失去响应（if emacs stops responding）</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 c-g 还可以取消数字参数和只输入到一半的命令。
@@ -307,8 +307,8 @@ c-g 还可以取消数字参数和只输入到一半的命令。
 </div>
 
 
-<div id="outline-container-orgb36a632" class="outline-2">
-<h2 id="orgb36a632"><span class="section-number-2">5.</span> 窗格（WINDOWS）</h2>
+<div id="outline-container-org8d70526" class="outline-2">
+<h2 id="org8d70526"><span class="section-number-2">5.</span> 窗格（WINDOWS）</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Emacs 可以有多个“窗格”，每个窗格显示不同的文字
@@ -332,8 +332,8 @@ C-x 1   只保留一个窗格（也就是关掉其它所有窗格）。
 </div>
 
 
-<div id="outline-container-orgb7b59ad" class="outline-2">
-<h2 id="orgb7b59ad"><span class="section-number-2">6.</span> 插入与删除（INSERTING AND DELETING）</h2>
+<div id="outline-container-org509b4e1" class="outline-2">
+<h2 id="org509b4e1"><span class="section-number-2">6.</span> 插入与删除（INSERTING AND DELETING）</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 插入文字很简单，直接敲键盘就可以了
@@ -351,8 +351,8 @@ C-x 1   只保留一个窗格（也就是关掉其它所有窗格）。
 </p>
 </div>
 
-<div id="outline-container-orgd49f52a" class="outline-3">
-<h3 id="orgd49f52a"><span class="section-number-3">6.1.</span> 下面是一个关于“删除”操作的小结：&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">删除相关</span></span></h3>
+<div id="outline-container-org9541b45" class="outline-3">
+<h3 id="org9541b45"><span class="section-number-3">6.1.</span> 下面是一个关于“删除”操作的小结：&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">删除相关</span></span></h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 &lt;DEL&gt;        删除光标前的一个字符
@@ -376,8 +376,8 @@ M-k          移除从光标到“句尾”间的字符
 </div>
 
 
-<div id="outline-container-org4f4ca53" class="outline-3">
-<h3 id="org4f4ca53"><span class="section-number-3">6.2.</span> copy,cut,paste</h3>
+<div id="outline-container-org4dae842" class="outline-3">
+<h3 id="org4dae842"><span class="section-number-3">6.2.</span> copy,cut,paste</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 C-w &#x2013; 剪切
@@ -406,8 +406,8 @@ M-w &#x2013; 复制当前行
 </div>
 
 
-<div id="outline-container-orge266c5a" class="outline-2">
-<h2 id="orge266c5a"><span class="section-number-2">7.</span> 撤销（UNDO）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">撤销相关</span></span></h2>
+<div id="outline-container-org371ff1b" class="outline-2">
+<h2 id="org371ff1b"><span class="section-number-2">7.</span> 撤销（UNDO）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">撤销相关</span></span></h2>
 <div class="outline-text-2" id="text-7">
 <p>
 用 undo 命令进行撤销：C-/
@@ -416,7 +416,7 @@ M-w &#x2013; 复制当前行
 <ol class="org-ol">
 <li>我绑定快捷键在F2了
  设置在这个配置文件中
-<a href="file:///home/pengshao/.emacs.d/loadfile/pengshao-key-building.el#orgb9ab36b">file:///home/pengshao/.emacs.d/loadfile/pengshao-key-building.el#orgb9ab36b</a></li>
+<a href="file:///home/pengshao/.emacs.d/loadfile/pengshao-key-building.el#org6eeaadb">file:///home/pengshao/.emacs.d/loadfile/pengshao-key-building.el#org6eeaadb</a></li>
 
 <li>但是有两个例外：
 <ol class="org-ol">
@@ -434,8 +434,8 @@ C-x u 和 C-/ 完全一样，但是按起来有些麻烦。</li>
 </div>
 
 
-<div id="outline-container-org090d116" class="outline-2">
-<h2 id="org090d116"><span class="section-number-2">8.</span> 文件（FILE）</h2>
+<div id="outline-container-orge6f1c7e" class="outline-2">
+<h2 id="orge6f1c7e"><span class="section-number-2">8.</span> 文件（FILE）</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li><p>
@@ -467,7 +467,7 @@ C-x C-w   另存为
 </p></li>
 
 <li><p>
-备份相关<a id="orge7a3e10"></a>  <a href="#orgc1b08f0">11</a>
+备份相关<a id="org133fe0a"></a>  <a href="#orgb98c4de">11</a>
 </p>
 
 <p>
@@ -484,8 +484,8 @@ M-x customize-variable &lt;Return&gt; make-backup-files &lt;Return&gt;】
 </div>
 
 
-<div id="outline-container-org1f0fdd3" class="outline-2">
-<h2 id="org1f0fdd3"><span class="section-number-2">9.</span> 缓冲区（BUFFER）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_______">切换缓冲区相关</span></span></h2>
+<div id="outline-container-org803df87" class="outline-2">
+<h2 id="org803df87"><span class="section-number-2">9.</span> 缓冲区（BUFFER）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_______">切换缓冲区相关</span></span></h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Emacs 把每个编辑中的文件都放在一个称为“缓冲区（buffer）”的地方
@@ -505,8 +505,8 @@ C-x s     保存多个缓冲区
 </div>
 
 
-<div id="outline-container-orgdb2d53a" class="outline-2">
-<h2 id="orgdb2d53a"><span class="section-number-2">10.</span> 命令集扩展（EXTENDING THE COMMAND SET）</h2>
+<div id="outline-container-orga069569" class="outline-2">
+<h2 id="orga069569"><span class="section-number-2">10.</span> 命令集扩展（EXTENDING THE COMMAND SET）</h2>
 <div class="outline-text-2" id="text-10">
 <hr>
 
@@ -544,8 +544,8 @@ C-x u           撤销。
 </div>
 
 
-<div id="outline-container-org56c52ed" class="outline-3">
-<h3 id="org56c52ed"><span class="section-number-3">10.1.</span> replace-string（字符串替换）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">替换相关</span></span></h3>
+<div id="outline-container-orgbe2fb74" class="outline-3">
+<h3 id="orgbe2fb74"><span class="section-number-3">10.1.</span> replace-string（字符串替换）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="____">替换相关</span></span></h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 这个命令，它会把一个字符串替换成另一个.
@@ -569,11 +569,11 @@ M-x repl s&lt;Return&gt;changed&lt;Return&gt;altered&lt;Return&gt;.
 
 
 
-<div id="outline-container-orgdd5feec" class="outline-2">
-<h2 id="orgdd5feec"><span class="section-number-2">11.</span> 自动保存（AUTO SAVE）</h2>
+<div id="outline-container-org938f474" class="outline-2">
+<h2 id="org938f474"><span class="section-number-2">11.</span> 自动保存（AUTO SAVE）</h2>
 <div class="outline-text-2" id="text-11">
 <p>
-<a href="#orge7a3e10">2</a>  <a id="orgc1b08f0"></a>
+<a href="#org133fe0a">2</a>  <a id="orgb98c4de"></a>
 </p>
 
 <p>
@@ -593,8 +593,8 @@ M-x repl s&lt;Return&gt;changed&lt;Return&gt;altered&lt;Return&gt;.
 </div>
 
 
-<div id="outline-container-orge51e196" class="outline-2">
-<h2 id="orge51e196"><span class="section-number-2">12.</span> 回显区（ECHO AREA）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="___">回显区</span></span></h2>
+<div id="outline-container-org3da51f4" class="outline-2">
+<h2 id="org3da51f4"><span class="section-number-2">12.</span> 回显区（ECHO AREA）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="___">回显区</span></span></h2>
 <div class="outline-text-2" id="text-12">
 <p>
 如果 Emacs 发现你输入多字符命令的节奏很慢，它会在窗格的下方称为“回显区”
@@ -604,8 +604,8 @@ M-x repl s&lt;Return&gt;changed&lt;Return&gt;altered&lt;Return&gt;.
 </div>
 
 
-<div id="outline-container-orgde2bbd4" class="outline-2">
-<h2 id="orgde2bbd4"><span class="section-number-2">13.</span> 状态栏（MODE LINE）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">状态栏相关</span></span></h2>
+<div id="outline-container-org85b7a02" class="outline-2">
+<h2 id="org85b7a02"><span class="section-number-2">13.</span> 状态栏（MODE LINE）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">状态栏相关</span></span></h2>
 <div class="outline-text-2" id="text-13">
 <p>
 位于回显区正上方的一行被称为“状态栏”.状态栏上会显示一些信息，比如：
@@ -734,8 +734,8 @@ mode）存在.辅模式并不能替代主模式，而是提供一些辅助的功
 </div>
 
 
-<div id="outline-container-orgbedd98e" class="outline-2">
-<h2 id="orgbedd98e"><span class="section-number-2">14.</span> 搜索（SEARCHING）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="____">搜索相关</span></span></h2>
+<div id="outline-container-orgf5e5cdc" class="outline-2">
+<h2 id="orgf5e5cdc"><span class="section-number-2">14.</span> 搜索（SEARCHING）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="____">搜索相关</span></span></h2>
 <div class="outline-text-2" id="text-14">
 <p>
 Emacs 可以向前或向后搜索字符串（“字符串”指的是一组连续的字符）.搜索命
@@ -795,8 +795,8 @@ C-r 是向后搜索
 </div>
 
 
-<div id="outline-container-org67dc825" class="outline-2">
-<h2 id="org67dc825"><span class="section-number-2">15.</span> 多窗格（MULTIPLE WINDOWS）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_____">多窗口相关</span></span></h2>
+<div id="outline-container-org974c865" class="outline-2">
+<h2 id="org974c865"><span class="section-number-2">15.</span> 多窗格（MULTIPLE WINDOWS）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_____">重要快捷键</span>&#xa0;<span class="_____">多窗口相关</span></span></h2>
 <div class="outline-text-2" id="text-15">
 <p>
 Emacs 的迷人之处很多，能够在屏幕上同时显示多个窗格就是其中之一.
@@ -834,8 +834,8 @@ Emacs 的迷人之处很多，能够在屏幕上同时显示多个窗格就是�
 </div>
 
 
-<div id="outline-container-org7415c85" class="outline-2">
-<h2 id="org7415c85"><span class="section-number-2">16.</span> 多窗口（MULTIPLE FRAMES）</h2>
+<div id="outline-container-orgaf48342" class="outline-2">
+<h2 id="orgaf48342"><span class="section-number-2">16.</span> 多窗口（MULTIPLE FRAMES）</h2>
 <div class="outline-text-2" id="text-16">
 <p>
 Emacs 可以创建多个窗口.窗口由许多窗格以及菜单、滚动条、回显区等组成.
@@ -866,8 +866,8 @@ Emacs 可以创建多个窗口.窗口由许多窗格以及菜单、滚动条、�
 </div>
 
 
-<div id="outline-container-org97cc7bf" class="outline-2">
-<h2 id="org97cc7bf"><span class="section-number-2">17.</span> 递归编辑（RECURSIVE EDITING LEVELS）</h2>
+<div id="outline-container-org3a922a2" class="outline-2">
+<h2 id="org3a922a2"><span class="section-number-2">17.</span> 递归编辑（RECURSIVE EDITING LEVELS）</h2>
 <div class="outline-text-2" id="text-17">
 <p>
 有时候你会进入所谓的“递归编辑”.递归编辑状态由位于状态栏的方括号所指
@@ -894,8 +894,8 @@ Emacs 可以创建多个窗口.窗口由许多窗格以及菜单、滚动条、�
 </div>
 
 
-<div id="outline-container-orgc0af530" class="outline-2">
-<h2 id="orgc0af530"><span class="section-number-2">18.</span> 获得更多帮助（GETTING MORE HELP）</h2>
+<div id="outline-container-orgaaa35e6" class="outline-2">
+<h2 id="orgaaa35e6"><span class="section-number-2">18.</span> 获得更多帮助（GETTING MORE HELP）</h2>
 <div class="outline-text-2" id="text-18">
 <hr>
 
@@ -1017,12 +1017,12 @@ C-h i        阅读手册（也就是通常讲的 Info）.
 
 
 
-<div id="outline-container-org0fbdd4a" class="outline-2">
-<h2 id="org0fbdd4a"><span class="section-number-2">19.</span> 更多教程相关,和教程注释</h2>
+<div id="outline-container-org67d9069" class="outline-2">
+<h2 id="org67d9069"><span class="section-number-2">19.</span> 更多教程相关,和教程注释</h2>
 <div class="outline-text-2" id="text-19">
 </div>
-<div id="outline-container-org7018062" class="outline-3">
-<h3 id="org7018062"><span class="section-number-3">19.1.</span> 总结（CONCLUSION）</h3>
+<div id="outline-container-org6d142f8" class="outline-3">
+<h3 id="org6d142f8"><span class="section-number-3">19.1.</span> 总结（CONCLUSION）</h3>
 <div class="outline-text-3" id="text-19-1">
 <p>
 要退出 Emacs 请用 C-x C-c.
@@ -1036,8 +1036,8 @@ C-h i        阅读手册（也就是通常讲的 Info）.
 </div>
 
 
-<div id="outline-container-orga735750" class="outline-3">
-<h3 id="orga735750"><span class="section-number-3">19.2.</span> 翻译（TRANSLATION）</h3>
+<div id="outline-container-org8b6852e" class="outline-3">
+<h3 id="org8b6852e"><span class="section-number-3">19.2.</span> 翻译（TRANSLATION）</h3>
 <div class="outline-text-3" id="text-19-2">
 <hr>
 
@@ -1133,8 +1133,8 @@ string to search for”.意思是之所以称其为“incremental search”，�
 </div>
 
 
-<div id="outline-container-orgf4d5125" class="outline-3">
-<h3 id="orgf4d5125"><span class="section-number-3">19.3.</span> 版权声明（COPYING）</h3>
+<div id="outline-container-org4d74ad7" class="outline-3">
+<h3 id="org4d74ad7"><span class="section-number-3">19.3.</span> 版权声明（COPYING）</h3>
 <div class="outline-text-3" id="text-19-3">
 <hr>
 
@@ -1235,8 +1235,8 @@ GNU Emacs 是基于使用目的而加以发布，然而不负任何担保责任�
 </div>
 
 
-<div id="outline-container-orged45f9b" class="outline-3">
-<h3 id="orged45f9b"><span class="section-number-3">19.4.</span> 更多精彩（MORE FEATURES）</h3>
+<div id="outline-container-orgc89e7e0" class="outline-3">
+<h3 id="orgc89e7e0"><span class="section-number-3">19.4.</span> 更多精彩（MORE FEATURES）</h3>
 <div class="outline-text-3" id="text-19-4">
 <p>
 想学习更多的使用技巧，Emacs 使用手册（manual）值得一读.你可以读纸版的
@@ -1269,7 +1269,7 @@ Emacs 使用手册里还有许许多多的精彩功能等着你来了解.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 19:35:10&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

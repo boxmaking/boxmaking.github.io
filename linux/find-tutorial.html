@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>find-命令使用教程</title>
@@ -26,16 +26,16 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0448b37">1. find 常用命令</a></li>
-<li><a href="#orgc910035">2. exec与xargs区别</a>
+<li><a href="#org1ab19c8">1. find 常用命令</a></li>
+<li><a href="#orgc66dccb">2. exec与xargs区别</a>
 <ul>
-<li><a href="#orgb36f690">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
-<li><a href="#org4f2602b">2.2. 出各自的缺点</a></li>
+<li><a href="#org97cfc88">2.1. 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</a></li>
+<li><a href="#org3fa5c62">2.2. 出各自的缺点</a></li>
 </ul>
 </li>
-<li><a href="#orgd525de7">3. -exec使用教程</a>
+<li><a href="#org028adc6">3. -exec使用教程</a>
 <ul>
-<li><a href="#org8206f8a">3.1. exec参数说明</a></li>
+<li><a href="#org2e05108">3.1. exec参数说明</a></li>
 </ul>
 </li>
 </ul>
@@ -43,8 +43,8 @@
 </nav>
 
 
-<div id="outline-container-org0448b37" class="outline-2">
-<h2 id="org0448b37"><span class="section-number-2">1.</span> find 常用命令</h2>
+<div id="outline-container-org1ab19c8" class="outline-2">
+<h2 id="org1ab19c8"><span class="section-number-2">1.</span> find 常用命令</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一般格式： find+目录名称+参数
@@ -257,12 +257,12 @@
 </div>
 
 
-<div id="outline-container-orgc910035" class="outline-2">
-<h2 id="orgc910035"><span class="section-number-2">2.</span> exec与xargs区别</h2>
+<div id="outline-container-orgc66dccb" class="outline-2">
+<h2 id="orgc66dccb"><span class="section-number-2">2.</span> exec与xargs区别</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb36f690" class="outline-3">
-<h3 id="orgb36f690"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
+<div id="outline-container-org97cfc88" class="outline-3">
+<h3 id="org97cfc88"><span class="section-number-3">2.1.</span> 两者都是对符合条件的文件执行所给的Linux 命令，而不询问用户是否需</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>-exec：{}表示命令的参数即为所找到的文件,以；表示comman命令的结束。\是转义符，
@@ -332,8 +332,8 @@ $find test/ -name *zzh -exec rm {} \;
 </div>
 
 
-<div id="outline-container-org4f2602b" class="outline-3">
-<h3 id="org4f2602b"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
+<div id="outline-container-org3fa5c62" class="outline-3">
+<h3 id="org3fa5c62"><span class="section-number-3">2.2.</span> 出各自的缺点</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li>exec 每处理一个文件或者目录，它都需要启动一次命令，效率不好;</li>
@@ -345,8 +345,8 @@ $find test/ -name *zzh -exec rm {} \;
 </div>
 
 
-<div id="outline-container-orgd525de7" class="outline-2">
-<h2 id="orgd525de7"><span class="section-number-2">3.</span> -exec使用教程</h2>
+<div id="outline-container-org028adc6" class="outline-2">
+<h2 id="org028adc6"><span class="section-number-2">3.</span> -exec使用教程</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 综上，如果要使用的命令支持一次处理多个文件，并且也知道这些文件里没有带空格的文件，
@@ -354,8 +354,8 @@ $find test/ -name *zzh -exec rm {} \;
 </p>
 </div>
 
-<div id="outline-container-org8206f8a" class="outline-3">
-<h3 id="org8206f8a"><span class="section-number-3">3.1.</span> exec参数说明</h3>
+<div id="outline-container-org2e05108" class="outline-3">
+<h3 id="org2e05108"><span class="section-number-3">3.1.</span> exec参数说明</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 -exec 参数后面跟的是command命令
@@ -490,7 +490,7 @@ find -name "*.log" -exec mv {} test \;
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

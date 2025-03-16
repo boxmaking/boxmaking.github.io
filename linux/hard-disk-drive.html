@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>linux硬盘存储相关笔记</title>
@@ -26,29 +26,29 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6602831">1. 硬盘使用情况</a></li>
-<li><a href="#org2c7b8f4">2. 挂载相关mount</a>
+<li><a href="#org1b8ed6b">1. 硬盘使用情况</a></li>
+<li><a href="#org590a7a9">2. 挂载相关mount</a>
 <ul>
-<li><a href="#org39345be">2.1. 首先查看详细的信息</a></li>
-<li><a href="#org26a143c">2.2. 挂载</a></li>
-<li><a href="#orgeaf320f">2.3. 卸载文件</a></li>
+<li><a href="#orgfd2f879">2.1. 首先查看详细的信息</a></li>
+<li><a href="#orgfd12795">2.2. 挂载</a></li>
+<li><a href="#org9980719">2.3. 卸载文件</a></li>
 </ul>
 </li>
-<li><a href="#orgbcc9be3">3. 如何开机自动挂在硬盘在某个位置</a>
+<li><a href="#org5eda870">3. 如何开机自动挂在硬盘在某个位置</a>
 <ul>
-<li><a href="#orgf2bf4c4">3.1. fstab方式自动挂载</a></li>
-<li><a href="#org3bd5714">3.2. rc.local方式自动挂载 推荐方式.</a></li>
+<li><a href="#org74f5a05">3.1. fstab方式自动挂载</a></li>
+<li><a href="#orgbe58a23">3.2. rc.local方式自动挂载 推荐方式.</a></li>
 </ul>
 </li>
-<li><a href="#orge83c336">4. 开机自检相关教程</a></li>
+<li><a href="#org2f6c2c9">4. 开机自检相关教程</a></li>
 </ul>
 </div>
 </nav>
 
 
 
-<div id="outline-container-org6602831" class="outline-2">
-<h2 id="org6602831"><span class="section-number-2">1.</span> 硬盘使用情况</h2>
+<div id="outline-container-org1b8ed6b" class="outline-2">
+<h2 id="org1b8ed6b"><span class="section-number-2">1.</span> 硬盘使用情况</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -125,12 +125,12 @@ $lspci
 </div>
 
 
-<div id="outline-container-org2c7b8f4" class="outline-2">
-<h2 id="org2c7b8f4"><span class="section-number-2">2.</span> 挂载相关mount</h2>
+<div id="outline-container-org590a7a9" class="outline-2">
+<h2 id="org590a7a9"><span class="section-number-2">2.</span> 挂载相关mount</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org39345be" class="outline-3">
-<h3 id="org39345be"><span class="section-number-3">2.1.</span> 首先查看详细的信息</h3>
+<div id="outline-container-orgfd2f879" class="outline-3">
+<h3 id="orgfd2f879"><span class="section-number-3">2.1.</span> 首先查看详细的信息</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo fdisk -l
@@ -198,8 +198,8 @@ I/O 大小(最小/最佳)：512 字节 / 512 字节
 </div>
 
 
-<div id="outline-container-org26a143c" class="outline-3">
-<h3 id="org26a143c"><span class="section-number-3">2.2.</span> 挂载</h3>
+<div id="outline-container-orgfd12795" class="outline-3">
+<h3 id="orgfd12795"><span class="section-number-3">2.2.</span> 挂载</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-shell">$sudo mount.ntfs-3g /dev/sdb6 ./temp/mount-temp/sdb6
@@ -213,8 +213,8 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 </div>
 
 
-<div id="outline-container-orgeaf320f" class="outline-3">
-<h3 id="orgeaf320f"><span class="section-number-3">2.3.</span> 卸载文件</h3>
+<div id="outline-container-org9980719" class="outline-3">
+<h3 id="org9980719"><span class="section-number-3">2.3.</span> 卸载文件</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li><p>
@@ -240,12 +240,12 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 </div>
 
 
-<div id="outline-container-orgbcc9be3" class="outline-2">
-<h2 id="orgbcc9be3"><span class="section-number-2">3.</span> 如何开机自动挂在硬盘在某个位置</h2>
+<div id="outline-container-org5eda870" class="outline-2">
+<h2 id="org5eda870"><span class="section-number-2">3.</span> 如何开机自动挂在硬盘在某个位置</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf2bf4c4" class="outline-3">
-<h3 id="orgf2bf4c4"><span class="section-number-3">3.1.</span> fstab方式自动挂载</h3>
+<div id="outline-container-org74f5a05" class="outline-3">
+<h3 id="org74f5a05"><span class="section-number-3">3.1.</span> fstab方式自动挂载</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li><p>
@@ -268,7 +268,7 @@ $sudo mount.ntfs-3g /dev/sdb5 ./***
 <p>
 然后查看fstab文件
 </p>
-<pre class="example" id="orgdd94371">
+<pre class="example" id="org47b39a3">
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
@@ -352,7 +352,7 @@ Linux可以使用ext2、ext3等类型，此字段须与分区格式化时使用�
 <p>
 常见参数如下：
 </p>
-<pre class="example" id="org9a6b061">
+<pre class="example" id="orga1ea448">
 auto: 系统自动挂载，fstab默认就是这个选项
 defaults: rw, suid, dev, exec, auto, nouser, and async.
 noauto 开机不自动挂载
@@ -406,7 +406,7 @@ user 任何用户都可以挂载
 <li><p>
 在最后添加一行
 </p>
-<pre class="example" id="org93bb48b">
+<pre class="example" id="orgf6aa6aa">
 UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 </pre>
 <p>
@@ -419,12 +419,12 @@ UUID=&lt;UUID&gt;	/path/to/HDD	&lt;Type&gt;	defaults	0	0
 
 
 
-<div id="outline-container-org3bd5714" class="outline-3">
-<h3 id="org3bd5714"><span class="section-number-3">3.2.</span> rc.local方式自动挂载 推荐方式.</h3>
+<div id="outline-container-orgbe58a23" class="outline-3">
+<h3 id="orgbe58a23"><span class="section-number-3">3.2.</span> rc.local方式自动挂载 推荐方式.</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="org199dcd9"></a>添加rc.local文件<br>
+<li><a id="org483b150"></a>添加rc.local文件<br>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 Debian 10和Debian 9一样，没有rc.local文件，导致我们有一些脚本无法设置开机启动，其实rc.local文件在debian 10里面默认没有启动而已。
@@ -503,17 +503,17 @@ exit 0
 </li>
 
 
-<li><a id="org2f62e50"></a>便捷rc.local文件<br></li>
+<li><a id="org733ee60"></a>便捷rc.local文件<br></li>
 </ol>
 </div>
 </div>
 
 
 
-<div id="outline-container-orge83c336" class="outline-2">
-<h2 id="orge83c336"><span class="section-number-2">4.</span> 开机自检相关教程</h2>
+<div id="outline-container-org2f6c2c9" class="outline-2">
+<h2 id="org2f6c2c9"><span class="section-number-2">4.</span> 开机自检相关教程</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example" id="org9672e44">
+<pre class="example" id="orgf2e2625">
 sudo fdisk -l
 [sudo] pengshao 的密码：
 Disk /dev/sdc：931.5 GiB，1000204886016 字节，1953525168 个扇区
@@ -576,7 +576,7 @@ I/O 大小(最小/最佳)：512 字节 / 512 字节
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-07-10/Friday 18:54:15&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

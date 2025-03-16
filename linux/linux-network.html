@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux-net相关命令</title>
@@ -26,48 +26,48 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbea8476">1. 简介</a></li>
-<li><a href="#org9967d18">2. 查看 IP 地址和网络接口信息</a>
+<li><a href="#org058598e">1. 简介</a></li>
+<li><a href="#org84e3cd8">2. 查看 IP 地址和网络接口信息</a>
 <ul>
-<li><a href="#org0dcb9d4">2.1. 1. 查看所有网络接口的 IP 地址</a></li>
-<li><a href="#org3464ca7">2.2. 2. 查看特定网络接口的 IP 地址</a></li>
-<li><a href="#org0e8864d">2.3. 3. 查看所有网络接口的状态（启用/禁用）</a></li>
+<li><a href="#org70eb9e4">2.1. 1. 查看所有网络接口的 IP 地址</a></li>
+<li><a href="#org95f3f82">2.2. 2. 查看特定网络接口的 IP 地址</a></li>
+<li><a href="#orgeb242f0">2.3. 3. 查看所有网络接口的状态（启用/禁用）</a></li>
 </ul>
 </li>
-<li><a href="#org21aaeba">3. 设置 IP 地址（临时生效）</a>
+<li><a href="#orgd52812e">3. 设置 IP 地址（临时生效）</a>
 <ul>
-<li><a href="#org0b0c1b2">3.1. 1. 为接口添加 IP 地址</a></li>
-<li><a href="#org4c5780b">3.2. 2. 删除接口的 IP 地址</a></li>
-<li><a href="#orgabd442b">3.3. 3. 启用/禁用网络接口</a></li>
+<li><a href="#org414ec5b">3.1. 1. 为接口添加 IP 地址</a></li>
+<li><a href="#org295476b">3.2. 2. 删除接口的 IP 地址</a></li>
+<li><a href="#org9c1fd22">3.3. 3. 启用/禁用网络接口</a></li>
 </ul>
 </li>
-<li><a href="#org8c66076">4. 永久配置 IP 地址（需修改配置文件）</a>
+<li><a href="#org8c4b62b">4. 永久配置 IP 地址（需修改配置文件）</a>
 <ul>
-<li><a href="#org5b36403">4.1. 1. Ubuntu/Debian 系统（Netplan）</a></li>
-<li><a href="#org79cdf2a">4.2. 2. CentOS/RHEL 系统（NetworkManager）</a></li>
+<li><a href="#org1b7d94b">4.1. 1. Ubuntu/Debian 系统（Netplan）</a></li>
+<li><a href="#orgfb17de7">4.2. 2. CentOS/RHEL 系统（NetworkManager）</a></li>
 </ul>
 </li>
-<li><a href="#orgce4f5f8">5. 路由管理</a>
+<li><a href="#org0ce5343">5. 路由管理</a>
 <ul>
-<li><a href="#orgbbff05f">5.1. 1. 查看路由表</a></li>
-<li><a href="#orgb051841">5.2. 2. 添加静态路由</a></li>
-<li><a href="#org0ed0881">5.3. 3. 删除路由</a></li>
+<li><a href="#orgd8d395a">5.1. 1. 查看路由表</a></li>
+<li><a href="#org5e7f8e4">5.2. 2. 添加静态路由</a></li>
+<li><a href="#orgfee2f7e">5.3. 3. 删除路由</a></li>
 </ul>
 </li>
-<li><a href="#org45c5637">6. 高级功能</a>
+<li><a href="#orgafde575">6. 高级功能</a>
 <ul>
-<li><a href="#org6f5ea1e">6.1. 1. 查看 ARP 缓存表</a></li>
-<li><a href="#org3b39cc2">6.2. 2. 监控网络统计信息</a></li>
+<li><a href="#org97a7c9b">6.1. 1. 查看 ARP 缓存表</a></li>
+<li><a href="#org698ad31">6.2. 2. 监控网络统计信息</a></li>
 </ul>
 </li>
-<li><a href="#org7f3c669">7. 注意事项</a></li>
-<li><a href="#org3cbd9b4">8. 如果想了解系统的公网 IP 地址，可以使用前面提到的curl命令访问外部服务来查询</a></li>
+<li><a href="#orgd145d62">7. 注意事项</a></li>
+<li><a href="#orgcac1837">8. 如果想了解系统的公网 IP 地址，可以使用前面提到的curl命令访问外部服务来查询</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgbea8476" class="outline-2">
-<h2 id="orgbea8476"><span class="section-number-2">1.</span> 简介</h2>
+<div id="outline-container-org058598e" class="outline-2">
+<h2 id="org058598e"><span class="section-number-2">1.</span> 简介</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 `ip` 命令是 Linux 系统中管理网络接口的核心工具，替代了传统的 `ifconfig` 和 `route`。  
@@ -81,12 +81,12 @@
 </div>
 </div>
 
-<div id="outline-container-org9967d18" class="outline-2">
-<h2 id="org9967d18"><span class="section-number-2">2.</span> 查看 IP 地址和网络接口信息</h2>
+<div id="outline-container-org84e3cd8" class="outline-2">
+<h2 id="org84e3cd8"><span class="section-number-2">2.</span> 查看 IP 地址和网络接口信息</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org0dcb9d4" class="outline-3">
-<h3 id="org0dcb9d4"><span class="section-number-3">2.1.</span> 1. 查看所有网络接口的 IP 地址</h3>
+<div id="outline-container-org70eb9e4" class="outline-3">
+<h3 id="org70eb9e4"><span class="section-number-3">2.1.</span> 1. 查看所有网络接口的 IP 地址</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-bash">$ip addr show      # 简写: ip a
@@ -113,8 +113,8 @@ $ip addr show
 </div>
 </div>
 
-<div id="outline-container-org3464ca7" class="outline-3">
-<h3 id="org3464ca7"><span class="section-number-3">2.2.</span> 2. 查看特定网络接口的 IP 地址</h3>
+<div id="outline-container-org95f3f82" class="outline-3">
+<h3 id="org95f3f82"><span class="section-number-3">2.2.</span> 2. 查看特定网络接口的 IP 地址</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-bash">$ip addr show eth0   # 替换 eth0 为你的接口名
@@ -123,8 +123,8 @@ $ip addr show
 </div>
 </div>
 
-<div id="outline-container-org0e8864d" class="outline-3">
-<h3 id="org0e8864d"><span class="section-number-3">2.3.</span> 3. 查看所有网络接口的状态（启用/禁用）</h3>
+<div id="outline-container-orgeb242f0" class="outline-3">
+<h3 id="orgeb242f0"><span class="section-number-3">2.3.</span> 3. 查看所有网络接口的状态（启用/禁用）</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-bash">$ip link show       # 简写: ip l
@@ -134,12 +134,12 @@ $ip addr show
 </div>
 </div>
 
-<div id="outline-container-org21aaeba" class="outline-2">
-<h2 id="org21aaeba"><span class="section-number-2">3.</span> 设置 IP 地址（临时生效）</h2>
+<div id="outline-container-orgd52812e" class="outline-2">
+<h2 id="orgd52812e"><span class="section-number-2">3.</span> 设置 IP 地址（临时生效）</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0b0c1b2" class="outline-3">
-<h3 id="org0b0c1b2"><span class="section-number-3">3.1.</span> 1. 为接口添加 IP 地址</h3>
+<div id="outline-container-org414ec5b" class="outline-3">
+<h3 id="org414ec5b"><span class="section-number-3">3.1.</span> 1. 为接口添加 IP 地址</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo ip addr add 192.168.1.100/24 dev eth0
@@ -148,8 +148,8 @@ $ip addr show
 </div>
 </div>
 
-<div id="outline-container-org4c5780b" class="outline-3">
-<h3 id="org4c5780b"><span class="section-number-3">3.2.</span> 2. 删除接口的 IP 地址</h3>
+<div id="outline-container-org295476b" class="outline-3">
+<h3 id="org295476b"><span class="section-number-3">3.2.</span> 2. 删除接口的 IP 地址</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo ip addr del 192.168.1.100/24 dev eth0
@@ -158,8 +158,8 @@ $ip addr show
 </div>
 </div>
 
-<div id="outline-container-orgabd442b" class="outline-3">
-<h3 id="orgabd442b"><span class="section-number-3">3.3.</span> 3. 启用/禁用网络接口</h3>
+<div id="outline-container-org9c1fd22" class="outline-3">
+<h3 id="org9c1fd22"><span class="section-number-3">3.3.</span> 3. 启用/禁用网络接口</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo ip link set eth0 up     # 启用接口
@@ -170,12 +170,12 @@ $sudo ip link set eth0 down   # 禁用接口
 </div>
 </div>
 
-<div id="outline-container-org8c66076" class="outline-2">
-<h2 id="org8c66076"><span class="section-number-2">4.</span> 永久配置 IP 地址（需修改配置文件）</h2>
+<div id="outline-container-org8c4b62b" class="outline-2">
+<h2 id="org8c4b62b"><span class="section-number-2">4.</span> 永久配置 IP 地址（需修改配置文件）</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org5b36403" class="outline-3">
-<h3 id="org5b36403"><span class="section-number-3">4.1.</span> 1. Ubuntu/Debian 系统（Netplan）</h3>
+<div id="outline-container-org1b7d94b" class="outline-3">
+<h3 id="org1b7d94b"><span class="section-number-3">4.1.</span> 1. Ubuntu/Debian 系统（Netplan）</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-yaml"># 编辑 /etc/netplan/*.yaml
@@ -200,8 +200,8 @@ network:
 </div>
 </div>
 
-<div id="outline-container-org79cdf2a" class="outline-3">
-<h3 id="org79cdf2a"><span class="section-number-3">4.2.</span> 2. CentOS/RHEL 系统（NetworkManager）</h3>
+<div id="outline-container-orgfb17de7" class="outline-3">
+<h3 id="orgfb17de7"><span class="section-number-3">4.2.</span> 2. CentOS/RHEL 系统（NetworkManager）</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-bash"># 编辑 /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -225,12 +225,12 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-orgce4f5f8" class="outline-2">
-<h2 id="orgce4f5f8"><span class="section-number-2">5.</span> 路由管理</h2>
+<div id="outline-container-org0ce5343" class="outline-2">
+<h2 id="org0ce5343"><span class="section-number-2">5.</span> 路由管理</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgbbff05f" class="outline-3">
-<h3 id="orgbbff05f"><span class="section-number-3">5.1.</span> 1. 查看路由表</h3>
+<div id="outline-container-orgd8d395a" class="outline-3">
+<h3 id="orgd8d395a"><span class="section-number-3">5.1.</span> 1. 查看路由表</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-bash">$ip route show     # 简写: ip r
@@ -239,8 +239,8 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-orgb051841" class="outline-3">
-<h3 id="orgb051841"><span class="section-number-3">5.2.</span> 2. 添加静态路由</h3>
+<div id="outline-container-org5e7f8e4" class="outline-3">
+<h3 id="org5e7f8e4"><span class="section-number-3">5.2.</span> 2. 添加静态路由</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo ip route add 10.0.0.0/24 via 192.168.1.1 dev eth0
@@ -249,8 +249,8 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-org0ed0881" class="outline-3">
-<h3 id="org0ed0881"><span class="section-number-3">5.3.</span> 3. 删除路由</h3>
+<div id="outline-container-orgfee2f7e" class="outline-3">
+<h3 id="orgfee2f7e"><span class="section-number-3">5.3.</span> 3. 删除路由</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-bash">$sudo ip route del 10.0.0.0/24
@@ -260,12 +260,12 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-org45c5637" class="outline-2">
-<h2 id="org45c5637"><span class="section-number-2">6.</span> 高级功能</h2>
+<div id="outline-container-orgafde575" class="outline-2">
+<h2 id="orgafde575"><span class="section-number-2">6.</span> 高级功能</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org6f5ea1e" class="outline-3">
-<h3 id="org6f5ea1e"><span class="section-number-3">6.1.</span> 1. 查看 ARP 缓存表</h3>
+<div id="outline-container-org97a7c9b" class="outline-3">
+<h3 id="org97a7c9b"><span class="section-number-3">6.1.</span> 1. 查看 ARP 缓存表</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-bash">$ip neigh show
@@ -274,8 +274,8 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-org3b39cc2" class="outline-3">
-<h3 id="org3b39cc2"><span class="section-number-3">6.2.</span> 2. 监控网络统计信息</h3>
+<div id="outline-container-org698ad31" class="outline-3">
+<h3 id="org698ad31"><span class="section-number-3">6.2.</span> 2. 监控网络统计信息</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-bash">$ip -s link show eth0   # 显示接口统计信息
@@ -285,8 +285,8 @@ ONBOOT=yes
 </div>
 </div>
 
-<div id="outline-container-org7f3c669" class="outline-2">
-<h2 id="org7f3c669"><span class="section-number-2">7.</span> 注意事项</h2>
+<div id="outline-container-orgd145d62" class="outline-2">
+<h2 id="orgd145d62"><span class="section-number-2">7.</span> 注意事项</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>临时设置重启后失效，永久配置需修改系统文件</li>
@@ -304,8 +304,8 @@ $sudo cp /etc/netplan/*.yaml /etc/netplan/*.yaml.bak
 </div>
 
 
-<div id="outline-container-org3cbd9b4" class="outline-2">
-<h2 id="org3cbd9b4"><span class="section-number-2">8.</span> 如果想了解系统的公网 IP 地址，可以使用前面提到的curl命令访问外部服务来查询</h2>
+<div id="outline-container-orgcac1837" class="outline-2">
+<h2 id="orgcac1837"><span class="section-number-2">8.</span> 如果想了解系统的公网 IP 地址，可以使用前面提到的curl命令访问外部服务来查询</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-sh">$curl ifconfig.me
@@ -318,7 +318,7 @@ $curl ifconfig.me
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-10/Monday 17:44:36&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

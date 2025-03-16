@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-03-16 Sun 20:34 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>emacs+stardict做一个单词本</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="emacs,emacs-init.el" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">emacs+stardict做一个单词本</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org89b32e1">1. 1. sdcv 是什么？</a>
+<ul>
+<li><a href="#orga9a26bd">1.1. 核心功能</a></li>
+<li><a href="#orgafb5477">1.2. 特点</a></li>
+</ul>
+</li>
+<li><a href="#org4e17837">2. 2. 安装后的基本操作</a>
+<ul>
+<li><a href="#org7622cd0">2.1. 安装命令</a></li>
+<li><a href="#org51058ac">2.2. 词典数据</a></li>
+</ul>
+</li>
+<li><a href="#org2233a47">3. 3. 使用场景</a>
+<ul>
+<li><a href="#orgd3be1cc">3.1. 终端查词</a></li>
+<li><a href="#orgb67b8cd">3.2. 集成开发工具</a></li>
+<li><a href="#org6101e25">3.3. 脚本扩展</a></li>
+</ul>
+</li>
+<li><a href="#org32f195a">4. 4. 注意事项</a>
+<ul>
+<li><a href="#org3a686e1">4.1. 词典路径</a></li>
+<li><a href="#orgfa2fa47">4.2. 词典来源</a></li>
+</ul>
+</li>
+<li><a href="#org20af815">5. 总结</a></li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org89b32e1" class="outline-2">
+<h2 id="org89b32e1"><span class="section-number-2">1.</span> 1. sdcv 是什么？</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga9a26bd" class="outline-3">
+<h3 id="orga9a26bd"><span class="section-number-3">1.1.</span> 核心功能</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>sdcv（StarDict Console Version）是一个轻量级的命令行词典工具，支持查询 StarDict 格式的离线词典文件</li>
+<li>它是图形界面词典软件 StarDict 的终端版本，适用于 Linux、Windows 等系统</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgafb5477" class="outline-3">
+<h3 id="orgafb5477"><span class="section-number-3">1.2.</span> 特点</h3>
+<div class="outline-text-3" id="text-1-2">
+<dl class="org-dl">
+<dt>离线使用</dt><dd>无需联网即可查词，适合无网络环境</dd>
+<dt>多词典支持</dt><dd>可同时加载多个词典文件（如英汉、汉英、专业词典等）</dd>
+<dt>跨平台</dt><dd>兼容 Linux、Windows 等操作系统</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e17837" class="outline-2">
+<h2 id="org4e17837"><span class="section-number-2">2.</span> 2. 安装后的基本操作</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7622cd0" class="outline-3">
+<h3 id="org7622cd0"><span class="section-number-3">2.1.</span> 安装命令</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>使用 <code>sudo apt-get install sdcv</code> 会从软件源中直接安装 sdcv 主程序</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org51058ac" class="outline-3">
+<h3 id="org51058ac"><span class="section-number-3">2.2.</span> 词典数据</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>需单独下载词典文件（例如牛津高阶、朗道词典等）</li>
+<li><a href="http://www.github.com/boxmaking/sdcv-dict">http://www.github.com/boxmaking/sdcv-dict</a>
+我仅仅使用了stardict-cdict-gb-2.4.2
+其他的没用.</li>
+<li>解压到 <code>~/.stardict/dic</code> 目录下才能正常查词</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2233a47" class="outline-2">
+<h2 id="org2233a47"><span class="section-number-2">3.</span> 3. 使用场景</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgd3be1cc" class="outline-3">
+<h3 id="orgd3be1cc"><span class="section-number-3">3.1.</span> 终端查词</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>通过命令 <code>sdcv &lt;单词&gt;</code> 直接查询单词释义，例如 <code>sdcv example</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb67b8cd" class="outline-3">
+<h3 id="orgb67b8cd"><span class="section-number-3">3.2.</span> 集成开发工具</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>可配置在 <b>Vim/Emacs</b> 中实现划词翻译（例如通过快捷键调用 sdcv）</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 3: </span>;;pengshao-translate.el emacs调用sdcv来翻译单词和英文短语
+<span class="linenr"> 4: </span>;;&lt;2025-03-12-071/Wednesday&gt;
+<span class="linenr"> 5: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>;; 设置单词本和短语本的 org 文件路径
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>;; 定义文件路径
+<span class="linenr">11: </span>(defvar pengshao-english-file "~/personal_note/pengshao-english.org"
+<span class="linenr">12: </span>  "File path for storing English vocabulary.")
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>;; 确保文件存在并初始化基本结构
+<span class="linenr">15: </span>(defun pengshao-english-init-file ()
+<span class="linenr">16: </span>  "Initialize the vocabulary org file if it doesn't exist."
+<span class="linenr">17: </span>  (unless (file-exists-p pengshao-english-file)
+<span class="linenr">18: </span>    (with-current-buffer (find-file-noselect pengshao-english-file)
+<span class="linenr">19: </span>      (insert "#+STARTUP: show2levels\n* word\n* line\n")
+<span class="linenr">20: </span>      (set-buffer-file-coding-system 'utf-8)  ; 明确指定 UTF-8 编码
+<span class="linenr">21: </span>      (save-buffer))))
+<span class="linenr">22: </span>
+<span class="linenr">23: </span>;; 添加单个单词
+<span class="linenr">24: </span>(defun pengshao-english-add-word (word)
+<span class="linenr">25: </span>  "Add a single word to the vocabulary with its translation."
+<span class="linenr">26: </span>  (interactive "sEnter word to translate: ")
+<span class="linenr">27: </span>  (pengshao-english-init-file)
+<span class="linenr">28: </span>  (let* ((translation (shell-command-to-string 
+<span class="linenr">29: </span>		       (format "sdcv -n --utf8-output %s " 
+<span class="linenr">30: </span>			       (shell-quote-argument word))))
+<span class="linenr">31: </span>	 (current-date (format-time-string "%Y-%m-%d")))
+<span class="linenr">32: </span>    (with-current-buffer (find-file-noselect pengshao-english-file)
+<span class="linenr">33: </span>      (set-buffer-file-coding-system 'utf-8)  ; 确保缓冲区使用 UTF-8
+<span class="linenr">34: </span>      (goto-char (point-min))
+<span class="linenr">35: </span>      (search-forward "* word")
+<span class="linenr">36: </span>      (org-end-of-subtree)
+<span class="linenr">37: </span>      (insert (format "\n** %s\n:PROPERTIES:\n:ADDED: %s\n:END:\n%s\n"
+<span class="linenr">38: </span>		      word current-date translation))
+<span class="linenr">39: </span>      (org-back-to-heading)
+<span class="linenr">40: </span>      (org-set-tags ":VOCAB:")
+<span class="linenr">41: </span>      (org-schedule nil "+1d")
+<span class="linenr">42: </span>      (org-deadline nil "+7d")
+<span class="linenr">43: </span>      (org-content 2)  ; 只显示一级和二级标题
+<span class="linenr">44: </span>      (save-buffer))))
+<span class="linenr">45: </span>
+<span class="linenr">46: </span>;; 添加短语并分解单词
+<span class="linenr">47: </span>(defun pengshao-english-add-phrase (phrase)
+<span class="linenr">48: </span>  "Add a phrase and break it down into individual words with translations."
+<span class="linenr">49: </span>  (interactive "sEnter phrase to translate: ")
+<span class="linenr">50: </span>  (pengshao-english-init-file)
+<span class="linenr">51: </span>  (let* ((words (split-string phrase "[^[:alnum:]]+" t))
+<span class="linenr">52: </span>	 (current-date (format-time-string "%Y-%m-%d")))
+<span class="linenr">53: </span>    (with-current-buffer (find-file-noselect pengshao-english-file)
+<span class="linenr">54: </span>      (set-buffer-file-coding-system 'utf-8)  ; 确保缓冲区使用 UTF-8
+<span class="linenr">55: </span>      (goto-char (point-min))
+<span class="linenr">56: </span>      (search-forward "* line")
+<span class="linenr">57: </span>      (org-end-of-subtree)
+<span class="linenr">58: </span>      (insert (format "\n** %s\n:PROPERTIES:\n:ADDED: %s\n:END:\n"
+<span class="linenr">59: </span>		      phrase current-date))
+<span class="linenr">60: </span>      (dolist (word words)
+<span class="linenr">61: </span>	(let ((translation (shell-command-to-string 
+<span class="linenr">62: </span>			   (format "sdcv -n --utf8-output  %s "
+<span class="linenr">63: </span>				   (shell-quote-argument word))))
+<span class="linenr">64: </span>	      (clean-word (downcase word)))
+<span class="linenr">65: </span>	  (insert (format "*** %s\n%s\n" clean-word translation))))
+<span class="linenr">66: </span>      (org-back-to-heading)
+<span class="linenr">67: </span>      (org-set-tags ":PHRASE:")
+<span class="linenr">68: </span>      (org-schedule nil "+1d")
+<span class="linenr">69: </span>      (org-deadline nil "+7d")
+<span class="linenr">70: </span>      (org-content 2)  ; 只显示一级和二级标题
+<span class="linenr">71: </span>      (save-buffer))))
+<span class="linenr">72: </span>
+<span class="linenr">73: </span>
+<span class="linenr">74: </span>
+<span class="linenr">75: </span>;; 定义全局快捷键
+<span class="linenr">76: </span>(global-set-key (kbd "C-c m e") 'pengshao-english-add-word)
+<span class="linenr">77: </span>(global-set-key (kbd "C-c m l") 'pengshao-english-add-phrase)
+<span class="linenr">78: </span>
+<span class="linenr">79: </span>
+<span class="linenr">80: </span>(provide 'pengshao-translate)
+<span class="linenr">81: </span>
+<span class="linenr">82: </span>;;; pengshao-english.el ends here
+</pre>
+</div>
+
+
+<ul class="org-ul">
+<li>支持通过参数调整输出格式（如 <code>--color</code> 启用彩色显示）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6101e25" class="outline-3">
+<h3 id="org6101e25"><span class="section-number-3">3.3.</span> 脚本扩展</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>结合 <code>xclip</code> 和 <code>notify-send</code> 工具，可实现“复制单词后自动弹出翻译结果”的功能</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org32f195a" class="outline-2">
+<h2 id="org32f195a"><span class="section-number-2">4.</span> 4. 注意事项</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org3a686e1" class="outline-3">
+<h3 id="org3a686e1"><span class="section-number-3">4.1.</span> 词典路径</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>默认存放目录为 <code>~/.stardict/dic</code></li>
+<li>需手动创建并放置词典文件</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa2fa47" class="outline-3">
+<h3 id="orgfa2fa47"><span class="section-number-3">4.2.</span> 词典来源</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>访问 <a href="http://download.huzheng.org/zh_CN/">StarDict 官方词典库</a> 或第三方站点下载词典包</li>
+<li><a href="http://www.github.com/boxmaking/sdcv-dict">http://www.github.com/boxmaking/sdcv-dict</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org20af815" class="outline-2">
+<h2 id="org20af815"><span class="section-number-2">5.</span> 总结</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+通过 <code>sudo apt-get install sdcv</code> 安装的 sdcv 工具：
+</p>
+<ul class="org-ul">
+<li>为 Linux 用户提供高效的命令行词典解决方案</li>
+<li>尤其适合开发者、运维人员或偏好终端操作的用户</li>
+<li>轻量化设计和灵活扩展性使其成为离线学习/工作的实用工具</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-03-16-075/Sunday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-03-16 Sun 20:34</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

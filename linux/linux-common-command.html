@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:29 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>未整理的linux学习笔记</title>
@@ -26,24 +26,24 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1685bcc">1. 实现命令关机</a></li>
-<li><a href="#org03dbbff">2. shell 快捷键</a>
+<li><a href="#org452bfe6">1. 实现命令关机</a></li>
+<li><a href="#org01ba077">2. shell 快捷键</a>
 <ul>
-<li><a href="#org2952494">2.1. 字母大小写控制</a></li>
-<li><a href="#org01cfcc0">2.2. shell语系的支持</a></li>
+<li><a href="#orgdaa95d4">2.1. 字母大小写控制</a></li>
+<li><a href="#org0c7bee0">2.2. shell语系的支持</a></li>
 </ul>
 </li>
-<li><a href="#org2ccf03c">3. echo {a,b}{a,b}{a,b}</a></li>
-<li><a href="#org8455c94">4. netstat -tulnp</a></li>
-<li><a href="#orgd9aa9ab">5. <span class="todo TODO">TODO</span> bc命令学习</a></li>
-<li><a href="#orgffa9ce9">6. <span class="todo TODO">TODO</span> mc学习</a></li>
-<li><a href="#orgdf0e6d2">7. sync,shutdown,reboot</a></li>
-<li><a href="#org8535f93">8. <span class="todo TODO">TODO</span> fsck,fdisk命令教程</a></li>
-<li><a href="#orga2d21c8">9. suer相关命令</a></li>
-<li><a href="#org02577bd">10. 文件相关知识</a></li>
-<li><a href="#orgbf9c17c">11. grep命令教程</a>
+<li><a href="#orgd621d23">3. echo {a,b}{a,b}{a,b}</a></li>
+<li><a href="#org9783abb">4. netstat -tulnp</a></li>
+<li><a href="#org82eca69">5. <span class="todo TODO">TODO</span> bc命令学习</a></li>
+<li><a href="#orgdeee4b2">6. <span class="todo TODO">TODO</span> mc学习</a></li>
+<li><a href="#org1fdc1ee">7. sync,shutdown,reboot</a></li>
+<li><a href="#orgae00ee6">8. <span class="todo TODO">TODO</span> fsck,fdisk命令教程</a></li>
+<li><a href="#orge77fda5">9. suer相关命令</a></li>
+<li><a href="#orgcb7f023">10. 文件相关知识</a></li>
+<li><a href="#orgd48578d">11. grep命令教程</a>
 <ul>
-<li><a href="#orgc0683e5">11.1. -i选项来不区分大小写</a></li>
+<li><a href="#org9738c87">11.1. -i选项来不区分大小写</a></li>
 </ul>
 </li>
 </ul>
@@ -51,8 +51,8 @@
 </nav>
 
 
-<div id="outline-container-org1685bcc" class="outline-2">
-<h2 id="org1685bcc"><span class="section-number-2">1.</span> 实现命令关机</h2>
+<div id="outline-container-org452bfe6" class="outline-2">
+<h2 id="org452bfe6"><span class="section-number-2">1.</span> 实现命令关机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 echo "PASSWORD" | sudo -S shutdown -h now
@@ -62,12 +62,12 @@ echo "PASSWORD" | sudo -S shutdown -h now
 
 
 
-<div id="outline-container-org03dbbff" class="outline-2">
-<h2 id="org03dbbff"><span class="section-number-2">2.</span> shell 快捷键</h2>
+<div id="outline-container-org01ba077" class="outline-2">
+<h2 id="org01ba077"><span class="section-number-2">2.</span> shell 快捷键</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2952494" class="outline-3">
-<h3 id="org2952494"><span class="section-number-3">2.1.</span> 字母大小写控制</h3>
+<div id="outline-container-orgdaa95d4" class="outline-3">
+<h3 id="orgdaa95d4"><span class="section-number-3">2.1.</span> 字母大小写控制</h3>
 <div class="outline-text-3" id="text-2-1">
 <table>
 
@@ -97,8 +97,8 @@ echo "PASSWORD" | sudo -S shutdown -h now
 </div>
 </div>
 
-<div id="outline-container-org01cfcc0" class="outline-3">
-<h3 id="org01cfcc0"><span class="section-number-3">2.2.</span> shell语系的支持</h3>
+<div id="outline-container-org0c7bee0" class="outline-3">
+<h3 id="org0c7bee0"><span class="section-number-3">2.2.</span> shell语系的支持</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -131,8 +131,8 @@ echo "PASSWORD" | sudo -S shutdown -h now
 
 
 
-<div id="outline-container-org2ccf03c" class="outline-2">
-<h2 id="org2ccf03c"><span class="section-number-2">3.</span> echo {a,b}{a,b}{a,b}</h2>
+<div id="outline-container-orgd621d23" class="outline-2">
+<h2 id="orgd621d23"><span class="section-number-2">3.</span> echo {a,b}{a,b}{a,b}</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 这个命令是应用了linux的大括号展开功能
@@ -145,8 +145,8 @@ cp xxx{,.back}
 
 
 
-<div id="outline-container-org8455c94" class="outline-2">
-<h2 id="org8455c94"><span class="section-number-2">4.</span> netstat -tulnp</h2>
+<div id="outline-container-org9783abb" class="outline-2">
+<h2 id="org9783abb"><span class="section-number-2">4.</span> netstat -tulnp</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 查看端口的监听情况
@@ -192,8 +192,8 @@ cp xxx{,.back}
 
 
 
-<div id="outline-container-orgd9aa9ab" class="outline-2">
-<h2 id="orgd9aa9ab"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> bc命令学习</h2>
+<div id="outline-container-org82eca69" class="outline-2">
+<h2 id="org82eca69"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> bc命令学习</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 scale=N
@@ -203,15 +203,15 @@ N为想要计算的小数点数位
 </div>
 
 
-<div id="outline-container-orgffa9ce9" class="outline-2">
-<h2 id="orgffa9ce9"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> mc学习</h2>
+<div id="outline-container-orgdeee4b2" class="outline-2">
+<h2 id="orgdeee4b2"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> mc学习</h2>
 </div>
 
 
 
 
-<div id="outline-container-orgdf0e6d2" class="outline-2">
-<h2 id="orgdf0e6d2"><span class="section-number-2">7.</span> sync,shutdown,reboot</h2>
+<div id="outline-container-org1fdc1ee" class="outline-2">
+<h2 id="org1fdc1ee"><span class="section-number-2">7.</span> sync,shutdown,reboot</h2>
 <div class="outline-text-2" id="text-7">
 <table>
 
@@ -252,13 +252,13 @@ N为想要计算的小数点数位
 </div>
 
 
-<div id="outline-container-org8535f93" class="outline-2">
-<h2 id="org8535f93"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> fsck,fdisk命令教程</h2>
+<div id="outline-container-orgae00ee6" class="outline-2">
+<h2 id="orgae00ee6"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> fsck,fdisk命令教程</h2>
 </div>
 
 
-<div id="outline-container-orga2d21c8" class="outline-2">
-<h2 id="orga2d21c8"><span class="section-number-2">9.</span> suer相关命令</h2>
+<div id="outline-container-orge77fda5" class="outline-2">
+<h2 id="orge77fda5"><span class="section-number-2">9.</span> suer相关命令</h2>
 <div class="outline-text-2" id="text-9">
 <ol class="org-ol">
 <li><p>
@@ -294,8 +294,8 @@ N为想要计算的小数点数位
 </div>
 
 
-<div id="outline-container-org02577bd" class="outline-2">
-<h2 id="org02577bd"><span class="section-number-2">10.</span> 文件相关知识</h2>
+<div id="outline-container-orgcb7f023" class="outline-2">
+<h2 id="orgcb7f023"><span class="section-number-2">10.</span> 文件相关知识</h2>
 <div class="outline-text-2" id="text-10">
 <table>
 
@@ -336,19 +336,19 @@ N为想要计算的小数点数位
 </div>
 
 
-<div id="outline-container-orgbf9c17c" class="outline-2">
-<h2 id="orgbf9c17c"><span class="section-number-2">11.</span> grep命令教程</h2>
+<div id="outline-container-orgd48578d" class="outline-2">
+<h2 id="orgd48578d"><span class="section-number-2">11.</span> grep命令教程</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-orgc0683e5" class="outline-3">
-<h3 id="orgc0683e5"><span class="section-number-3">11.1.</span> -i选项来不区分大小写</h3>
+<div id="outline-container-org9738c87" class="outline-3">
+<h3 id="org9738c87"><span class="section-number-3">11.1.</span> -i选项来不区分大小写</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: 2020-04-24 Fri 00:00</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

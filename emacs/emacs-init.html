@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-14 Fri 19:51 -->
+<!-- 2025-03-16 Sun 20:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>emacs-我的配件</title>
+<title>我的init.el和各种启动配置</title>
 <meta name="author" content="pengshao" />
 <meta name="keywords" content="emacs,emacs-init.el" />
 <meta name="generator" content="Org Mode" />
@@ -21,47 +21,47 @@
  <a accesskey="H" href="../index.html"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">emacs-我的配件</h1>
+<h1 class="title">我的init.el和各种启动配置</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga32ab25">1. 我的全部配置自文件</a></li>
-<li><a href="#org922773b">2. 配置文件目录,及调用相关.</a>
+<li><a href="#orga97e228">1. 我的全部配置自文件</a></li>
+<li><a href="#org2a2b2b7">2. 配置文件目录,及调用相关.</a>
 <ul>
-<li><a href="#orgb20e45b">2.1. 1.配置文件加载调用.</a></li>
-<li><a href="#org3b05fd3">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
+<li><a href="#org9a576a8">2.1. 1.配置文件加载调用.</a></li>
+<li><a href="#org19f6557">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
 </ul>
 </li>
-<li><a href="#orgd9e4c16">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
-<li><a href="#orgd299526">4. 自己自定义的一些配置,啥都有.</a></li>
-<li><a href="#org24411cc">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
-<li><a href="#org3a1d4e2">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
+<li><a href="#org81dde87">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
+<li><a href="#org7e0cded">4. 自己自定义的一些配置,啥都有.</a></li>
+<li><a href="#org2030b43">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
+<li><a href="#org1ee2962">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
 <ul>
-<li><a href="#orgefc7dfe">6.1. calendar的配置我不太用.</a></li>
+<li><a href="#org6540557">6.1. calendar的配置我不太用.</a></li>
 </ul>
 </li>
-<li><a href="#org74769dc">7. 关于复制粘帖的一些设置</a></li>
-<li><a href="#org938fbcb">8. 我的键配置(主要是f1-f10)</a></li>
-<li><a href="#orgc3156e2">9. 自动备份相关的设置</a></li>
-<li><a href="#org88ce298">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
+<li><a href="#org911d3b6">7. 关于复制粘帖的一些设置</a></li>
+<li><a href="#org74144c0">8. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#orgb26c831">9. 自动备份相关的设置</a></li>
+<li><a href="#orged656a1">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
 <ul>
-<li><a href="#org20d08fb">10.1. 启动页面*scratch*显示特定内容</a></li>
-<li><a href="#org121353c">10.2. frame-title-format设置相关.</a></li>
+<li><a href="#org8b5e6e9">10.1. 启动页面*scratch*显示特定内容</a></li>
+<li><a href="#orgee55dd0">10.2. frame-title-format设置相关.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<figure id="org3ab1fe5">
+<figure id="org2a961af">
 <img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
 
 
-<div id="outline-container-orga32ab25" class="outline-2">
-<h2 id="orga32ab25"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
+<div id="outline-container-orga97e228" class="outline-2">
+<h2 id="orga97e228"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
@@ -70,16 +70,16 @@
 </div>
 
 
-<div id="outline-container-org922773b" class="outline-2">
-<h2 id="org922773b"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
+<div id="outline-container-org2a2b2b7" class="outline-2">
+<h2 id="org2a2b2b7"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb20e45b" class="outline-3">
-<h3 id="orgb20e45b"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
+<div id="outline-container-org9a576a8" class="outline-3">
+<h3 id="org9a576a8"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgdbd79c6"></a>加载文件,在默认的配置文件中加载的文件<br>
+<li><a id="orgd9e5e72"></a>加载文件,在默认的配置文件中加载的文件<br>
 <div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(add-to-list 'load-path "~/.emacs.d/loadfile/")
@@ -90,7 +90,7 @@
 </li>
 
 
-<li><a id="org61359b4"></a>想要被加载,插件的.el文件最后一定要proide<br>
+<li><a id="orge59cbd7"></a>想要被加载,插件的.el文件最后一定要proide<br>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(provide '***-***)
@@ -100,7 +100,7 @@
 </li>
 
 
-<li><a id="org1dcc5e5"></a>关于这些加载项目的差别可以在这个网站查看<br>
+<li><a id="orgacadc97"></a>关于这些加载项目的差别可以在这个网站查看<br>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <a href="http://ergoemacs.org/emacs/elisp_library_system.html">http://ergoemacs.org/emacs/elisp_library_system.html</a>
@@ -111,8 +111,8 @@
 </div>
 
 
-<div id="outline-container-org3b05fd3" class="outline-3">
-<h3 id="org3b05fd3"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
+<div id="outline-container-org19f6557" class="outline-3">
+<h3 id="org19f6557"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -151,7 +151,7 @@
 
 
 <ol class="org-ol">
-<li><a id="org4a4f304"></a>都是立即生效，可以马上试验一条语句的效果<br>
+<li><a id="org8fcd951"></a>都是立即生效，可以马上试验一条语句的效果<br>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(setq frame-title-format "emacs@%b") 
@@ -164,8 +164,8 @@
 </div>
 
 
-<div id="outline-container-orgd9e4c16" class="outline-2">
-<h2 id="orgd9e4c16"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
+<div id="outline-container-org81dde87" class="outline-2">
+<h2 id="org81dde87"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;; -*- coding: utf-8; lexical-binding: t -*-
@@ -215,163 +215,168 @@
 <span class="linenr"> 45: </span>;自动插入天气的配置,月相,农历两个shellscript的,el文件 
 <span class="linenr"> 46: </span>(require 'pengshao-openweather)
 <span class="linenr"> 47: </span>
-<span class="linenr"> 48: </span>;调用翻译
-<span class="linenr"> 49: </span>(require 'pengshao-translate)
+<span class="linenr"> 48: </span>;自动插入名人名言
+<span class="linenr"> 49: </span>(require 'pengshao-insert-think-deep)
 <span class="linenr"> 50: </span>
 <span class="linenr"> 51: </span>
-<span class="linenr"> 52: </span>;;orgmode的全局设置
-<span class="linenr"> 53: </span>;;第一项是链接,第二项是待办事项,第三项是总结
-<span class="linenr"> 54: </span>(require 'pengshao-org-mode)
-<span class="linenr"> 55: </span>(global-set-key "\C-cl" 'org-store-link)
-<span class="linenr"> 56: </span>(global-set-key "\C-cc" 'org-capture)
-<span class="linenr"> 57: </span>(global-set-key "\C-ca" 'org-agenda)
-<span class="linenr"> 58: </span>;;这一项好像不用了已经彻底结束了
-<span class="linenr"> 59: </span>;;(global-set-key "\C-cb" 'org-iswitchb)
-<span class="linenr"> 60: </span>
-<span class="linenr"> 61: </span>(require 'pengshao-org-publish)
-<span class="linenr"> 62: </span>;;在pengshao-org-publish.el文件当中设置了
-<span class="linenr"> 63: </span>;;(define-key global-map "\C-cp" 'org-publish)
+<span class="linenr"> 52: </span>;调用翻译
+<span class="linenr"> 53: </span>(require 'pengshao-translate)
+<span class="linenr"> 54: </span>
+<span class="linenr"> 55: </span>
+<span class="linenr"> 56: </span>;;orgmode的全局设置
+<span class="linenr"> 57: </span>;;第一项是链接,第二项是待办事项,第三项是总结
+<span class="linenr"> 58: </span>(require 'pengshao-org-mode)
+<span class="linenr"> 59: </span>(global-set-key "\C-cl" 'org-store-link)
+<span class="linenr"> 60: </span>(global-set-key "\C-cc" 'org-capture)
+<span class="linenr"> 61: </span>(global-set-key "\C-ca" 'org-agenda)
+<span class="linenr"> 62: </span>;;这一项好像不用了已经彻底结束了
+<span class="linenr"> 63: </span>;;(global-set-key "\C-cb" 'org-iswitchb)
 <span class="linenr"> 64: </span>
-<span class="linenr"> 65: </span>
-<span class="linenr"> 66: </span>(require 'pengshao-calendar)
-<span class="linenr"> 67: </span>
-<span class="linenr"> 68: </span>(require 'pengshao-backup)
+<span class="linenr"> 65: </span>(require 'pengshao-org-publish)
+<span class="linenr"> 66: </span>;;在pengshao-org-publish.el文件当中设置了
+<span class="linenr"> 67: </span>;;(define-key global-map "\C-cp" 'org-publish)
+<span class="linenr"> 68: </span>
 <span class="linenr"> 69: </span>
-<span class="linenr"> 70: </span>(require 'pengshao-insert-date)
+<span class="linenr"> 70: </span>(require 'pengshao-calendar)
 <span class="linenr"> 71: </span>
-<span class="linenr"> 72: </span>(require 'pengshao-copy-cut-paste-killring)
+<span class="linenr"> 72: </span>(require 'pengshao-backup)
 <span class="linenr"> 73: </span>
-<span class="linenr"> 74: </span>
+<span class="linenr"> 74: </span>(require 'pengshao-insert-date)
 <span class="linenr"> 75: </span>
-<span class="linenr"> 76: </span>
+<span class="linenr"> 76: </span>(require 'pengshao-copy-cut-paste-killring)
 <span class="linenr"> 77: </span>
 <span class="linenr"> 78: </span>
-<span class="linenr"> 79: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 80: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 81: </span>;;加载下载的插件
+<span class="linenr"> 79: </span>
+<span class="linenr"> 80: </span>
+<span class="linenr"> 81: </span>
 <span class="linenr"> 82: </span>
-<span class="linenr"> 83: </span>
-<span class="linenr"> 84: </span>(add-to-list 'load-path "~/.emacs.d/lisp/")
-<span class="linenr"> 85: </span>
+<span class="linenr"> 83: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 84: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 85: </span>;;加载下载的插件
 <span class="linenr"> 86: </span>
-<span class="linenr"> 87: </span>(require 'magit)
-<span class="linenr"> 88: </span>(global-set-key (kbd "C-c m g") 'magit-status) ; 绑定快捷键
-<span class="linenr"> 89: </span>(setq magit-git-executable "/usr/bin/git")    ; 指定Git路径
+<span class="linenr"> 87: </span>
+<span class="linenr"> 88: </span>(add-to-list 'load-path "~/.emacs.d/lisp/")
+<span class="linenr"> 89: </span>
 <span class="linenr"> 90: </span>
-<span class="linenr"> 91: </span>;;主题插件的配置文件
-<span class="linenr"> 92: </span>(require 'color-theme)
-<span class="linenr"> 93: </span>(color-theme-initialize)
-<span class="linenr"> 94: </span>(color-theme-snow)
-<span class="linenr"> 95: </span>
-<span class="linenr"> 96: </span>(require 'iimage)
-<span class="linenr"> 97: </span>
-<span class="linenr"> 98: </span>;;cuamode的cua-rectangle-mark-mode的快捷键
-<span class="linenr"> 99: </span>;;由于与orgmode有冲突,我把C-return改为
-<span class="linenr">100: </span>(global-set-key (kbd "C-c n") 'cua-rectangle-mark-mode)
+<span class="linenr"> 91: </span>(require 'magit)
+<span class="linenr"> 92: </span>(global-set-key (kbd "C-c m g") 'magit-status) ; 绑定快捷键
+<span class="linenr"> 93: </span>(setq magit-git-executable "/usr/bin/git")    ; 指定Git路径
+<span class="linenr"> 94: </span>
+<span class="linenr"> 95: </span>;;主题插件的配置文件
+<span class="linenr"> 96: </span>(require 'color-theme)
+<span class="linenr"> 97: </span>(color-theme-initialize)
+<span class="linenr"> 98: </span>(color-theme-snow)
+<span class="linenr"> 99: </span>
+<span class="linenr">100: </span>(require 'iimage)
 <span class="linenr">101: </span>
-<span class="linenr">102: </span>;;日历显示农历
-<span class="linenr">103: </span>(require 'cal-china-x)
-<span class="linenr">104: </span>(setq calendar-mark-holidays-flag t)
-<span class="linenr">105: </span>;; (setq mark-holidays-in-calendar t) ; before emacs-25
-<span class="linenr">106: </span>(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
-<span class="linenr">107: </span>(setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
-<span class="linenr">108: </span>(setq calendar-holidays
-<span class="linenr">109: </span>      (append cal-china-x-important-holidays
-<span class="linenr">110: </span>	      cal-china-x-general-holidays
-<span class="linenr">111: </span>	      ;;other-holidays
-<span class="linenr">112: </span>	      ))
-<span class="linenr">113: </span>
-<span class="linenr">114: </span>;;小小的tabbar-mode
-<span class="linenr">115: </span>(require 'tabbar)
-<span class="linenr">116: </span>(tabbar-mode)
-<span class="linenr">117: </span>;;切换buffer
-<span class="linenr">118: </span>;;prior就是上翻页pg up,next就是pg dn键盘
-<span class="linenr">119: </span>(global-set-key [C-prior] 'previous-buffer)
-<span class="linenr">120: </span>(global-set-key [C-next] 'next-buffer)
-<span class="linenr">121: </span>;;Win更换tabbar不错吧,前两个是在不同的分组切换,后面的是在同组切换
-<span class="linenr">122: </span>;;不知道为什么冲突了
-<span class="linenr">123: </span>;;(global-set-key [s-up] 'tabbar-backward-group)
-<span class="linenr">124: </span>;;(global-set-key [s-down] 'tabbar-backward-group)
-<span class="linenr">125: </span>;;(global-set-key [s-left] 'tabbar-backward-tab)
-<span class="linenr">126: </span>;;(global-set-key [s-right] 'tabbar-forward-tab)
-<span class="linenr">127: </span>
-<span class="linenr">128: </span>
-<span class="linenr">129: </span>
-<span class="linenr">130: </span>(require 'browse-kill-ring)
-<span class="linenr">131: </span>(global-set-key (kbd "C-c k") 'browse-kill-ring)
+<span class="linenr">102: </span>;;cuamode的cua-rectangle-mark-mode的快捷键
+<span class="linenr">103: </span>;;由于与orgmode有冲突,我把C-return改为
+<span class="linenr">104: </span>(global-set-key (kbd "C-c n") 'cua-rectangle-mark-mode)
+<span class="linenr">105: </span>
+<span class="linenr">106: </span>;;日历显示农历
+<span class="linenr">107: </span>(require 'cal-china-x)
+<span class="linenr">108: </span>(setq calendar-mark-holidays-flag t)
+<span class="linenr">109: </span>;; (setq mark-holidays-in-calendar t) ; before emacs-25
+<span class="linenr">110: </span>(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+<span class="linenr">111: </span>(setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
+<span class="linenr">112: </span>(setq calendar-holidays
+<span class="linenr">113: </span>      (append cal-china-x-important-holidays
+<span class="linenr">114: </span>	      cal-china-x-general-holidays
+<span class="linenr">115: </span>	      ;;other-holidays
+<span class="linenr">116: </span>	      ))
+<span class="linenr">117: </span>
+<span class="linenr">118: </span>;;小小的tabbar-mode
+<span class="linenr">119: </span>(require 'tabbar)
+<span class="linenr">120: </span>(tabbar-mode)
+<span class="linenr">121: </span>;;切换buffer
+<span class="linenr">122: </span>;;prior就是上翻页pg up,next就是pg dn键盘
+<span class="linenr">123: </span>(global-set-key [C-prior] 'previous-buffer)
+<span class="linenr">124: </span>(global-set-key [C-next] 'next-buffer)
+<span class="linenr">125: </span>;;Win更换tabbar不错吧,前两个是在不同的分组切换,后面的是在同组切换
+<span class="linenr">126: </span>;;不知道为什么冲突了
+<span class="linenr">127: </span>;;(global-set-key [s-up] 'tabbar-backward-group)
+<span class="linenr">128: </span>;;(global-set-key [s-down] 'tabbar-backward-group)
+<span class="linenr">129: </span>;;(global-set-key [s-left] 'tabbar-backward-tab)
+<span class="linenr">130: </span>;;(global-set-key [s-right] 'tabbar-forward-tab)
+<span class="linenr">131: </span>
 <span class="linenr">132: </span>
 <span class="linenr">133: </span>
-<span class="linenr">134: </span>(require 'auto-complete)
-<span class="linenr">135: </span>(require 'auto-complete-config)
-<span class="linenr">136: </span>(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict/")
-<span class="linenr">137: </span>(ac-config-default)
-<span class="linenr">138: </span>(define-key ac-mode-map (kbd "C-c q") 'auto-complete)
-<span class="linenr">139: </span>
-<span class="linenr">140: </span>
-<span class="linenr">141: </span>(require 'sr-speedbar)
-<span class="linenr">142: </span>;;左侧显示
-<span class="linenr">143: </span>(setq sr-speedbar-right-side nil)     
-<span class="linenr">144: </span>;;宽度
-<span class="linenr">145: </span>(setq sr-speedbar-width 25)          
-<span class="linenr">146: </span>;;显示.的头文件
-<span class="linenr">147: </span>(setq speedbar-directory-unshown-regexp "^\(\.\.*$\)\'")
-<span class="linenr">148: </span>;;窗口跳转跳过sr-speedbar
-<span class="linenr">149: </span>(setq sr-speedbar-skip-other-window-p t)
-<span class="linenr">150: </span>;;设置快捷键
-<span class="linenr">151: </span>;(global-set-key [f5] 'sr-speedbar-select-window)
-<span class="linenr">152: </span>(global-set-key [f5] 'sr-speedbar-open)
-<span class="linenr">153: </span>(global-set-key (kbd "C-c s") 'sr-speedbar-open)
-<span class="linenr">154: </span>(global-set-key (kbd "C-c x") 'sr-speedbar-close)
-<span class="linenr">155: </span>;;开机默认启动speedbar,不用了,现在用sr-speedbar了
-<span class="linenr">156: </span>;;(speedbar 1)
-<span class="linenr">157: </span>;;自动打开sr-speedbar
-<span class="linenr">158: </span>;;不知道为什么太不好用了,每次都多打开一个窗格,所以忽略了,
-<span class="linenr">159: </span>;;(sr-speedbar-open)
-<span class="linenr">160: </span>
-<span class="linenr">161: </span>
-<span class="linenr">162: </span>
-<span class="linenr">163: </span>
-<span class="linenr">164: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">165: </span>;;键盘配置放在最后,只要是配置了F1-F10,和Home/End键
-<span class="linenr">166: </span>;;所有自己配置的都在init.el了,方便查找
+<span class="linenr">134: </span>(require 'browse-kill-ring)
+<span class="linenr">135: </span>(global-set-key (kbd "C-c k") 'browse-kill-ring)
+<span class="linenr">136: </span>
+<span class="linenr">137: </span>
+<span class="linenr">138: </span>(require 'auto-complete)
+<span class="linenr">139: </span>(require 'auto-complete-config)
+<span class="linenr">140: </span>(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict/")
+<span class="linenr">141: </span>(ac-config-default)
+<span class="linenr">142: </span>(define-key ac-mode-map (kbd "C-c q") 'auto-complete)
+<span class="linenr">143: </span>
+<span class="linenr">144: </span>(require 'org-tempo)
+<span class="linenr">145: </span>
+<span class="linenr">146: </span>(require 'sr-speedbar)
+<span class="linenr">147: </span>;;左侧显示
+<span class="linenr">148: </span>(setq sr-speedbar-right-side nil)     
+<span class="linenr">149: </span>;;宽度
+<span class="linenr">150: </span>(setq sr-speedbar-width 25)          
+<span class="linenr">151: </span>;;显示.的头文件
+<span class="linenr">152: </span>(setq speedbar-directory-unshown-regexp "^\(\.\.*$\)\'")
+<span class="linenr">153: </span>;;窗口跳转跳过sr-speedbar
+<span class="linenr">154: </span>(setq sr-speedbar-skip-other-window-p t)
+<span class="linenr">155: </span>;;设置快捷键
+<span class="linenr">156: </span>;(global-set-key [f5] 'sr-speedbar-select-window)
+<span class="linenr">157: </span>(global-set-key [f5] 'sr-speedbar-open)
+<span class="linenr">158: </span>(global-set-key (kbd "C-c s") 'sr-speedbar-open)
+<span class="linenr">159: </span>(global-set-key (kbd "C-c x") 'sr-speedbar-close)
+<span class="linenr">160: </span>;;开机默认启动speedbar,不用了,现在用sr-speedbar了
+<span class="linenr">161: </span>;;(speedbar 1)
+<span class="linenr">162: </span>;;自动打开sr-speedbar
+<span class="linenr">163: </span>;;不知道为什么太不好用了,每次都多打开一个窗格,所以忽略了,
+<span class="linenr">164: </span>;;(sr-speedbar-open)
+<span class="linenr">165: </span>
+<span class="linenr">166: </span>
 <span class="linenr">167: </span>
-<span class="linenr">168: </span>(require 'pengshao-key-building)
-<span class="linenr">169: </span>(custom-set-variables
-<span class="linenr">170: </span> ;; custom-set-variables was added by Custom.
-<span class="linenr">171: </span> ;; If you edit it by hand, you could mess it up, so be careful.
-<span class="linenr">172: </span> ;; Your init file should contain only one such instance.
-<span class="linenr">173: </span> ;; If there is more than one, they won't work right.
-<span class="linenr">174: </span> '(org-agenda-files nil)
-<span class="linenr">175: </span> '(org-safe-remote-resources
-<span class="linenr">176: </span>   '("\\`https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\'"))
-<span class="linenr">177: </span> '(package-selected-packages '(magit seq json-mode request)))
-<span class="linenr">178: </span>(custom-set-faces
-<span class="linenr">179: </span> ;; custom-set-faces was added by Custom.
-<span class="linenr">180: </span> ;; If you edit it by hand, you could mess it up, so be careful.
-<span class="linenr">181: </span> ;; Your init file should contain only one such instance.
-<span class="linenr">182: </span> ;; If there is more than one, they won't work right.
-<span class="linenr">183: </span> )
-<span class="linenr">184: </span>
-<span class="linenr">185: </span>
-<span class="linenr">186: </span>
-<span class="linenr">187: </span>;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
-<span class="linenr">188: </span>(setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
-<span class="linenr">189: </span>(with-current-buffer "*scratch*"
-<span class="linenr">190: </span>;   (let ((result1 (insert-weather)))
-<span class="linenr">191: </span>;   (insert (format " %s\n" result1)))
-<span class="linenr">192: </span>  (call-interactively 'insert-nongli)
-<span class="linenr">193: </span>  (call-interactively 'insert-weather)
-<span class="linenr">194: </span>  (call-interactively 'insert-pyphoon)
-<span class="linenr">195: </span>
-<span class="linenr">196: </span>   )
+<span class="linenr">168: </span>
+<span class="linenr">169: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr">170: </span>;;键盘配置放在最后,只要是配置了F1-F10,和Home/End键
+<span class="linenr">171: </span>;;所有自己配置的都在init.el了,方便查找
+<span class="linenr">172: </span>
+<span class="linenr">173: </span>(require 'pengshao-key-building)
+<span class="linenr">174: </span>(custom-set-variables
+<span class="linenr">175: </span> ;; custom-set-variables was added by Custom.
+<span class="linenr">176: </span> ;; If you edit it by hand, you could mess it up, so be careful.
+<span class="linenr">177: </span> ;; Your init file should contain only one such instance.
+<span class="linenr">178: </span> ;; If there is more than one, they won't work right.
+<span class="linenr">179: </span> '(org-agenda-files nil)
+<span class="linenr">180: </span> '(org-safe-remote-resources
+<span class="linenr">181: </span>   '("\\`https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\'"))
+<span class="linenr">182: </span> '(package-selected-packages '(magit seq json-mode request)))
+<span class="linenr">183: </span>(custom-set-faces
+<span class="linenr">184: </span> ;; custom-set-faces was added by Custom.
+<span class="linenr">185: </span> ;; If you edit it by hand, you could mess it up, so be careful.
+<span class="linenr">186: </span> ;; Your init file should contain only one such instance.
+<span class="linenr">187: </span> ;; If there is more than one, they won't work right.
+<span class="linenr">188: </span> )
+<span class="linenr">189: </span>
+<span class="linenr">190: </span>
+<span class="linenr">191: </span>
+<span class="linenr">192: </span>;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
+<span class="linenr">193: </span>(setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
+<span class="linenr">194: </span>(with-current-buffer "*scratch*"
+<span class="linenr">195: </span>;   (let ((result1 (insert-weather)))
+<span class="linenr">196: </span>;   (insert (format " %s\n" result1)))
+<span class="linenr">197: </span>  (call-interactively 'insert-nongli)
+<span class="linenr">198: </span>  (call-interactively 'insert-weather)
+<span class="linenr">199: </span>  (call-interactively 'insert-pyphoon)
+<span class="linenr">200: </span>  (call-interactively 'insert-think-deep)
+<span class="linenr">201: </span>   )
 </pre>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgd299526" class="outline-2">
-<h2 id="orgd299526"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
+<div id="outline-container-org7e0cded" class="outline-2">
+<h2 id="org7e0cded"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -484,8 +489,8 @@
 </div>
 
 
-<div id="outline-container-org24411cc" class="outline-2">
-<h2 id="org24411cc"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
+<div id="outline-container-org2030b43" class="outline-2">
+<h2 id="org2030b43"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -669,8 +674,8 @@
 </div>
 
 
-<div id="outline-container-org3a1d4e2" class="outline-2">
-<h2 id="org3a1d4e2"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
+<div id="outline-container-org1ee2962" class="outline-2">
+<h2 id="org1ee2962"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -787,8 +792,8 @@
 </div>
 
 
-<div id="outline-container-orgefc7dfe" class="outline-3">
-<h3 id="orgefc7dfe"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
+<div id="outline-container-org6540557" class="outline-3">
+<h3 id="org6540557"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -899,8 +904,8 @@
 </div>
 
 
-<div id="outline-container-org74769dc" class="outline-2">
-<h2 id="org74769dc"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
+<div id="outline-container-org911d3b6" class="outline-2">
+<h2 id="org911d3b6"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -938,8 +943,8 @@
 </div>
 
 
-<div id="outline-container-org938fbcb" class="outline-2">
-<h2 id="org938fbcb"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
+<div id="outline-container-org74144c0" class="outline-2">
+<h2 id="org74144c0"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1017,8 +1022,8 @@
 </div>
 
 
-<div id="outline-container-orgc3156e2" class="outline-2">
-<h2 id="orgc3156e2"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
+<div id="outline-container-orgb26c831" class="outline-2">
+<h2 id="orgb26c831"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1050,12 +1055,12 @@
 </div>
 
 
-<div id="outline-container-org88ce298" class="outline-2">
-<h2 id="org88ce298"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
+<div id="outline-container-orged656a1" class="outline-2">
+<h2 id="orged656a1"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org20d08fb" class="outline-3">
-<h3 id="org20d08fb"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
+<div id="outline-container-org8b5e6e9" class="outline-3">
+<h3 id="org8b5e6e9"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 将以下代码添加到你的 Emacs 配置文件中：
@@ -1077,12 +1082,12 @@
 
 
 
-<div id="outline-container-org121353c" class="outline-3">
-<h3 id="org121353c"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
+<div id="outline-container-orgee55dd0" class="outline-3">
+<h3 id="orgee55dd0"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
 <div class="outline-text-3" id="text-10-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgd52834b"></a>我的设置<br>
+<li><a id="org0b3356d"></a>我的设置<br>
 <div class="outline-text-4" id="text-10-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>;; buffer name (if the buffer isn't visiting a file)
@@ -1096,9 +1101,9 @@
 </li>
 
 
-<li><a id="orgde80762"></a>frame-title-format选项相关<br>
+<li><a id="orge43ce3c"></a>frame-title-format选项相关<br>
 <div class="outline-text-4" id="text-10-2-2">
-<pre class="example" id="org1a02215">
+<pre class="example" id="org1df20c9">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1127,7 +1132,7 @@ Decimal digits after the % specify field width to which to pad.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 18:49:55&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-14 Fri 19:51</p>
+<p class="date">Created: 2025-03-16 Sun 20:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
