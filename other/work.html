@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-04-03 Thu 20:17 -->
+<!-- 2025-04-04 Fri 00:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工作相关的一些常用计算公式</title>
@@ -39,6 +39,7 @@
 <li><a href="#org0aa070a">2.2. 精确计算公式</a></li>
 </ul>
 </li>
+<li><a href="#orgbd649b5">3. 圆管的等分</a></li>
 </ul>
 </div>
 </nav>
@@ -49,7 +50,7 @@
 <p>
 钢材热膨胀计算公式为：
 </p>
-<pre class="example" id="org8c1418a">
+<pre class="example" id="org6d2297d">
 ΔL = L × α × ΔT
 </pre>
 <p>
@@ -76,7 +77,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 将数值代入公式可得：
 </p>
-<pre class="example" id="orgd853e91">
+<pre class="example" id="orgd57e16c">
 ΔL = 20000 × 12 × 10⁻⁶ × 80 = 19.2（毫米）
 </pre>
 
@@ -116,7 +117,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 在实际工程里，对于普通用途的钢丝绳，可借助经验公式对其拉断力进行估算:
 </p>
-<pre class="example" id="org98cc270">
+<pre class="example" id="org3d3526e">
 公式: T = 0.05 × d² / 安全系数
 </pre>
 <p>
@@ -130,13 +131,13 @@ L为钢材原始长度(单位：毫米).
 </ul>
 </div>
 
-<div id="outline-container-orgbaf4fae" class="outline-4">
-<h4 id="orgbaf4fae"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
+<div id="outline-container-org1d32ab4" class="outline-4">
+<h4 id="org1d32ab4"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 假设有一根钢丝绳，直径 d = 20mm, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="orgcfcfa9f">
+<pre class="example" id="orgf52ee5e">
 T = 0.05 × d² = 0.05 × 20²  = 20T
 最后除以安全系数取值4
 T = 20 / 4 = 5(吨)
@@ -152,7 +153,7 @@ T = 20 / 4 = 5(吨)
 <p>
 精确计算时，要考虑钢丝绳的结构、钢丝强度等因素.
 </p>
-<pre class="example" id="org9d5e9d6">
+<pre class="example" id="orgc3fe387">
 公式: Fb = K × π/4 × d² × σb
 </pre>
 <p>
@@ -174,7 +175,7 @@ T = 20 / 4 = 5(吨)
 <p>
 若要把拉断力 Fb (单位：N) 转换为拉断吨数 T (单位：吨), 可使用以下公式:
 </p>
-<pre class="example" id="orgc269258">
+<pre class="example" id="orgf74cc6a">
 公式: T = Fb / (g × 1000)
 </pre>
 <p>
@@ -187,13 +188,13 @@ T = 20 / 4 = 5(吨)
 </div>
 
 
-<div id="outline-container-org1d32ab4" class="outline-4">
-<h4 id="org1d32ab4"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
+<div id="outline-container-org9ba4a32" class="outline-4">
+<h4 id="org9ba4a32"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 假设有一根 6×19 结构的钢丝绳，直径 d = 20mm, 钢丝抗拉强度 σb = 1770MPa, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="org26e0d94">
+<pre class="example" id="org050ae40">
 首先确定破断拉力换算系数 K = 0.85.
 然后依据精确计算公式算出拉断力 Fb:
 Fb = K × π/4 × d² × σb = 0.85 × π/4 × 20² × 1770 ≈ 472263N
@@ -216,11 +217,55 @@ T = 48.2/4 ≈ 12T
 </div>
 </div>
 </div>
+
+
+
+<div id="outline-container-orgbd649b5" class="outline-2">
+<h2 id="orgbd649b5"><span class="section-number-2">3.</span> 圆管的等分</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+用 “直径×sin(180°/等分数)” 来平分圆的原理基于圆的内接正多边形的性质以及三角函数的定义.
+</p>
+<pre class="example" id="org36b472e">
+直径 × sin(180°/等分数)
+</pre>
+
+<p>
+以下是详细解释：
+</p>
+<ul class="org-ul">
+<li>圆内接正多边形的性质：
+当把圆等分成n份时,可以将这些等分点依次连接起来,构成一个圆内接正n边形.圆的直径就是这个正n边形的外接圆直径.</li>
+<li><p>
+三角函数的定义：
+在一个直角三角形中,正弦函数sinθ定义为对边与斜边的比值.
+对于圆内接正n边形,以圆心为顶点,相邻两个等分点与圆心连线所构成的等腰三角形.
+其顶角为360°/n,顶角的一半就是(360°/n)/2=180°/n
+那么底角就是(180° - 360°/n)/2 = 90° - 180°/n
+过圆心作等腰三角形底边的垂线,这条垂线将等腰三角形分成两个直角三角形,顶角被平分.
+在其中一个直角三角形中,sin(180°/n)就是底边的一半与外接圆半径（即圆的半径，直径的一半）的比值.
+</p>
+<pre class="example" id="org0fb4e10">
+正n边形边长一半/半径 = (sin180°/等分数)
+正n边形边长 = 2 * 半径 * (sin180°/等分数)
+</pre>
+<p>
+所以，正n边形的边长就等于
+2 × 半径 × sin(180°/等分数)
+即直径 × sin(180°/等分数)
+</p>
+
+<p>
+通过计算出这个边长，就可以在圆上依次截取相应长度的弧，从而将圆等分成n份，实现平分圆的目的.
+</p></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-04-03-093/Thursday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-04-03 Thu 20:17</p>
+<p class="date">Created: 2025-04-04 Fri 00:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
