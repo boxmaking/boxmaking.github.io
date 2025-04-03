@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2025-04-03 Thu 20:17 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>工作相关的一些常用计算公式</title>
+<meta name="author" content="pengshao" />
+<meta name="keywords" content="work" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">工作相关的一些常用计算公式</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb0dc309">1. 钢材热膨胀计算公式</a>
+<ul>
+<li><a href="#org39de9bf">1.1. 计算实例</a></li>
+<li><a href="#org0044d8c">1.2. 10⁻⁶=0.000001</a></li>
+<li><a href="#orga658c5e">1.3. 常见材料的膨胀系数</a></li>
+</ul>
+</li>
+<li><a href="#orga64469b">2. 钢丝绳直径与拉断力计算方式介绍</a>
+<ul>
+<li><a href="#org5bbf00a">2.1. 经验公式</a></li>
+<li><a href="#org0aa070a">2.2. 精确计算公式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgb0dc309" class="outline-2">
+<h2 id="orgb0dc309"><span class="section-number-2">1.</span> 钢材热膨胀计算公式</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+钢材热膨胀计算公式为：
+</p>
+<pre class="example" id="org8c1418a">
+ΔL = L × α × ΔT
+</pre>
+<p>
+式中ΔL为钢材长度变化量(单位：毫米).
+L为钢材原始长度(单位：毫米).
+α为钢材的线膨胀系数单位：(10⁻⁶/°C).
+ΔT为温度变化量(单位：°C).
+</p>
+</div>
+
+<div id="outline-container-org39de9bf" class="outline-3">
+<h3 id="org39de9bf"><span class="section-number-3">1.1.</span> 计算实例</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+有一根长度为20000毫米的钢材
+其线膨胀系数α = 12×10⁻⁶/°C，
+</p>
+
+<p>
+温度从15°C升高到95°C
+则温度变化量ΔT = 95 - 15 = 80°C。
+</p>
+
+<p>
+将数值代入公式可得：
+</p>
+<pre class="example" id="orgd853e91">
+ΔL = 20000 × 12 × 10⁻⁶ × 80 = 19.2（毫米）
+</pre>
+
+<p>
+所以 该钢材在温度变化后长度增加了19.2毫米。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0044d8c" class="outline-3">
+<h3 id="org0044d8c"><span class="section-number-3">1.2.</span> 10⁻⁶=0.000001</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+10⁻⁶=0.000001
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga658c5e" class="outline-3">
+<h3 id="orga658c5e"><span class="section-number-3">1.3.</span> 常见材料的膨胀系数</h3>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga64469b" class="outline-2">
+<h2 id="orga64469b"><span class="section-number-2">2.</span> 钢丝绳直径与拉断力计算方式介绍</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+钢丝绳的直径和拉断力 (可换算为拉断吨数) 有多种计算方式，以下为你详细介绍:
+</p>
+</div>
+
+<div id="outline-container-org5bbf00a" class="outline-3">
+<h3 id="org5bbf00a"><span class="section-number-3">2.1.</span> 经验公式</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+在实际工程里，对于普通用途的钢丝绳，可借助经验公式对其拉断力进行估算:
+</p>
+<pre class="example" id="org98cc270">
+公式: T = 0.05 × d² / 安全系数
+</pre>
+<p>
+说明:
+</p>
+<ul class="org-ul">
+<li>T 代表钢丝绳的使用吨数，单位是吨 (T).</li>
+<li>d 代表钢丝绳的直径，单位为毫米 (mm).</li>
+<li>安全系数 一般为4-7</li>
+<li>此公式简单易用，不过仅适用于粗略估算，不能用于精确计算.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbaf4fae" class="outline-4">
+<h4 id="orgbaf4fae"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+假设有一根钢丝绳，直径 d = 20mm, 试计算其拉断力和拉断吨数.
+</p>
+<pre class="example" id="orgcfcfa9f">
+T = 0.05 × d² = 0.05 × 20²  = 20T
+最后除以安全系数取值4
+T = 20 / 4 = 5(吨)
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0aa070a" class="outline-3">
+<h3 id="org0aa070a"><span class="section-number-3">2.2.</span> 精确计算公式</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+精确计算时，要考虑钢丝绳的结构、钢丝强度等因素.
+</p>
+<pre class="example" id="org9d5e9d6">
+公式: Fb = K × π/4 × d² × σb
+</pre>
+<p>
+说明:
+</p>
+<ul class="org-ul">
+<li>Fb 是钢丝绳的破断拉力，单位为牛顿 (N).</li>
+<li>K 是钢丝绳的破断拉力换算系数，不同结构的钢丝绳，其 K 值不同。
+例如，6×19 结构的钢丝绳，K 值约为 0.85; 6×37 结构的钢丝绳，K 值约为 0.82.</li>
+<li>d 是钢丝绳的直径，单位是毫米 (mm).</li>
+<li>σb 是钢丝的抗拉强度，单位为兆帕 (MPa), 常见的钢丝抗拉强度有 1400MPa、1570MPa、1770MPa 等.</li>
+</ul>
+</div>
+
+
+<div id="outline-container-org348ae74" class="outline-4">
+<h4 id="org348ae74"><span class="section-number-4">2.2.1.</span> 将拉断力换算为拉断吨数</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+若要把拉断力 Fb (单位：N) 转换为拉断吨数 T (单位：吨), 可使用以下公式:
+</p>
+<pre class="example" id="orgc269258">
+公式: T = Fb / (g × 1000)
+</pre>
+<p>
+说明:
+</p>
+<ul class="org-ul">
+<li>g 是重力加速度，通常取 g = 9.8N/kg.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org1d32ab4" class="outline-4">
+<h4 id="org1d32ab4"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+假设有一根 6×19 结构的钢丝绳，直径 d = 20mm, 钢丝抗拉强度 σb = 1770MPa, 试计算其拉断力和拉断吨数.
+</p>
+<pre class="example" id="org26e0d94">
+首先确定破断拉力换算系数 K = 0.85.
+然后依据精确计算公式算出拉断力 Fb:
+Fb = K × π/4 × d² × σb = 0.85 × π/4 × 20² × 1770 ≈ 472263N
+最后将拉断力换算为拉断吨数 T:
+T = Fb / (g × 1000) = 472263 / (9.8 × 1000) ≈ 48.2 (吨)
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org3366ab5" class="outline-4">
+<h4 id="org3366ab5"><span class="section-number-4">2.2.3.</span> 需要注意，实际应用中，为保证安全，要根据具体工况选取合适的安全系数，</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+拉断力需除以安全系数后才是钢丝绳的允许使用拉力.
+T = 48.2/4 ≈ 12T
+意思为最大极限使用重量.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-04-03-093/Thursday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2025-04-03 Thu 20:17</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
