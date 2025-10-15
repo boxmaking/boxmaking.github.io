@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-04-04 Fri 00:26 -->
+<!-- 2025-10-15 Wed 23:24 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工作相关的一些常用计算公式</title>
@@ -13,6 +13,27 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -40,6 +61,16 @@
 </ul>
 </li>
 <li><a href="#orgbd649b5">3. 圆管的等分</a></li>
+<li><a href="#org49c4b6b">4. 优先数系 Rr( 5 10 20 40 )</a>
+<ul>
+<li><a href="#orgee8cd1f">4.1. 概述</a></li>
+<li><a href="#org9565fd3">4.2. R5系列 1.6</a></li>
+<li><a href="#org93ef66e">4.3. R10系列 1.25</a></li>
+<li><a href="#org1a9d43e">4.4. 应用原则</a></li>
+<li><a href="#orgc908040">4.5. 学习建议</a></li>
+</ul>
+</li>
+<li><a href="#orga9f713d">5. 已知弦长和拱高,求直径</a></li>
 </ul>
 </div>
 </nav>
@@ -50,7 +81,7 @@
 <p>
 钢材热膨胀计算公式为：
 </p>
-<pre class="example" id="org6d2297d">
+<pre class="example" id="org94f1a10">
 ΔL = L × α × ΔT
 </pre>
 <p>
@@ -77,7 +108,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 将数值代入公式可得：
 </p>
-<pre class="example" id="orgd57e16c">
+<pre class="example" id="org5b9dcf3">
 ΔL = 20000 × 12 × 10⁻⁶ × 80 = 19.2（毫米）
 </pre>
 
@@ -117,7 +148,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 在实际工程里，对于普通用途的钢丝绳，可借助经验公式对其拉断力进行估算:
 </p>
-<pre class="example" id="org3d3526e">
+<pre class="example" id="orgaeb920d">
 公式: T = 0.05 × d² / 安全系数
 </pre>
 <p>
@@ -131,13 +162,13 @@ L为钢材原始长度(单位：毫米).
 </ul>
 </div>
 
-<div id="outline-container-org1d32ab4" class="outline-4">
-<h4 id="org1d32ab4"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
+<div id="outline-container-org80fb9a3" class="outline-4">
+<h4 id="org80fb9a3"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 假设有一根钢丝绳，直径 d = 20mm, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="orgf52ee5e">
+<pre class="example" id="orgdb525aa">
 T = 0.05 × d² = 0.05 × 20²  = 20T
 最后除以安全系数取值4
 T = 20 / 4 = 5(吨)
@@ -153,7 +184,7 @@ T = 20 / 4 = 5(吨)
 <p>
 精确计算时，要考虑钢丝绳的结构、钢丝强度等因素.
 </p>
-<pre class="example" id="orgc3fe387">
+<pre class="example" id="orgea2e36f">
 公式: Fb = K × π/4 × d² × σb
 </pre>
 <p>
@@ -175,7 +206,7 @@ T = 20 / 4 = 5(吨)
 <p>
 若要把拉断力 Fb (单位：N) 转换为拉断吨数 T (单位：吨), 可使用以下公式:
 </p>
-<pre class="example" id="orgf74cc6a">
+<pre class="example" id="org87516c2">
 公式: T = Fb / (g × 1000)
 </pre>
 <p>
@@ -188,13 +219,13 @@ T = 20 / 4 = 5(吨)
 </div>
 
 
-<div id="outline-container-org9ba4a32" class="outline-4">
-<h4 id="org9ba4a32"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
+<div id="outline-container-org689ef61" class="outline-4">
+<h4 id="org689ef61"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 假设有一根 6×19 结构的钢丝绳，直径 d = 20mm, 钢丝抗拉强度 σb = 1770MPa, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="org050ae40">
+<pre class="example" id="org87e0515">
 首先确定破断拉力换算系数 K = 0.85.
 然后依据精确计算公式算出拉断力 Fb:
 Fb = K × π/4 × d² × σb = 0.85 × π/4 × 20² × 1770 ≈ 472263N
@@ -226,7 +257,7 @@ T = 48.2/4 ≈ 12T
 <p>
 用 “直径×sin(180°/等分数)” 来平分圆的原理基于圆的内接正多边形的性质以及三角函数的定义.
 </p>
-<pre class="example" id="org36b472e">
+<pre class="example" id="orgfe6ed4b">
 直径 × sin(180°/等分数)
 </pre>
 
@@ -245,7 +276,7 @@ T = 48.2/4 ≈ 12T
 过圆心作等腰三角形底边的垂线,这条垂线将等腰三角形分成两个直角三角形,顶角被平分.
 在其中一个直角三角形中,sin(180°/n)就是底边的一半与外接圆半径（即圆的半径，直径的一半）的比值.
 </p>
-<pre class="example" id="org0fb4e10">
+<pre class="example" id="orga526cdb">
 正n边形边长一半/半径 = (sin180°/等分数)
 正n边形边长 = 2 * 半径 * (sin180°/等分数)
 </pre>
@@ -261,11 +292,223 @@ T = 48.2/4 ≈ 12T
 </ul>
 </div>
 </div>
+
+
+
+
+<div id="outline-container-org49c4b6b" class="outline-2">
+<h2 id="org49c4b6b"><span class="section-number-2">4.</span> 优先数系 Rr( 5 10 20 40 )</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgee8cd1f" class="outline-3">
+<h3 id="orgee8cd1f"><span class="section-number-3">4.1.</span> 概述</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>优先数系(Renard Numbers)是机械行业中用于标准化产品参数(如尺寸/功率/转速等)的数值分级系统</li>
+<li>基于几何级数原理，可保证数值在相同比例下扩展</li>
+<li>国际标准: ISO 3 (GB/T 321-2005等同采用)</li>
+<li>主要优点:
+<ol class="org-ol">
+<li>简化产品规格</li>
+<li>提高零件互换性</li>
+<li>优化生产制造</li>
+<li>方便维修替换</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9565fd3" class="outline-3">
+<h3 id="org9565fd3"><span class="section-number-3">4.2.</span> R5系列 1.6</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orge160207" class="outline-4">
+<h4 id="orge160207"><span class="section-number-4">4.2.1.</span> 基本特征</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>公比: \( \sqrt[5]{10} \approx 1.5849 \)</li>
+<li>数值密度: 每10倍程分为5个等比分段</li>
+<li>优先顺序: 属于基本系列中的第一优先</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9ca01a3" class="outline-4">
+<h4 id="org9ca01a3"><span class="section-number-4">4.2.2.</span> 标准数值(1-10范围)</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<ul class="org-ul">
+<li>1.00</li>
+<li>1.60</li>
+<li>2.50</li>
+<li>4.00</li>
+<li>6.30</li>
+<li>10.00</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org937270c" class="outline-4">
+<h4 id="org937270c"><span class="section-number-4">4.2.3.</span> 典型应用场景</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<ul class="org-ul">
+<li>通用机械零件的粗分级</li>
+<li>需要较大参数跨度的场合</li>
+<li>示例: 普通螺栓直径/电动机功率等级</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93ef66e" class="outline-3">
+<h3 id="org93ef66e"><span class="section-number-3">4.3.</span> R10系列 1.25</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org694aaea" class="outline-4">
+<h4 id="org694aaea"><span class="section-number-4">4.3.1.</span> 核心特性</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li>公比: \( \sqrt[10]{10} \approx 1.2589 \)</li>
+<li>数值密度: 每10倍程分为10个等比分段</li>
+<li>优先顺序: 基本系列中的第二优先</li>
+<li>包含R5系列的所有数值</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org747cddc" class="outline-4">
+<h4 id="org747cddc"><span class="section-number-4">4.3.2.</span> 完整数值表(1-10范围)</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<pre class="example">
+1.00  1.25  1.60  2.00  2.50
+3.15  4.00  5.00  6.30  8.00
+10.00
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2dc311f" class="outline-4">
+<h4 id="org2dc311f"><span class="section-number-4">4.3.3.</span> 数值扩展规则</h4>
+<div class="outline-text-4" id="text-4-3-3">
+<ul class="org-ul">
+<li>通过乘以10的整数次幂进行延伸</li>
+<li><p>
+例: 0.1-0.8范围数值:
+</p>
+<pre class="example">
+0.10  0.125  0.16  0.20  0.25
+0.315 0.40   0.50  0.63  0.80
+</pre></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd6672d8" class="outline-4">
+<h4 id="orgd6672d8"><span class="section-number-4">4.3.4.</span> 核心优势</h4>
+<div class="outline-text-4" id="text-4-3-4">
+<ol class="org-ol">
+<li>比R5系列精细2倍的参数分级</li>
+<li>保持约25%的级间增幅</li>
+<li>满足更精确的参数选择需求</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc1196f6" class="outline-4">
+<h4 id="orgc1196f6"><span class="section-number-4">4.3.5.</span> 典型应用领域</h4>
+<div class="outline-text-4" id="text-4-3-5">
+<ul class="org-ul">
+<li>精密机械零件尺寸</li>
+<li>仪器仪表量程设定</li>
+<li>需要中等密度分级的场景</li>
+<li>示例:
+<ul class="org-ul">
+<li>轴承内径系列</li>
+<li>液压缸活塞尺寸</li>
+<li>传感器测量范围</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1a9d43e" class="outline-3">
+<h3 id="org1a9d43e"><span class="section-number-3">4.4.</span> 应用原则</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>优先选用R5系列，当R5不能满足要求时选用R10</li>
+<li>派生系列选择: R10/2(每2个数值选1个)等效于R20/4</li>
+<li>允许数值圆整，但需保持原有公比特性</li>
+<li>复合系列应用时可跨系列组合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc908040" class="outline-3">
+<h3 id="orgc908040"><span class="section-number-3">4.5.</span> 学习建议</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>掌握各系列数值的速算方法: \( \text{前值} \times \sqrt[n]{10} \)</li>
+<li>熟记R5/R10的基础数值(1-10范围)</li>
+<li>结合机械设计手册中的实际应用案例学习</li>
+<li>练习参数系列的延伸计算(如扩展到0.1-100范围)</li>
+<li>参考标准文档:
+<ul class="org-ul">
+<li>ISO 3:1973 <a id="org72baaba"></a></li>
+<li>GB/T 321-2005 <a id="orgc8b7400"></a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga9f713d" class="outline-2">
+<h2 id="orga9f713d"><span class="section-number-2">5.</span> 已知弦长和拱高,求直径</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+已知弦长 L=330mm，拱高 H=10mm，可通过直角三角形勾股定理直接计算直径，步骤如下：
+</p>
+<pre class="example" id="org5306464">
+核心公式推导：
+弦长的一半（L/2）、半径与拱高的差值（r - H）、半径（r）构成直角三角形，
+满足 (L/2)² + (r - H)² = r²。
+代入数值计算：将 L=330mm、H=10mm 代入，
+展开并化简方程：165² + (r - 10)² = r²，最终解得半径 r=1365.25mm。
+求直径：直径 D=2r=2×1365.25=2730.5mm。
+</pre>
+
+<p>
+需要我用同样的方法，帮你计算其他 “弦长 + 拱高” 组合对应的直径吗？
+这个方法民间有口诀
+确实有对应的民间口诀，核心是简化勾股定理的计算逻辑，
+口诀为：“弦长一半的平方，除以拱高，再加拱高，结果就是直径”。
+这句口诀的本质就是对公式的通俗化表达：
+先计算弦长一半的平方（(L/2)²），
+除以拱高（H）后得到一个数值，再加上拱高本身，
+最终结果即为直径（D），
+与之前推导的公式 D = [(L/2)² ÷ H] + H 完全一致。
+用你提供的 “弦长 330mm、拱高 10mm”
+验证：(330/2)² ÷10 +10 = 165²÷10 +10 = 27225÷10 +10 = 2722.5 +10 = 2730.5mm，
+和精准计算结果完全相同。
+</p>
+
+<p>
+这个口诀是谁发明的？
+“半弦自乘，除其拱，加其拱，被 2 除，所得半径” 这一口诀最早可追溯至 **《九章算术》**。
+</p>
+
+<p>
+《九章算术》是中国古代第一部数学专著，其成书年代尚无定论，一般认为是经历了秦汉时期的增补和整理。
+书中 “弧田术” 提到 “以弦乘矢，矢又自乘，并之，二而一”，与上述口诀所表达的数学原理一致。
+后来刘徽为《九章算术》作注，对其算法进行了进一步的解释和推导。
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-04-03-093/Thursday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-04-04 Fri 00:26</p>
+<p class="date">Created: 2025-10-15 Wed 23:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
