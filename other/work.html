@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-04-04 Fri 00:26 -->
+<!-- 2026-01-06 Tue 20:58 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>工作相关的一些常用计算公式</title>
@@ -13,6 +13,27 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -40,6 +61,24 @@
 </ul>
 </li>
 <li><a href="#orgbd649b5">3. 圆管的等分</a></li>
+<li><a href="#org4cad73a">4. 优先数系 Rr( 5 10 20 40 )</a>
+<ul>
+<li><a href="#org9a271a0">4.1. 概述</a></li>
+<li><a href="#orgc150cec">4.2. R5系列 1.6</a></li>
+<li><a href="#org537e47c">4.3. R10系列 1.25</a></li>
+<li><a href="#org1845681">4.4. 应用原则</a></li>
+<li><a href="#org6b16c7d">4.5. 学习建议</a></li>
+</ul>
+</li>
+<li><a href="#org17f75f2">5. 已知弦长和拱高,求直径</a></li>
+<li><a href="#org6d8d5d6">6. 物体重力下落相关公式与计算</a>
+<ul>
+<li><a href="#org1ab707b">6.1. 一、两种常见下落场景</a></li>
+<li><a href="#org3c234db">6.2. 二、公式本质与关键说明</a></li>
+<li><a href="#org9101ff4">6.3. 三、实际计算例子</a></li>
+<li><a href="#org35cb345">6.4. 补充说明</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
@@ -50,7 +89,7 @@
 <p>
 钢材热膨胀计算公式为：
 </p>
-<pre class="example" id="org6d2297d">
+<pre class="example" id="org9ade5c4">
 ΔL = L × α × ΔT
 </pre>
 <p>
@@ -77,7 +116,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 将数值代入公式可得：
 </p>
-<pre class="example" id="orgd57e16c">
+<pre class="example" id="org6cd5723">
 ΔL = 20000 × 12 × 10⁻⁶ × 80 = 19.2（毫米）
 </pre>
 
@@ -117,7 +156,7 @@ L为钢材原始长度(单位：毫米).
 <p>
 在实际工程里，对于普通用途的钢丝绳，可借助经验公式对其拉断力进行估算:
 </p>
-<pre class="example" id="org3d3526e">
+<pre class="example" id="orgb7e17b6">
 公式: T = 0.05 × d² / 安全系数
 </pre>
 <p>
@@ -131,13 +170,13 @@ L为钢材原始长度(单位：毫米).
 </ul>
 </div>
 
-<div id="outline-container-org1d32ab4" class="outline-4">
-<h4 id="org1d32ab4"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
+<div id="outline-container-org9ba4a32" class="outline-4">
+<h4 id="org9ba4a32"><span class="section-number-4">2.1.1.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 假设有一根钢丝绳，直径 d = 20mm, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="orgf52ee5e">
+<pre class="example" id="org06436e2">
 T = 0.05 × d² = 0.05 × 20²  = 20T
 最后除以安全系数取值4
 T = 20 / 4 = 5(吨)
@@ -153,7 +192,7 @@ T = 20 / 4 = 5(吨)
 <p>
 精确计算时，要考虑钢丝绳的结构、钢丝强度等因素.
 </p>
-<pre class="example" id="orgc3fe387">
+<pre class="example" id="org4bd5007">
 公式: Fb = K × π/4 × d² × σb
 </pre>
 <p>
@@ -175,7 +214,7 @@ T = 20 / 4 = 5(吨)
 <p>
 若要把拉断力 Fb (单位：N) 转换为拉断吨数 T (单位：吨), 可使用以下公式:
 </p>
-<pre class="example" id="orgf74cc6a">
+<pre class="example" id="org9c05476">
 公式: T = Fb / (g × 1000)
 </pre>
 <p>
@@ -188,13 +227,13 @@ T = 20 / 4 = 5(吨)
 </div>
 
 
-<div id="outline-container-org9ba4a32" class="outline-4">
-<h4 id="org9ba4a32"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
+<div id="outline-container-org3074906" class="outline-4">
+<h4 id="org3074906"><span class="section-number-4">2.2.2.</span> 示例计算</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 假设有一根 6×19 结构的钢丝绳，直径 d = 20mm, 钢丝抗拉强度 σb = 1770MPa, 试计算其拉断力和拉断吨数.
 </p>
-<pre class="example" id="org050ae40">
+<pre class="example" id="org08dae6f">
 首先确定破断拉力换算系数 K = 0.85.
 然后依据精确计算公式算出拉断力 Fb:
 Fb = K × π/4 × d² × σb = 0.85 × π/4 × 20² × 1770 ≈ 472263N
@@ -226,7 +265,7 @@ T = 48.2/4 ≈ 12T
 <p>
 用 “直径×sin(180°/等分数)” 来平分圆的原理基于圆的内接正多边形的性质以及三角函数的定义.
 </p>
-<pre class="example" id="org36b472e">
+<pre class="example" id="org0141a9d">
 直径 × sin(180°/等分数)
 </pre>
 
@@ -245,7 +284,7 @@ T = 48.2/4 ≈ 12T
 过圆心作等腰三角形底边的垂线,这条垂线将等腰三角形分成两个直角三角形,顶角被平分.
 在其中一个直角三角形中,sin(180°/n)就是底边的一半与外接圆半径（即圆的半径，直径的一半）的比值.
 </p>
-<pre class="example" id="org0fb4e10">
+<pre class="example" id="org4bb48ae">
 正n边形边长一半/半径 = (sin180°/等分数)
 正n边形边长 = 2 * 半径 * (sin180°/等分数)
 </pre>
@@ -261,11 +300,335 @@ T = 48.2/4 ≈ 12T
 </ul>
 </div>
 </div>
+
+
+
+
+<div id="outline-container-org4cad73a" class="outline-2">
+<h2 id="org4cad73a"><span class="section-number-2">4.</span> 优先数系 Rr( 5 10 20 40 )</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org9a271a0" class="outline-3">
+<h3 id="org9a271a0"><span class="section-number-3">4.1.</span> 概述</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>优先数系(Renard Numbers)是机械行业中用于标准化产品参数(如尺寸/功率/转速等)的数值分级系统</li>
+<li>基于几何级数原理，可保证数值在相同比例下扩展</li>
+<li>国际标准: ISO 3 (GB/T 321-2005等同采用)</li>
+<li>主要优点:
+<ol class="org-ol">
+<li>简化产品规格</li>
+<li>提高零件互换性</li>
+<li>优化生产制造</li>
+<li>方便维修替换</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc150cec" class="outline-3">
+<h3 id="orgc150cec"><span class="section-number-3">4.2.</span> R5系列 1.6</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-org71d38b0" class="outline-4">
+<h4 id="org71d38b0"><span class="section-number-4">4.2.1.</span> 基本特征</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>公比: \( \sqrt[5]{10} \approx 1.5849 \)</li>
+<li>数值密度: 每10倍程分为5个等比分段</li>
+<li>优先顺序: 属于基本系列中的第一优先</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4b90241" class="outline-4">
+<h4 id="org4b90241"><span class="section-number-4">4.2.2.</span> 标准数值(1-10范围)</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<ul class="org-ul">
+<li>1.00</li>
+<li>1.60</li>
+<li>2.50</li>
+<li>4.00</li>
+<li>6.30</li>
+<li>10.00</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org05e0882" class="outline-4">
+<h4 id="org05e0882"><span class="section-number-4">4.2.3.</span> 典型应用场景</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<ul class="org-ul">
+<li>通用机械零件的粗分级</li>
+<li>需要较大参数跨度的场合</li>
+<li>示例: 普通螺栓直径/电动机功率等级</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org537e47c" class="outline-3">
+<h3 id="org537e47c"><span class="section-number-3">4.3.</span> R10系列 1.25</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-org74fff49" class="outline-4">
+<h4 id="org74fff49"><span class="section-number-4">4.3.1.</span> 核心特性</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li>公比: \( \sqrt[10]{10} \approx 1.2589 \)</li>
+<li>数值密度: 每10倍程分为10个等比分段</li>
+<li>优先顺序: 基本系列中的第二优先</li>
+<li>包含R5系列的所有数值</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd2384e6" class="outline-4">
+<h4 id="orgd2384e6"><span class="section-number-4">4.3.2.</span> 完整数值表(1-10范围)</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<pre class="example">
+1.00  1.25  1.60  2.00  2.50
+3.15  4.00  5.00  6.30  8.00
+10.00
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org18f1df1" class="outline-4">
+<h4 id="org18f1df1"><span class="section-number-4">4.3.3.</span> 数值扩展规则</h4>
+<div class="outline-text-4" id="text-4-3-3">
+<ul class="org-ul">
+<li>通过乘以10的整数次幂进行延伸</li>
+<li><p>
+例: 0.1-0.8范围数值:
+</p>
+<pre class="example">
+0.10  0.125  0.16  0.20  0.25
+0.315 0.40   0.50  0.63  0.80
+</pre></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3bc5b2c" class="outline-4">
+<h4 id="org3bc5b2c"><span class="section-number-4">4.3.4.</span> 核心优势</h4>
+<div class="outline-text-4" id="text-4-3-4">
+<ol class="org-ol">
+<li>比R5系列精细2倍的参数分级</li>
+<li>保持约25%的级间增幅</li>
+<li>满足更精确的参数选择需求</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org01beac8" class="outline-4">
+<h4 id="org01beac8"><span class="section-number-4">4.3.5.</span> 典型应用领域</h4>
+<div class="outline-text-4" id="text-4-3-5">
+<ul class="org-ul">
+<li>精密机械零件尺寸</li>
+<li>仪器仪表量程设定</li>
+<li>需要中等密度分级的场景</li>
+<li>示例:
+<ul class="org-ul">
+<li>轴承内径系列</li>
+<li>液压缸活塞尺寸</li>
+<li>传感器测量范围</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1845681" class="outline-3">
+<h3 id="org1845681"><span class="section-number-3">4.4.</span> 应用原则</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>优先选用R5系列，当R5不能满足要求时选用R10</li>
+<li>派生系列选择: R10/2(每2个数值选1个)等效于R20/4</li>
+<li>允许数值圆整，但需保持原有公比特性</li>
+<li>复合系列应用时可跨系列组合</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6b16c7d" class="outline-3">
+<h3 id="org6b16c7d"><span class="section-number-3">4.5.</span> 学习建议</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>掌握各系列数值的速算方法: \( \text{前值} \times \sqrt[n]{10} \)</li>
+<li>熟记R5/R10的基础数值(1-10范围)</li>
+<li>结合机械设计手册中的实际应用案例学习</li>
+<li>练习参数系列的延伸计算(如扩展到0.1-100范围)</li>
+<li>参考标准文档:
+<ul class="org-ul">
+<li>ISO 3:1973 <a id="orge93e5d7"></a></li>
+<li>GB/T 321-2005 <a id="org2d16c4f"></a></li>
+</ul></li>
+</ul>
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<code>=====</code>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org17f75f2" class="outline-2">
+<h2 id="org17f75f2"><span class="section-number-2">5.</span> 已知弦长和拱高,求直径</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+已知弦长 L=330mm，拱高 H=10mm，可通过直角三角形勾股定理直接计算直径，步骤如下：
+</p>
+<pre class="example" id="orgc759c2d">
+核心公式推导：
+弦长的一半（L/2）、半径与拱高的差值（r - H）、半径（r）构成直角三角形，
+满足 (L/2)² + (r - H)² = r²。
+代入数值计算：将 L=330mm、H=10mm 代入，
+展开并化简方程：165² + (r - 10)² = r²，最终解得半径 r=1365.25mm。
+求直径：直径 D=2r=2×1365.25=2730.5mm。
+</pre>
+
+<p>
+需要我用同样的方法，帮你计算其他 “弦长 + 拱高” 组合对应的直径吗？
+这个方法民间有口诀
+确实有对应的民间口诀，核心是简化勾股定理的计算逻辑，
+口诀为：“弦长一半的平方，除以拱高，再加拱高，结果就是直径”。
+这句口诀的本质就是对公式的通俗化表达：
+先计算弦长一半的平方（(L/2)²），
+除以拱高（H）后得到一个数值，再加上拱高本身，
+最终结果即为直径（D），
+与之前推导的公式 D = [(L/2)² ÷ H] + H 完全一致。
+用你提供的 “弦长 330mm、拱高 10mm”
+验证：(330/2)² ÷10 +10 = 165²÷10 +10 = 27225÷10 +10 = 2722.5 +10 = 2730.5mm，
+和精准计算结果完全相同。
+</p>
+
+<p>
+这个口诀是谁发明的？
+“半弦自乘，除其拱，加其拱，被 2 除，所得半径” 这一口诀最早可追溯至 **《九章算术》**。
+</p>
+
+<p>
+《九章算术》是中国古代第一部数学专著，其成书年代尚无定论，一般认为是经历了秦汉时期的增补和整理。
+书中 “弧田术” 提到 “以弦乘矢，矢又自乘，并之，二而一”，与上述口诀所表达的数学原理一致。
+后来刘徽为《九章算术》作注，对其算法进行了进一步的解释和推导。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org6d8d5d6" class="outline-2">
+<h2 id="org6d8d5d6"><span class="section-number-2">6.</span> 物体重力下落相关公式与计算</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org1ab707b" class="outline-3">
+<h3 id="org1ab707b"><span class="section-number-3">6.1.</span> 一、两种常见下落场景</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-orge2c5a08" class="outline-4">
+<h4 id="orge2c5a08"><span class="section-number-4">6.1.1.</span> 1. 自由下落（初速度v₀=0，仅受重力）</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+这是最常用的场景（如物体从静止开始掉落），公式为：
+h = (1/2) g t²
+</p>
+<ul class="org-ul">
+<li>h = 下落深度（单位：米，m）</li>
+<li>g = 重力加速度（地球表面约为 9.8 m/s²，粗略计算时可取 10 m/s²）</li>
+<li>t = 下落时间（单位：秒，s）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c5abf9" class="outline-4">
+<h4 id="org5c5abf9"><span class="section-number-4">6.1.2.</span> 2. 初速度不为零的下落（v₀≠0，如物体被抛出）</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+若物体下落时已有初始向下的速度v₀，公式为：
+h = v₀ t + (1/2) g t²
+</p>
+<ul class="org-ul">
+<li>符号含义同上</li>
+<li>v₀为初始速度（单位：m/s，方向向下为正）</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3c234db" class="outline-3">
+<h3 id="org3c234db"><span class="section-number-3">6.2.</span> 二、公式本质与关键说明</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-orgaa92a0c" class="outline-4">
+<h4 id="orgaa92a0c"><span class="section-number-4">6.2.1.</span> 公式本质</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+物体在重力作用下做匀加速直线运动，加速度a=g，因此直接套用匀加速直线运动的位移公式（位移=初速度×时间 + ½×加速度×时间²）。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org983003f" class="outline-4">
+<h4 id="org983003f"><span class="section-number-4">6.2.2.</span> 关键前提</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+忽略空气阻力（日常低速、小质量物体下落可近似满足；若物体过大、速度过快，需考虑空气阻力，公式会更复杂，但基础计算中无需考虑）。
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9101ff4" class="outline-3">
+<h3 id="org9101ff4"><span class="section-number-3">6.3.</span> 三、实际计算例子</h3>
+<div class="outline-text-3" id="text-6-3">
+</div>
+<div id="outline-container-org91950d0" class="outline-4">
+<h4 id="org91950d0"><span class="section-number-4">6.3.1.</span> 例1：自由下落（计算井深）</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+用石块自由落入井中，2秒后听到落地声（忽略声音传播时间），求井深。
+</p>
+<ul class="org-ul">
+<li>已知：v₀=0，t=2s，取g=10m/s²</li>
+<li>代入公式：h = ½ × 10 × (2)² = 5 × 4 = 20米</li>
+<li>结论：井深约20米（若用g=9.8，h=19.6米）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8cd8bc7" class="outline-4">
+<h4 id="org8cd8bc7"><span class="section-number-4">6.3.2.</span> 例2：初速度不为零（计算悬崖高度）</h4>
+<div class="outline-text-4" id="text-6-3-2">
+<p>
+从悬崖上以5m/s的初速度向下扔一块石头，3秒后落地，求悬崖高度。
+</p>
+<ul class="org-ul">
+<li>已知：v₀=5m/s，t=3s，g=10m/s²</li>
+<li>代入公式：h = 5×3 + ½×10×(3)² = 15 + 45 = 60米</li>
+<li>结论：悬崖高度为60米</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org35cb345" class="outline-3">
+<h3 id="org35cb345"><span class="section-number-3">6.4.</span> 补充说明</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+需要我用这个公式帮你计算某个具体场景的下落深度吗？比如已知下落时间，直接代入g值算出深度，你只需告诉我时间和是否有初速度即可。
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-04-03-093/Thursday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-04-04 Fri 00:26</p>
+<p class="date">Created: 2026-01-06 Tue 20:58</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

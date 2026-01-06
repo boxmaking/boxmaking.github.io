@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-04-04 Fri 00:26 -->
+<!-- 2026-01-06 Tue 20:58 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs一键插入-日期,农历,月相,万年历</title>
@@ -106,23 +106,35 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <span class="linenr"> 4: </span>current_date=$(date +"%Y-%m-%d")
 <span class="linenr"> 5: </span>
 <span class="linenr"> 6: </span># 使用 wget 命令获取当天的农历日期，并且静默过程
-<span class="linenr"> 7: </span>response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")
-<span class="linenr"> 8: </span>
-<span class="linenr"> 9: </span># 解析农历日期
-<span class="linenr">10: </span>lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">11: </span>lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">12: </span>lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">13: </span>lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">14: </span>lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">15: </span>lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">16: </span>lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">17: </span>lunar_shenwei=$(echo $response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">18: </span>lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">19: </span>
+<span class="linenr"> 7: </span>#response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")#20250926原网址不用了崩溃了.修改
+<span class="linenr"> 8: </span>response=$(wget -qO- "https://cn.apihz.cn/api/time/getday.php?id=10008463&amp;key=08727f4803a7dc3714463a897a3a1989")
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span># 解析农历日期
+<span class="linenr">11: </span>#lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">12: </span>#lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">13: </span>#lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">14: </span>#lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">15: </span>#lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">16: </span>#lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">17: </span>#lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">18: </span>#lunar_shenwei=$(echo $response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">19: </span>#lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
 <span class="linenr">20: </span>
-<span class="linenr">21: </span>
+<span class="linenr">21: </span>#echo " $lunar_GregorianDateTime $lunar_monthname $lunar_month $lunar_day $lunar_year $lunar_tiangany $lunar_tianganm $lunar_tiangand $lunar_shenwei"
 <span class="linenr">22: </span>
-<span class="linenr">23: </span>echo " $lunar_GregorianDateTime $lunar_monthname $lunar_month $lunar_day $lunar_year $lunar_tiangany $lunar_tianganm $lunar_tiangand $lunar_shenwei"
+<span class="linenr">23: </span>
+<span class="linenr">24: </span>lunar_nnian=$(echo $response | grep -o '"nnian":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">25: </span>lunar_nyue=$(echo $response | grep -o '"nyue":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">26: </span>lunar_nri=$(echo $response | grep -o '"nri":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">27: </span>lunar_shengxiao=$(echo $response | grep -o '"shengxiao":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">28: </span>lunar_ganzhinian=$(echo $response | grep -o '"ganzhinian":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">29: </span>lunar_ganzhiyue=$(echo $response | grep -o '"ganzhiyue":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">30: </span>lunar_ganzhiri=$(echo $response | grep -o '"ganzhiri":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">31: </span>lunar_yuexiang=$(echo $response | grep -o '"YUEXIANG":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">32: </span>lunar_jieqimsg=$(echo $response | grep -o '"jieqimsg":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>echo "&lt;$lunar_nnian-$lunar_nyue-$lunar_nri  $lunar_shengxiao&gt; &lt;$lunar_ganzhinian-$lunar_ganzhiyue-$lunar_ganzhiri&gt; $lunar_yuexiang $lunar_jieqimsg "
 </pre>
 </div>
 </div>
@@ -141,24 +153,34 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <span class="linenr"> 4: </span>current_date=$(date +"%Y-%m-%d")
 <span class="linenr"> 5: </span>
 <span class="linenr"> 6: </span># 使用 wget 命令获取当天的农历日期，并且静默过程
-<span class="linenr"> 7: </span>response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")
-<span class="linenr"> 8: </span>
-<span class="linenr"> 9: </span># 解析农历日期
-<span class="linenr">10: </span>#lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">11: </span>lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">12: </span>lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">13: </span>lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">14: </span>lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">15: </span>lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">16: </span>lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">17: </span>lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr"> 7: </span>#response=$(wget -qO- "https://www.36jxs.com/api/Commonweal/almanac?sun=${current_date}")#20250926原网址不用了崩溃了.修改
+<span class="linenr"> 8: </span>response=$(wget -qO- "https://cn.apihz.cn/api/time/getday.php?id=10008463&amp;key=08727f4803a7dc3714463a897a3a1989")
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span># 解析农历日期,原网址不能用了还是不错的.
+<span class="linenr">11: </span>#lunar_GregorianDateTime=$(echo $response | grep -o '"GregorianDateTime":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">12: </span>#lunar_month=$(echo $response | grep -o '"LMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">13: </span>#lunar_day=$(echo $response | grep -o '"LDay":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">14: </span>#lunar_year=$(echo $response | grep -o '"LYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">15: </span>#lunar_tiangany=$(echo $response | grep -o '"TianGanDiZhiYear":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">16: </span>#lunar_tianganm=$(echo $response | grep -o '"TianGanDiZhiMonth":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">17: </span>#lunar_tiangand=$(echo $response | grep -o '"TianGanDiZhiDay":"[^"]*' | grep -o '[^"]*$')
 <span class="linenr">18: </span>#lunar_shenwei=$(echo $response | grep -o '"ShenWei":"[^"]*' | grep -o '[^"]*$')
-<span class="linenr">19: </span>
+<span class="linenr">19: </span>#lunar_monthname=$(echo $response | grep -o '"LMonthName":"[^"]*' | grep -o '[^"]*$')
 <span class="linenr">20: </span>
-<span class="linenr">21: </span>
+<span class="linenr">21: </span>#echo " $lunar_GregorianDateTime $lunar_monthname $lunar_month $lunar_day $lunar_year $lunar_tiangany $lunar_tianganm $lunar_tiangand $lunar_shenwei"
 <span class="linenr">22: </span>
 <span class="linenr">23: </span>
-<span class="linenr">24: </span>echo " &lt;$lunar_monthname-$lunar_month-$lunar_day $lunar_year $lunar_tiangany-$lunar_tianganm-$lunar_tiangand&gt; "
+<span class="linenr">24: </span>lunar_jieqi=$(echo $response | grep -o '"jieqi":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">25: </span>lunar_nyue=$(echo $response | grep -o '"nyue":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">26: </span>lunar_nri=$(echo $response | grep -o '"nri":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">27: </span>lunar_shengxiao=$(echo $response | grep -o '"shengxiao":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">28: </span>lunar_tiangannian=$(echo $response | grep -o '"ganzhinian":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">29: </span>lunar_tianganyue=$(echo $response | grep -o '"ganzhiyue":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">30: </span>lunar_tianganri=$(echo $response | grep -o '"ganzhiri":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">31: </span>lunar_yuexiang=$(echo $response | grep -o '"YUEXIANG":"[^"]*' | grep -o '[^"]*$')
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>echo " &lt;$lunar_jieqi $lunar_nyue-$lunar_nri $lunar_shengxiao $lunar_tiangannian-$lunar_tianganyue-$lunar_tianganri $lunar_yuexiang&gt;"
 </pre>
 </div>
 </div>
@@ -210,7 +232,7 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <h3 id="orgfa80310"><span class="section-number-3">4.1.</span> 效果</h3>
 <div class="outline-text-3" id="text-4-1">
 
-<figure id="orga28085c">
+<figure id="org0d39162">
 <img src="emacs-init1.png" alt="emacs-init1.png">
 
 </figure>
@@ -225,7 +247,7 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <li><p>
 C-c m o 插入月相(刚好是满月)
 </p>
-<pre class="example" id="org194f45e">
+<pre class="example" id="org37409c4">
                   .------------.	 
             .--'  o     . .   `--.	 
          .-'   .    O   .       . `-.	 
@@ -254,25 +276,25 @@ C-c m o 插入月相(刚好是满月)
 <li><p>
 C-c m w 插入济南的天气
 </p>
-<pre class="example" id="org3c4c0e4">
+<pre class="example" id="orgd52bfb2">
 jinan: 🌦   🌡️+7°C 🌬️↗8km/h
 </pre></li>
 <li><p>
 C-c m n 插入农历
 </p>
-<pre class="example" id="org954ed3d">
+<pre class="example" id="orgad39eed">
 2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 
 </pre></li>
 <li><p>
 C-c m j 简介版本的农历
 </p>
-<pre class="example" id="org95f8b76">
+<pre class="example" id="org479828c">
 &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; 
 </pre></li>
 <li><p>
 C-c m y 显示出当年时间已经流逝的百分比
 </p>
-<pre class="example" id="orgb7f5138">
+<pre class="example" id="org17276b4">
 [///                           ] 11%
 </pre></li>
 </ul>
@@ -293,7 +315,7 @@ C-c m y 显示出当年时间已经流逝的百分比
 <span class="linenr"> 7: </span>;;添加济南天气的操作
 <span class="linenr"> 8: </span>(defun insert-weather ()
 <span class="linenr"> 9: </span>  (interactive)
-<span class="linenr">10: </span>  (insert (shell-command-to-string "curl wttr.in/jinan?format=4 2&gt; /dev/null")))
+<span class="linenr">10: </span>  (insert (shell-command-to-string "curl wttr.in/颜庄@36.0711,117.4628?format=4 2&gt; /dev/null")))
 <span class="linenr">11: </span>
 <span class="linenr">12: </span>
 <span class="linenr">13: </span>(global-set-key (kbd "C-c m w") #'insert-weather)
@@ -342,7 +364,7 @@ C-c m y 显示出当年时间已经流逝的百分比
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 19:35:37&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-04-04 Fri 00:26</p>
+<p class="date">Created: 2026-01-06 Tue 20:58</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
