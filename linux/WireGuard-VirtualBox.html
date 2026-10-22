@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2026-10-22 Thu 20:50 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VirtualBox Debian12 虚拟机流量走 Windows 主机 WireGuard 完整教程</title>
+<meta name="author" content="pengshao" />
+<meta name="description" content="包含两套方案、底层原理、WireGuard 配置详解、AllowedIPs、::/0 说明、验证与排错" />
+<meta name="keywords" content="virtual" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">VirtualBox Debian12 虚拟机流量走 Windows 主机 WireGuard 完整教程</h1>
+</header>
+<div id="outline-container-org0b99b01" class="outline-2">
+<h2 id="org0b99b01">前置环境说明</h2>
+<div class="outline-text-2" id="text-org0b99b01">
+<ul class="org-ul">
+<li>宿主机：Windows，安装官方 WireGuard for Windows GUI</li>
+<li>虚拟化：VirtualBox</li>
+<li>虚拟机：Debian 12 (Bookworm)</li>
+<li>目标需求：让 Debian 虚拟机网络流量经由 Windows 上 WireGuard 隧道转发</li>
+<li>重要区分两个路线：
+<ol class="org-ol">
+<li>方案A：全局隧道方案｜主机 + 虚拟机全部流量走 WireGuard（配置最简单，优先测试）</li>
+<li>方案B：透明路由转发方案｜仅虚拟机走 WireGuard，宿主机本身正常直连上网（复杂、隔离性好）</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfda99b0" class="outline-2">
+<h2 id="orgfda99b0">基础概念与底层原理</h2>
+<div class="outline-text-2" id="text-orgfda99b0">
+</div>
+<div id="outline-container-orga42b9a1" class="outline-3">
+<h3 id="orga42b9a1">VirtualBox 三种常用网络模式原理对比</h3>
+<div class="outline-text-3" id="text-orga42b9a1">
+</div>
+<ul class="org-ul">
+<li><a id="org0e331c8"></a>1. 网络地址转换(NAT)【方案A使用】<br>
+<div class="outline-text-4" id="text-org0e331c8">
+<p>
+VirtualBox 内置 NAT 引擎。虚拟机发包先交给 VirtualBox，VirtualBox 把源IP替换成宿主机网卡IP，再交给 Windows 系统协议栈（TCP/IP 栈）处理。
+=&gt; 关键点：流量会经过 Windows 的路由表！
+如果 Windows 路由表配置了 0.0.0.0/0 走 WireGuard 网卡(wintun)，那么 NAT 转发出来的虚拟机流量就跟着路由进入 WireGuard 隧道。
+注意：不是虚拟机直接连 WireGuard，是流量经过 Windows 系统路由间接进入隧道。
+</p>
+</div>
+</li>
+
+<li><a id="org01c8976"></a>2. NAT网络（NAT Network）【本教程不推荐】<br>
+<div class="outline-text-4" id="text-org01c8976">
+<p>
+VirtualBox 独立虚拟路由器，拥有独立子网、独立DHCP，它的转发逻辑独立于 Windows 主路由表。
+它的流量绕过 Windows 系统路由，即便宿主机开了 WireGuard 全局，虚拟机流量也不一定进隧道，路由隔离，不适合本需求。适合多虚拟机互通场景。
+</p>
+</div>
+</li>
+
+<li><a id="org30681eb"></a>3. 桥接模式(Bridged Adapter)【强烈不适合本需求】<br>
+<div class="outline-text-4" id="text-org30681eb">
+<p>
+桥接模式等于虚拟机在局域网内是一台独立设备，直接和物理交换机通信，数据包不经过 Windows 协议栈。
+宿主机上的 WireGuard 抓不到、管不到桥接虚拟机的流量，无论 WireGuard 怎么配置，流量都会直出物理网卡，无法走宿主机WG隧道。
+</p>
+</div>
+</li>
+
+<li><a id="org87dde84"></a>4. 仅主机(Host-Only)适配器【方案B使用】<br>
+<div class="outline-text-4" id="text-org87dde84">
+<p>
+只建立虚拟机 ↔ Windows 宿主机之间的私有局域网，虚拟机不能直接访问外网。
+需要 Windows 开启 IP 转发 + NAT伪装，Windows 充当软路由器，接收虚拟机报文，查询本机路由，再转发给 WireGuard 隧道。
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org78d817f" class="outline-3">
+<h3 id="org78d817f">WireGuard 核心底层原理</h3>
+<div class="outline-text-3" id="text-org78d817f">
+<p>
+WireGuard 本质是一个三层虚拟隧道（TUN 设备，Windows 下是 Wintun 驱动），不是传统应用层代理(SOCKS5/HTTP)。
+它工作在内核网络栈：
+</p>
+<ol class="org-ol">
+<li>Windows 生成一块虚拟网卡（wg 网卡）</li>
+<li>WireGuard 读取系统路由表，匹配 AllowedIPs 网段的数据包，封装成 UDP 加密包发给对端服务器</li>
+<li>服务器解密回程包，回传给 Windows，送入系统协议栈</li>
+</ol>
+<p>
+&gt; 重点：WireGuard 不“抓进程”，只看【路由表 + 数据包目标IP】，只要数据包进入本机协议栈、匹配路由，就会被隧道带走。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org719596a" class="outline-2">
+<h2 id="org719596a">WireGuard 配置文件详解（.conf）</h2>
+<div class="outline-text-2" id="text-org719596a">
+<p>
+WireGuard 配置分两大块：[Interface] 本机侧、[Peer] 远端服务器侧
+示例模板：
+</p>
+<div class="org-src-container">
+<pre class="src src-ini">[Interface]
+PrivateKey = 本机私钥
+Address = 10.0.0.2/24
+DNS = 1.1.1.1
+MTU = 1420
+
+[Peer]
+PublicKey = 服务端公钥
+Endpoint = wg-server.example.com:51820
+AllowedIPs = 0.0.0.0/0, ::/0
+PersistentKeepalive = 25
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org15c79fe" class="outline-3">
+<h3 id="org15c79fe">逐项字段解释</h3>
+<div class="outline-text-3" id="text-org15c79fe">
+</div>
+<ul class="org-ul">
+<li><a id="org16bfaf2"></a>[Interface] 本机配置<br>
+<div class="outline-text-4" id="text-org16bfaf2">
+<ul class="org-ul">
+<li>PrivateKey：本机WireGuard私钥，密钥对的一半，保密，不能泄露</li>
+<li>Address：隧道内虚拟内网IP（WG隧道网段IP，不是出口公网IP）</li>
+<li>DNS：隧道内使用的DNS服务器；建议填写服务端分配的DNS或者1.1.1.1、8.8.8.8</li>
+<li>MTU：隧道网卡MTU，WireGuard推荐1420；因为UDP封装会增加包头，默认1500容易分片丢包</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org911ad39"></a>[Peer] 对端节点配置<br>
+<div class="outline-text-4" id="text-org911ad39">
+<ul class="org-ul">
+<li>PublicKey：WG服务端公钥，公开信息</li>
+<li>Endpoint = IP/域名:端口：WireGuard 服务器外网地址+UDP端口</li>
+<li>PersistentKeepalive = 25：NAT保活，家用宽带、内网环境建议加上，单位秒，防止UDP会话被路由器老化断开</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgac4cc96" class="outline-3">
+<h3 id="orgac4cc96">AllowedIPs 深度讲解（重点，你问的 0.0.0.0/0 和 ::/0）</h3>
+<div class="outline-text-3" id="text-orgac4cc96">
+<p>
+AllowedIPs 是 WireGuard 最重要的字段，有两层作用：
+</p>
+<ol class="org-ol">
+<li>出方向：本机哪些目标网段的流量，会封装进这个WireGuard隧道发往Peer</li>
+<li>入方向：从这个Peer回来的数据包，源IP必须匹配这个网段，否则丢弃（防欺骗）</li>
+</ol>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgcf2d75d"></a>0.0.0.0/0<br>
+<div class="outline-text-4" id="text-orgcf2d75d">
+<p>
+IPv4 全网段。含义：所有IPv4地址的流量，匹配这条规则，走隧道。
+</p>
+</div>
+</li>
+<li><a id="org2a3cb23"></a>::/0<br>
+<div class="outline-text-4" id="text-org2a3cb23">
+<p>
+IPv6 全网段。`::` 是IPv6的0地址，/0代表所有IPv6地址。含义：所有IPv6流量走隧道。
+</p>
+</div>
+</li>
+
+<li><a id="orgb2ecf33"></a>两种写法对比<br>
+<div class="outline-text-4" id="text-orgb2ecf33">
+<ol class="org-ol">
+<li>AllowedIPs = 0.0.0.0/0
+✅ 全部IPv4流量走隧道
+❌ IPv6流量不受WireGuard控制，遵循系统原有路由，直接走物理网卡，会泄露真实IP</li>
+<li>AllowedIPs = 0.0.0.0/0, ::/0
+✅ IPv4 + IPv6 全部流量都进入WireGuard隧道，真正全局隧道，无泄露</li>
+</ol>
+
+<p>
+&gt; 注意：AllowedIPs 不是“代理开关”，是内核路由匹配规则；如果只是虚拟机单独走隧道（方案B），这里**不能写0.0.0.0/0**，只写虚拟机网段。
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd39eccd" class="outline-3">
+<h3 id="orgd39eccd">Windows WireGuard GUI 配置文件存放位置</h3>
+<div class="outline-text-3" id="text-orgd39eccd">
+<ul class="org-ul">
+<li>导入隧道之后，GUI原始明文.conf不会自动保存在软件目录；软件内存储是加密DPAPI文件：
+C:\Program Files\WireGuard\Data\Configurations\
+里面文件无法直接记事本编辑。</li>
+<li>正确修改/导出明文：选中隧道 → 右上角 ⋮ → Edit（在线编辑） / Export（导出明文conf）</li>
+<li>修改后必须：关闭隧道 → 重新激活隧道，Windows路由表才会刷新生效</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99ce26a" class="outline-2">
+<h2 id="org99ce26a">方案A：NAT模式 + WireGuard全局隧道【简单，优先测试】</h2>
+<div class="outline-text-2" id="text-org99ce26a">
+</div>
+<div id="outline-container-org103b2f8" class="outline-3">
+<h3 id="org103b2f8">适用场景</h3>
+<div class="outline-text-3" id="text-org103b2f8">
+<p>
+愿意让 Windows 宿主机本身也全部走 WireGuard，虚拟机跟随主机路由一起进隧道，部署最简单。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgceeb15f" class="outline-3">
+<h3 id="orgceeb15f">VirtualBox 设置步骤</h3>
+<div class="outline-text-3" id="text-orgceeb15f">
+<ol class="org-ol">
+<li>关闭 Debian 虚拟机</li>
+<li>设置 → 网卡1：
+<ul class="org-ul">
+<li>连接方式：【网络地址转换(NAT)】</li>
+<li>❌ 不要选 NAT网络、桥接、仅主机</li>
+</ul></li>
+<li>其他网卡可以禁用，避免干扰</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org53508f6" class="outline-3">
+<h3 id="org53508f6">WireGuard 配置要求</h3>
+<div class="outline-text-3" id="text-org53508f6">
+<p>
+修改 Peer 的 AllowedIPs：
+</p>
+<div class="org-src-container">
+<pre class="src src-ini">AllowedIPs = 0.0.0.0/0, ::/0
+</pre>
+</div>
+<p>
+&gt; 如果你路由器没有IPv6、不需要IPv6，只写 0.0.0.0/0 也能用，但存在IPv6流量泄露风险。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org43de4ed" class="outline-3">
+<h3 id="org43de4ed">操作流程</h3>
+<div class="outline-text-3" id="text-org43de4ed">
+<ol class="org-ol">
+<li>WireGuard 编辑配置，保存，重启隧道</li>
+<li>启动 Debian12 虚拟机</li>
+<li>Debian 内部测试命令</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-bash"># 查看IPv4出口公网IP
+curl -4 ifconfig.me
+# 查看IPv6出口公网IP（开启IPv6时使用）
+curl -6 ifconfig.me
+</pre>
+</div>
+<p>
+✅ 成功标准：返回IP = WireGuard服务器出口IP
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e0e0df" class="outline-3">
+<h3 id="org1e0e0df">优缺点</h3>
+<div class="outline-text-3" id="text-org1e0e0df">
+<ul class="org-ul">
+<li>优点：零额外配置、不需要改Windows注册表、不需要配置Debian静态IP、上手最快</li>
+<li>缺点：宿主机所有程序全部走WireGuard，宿主机无法直连国内网络</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74f9e1d" class="outline-2">
+<h2 id="org74f9e1d">方案B：Host-Only + Windows IP转发 + NAT【仅虚拟机走WG，宿主机正常上网】</h2>
+<div class="outline-text-2" id="text-org74f9e1d">
+</div>
+<div id="outline-container-org186334c" class="outline-3">
+<h3 id="org186334c">适用场景</h3>
+<div class="outline-text-3" id="text-org186334c">
+<p>
+宿主机保持原有上网路线，只有Debian虚拟机流量单独走WireGuard隧道，隔离度高。
+&gt; 这个方案 WireGuard 不能写 AllowedIPs = 0.0.0.0/0！
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8c280be" class="outline-3">
+<h3 id="org8c280be">步骤1：VirtualBox 创建仅主机网卡</h3>
+<div class="outline-text-3" id="text-org8c280be">
+<p>
+VirtualBox 菜单：管理 → 主机网络管理器 → 创建
+记录网卡信息示例：
+适配器名称：VirtualBox Host-Only Ethernet Adapter
+Windows侧IP：192.168.56.1/24
+</p>
+
+<p>
+虚拟机网卡设置：网卡1 → 连接到：仅主机适配器，选中上面新建网卡
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2039e3c" class="outline-3">
+<h3 id="org2039e3c">步骤2：Debian12 netplan 静态IP配置</h3>
+<div class="outline-text-3" id="text-org2039e3c">
+<p>
+Debian12 默认使用 netplan，编辑yaml
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo nano /etc/netplan/00-installer-config.yaml
+</pre>
+</div>
+<p>
+示例配置（严格yaml缩进，2空格！）
+</p>
+<div class="org-src-container">
+<pre class="src src-yaml">network:
+  ethernets:
+    enp0s3:
+      addresses: [192.168.56.10/24]
+      gateway4: 192.168.56.1
+      nameservers:
+	addresses: [1.1.1.1, 8.8.8.8]
+  version: 2
+</pre>
+</div>
+<p>
+应用配置
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo netplan apply
+# 可选：适配WireGuard MTU
+ip link set enp0s3 mtu 1420
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4532bc9" class="outline-3">
+<h3 id="org4532bc9">步骤3：Windows开启IP转发（管理员PowerShell）</h3>
+<div class="outline-text-3" id="text-org4532bc9">
+<div class="org-src-container">
+<pre class="src src-powershell"># 开启系统IP转发开关，修改注册表
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters' -Name IpEnableRouter -Value 1 -Type DWord
+</pre>
+</div>
+<p>
+&gt; 修改后必须重启Windows才生效！
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge555b3f" class="outline-3">
+<h3 id="orge555b3f">步骤4：Windows NAT 配置（把虚拟机网段流量伪装转发）</h3>
+<div class="outline-text-3" id="text-orge555b3f">
+<div class="org-src-container">
+<pre class="src src-powershell"># 查看网卡索引，找到WireGuard wintun网卡
+Get-NetAdapter
+# 创建NAT规则，内部虚拟机网段192.168.56.0/24
+New-NetNat -Name WG-VM-NAT -InternalInterfaceAddressPrefix 192.168.56.0/24
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b5835d" class="outline-3">
+<h3 id="org6b5835d">步骤5：WireGuard AllowedIPs 写法（方案B重点！）</h3>
+<div class="outline-text-3" id="text-org6b5835d">
+<p>
+只把虚拟机网段纳入隧道，不要全局0.0.0.0/0
+</p>
+<div class="org-src-container">
+<pre class="src src-ini">AllowedIPs = 192.168.56.0/24
+</pre>
+</div>
+<p>
+&gt; 含义：只有来自192.168.56.0/24（虚拟机）的流量才进WG隧道，宿主机其他流量不走隧道。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge44873a" class="outline-3">
+<h3 id="orge44873a">验证</h3>
+<div class="outline-text-3" id="text-orge44873a">
+<p>
+Debian内：
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">ping 192.168.56.1
+curl -4 ifconfig.me
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org14ef5a3" class="outline-3">
+<h3 id="org14ef5a3">优缺点</h3>
+<div class="outline-text-3" id="text-org14ef5a3">
+<ul class="org-ul">
+<li>优点：宿主机、虚拟机网络互相隔离，宿主机不受隧道影响</li>
+<li>缺点：配置繁琐、Windows NAT重启容易丢失、需要防火墙放行网段</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c97893" class="outline-2">
+<h2 id="org0c97893">补充方案C：代理模式 socks5（非透明代理，备选）</h2>
+<div class="outline-text-2" id="text-org0c97893">
+<p>
+不使用路由转发，使用 socks5 代理。WireGuard 跑在主机，代理软件监听局域网 192.168.56.1:1080
+Debian 配置环境变量：
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">export ALL_PROXY=socks5://192.168.56.1:1080
+curl ifconfig.me
+</pre>
+</div>
+<ul class="org-ul">
+<li>简单，不用IP转发</li>
+<li>缺陷：ping、apt、部分底层工具不读取环境变量，不走代理，属于应用层代理，不是全局透明隧道</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb385d44" class="outline-2">
+<h2 id="orgb385d44">通用排错清单</h2>
+<div class="outline-text-2" id="text-orgb385d44">
+<ol class="org-ol">
+<li>确认WireGuard隧道状态：GUI内隧道显示【激活】</li>
+<li>路由表检查：Windows管理员cmd `route print`，查看0.0.0.0路由下一跳是否指向wintun网卡</li>
+<li>防火墙：Windows Defender防火墙放行虚拟机网段，禁止拦截转发报文</li>
+<li>MTU问题：WireGuard隧道推荐MTU=1420，MTU过大容易网页打不开、apt超时</li>
+<li>桥接模式踩坑提醒：桥接无论如何都不能走宿主机WireGuard，直接放弃</li>
+<li>DNS泄露测试：可以在Debian安装 dnsleaktest 验证DNS是否走隧道内DNS</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4d979fc" class="outline-2">
+<h2 id="org4d979fc">选择决策速查表</h2>
+<div class="outline-text-2" id="text-org4d979fc">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">需求</th>
+<th scope="col" class="org-left">方案</th>
+<th scope="col" class="org-left">VirtualBox网卡模式</th>
+<th scope="col" class="org-left">AllowedIPs写法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">主机虚拟机全部走WG，省事</td>
+<td class="org-left">A</td>
+<td class="org-left">网络地址转换(NAT)</td>
+<td class="org-left">0.0.0.0/0, ::/0</td>
+</tr>
+
+<tr>
+<td class="org-left">仅虚拟机走WG，主机正常上网</td>
+<td class="org-left">B</td>
+<td class="org-left">仅主机Host-Only</td>
+<td class="org-left">虚拟机网段，如192.168.56.0/24</td>
+</tr>
+
+<tr>
+<td class="org-left">临时测试、部分软件代理</td>
+<td class="org-left">C</td>
+<td class="org-left">Host-Only + socks5</td>
+<td class="org-left">按需</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2026-10-21-294/Wednesday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2026-10-22 Thu 20:50</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
