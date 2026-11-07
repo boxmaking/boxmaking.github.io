@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-10-27 Tue 21:27 -->
+<!-- 2026-11-07 Sat 19:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的init.el和各种启动配置</title>
@@ -54,7 +54,7 @@
 </div>
 </nav>
 
-<figure id="org19590ce">
+<figure id="org174104c">
 <img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
@@ -788,7 +788,31 @@
 <span class="linenr">47: </span>	  (lambda ()
 <span class="linenr">48: </span>	    (local-set-key (kbd "C-c m c") 'insert-moon-today-drawer-with-pyphoon)))
 <span class="linenr">49: </span>
-<span class="linenr">50: </span>(provide 'pengshao-openweather)
+<span class="linenr">50: </span>
+<span class="linenr">51: </span>(defun insert-scratch-content-drawer ()
+<span class="linenr">52: </span>  "将 *scratch* 的当前内容插入光标处的 Org drawer。"
+<span class="linenr">53: </span>  (interactive)
+<span class="linenr">54: </span>  (let ((content
+<span class="linenr">55: </span>	 (with-current-buffer (get-buffer "*scratch*")
+<span class="linenr">56: </span>	   (buffer-substring-no-properties (point-min) (point-max)))))
+<span class="linenr">57: </span>    ;; Org drawer 需要从新的一行开始。
+<span class="linenr">58: </span>    (unless (bolp)
+<span class="linenr">59: </span>      (insert "\n"))
+<span class="linenr">60: </span>    (insert ":SCRATCH:\n")
+<span class="linenr">61: </span>    (insert content)
+<span class="linenr">62: </span>    ;; 确保 :END: 从新的一行开始。
+<span class="linenr">63: </span>    (unless (or (= (length content) 0)
+<span class="linenr">64: </span>		(= (aref content (1- (length content))) ?\n))
+<span class="linenr">65: </span>      (insert "\n"))
+<span class="linenr">66: </span>    (insert ":END:\n")))
+<span class="linenr">67: </span>
+<span class="linenr">68: </span>(add-hook 'org-mode-hook
+<span class="linenr">69: </span>	  (lambda ()
+<span class="linenr">70: </span>	    (local-set-key (kbd "C-c m s")
+<span class="linenr">71: </span>			   #'insert-scratch-content-drawer)))
+<span class="linenr">72: </span>
+<span class="linenr">73: </span>
+<span class="linenr">74: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
 </div>
@@ -1105,7 +1129,7 @@
 
 <li><a id="orge43ce3c"></a>frame-title-format选项相关<br>
 <div class="outline-text-4" id="text-10-2-2">
-<pre class="example" id="orga602bd0">
+<pre class="example" id="org01910b4">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1134,7 +1158,7 @@ Decimal digits after the % specify field width to which to pad.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 18:49:55&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-10-27 Tue 21:27</p>
+<p class="date">Created: 2026-11-07 Sat 19:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

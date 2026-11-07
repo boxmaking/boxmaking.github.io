@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- 2026-11-07 Sat 19:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>windows文件夹隐藏方式</title>
+<meta name="author" content="pengshao" />
+<meta name="generator" content="Org Mode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/org.css" />
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">windows文件夹隐藏方式</h1>
+<p class="subtitle" role="doc-subtitle">Windows 文件夹伪装成系统图标的完整方案</p>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#24405;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org728a7a8">概述</a>
+<ul>
+<li><a href="#org3f84a49">能力边界</a></li>
+<li><a href="#org91928bb">适用场景</a></li>
+<li><a href="#org8a03641">原理</a></li>
+<li><a href="#实测结论">核心实测结论</a></li>
+</ul>
+</li>
+<li><a href="#org8e35c78">前置条件</a>
+<ul>
+<li><a href="#orgd368baa">方法一：手动命令</a></li>
+<li><a href="#org90b72c6">方法二：一键批处理</a></li>
+<li><a href="#orgca298f2">图标 GUID 对照表</a></li>
+</ul>
+</li>
+<li><a href="#org6c88366">本机验证记录</a>
+<ul>
+<li><a href="#orgf21ae73">结论</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+
+<div id="outline-container-org728a7a8" class="outline-2">
+<h2 id="org728a7a8">概述</h2>
+<div class="outline-text-2" id="text-org728a7a8">
+<p>
+本笔记记录在 Windows 下把普通文件夹伪装成"回收站"等系统图标的完整
+可复用方案。已在 Windows 10 专业版 22H2 Build 19045 上完成实测验证。
+</p>
+</div>
+
+<div id="outline-container-org3f84a49" class="outline-3">
+<h3 id="org3f84a49">能力边界</h3>
+<div class="outline-text-3" id="text-org3f84a49">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">维度</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">本质</td>
+<td class="org-left">视觉伪装 + 路径遮挡，不是访问控制，也不是加密</td>
+</tr>
+
+<tr>
+<td class="org-left">能挡住</td>
+<td class="org-left">随手双击、随意翻找</td>
+</tr>
+
+<tr>
+<td class="org-left">挡不住</td>
+<td class="org-left">知道完整路径的人、命令行、Everything 等搜索工具</td>
+</tr>
+
+<tr>
+<td class="org-left">数据安全</td>
+<td class="org-left">文件夹及内部文件完全无损，不移动数据，操作瞬时完成</td>
+</tr>
+
+<tr>
+<td class="org-left">需要加密时</td>
+<td class="org-left">走 VeraCrypt 整分区加密或 BitLocker，本方案不适用</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org91928bb" class="outline-3">
+<h3 id="org91928bb">适用场景</h3>
+<div class="outline-text-3" id="text-org91928bb">
+<ul class="org-ul">
+<li>电脑与他人共用同一 Windows 账户，不想被随手翻到某个目录</li>
+<li>想让某个大体积目录"看起来不存在"</li>
+<li>临时遮挡，事后可一键恢复</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8a03641" class="outline-3">
+<h3 id="org8a03641">原理</h3>
+<div class="outline-text-3" id="text-org8a03641">
+<p>
+Explorer 外壳会解析文件夹名末尾的 CLSID 字符串。当文件夹名形如
+<code>目录名.{CLSID}</code> 时，资源管理器会使用该 CLSID 对应的系统图标显示，
+并把双击行为交给对应系统组件处理。
+</p>
+
+<p>
+因此把 <code>temp</code> 改名成 <code>temp.{645FF040-5081-101B-9F08-00AA002F954E}</code>
+之后，它会显示为回收站图标，双击进入看到的是回收站内容而非真实文件。
+</p>
+
+<blockquote>
+<p>
+GUID 只是"图标外观 + 双击行为"的绑定，不改变任何文件系统语义。
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-实测结论" class="outline-3">
+<h3 id="实测结论">核心实测结论</h3>
+<div class="outline-text-3" id="text-实测结论">
+<ol class="org-ol">
+<li><p>
+<b>cmd 的 ren 命令不可用</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-cmd">ren "I:\temp" "temp.{645FF040-5081-101B-9F08-00AA002F954E}"
+:: 结果：系统找不到指定的文件
+</pre>
+</div>
+<p>
+原因：隐藏属性目录 + 完整路径的组合导致 ren 无法解析。
+</p></li>
+<li><b>必须使用 Rename-Item -LiteralPath</b>
+名称中含 <code>{</code> <code>}</code> 等字符，=-Path= 会按通配符解析而失败。</li>
+<li>*Hidden 属性会自动保留*，改名后无需重新设置。</li>
+<li>*不需要管理员权限*（针对当前用户拥有的数据盘目录）。</li>
+<li><p>
+*=if exist= 判断可靠*，可用于脚本状态自检。
+</p>
+<div class="org-src-container">
+<pre class="src src-cmd">if exist "I:\temp.{645FF040-5081-101B-9F08-00AA002F954E}" (echo 已伪装)
+if exist "I:\temp" (echo 正常名称)
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e35c78" class="outline-2">
+<h2 id="org8e35c78">前置条件</h2>
+<div class="outline-text-2" id="text-org8e35c78">
+<ul class="org-ul">
+<li>目标位于 NTFS 分区</li>
+<li>目标文件夹未被任何进程当作工作目录、缓存目录或下载目录占用</li>
+<li>已知目标文件夹的完整路径</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd368baa" class="outline-3">
+<h3 id="orgd368baa">方法一：手动命令</h3>
+<div class="outline-text-3" id="text-orgd368baa">
+</div>
+<ul class="org-ul">
+<li><a id="org5490554"></a>隐藏<br>
+<div class="outline-text-4" id="text-org5490554">
+<div class="org-src-container">
+<pre class="src src-powershell">Rename-Item -LiteralPath 'I:\temp' -NewName 'temp.{645FF040-5081-101B-9F08-00AA002F954E}'
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgd6c3b15"></a>恢复<br>
+<div class="outline-text-4" id="text-orgd6c3b15">
+<div class="org-src-container">
+<pre class="src src-powershell">Rename-Item -LiteralPath 'I:\temp.{645FF040-5081-101B-9F08-00AA002F954E}' -NewName 'temp'
+</pre>
+</div>
+
+<div class="TIP" id="org31acc6b">
+<p>
+把 <code>I:\temp</code> 替换成自己的目标路径即可通用。所有 GUID 必须前后一致。
+</p>
+
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org90b72c6" class="outline-3">
+<h3 id="org90b72c6">方法二：一键批处理</h3>
+<div class="outline-text-3" id="text-org90b72c6">
+<p>
+批处理的两个文件内容见下。保存时必须使用 <b>ANSI（GBK / 代码页 936）</b>
+编码，否则 cmd 窗口中中文会乱码。
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org5265c2f"></a>隐藏.bat<br>
+<div class="outline-text-4" id="text-org5265c2f">
+<div class="org-src-container">
+<pre class="src src-bat">@echo off
+chcp 936 &gt;nul
+setlocal
+title 隐藏 I:\temp
+set "GUIDNAME=temp.{645FF040-5081-101B-9F08-00AA002F954E}"
+
+echo ============================================
+echo   隐藏 I:\temp  -^&gt;  伪装成回收站文件夹
+echo ============================================
+echo.
+
+if exist "I:\%GUIDNAME%\" (
+    echo [提示] I:\temp 当前已经是隐藏伪装状态，无需重复操作。
+    goto :done
+)
+
+if not exist "I:\temp\" (
+    echo [错误] 未找到 I:\temp，请确认该目录是否存在。
+    goto :done
+)
+
+echo 正在执行改名，请稍候...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Rename-Item -LiteralPath 'I:\temp' -NewName '%GUIDNAME%' -ErrorAction Stop"
+
+if exist "I:\%GUIDNAME%\" (
+    echo.
+    echo [成功] 已隐藏 I:\temp
+    echo        当前名称: %GUIDNAME%
+    echo        双击打开会提示找不到文件，属于正常伪装效果。
+) else (
+    echo.
+    echo [失败] 改名未成功。
+    echo        可能原因: 有程序正在占用 I:\temp。
+) 
+
+:done
+echo.
+pause
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org06d4739"></a>恢复.bat<br>
+<div class="outline-text-4" id="text-org06d4739">
+<div class="org-src-container">
+<pre class="src src-bat">@echo off
+chcp 936 &gt;nul
+setlocal
+title 恢复 I:\temp
+set "GUIDNAME=temp.{645FF040-5081-101B-9F08-00AA002F954E}"
+
+echo ============================================
+echo   恢复 I:\temp  -^&gt;  取消隐藏伪装
+echo ============================================
+echo.
+
+if not exist "I:\%GUIDNAME%\" (
+    if exist "I:\temp\" (
+	echo [提示] I:\temp 当前已是正常名称，无需恢复。
+    ) else (
+	echo [错误] 既未找到伪装目录，也未找到 I:\temp。
+    )
+    goto :done
+)
+
+echo 正在执行改名，请稍候...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Rename-Item -LiteralPath 'I:\%GUIDNAME%' -NewName 'temp' -ErrorAction Stop"
+
+if exist "I:\temp\" (
+    echo.
+    echo [成功] 已恢复为 I:\temp
+) else (
+    echo.
+    echo [失败] 恢复未成功，可能有程序正在占用该目录。
+)
+
+:done
+echo.
+pause
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgca298f2" class="outline-3">
+<h3 id="orgca298f2">图标 GUID 对照表</h3>
+<div class="outline-text-3" id="text-orgca298f2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">显示效果</th>
+<th scope="col" class="org-left">GUID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">回收站</td>
+<td class="org-left">{645FF040-5081-101B-9F08-00AA002F954E}</td>
+</tr>
+
+<tr>
+<td class="org-left">此电脑</td>
+<td class="org-left">{20D04FE0-3AEA-1069-A2D8-08002B30309D}</td>
+</tr>
+
+<tr>
+<td class="org-left">控制面板</td>
+<td class="org-left">{21EC2020-3AEA-1069-A2DD-08002B30309D}</td>
+</tr>
+
+<tr>
+<td class="org-left">网络</td>
+<td class="org-left">{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}</td>
+</tr>
+
+<tr>
+<td class="org-left">打印机</td>
+<td class="org-left">{2227A280-3AEA-1069-A2DE-08002B30309D}</td>
+</tr>
+
+<tr>
+<td class="org-left">我的文档</td>
+<td class="org-left">{450D8FBA-AD25-11D0-98A8-0800361B1103}</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+推荐优先使用回收站 GUID，双击行为最自然，最不易引起注意。
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org0aeedb1"></a>排错手册<br>
+<ul class="org-ul">
+<li><a id="orge81ebe0"></a>ren 提示找不到文件<br>
+<div class="outline-text-5" id="text-orge81ebe0">
+<p>
+改用 =Rename-Item -LiteralPath=。参见 <a href="#实测结论">核心实测结论</a> 第 1 条。
+</p>
+</div>
+</li>
+
+<li><a id="org4702ab5"></a>Rename-Item 提示路径不存在<br>
+<div class="outline-text-5" id="text-org4702ab5">
+<p>
+检查是否误用 =-Path=，必须使用 =-LiteralPath=。
+</p>
+</div>
+</li>
+
+<li><a id="org15049e8"></a>提示另一个程序正在使用此文件<br>
+<div class="outline-text-5" id="text-org15049e8">
+<p>
+有句柄占用目标目录。依次关闭：资源管理器窗口 → 命令提示符 →
+播放器/下载工具/编辑器工程 → 重试。必要时注销账户。
+</p>
+</div>
+</li>
+
+<li><a id="org501735e"></a>改名成功但图标没变<br>
+<div class="outline-text-5" id="text-org501735e">
+<p>
+资源管理器图标缓存未刷新。按 =F5=，或重启 explorer.exe。
+</p>
+</div>
+</li>
+
+<li><a id="org4c3749d"></a>忘了改成什么名字了<br>
+<div class="outline-text-5" id="text-org4c3749d">
+<div class="org-src-container">
+<pre class="src src-powershell">[System.IO.Directory]::GetDirectories("I:\")
+</pre>
+</div>
+<p>
+用 .NET 接口枚举可看到含 GUID 后缀的真实名称。
+</p>
+</div>
+</li>
+
+<li><a id="orgfdcba09"></a>bat 运行中文乱码<br>
+<div class="outline-text-5" id="text-orgfdcba09">
+<p>
+保存编码不是 ANSI/GBK。用记事本"另存为"，编码选 ANSI。
+</p>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org198f3f7"></a>注意事项<br>
+<div class="outline-text-4" id="text-org198f3f7">
+<ol class="org-ol">
+<li>伪装状态下若某软件把该目录作为工作路径，会报错，但文件不会损坏，
+改回原名即可恢复。</li>
+<li>知道完整路径的人可以绕过伪装，因此它只防随手翻找。</li>
+<li>严禁对系统目录（Windows、Program Files、ProgramData）做此操作。</li>
+<li>建议同时保留恢复命令，避免遗忘 GUID 后缀后无法还原。</li>
+<li>大体积目录改名是瞬时操作（仅重命名，不移动数据），无需担心耗时。</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6c88366" class="outline-2">
+<h2 id="org6c88366">本机验证记录</h2>
+<div class="outline-text-2" id="text-org6c88366">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">验证项</th>
+<th scope="col" class="org-left">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">隐藏脚本执行</td>
+<td class="org-left">成功，真实名变为 <code>temp.{645FF040-...}</code></td>
+</tr>
+
+<tr>
+<td class="org-left">隐藏脚本重复执行</td>
+<td class="org-left">提示已处于隐藏状态，无副作用</td>
+</tr>
+
+<tr>
+<td class="org-left">恢复脚本执行</td>
+<td class="org-left">成功，恢复为 <code>I:\temp</code></td>
+</tr>
+
+<tr>
+<td class="org-left">恢复脚本重复执行</td>
+<td class="org-left">提示已是正常名称，无副作用</td>
+</tr>
+
+<tr>
+<td class="org-left">改名后属性检查</td>
+<td class="org-left">Hidden + Directory + Archive 保持不变</td>
+</tr>
+
+<tr>
+<td class="org-left">bat 中文显示</td>
+<td class="org-left">GBK / 代码页 936 下正常</td>
+</tr>
+
+<tr>
+<td class="org-left">验证对象</td>
+<td class="org-left">I:\temp，395.79 GB，59561 文件 / 745 子目录</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgf21ae73" class="outline-3">
+<h3 id="orgf21ae73">结论</h3>
+<div class="outline-text-3" id="text-orgf21ae73">
+<p>
+方案可复用，两个脚本已验证幂等安全，可直接用于其他机器与目录。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
+<p class="author">&#20316;&#32773;: pengshao</p>
+<p class="date">Created: 2026-11-07 Sat 19:39</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

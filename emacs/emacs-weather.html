@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-10-27 Tue 21:27 -->
+<!-- 2026-11-07 Sat 19:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs一键插入-日期,农历,月相,万年历</title>
@@ -232,7 +232,7 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <h3 id="orgfa80310"><span class="section-number-3">4.1.</span> 效果</h3>
 <div class="outline-text-3" id="text-4-1">
 
-<figure id="orgfd280b6">
+<figure id="orgdf7739c">
 <img src="emacs-init1.png" alt="emacs-init1.png">
 
 </figure>
@@ -247,7 +247,7 @@ pyphoon的地址 <a href="https://github.com/chubin/pyphoon">https://github.com/
 <li><p>
 C-c m o 插入月相(刚好是满月)
 </p>
-<pre class="example" id="org75f593a">
+<pre class="example" id="org1ac64a5">
                   .------------.	 
             .--'  o     . .   `--.	 
          .-'   .    O   .       . `-.	 
@@ -276,25 +276,25 @@ C-c m o 插入月相(刚好是满月)
 <li><p>
 C-c m w 插入济南的天气
 </p>
-<pre class="example" id="orgcc6af3f">
+<pre class="example" id="orgaf4df92">
 jinan: 🌦   🌡️+7°C 🌬️↗8km/h
 </pre></li>
 <li><p>
 C-c m n 插入农历
 </p>
-<pre class="example" id="org7dda0fa">
+<pre class="example" id="orgd158565">
 2025-02-11 孟春 正月 十四 蛇 乙巳 戊寅 辛亥 喜神：西南 福神：西北 财神：正东阳贵：东北 阴贵：正南 
 </pre></li>
 <li><p>
 C-c m j 简介版本的农历
 </p>
-<pre class="example" id="org54a878d">
+<pre class="example" id="orgd180f0e">
 &lt;孟春-正月-十四 蛇 乙巳-戊寅-辛亥&gt; 
 </pre></li>
 <li><p>
 C-c m y 显示出当年时间已经流逝的百分比
 </p>
-<pre class="example" id="orga50aea3">
+<pre class="example" id="org1d074c6">
 [///                           ] 11%
 </pre></li>
 </ul>
@@ -355,7 +355,31 @@ C-c m y 显示出当年时间已经流逝的百分比
 <span class="linenr">47: </span>	  (lambda ()
 <span class="linenr">48: </span>	    (local-set-key (kbd "C-c m c") 'insert-moon-today-drawer-with-pyphoon)))
 <span class="linenr">49: </span>
-<span class="linenr">50: </span>(provide 'pengshao-openweather)
+<span class="linenr">50: </span>
+<span class="linenr">51: </span>(defun insert-scratch-content-drawer ()
+<span class="linenr">52: </span>  "将 *scratch* 的当前内容插入光标处的 Org drawer。"
+<span class="linenr">53: </span>  (interactive)
+<span class="linenr">54: </span>  (let ((content
+<span class="linenr">55: </span>	 (with-current-buffer (get-buffer "*scratch*")
+<span class="linenr">56: </span>	   (buffer-substring-no-properties (point-min) (point-max)))))
+<span class="linenr">57: </span>    ;; Org drawer 需要从新的一行开始。
+<span class="linenr">58: </span>    (unless (bolp)
+<span class="linenr">59: </span>      (insert "\n"))
+<span class="linenr">60: </span>    (insert ":SCRATCH:\n")
+<span class="linenr">61: </span>    (insert content)
+<span class="linenr">62: </span>    ;; 确保 :END: 从新的一行开始。
+<span class="linenr">63: </span>    (unless (or (= (length content) 0)
+<span class="linenr">64: </span>		(= (aref content (1- (length content))) ?\n))
+<span class="linenr">65: </span>      (insert "\n"))
+<span class="linenr">66: </span>    (insert ":END:\n")))
+<span class="linenr">67: </span>
+<span class="linenr">68: </span>(add-hook 'org-mode-hook
+<span class="linenr">69: </span>	  (lambda ()
+<span class="linenr">70: </span>	    (local-set-key (kbd "C-c m s")
+<span class="linenr">71: </span>			   #'insert-scratch-content-drawer)))
+<span class="linenr">72: </span>
+<span class="linenr">73: </span>
+<span class="linenr">74: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
 </div>
@@ -364,7 +388,7 @@ C-c m y 显示出当年时间已经流逝的百分比
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 19:35:37&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-10-27 Tue 21:27</p>
+<p class="date">Created: 2026-11-07 Sat 19:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
