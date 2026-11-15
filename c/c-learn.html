@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:26 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>c语言学习笔记</title>
@@ -13,27 +13,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,18 +58,17 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5b6f76d">1. 常见的跳脱(转义)序列</a></li>
-<li><a href="#orgcd81475">2. printf和scanf的字元跳脱</a></li>
-<li><a href="#orge159545">3. integer整数</a></li>
-<li><a href="#org24c5da2">4. 大数</a></li>
-<li><a href="#org80b5768">5. 整数的溢出(overflow)</a></li>
-<li><a href="#orgc3ad07f">6. 浮点数(floating point)</a></li>
+<li><a href="#orge36400b">1. 常见的跳脱(转义)序列</a></li>
+<li><a href="#org6e78cc3">2. printf和scanf的字元跳脱</a></li>
+<li><a href="#org53bca83">3. integer整数</a></li>
+<li><a href="#org9e6d1f0">4. 大数</a></li>
+<li><a href="#org835dcc8">5. 整数的溢出(overflow)</a></li>
+<li><a href="#orgc06bbd8">6. 浮点数(floating point)</a></li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org5b6f76d" class="outline-2">
-<h2 id="org5b6f76d"><span class="section-number-2">1.</span> 常见的跳脱(转义)序列</h2>
+<div id="outline-container-orge36400b" class="outline-2">
+<h2 id="orge36400b"><span class="section-number-2">1.</span> 常见的跳脱(转义)序列</h2>
 <div class="outline-text-2" id="text-1">
 <table>
 
@@ -108,10 +118,8 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-orgcd81475" class="outline-2">
-<h2 id="orgcd81475"><span class="section-number-2">2.</span> printf和scanf的字元跳脱</h2>
+<div id="outline-container-org6e78cc3" class="outline-2">
+<h2 id="org6e78cc3"><span class="section-number-2">2.</span> printf和scanf的字元跳脱</h2>
 <div class="outline-text-2" id="text-2">
 <table>
 <caption class="t-above"><span class="table-number">&#34920;1&nbsp;</span> 格式字串</caption>
@@ -183,10 +191,8 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-orge159545" class="outline-2">
-<h2 id="orge159545"><span class="section-number-2">3.</span> integer整数</h2>
+<div id="outline-container-org53bca83" class="outline-2">
+<h2 id="org53bca83"><span class="section-number-2">3.</span> integer整数</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>整数
@@ -247,10 +253,8 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org24c5da2" class="outline-2">
-<h2 id="org24c5da2"><span class="section-number-2">4.</span> 大数</h2>
+<div id="outline-container-org9e6d1f0" class="outline-2">
+<h2 id="org9e6d1f0"><span class="section-number-2">4.</span> 大数</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>使用long int代替int.</li>
@@ -259,14 +263,12 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org80b5768" class="outline-2">
-<h2 id="org80b5768"><span class="section-number-2">5.</span> 整数的溢出(overflow)</h2>
+<div id="outline-container-org835dcc8" class="outline-2">
+<h2 id="org835dcc8"><span class="section-number-2">5.</span> 整数的溢出(overflow)</h2>
 </div>
 
-<div id="outline-container-orgc3ad07f" class="outline-2">
-<h2 id="orgc3ad07f"><span class="section-number-2">6.</span> 浮点数(floating point)</h2>
+<div id="outline-container-orgc06bbd8" class="outline-2">
+<h2 id="orgc06bbd8"><span class="section-number-2">6.</span> 浮点数(floating point)</h2>
 <div class="outline-text-2" id="text-6">
 <table>
 <caption class="t-above"><span class="table-number">&#34920;3&nbsp;</span> 内建浮点数的类别</caption>
@@ -340,7 +342,7 @@
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-04-24-115/Friday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:26</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

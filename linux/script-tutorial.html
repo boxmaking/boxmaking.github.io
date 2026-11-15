@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:29 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的bash-script笔记</title>
@@ -13,27 +13,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,33 +58,32 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaa1b396">1. shell中的那些初始化文件</a>
+<li><a href="#org2b4e909">1. shell中的那些初始化文件</a>
 <ul>
-<li><a href="#org7c4f196">1.1. ~/.profile</a></li>
+<li><a href="#orgc1bbc68">1.1. ~/.profile</a></li>
 </ul>
 </li>
-<li><a href="#org1a0d457">2. 转义符核心概念</a>
+<li><a href="#org1d41c9f">2. 转义符核心概念</a>
 <ul>
-<li><a href="#orgfb57fe0">2.1. 转义符（\）</a></li>
-<li><a href="#orgf6dd4e6">2.2. 引号类型</a></li>
-<li><a href="#org9e77d7e">2.3. 需转义的特殊字符列表</a></li>
-<li><a href="#org0a06769">2.4. 详细使用场景</a></li>
-<li><a href="#orge7d4609">2.5. 最佳实践</a></li>
-<li><a href="#org6a1b8df">2.6. 特殊技巧</a></li>
-<li><a href="#org7a506e6">2.7. 常见错误案例</a></li>
-<li><a href="#org6ad09a2">2.8. 验证练习</a></li>
+<li><a href="#orgbed0276">2.1. 转义符（\）</a></li>
+<li><a href="#orgc9f610d">2.2. 引号类型</a></li>
+<li><a href="#orgbb17bdd">2.3. 需转义的特殊字符列表</a></li>
+<li><a href="#org34e4aca">2.4. 详细使用场景</a></li>
+<li><a href="#org0555f50">2.5. 最佳实践</a></li>
+<li><a href="#org733cc85">2.6. 特殊技巧</a></li>
+<li><a href="#orgb94e9d4">2.7. 常见错误案例</a></li>
+<li><a href="#org8b91ca2">2.8. 验证练习</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-orgaa1b396" class="outline-2">
-<h2 id="orgaa1b396"><span class="section-number-2">1.</span> shell中的那些初始化文件</h2>
+<div id="outline-container-org2b4e909" class="outline-2">
+<h2 id="org2b4e909"><span class="section-number-2">1.</span> shell中的那些初始化文件</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7c4f196" class="outline-3">
-<h3 id="org7c4f196"><span class="section-number-3">1.1.</span> ~/.profile</h3>
+<div id="outline-container-orgc1bbc68" class="outline-3">
+<h3 id="orgc1bbc68"><span class="section-number-3">1.1.</span> ~/.profile</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 是sh的配置文件. 
@@ -82,14 +92,12 @@ ksh兼容sh所以也会使用.profile
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org1a0d457" class="outline-2">
-<h2 id="org1a0d457"><span class="section-number-2">2.</span> 转义符核心概念</h2>
+<div id="outline-container-org1d41c9f" class="outline-2">
+<h2 id="org1d41c9f"><span class="section-number-2">2.</span> 转义符核心概念</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgfb57fe0" class="outline-3">
-<h3 id="orgfb57fe0"><span class="section-number-3">2.1.</span> 转义符（\）</h3>
+<div id="outline-container-orgbed0276" class="outline-3">
+<h3 id="orgbed0276"><span class="section-number-3">2.1.</span> 转义符（\）</h3>
 <div class="outline-text-3" id="text-2-1">
 <dl class="org-dl">
 <dt>功能</dt><dd>改变字符的原始含义</dd>
@@ -101,10 +109,8 @@ ksh兼容sh所以也会使用.profile
 </dl>
 </div>
 </div>
-
-
-<div id="outline-container-orgf6dd4e6" class="outline-3">
-<h3 id="orgf6dd4e6"><span class="section-number-3">2.2.</span> 引号类型</h3>
+<div id="outline-container-orgc9f610d" class="outline-3">
+<h3 id="orgc9f610d"><span class="section-number-3">2.2.</span> 引号类型</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -151,10 +157,8 @@ ksh兼容sh所以也会使用.profile
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org9e77d7e" class="outline-3">
-<h3 id="org9e77d7e"><span class="section-number-3">2.3.</span> 需转义的特殊字符列表</h3>
+<div id="outline-container-orgbb17bdd" class="outline-3">
+<h3 id="orgbb17bdd"><span class="section-number-3">2.3.</span> 需转义的特殊字符列表</h3>
 <div class="outline-text-3" id="text-2-3">
 <table>
 
@@ -219,14 +223,12 @@ ksh兼容sh所以也会使用.profile
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org0a06769" class="outline-3">
-<h3 id="org0a06769"><span class="section-number-3">2.4.</span> 详细使用场景</h3>
+<div id="outline-container-org34e4aca" class="outline-3">
+<h3 id="org34e4aca"><span class="section-number-3">2.4.</span> 详细使用场景</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-org0fb9b6e" class="outline-4">
-<h4 id="org0fb9b6e"><span class="section-number-4">2.4.1.</span> 场景 1：处理单引号</h4>
+<div id="outline-container-orge7207c0" class="outline-4">
+<h4 id="orge7207c0"><span class="section-number-4">2.4.1.</span> 场景 1：处理单引号</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <div class="org-src-container">
 <pre class="src src-sh"># 错误示范（单引号不能嵌套）
@@ -245,10 +247,8 @@ echo $'This works for \'single quotes\' too'
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgcb4e47c" class="outline-4">
-<h4 id="orgcb4e47c"><span class="section-number-4">2.4.2.</span> 场景 2：正则表达式处理</h4>
+<div id="outline-container-org51123e1" class="outline-4">
+<h4 id="org51123e1"><span class="section-number-4">2.4.2.</span> 场景 2：正则表达式处理</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 需要转义两次（Shell + 正则引擎）
@@ -259,10 +259,8 @@ grep '\bimportant\b' file.txt
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgd2e707f" class="outline-4">
-<h4 id="orgd2e707f"><span class="section-number-4">2.4.3.</span> 场景 3：JSON 字符串生成</h4>
+<div id="outline-container-org8d8e143" class="outline-4">
+<h4 id="org8d8e143"><span class="section-number-4">2.4.3.</span> 场景 3：JSON 字符串生成</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <div class="org-src-container">
 <pre class="src src-sh"># 正确转义嵌套引号
@@ -275,10 +273,8 @@ json_data='{"name": "John", "age": 30}'
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orge7d4609" class="outline-3">
-<h3 id="orge7d4609"><span class="section-number-3">2.5.</span> 最佳实践</h3>
+<div id="outline-container-org0555f50" class="outline-3">
+<h3 id="org0555f50"><span class="section-number-3">2.5.</span> 最佳实践</h3>
 <div class="outline-text-3" id="text-2-5">
 <ol class="org-ol">
 <li><p>
@@ -310,14 +306,12 @@ done
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-org6a1b8df" class="outline-3">
-<h3 id="org6a1b8df"><span class="section-number-3">2.6.</span> 特殊技巧</h3>
+<div id="outline-container-org733cc85" class="outline-3">
+<h3 id="org733cc85"><span class="section-number-3">2.6.</span> 特殊技巧</h3>
 <div class="outline-text-3" id="text-2-6">
 </div>
-<div id="outline-container-org2510c28" class="outline-4">
-<h4 id="org2510c28"><span class="section-number-4">2.6.1.</span> Here Document 转义控制</h4>
+<div id="outline-container-org7142489" class="outline-4">
+<h4 id="org7142489"><span class="section-number-4">2.6.1.</span> Here Document 转义控制</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <div class="org-src-container">
 <pre class="src src-sh"># 关闭变量扩展
@@ -333,10 +327,8 @@ EOF
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org3a97c8f" class="outline-4">
-<h4 id="org3a97c8f"><span class="section-number-4">2.6.2.</span> ANSI-C Quoting ($'')</h4>
+<div id="outline-container-org9abd90b" class="outline-4">
+<h4 id="org9abd90b"><span class="section-number-4">2.6.2.</span> ANSI-C Quoting ($'')</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <div class="org-src-container">
 <pre class="src src-sh"># 支持转义序列
@@ -352,10 +344,8 @@ echo $'\x48\x65\x6c\x6c\x6f'  # 输出 "Hello"
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org7a506e6" class="outline-3">
-<h3 id="org7a506e6"><span class="section-number-3">2.7.</span> 常见错误案例</h3>
+<div id="outline-container-orgb94e9d4" class="outline-3">
+<h3 id="orgb94e9d4"><span class="section-number-3">2.7.</span> 常见错误案例</h3>
 <div class="outline-text-3" id="text-2-7">
 <ol class="org-ol">
 <li><p>
@@ -395,10 +385,8 @@ grep ".*\\d{3}" file    # 或 grep '.*\d{3}' file
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-org6ad09a2" class="outline-3">
-<h3 id="org6ad09a2"><span class="section-number-3">2.8.</span> 验证练习</h3>
+<div id="outline-container-org8b91ca2" class="outline-3">
+<h3 id="org8b91ca2"><span class="section-number-3">2.8.</span> 验证练习</h3>
 <div class="outline-text-3" id="text-2-8">
 <ol class="org-ol">
 <li><p>
@@ -437,7 +425,7 @@ ls -l "My File\$2023.txt"  # 查看
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:29</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

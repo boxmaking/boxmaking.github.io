@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-11-07 Sat 19:39 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>windows文件夹隐藏方式</title>
@@ -12,27 +12,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,43 +58,40 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org728a7a8">概述</a>
+<li><a href="#org2119342">概述</a>
 <ul>
-<li><a href="#org3f84a49">能力边界</a></li>
-<li><a href="#org91928bb">适用场景</a></li>
-<li><a href="#org8a03641">原理</a></li>
+<li><a href="#orgbf33b3d">能力边界</a></li>
+<li><a href="#orgccdf7fe">适用场景</a></li>
+<li><a href="#orge30f96f">原理</a></li>
 <li><a href="#实测结论">核心实测结论</a></li>
 </ul>
 </li>
-<li><a href="#org8e35c78">前置条件</a>
+<li><a href="#org5c1364a">前置条件</a>
 <ul>
-<li><a href="#orgd368baa">方法一：手动命令</a></li>
-<li><a href="#org90b72c6">方法二：一键批处理</a></li>
-<li><a href="#orgca298f2">图标 GUID 对照表</a></li>
+<li><a href="#org3345102">方法一：手动命令</a></li>
+<li><a href="#orgdc5e504">方法二：一键批处理</a></li>
+<li><a href="#org5013d17">图标 GUID 对照表</a></li>
 </ul>
 </li>
-<li><a href="#org6c88366">本机验证记录</a>
+<li><a href="#org63b7a52">本机验证记录</a>
 <ul>
-<li><a href="#orgf21ae73">结论</a></li>
+<li><a href="#org50fb144">结论</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-
-
-<div id="outline-container-org728a7a8" class="outline-2">
-<h2 id="org728a7a8">概述</h2>
-<div class="outline-text-2" id="text-org728a7a8">
+<div id="outline-container-org2119342" class="outline-2">
+<h2 id="org2119342">概述</h2>
+<div class="outline-text-2" id="text-org2119342">
 <p>
 本笔记记录在 Windows 下把普通文件夹伪装成"回收站"等系统图标的完整
 可复用方案。已在 Windows 10 专业版 22H2 Build 19045 上完成实测验证。
 </p>
 </div>
-
-<div id="outline-container-org3f84a49" class="outline-3">
-<h3 id="org3f84a49">能力边界</h3>
-<div class="outline-text-3" id="text-org3f84a49">
+<div id="outline-container-orgbf33b3d" class="outline-3">
+<h3 id="orgbf33b3d">能力边界</h3>
+<div class="outline-text-3" id="text-orgbf33b3d">
 <table>
 
 
@@ -127,10 +135,9 @@
 </table>
 </div>
 </div>
-
-<div id="outline-container-org91928bb" class="outline-3">
-<h3 id="org91928bb">适用场景</h3>
-<div class="outline-text-3" id="text-org91928bb">
+<div id="outline-container-orgccdf7fe" class="outline-3">
+<h3 id="orgccdf7fe">适用场景</h3>
+<div class="outline-text-3" id="text-orgccdf7fe">
 <ul class="org-ul">
 <li>电脑与他人共用同一 Windows 账户，不想被随手翻到某个目录</li>
 <li>想让某个大体积目录"看起来不存在"</li>
@@ -138,10 +145,9 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org8a03641" class="outline-3">
-<h3 id="org8a03641">原理</h3>
-<div class="outline-text-3" id="text-org8a03641">
+<div id="outline-container-orge30f96f" class="outline-3">
+<h3 id="orge30f96f">原理</h3>
+<div class="outline-text-3" id="text-orge30f96f">
 <p>
 Explorer 外壳会解析文件夹名末尾的 CLSID 字符串。当文件夹名形如
 <code>目录名.{CLSID}</code> 时，资源管理器会使用该 CLSID 对应的系统图标显示，
@@ -160,7 +166,6 @@ GUID 只是"图标外观 + 双击行为"的绑定，不改变任何文件系统�
 </blockquote>
 </div>
 </div>
-
 <div id="outline-container-实测结论" class="outline-3">
 <h3 id="实测结论">核心实测结论</h3>
 <div class="outline-text-3" id="text-实测结论">
@@ -192,39 +197,36 @@ if exist "I:\temp" (echo 正常名称)
 </div>
 </div>
 </div>
-
-<div id="outline-container-org8e35c78" class="outline-2">
-<h2 id="org8e35c78">前置条件</h2>
-<div class="outline-text-2" id="text-org8e35c78">
+<div id="outline-container-org5c1364a" class="outline-2">
+<h2 id="org5c1364a">前置条件</h2>
+<div class="outline-text-2" id="text-org5c1364a">
 <ul class="org-ul">
 <li>目标位于 NTFS 分区</li>
 <li>目标文件夹未被任何进程当作工作目录、缓存目录或下载目录占用</li>
 <li>已知目标文件夹的完整路径</li>
 </ul>
 </div>
-
-<div id="outline-container-orgd368baa" class="outline-3">
-<h3 id="orgd368baa">方法一：手动命令</h3>
-<div class="outline-text-3" id="text-orgd368baa">
+<div id="outline-container-org3345102" class="outline-3">
+<h3 id="org3345102">方法一：手动命令</h3>
+<div class="outline-text-3" id="text-org3345102">
 </div>
 <ul class="org-ul">
-<li><a id="org5490554"></a>隐藏<br>
-<div class="outline-text-4" id="text-org5490554">
+<li><a id="orgda4bfd7"></a>隐藏<br>
+<div class="outline-text-4" id="text-orgda4bfd7">
 <div class="org-src-container">
 <pre class="src src-powershell">Rename-Item -LiteralPath 'I:\temp' -NewName 'temp.{645FF040-5081-101B-9F08-00AA002F954E}'
 </pre>
 </div>
 </div>
 </li>
-
-<li><a id="orgd6c3b15"></a>恢复<br>
-<div class="outline-text-4" id="text-orgd6c3b15">
+<li><a id="org3c4322b"></a>恢复<br>
+<div class="outline-text-4" id="text-org3c4322b">
 <div class="org-src-container">
 <pre class="src src-powershell">Rename-Item -LiteralPath 'I:\temp.{645FF040-5081-101B-9F08-00AA002F954E}' -NewName 'temp'
 </pre>
 </div>
 
-<div class="TIP" id="org31acc6b">
+<div class="TIP" id="org8c0a465">
 <p>
 把 <code>I:\temp</code> 替换成自己的目标路径即可通用。所有 GUID 必须前后一致。
 </p>
@@ -234,19 +236,17 @@ if exist "I:\temp" (echo 正常名称)
 </li>
 </ul>
 </div>
-
-<div id="outline-container-org90b72c6" class="outline-3">
-<h3 id="org90b72c6">方法二：一键批处理</h3>
-<div class="outline-text-3" id="text-org90b72c6">
+<div id="outline-container-orgdc5e504" class="outline-3">
+<h3 id="orgdc5e504">方法二：一键批处理</h3>
+<div class="outline-text-3" id="text-orgdc5e504">
 <p>
 批处理的两个文件内容见下。保存时必须使用 <b>ANSI（GBK / 代码页 936）</b>
 编码，否则 cmd 窗口中中文会乱码。
 </p>
 </div>
-
 <ul class="org-ul">
-<li><a id="org5265c2f"></a>隐藏.bat<br>
-<div class="outline-text-4" id="text-org5265c2f">
+<li><a id="orgcac1e56"></a>隐藏.bat<br>
+<div class="outline-text-4" id="text-orgcac1e56">
 <div class="org-src-container">
 <pre class="src src-bat">@echo off
 chcp 936 &gt;nul
@@ -290,9 +290,8 @@ pause
 </div>
 </div>
 </li>
-
-<li><a id="org06d4739"></a>恢复.bat<br>
-<div class="outline-text-4" id="text-org06d4739">
+<li><a id="org45cf340"></a>恢复.bat<br>
+<div class="outline-text-4" id="text-org45cf340">
 <div class="org-src-container">
 <pre class="src src-bat">@echo off
 chcp 936 &gt;nul
@@ -307,9 +306,9 @@ echo.
 
 if not exist "I:\%GUIDNAME%\" (
     if exist "I:\temp\" (
-	echo [提示] I:\temp 当前已是正常名称，无需恢复。
+        echo [提示] I:\temp 当前已是正常名称，无需恢复。
     ) else (
-	echo [错误] 既未找到伪装目录，也未找到 I:\temp。
+        echo [错误] 既未找到伪装目录，也未找到 I:\temp。
     )
     goto :done
 )
@@ -334,10 +333,9 @@ pause
 </li>
 </ul>
 </div>
-
-<div id="outline-container-orgca298f2" class="outline-3">
-<h3 id="orgca298f2">图标 GUID 对照表</h3>
-<div class="outline-text-3" id="text-orgca298f2">
+<div id="outline-container-org5013d17" class="outline-3">
+<h3 id="org5013d17">图标 GUID 对照表</h3>
+<div class="outline-text-3" id="text-org5013d17">
 <table>
 
 
@@ -389,45 +387,40 @@ pause
 推荐优先使用回收站 GUID，双击行为最自然，最不易引起注意。
 </p>
 </div>
-
 <ul class="org-ul">
-<li><a id="org0aeedb1"></a>排错手册<br>
+<li><a id="org391a655"></a>排错手册<br>
 <ul class="org-ul">
-<li><a id="orge81ebe0"></a>ren 提示找不到文件<br>
-<div class="outline-text-5" id="text-orge81ebe0">
+<li><a id="orgeca44e7"></a>ren 提示找不到文件<br>
+<div class="outline-text-5" id="text-orgeca44e7">
 <p>
 改用 =Rename-Item -LiteralPath=。参见 <a href="#实测结论">核心实测结论</a> 第 1 条。
 </p>
 </div>
 </li>
-
-<li><a id="org4702ab5"></a>Rename-Item 提示路径不存在<br>
-<div class="outline-text-5" id="text-org4702ab5">
+<li><a id="org7ddff02"></a>Rename-Item 提示路径不存在<br>
+<div class="outline-text-5" id="text-org7ddff02">
 <p>
 检查是否误用 =-Path=，必须使用 =-LiteralPath=。
 </p>
 </div>
 </li>
-
-<li><a id="org15049e8"></a>提示另一个程序正在使用此文件<br>
-<div class="outline-text-5" id="text-org15049e8">
+<li><a id="org6d32834"></a>提示另一个程序正在使用此文件<br>
+<div class="outline-text-5" id="text-org6d32834">
 <p>
 有句柄占用目标目录。依次关闭：资源管理器窗口 → 命令提示符 →
 播放器/下载工具/编辑器工程 → 重试。必要时注销账户。
 </p>
 </div>
 </li>
-
-<li><a id="org501735e"></a>改名成功但图标没变<br>
-<div class="outline-text-5" id="text-org501735e">
+<li><a id="org9d33588"></a>改名成功但图标没变<br>
+<div class="outline-text-5" id="text-org9d33588">
 <p>
 资源管理器图标缓存未刷新。按 =F5=，或重启 explorer.exe。
 </p>
 </div>
 </li>
-
-<li><a id="org4c3749d"></a>忘了改成什么名字了<br>
-<div class="outline-text-5" id="text-org4c3749d">
+<li><a id="org913c3bd"></a>忘了改成什么名字了<br>
+<div class="outline-text-5" id="text-org913c3bd">
 <div class="org-src-container">
 <pre class="src src-powershell">[System.IO.Directory]::GetDirectories("I:\")
 </pre>
@@ -437,9 +430,8 @@ pause
 </p>
 </div>
 </li>
-
-<li><a id="orgfdcba09"></a>bat 运行中文乱码<br>
-<div class="outline-text-5" id="text-orgfdcba09">
+<li><a id="orgdbfd0a1"></a>bat 运行中文乱码<br>
+<div class="outline-text-5" id="text-orgdbfd0a1">
 <p>
 保存编码不是 ANSI/GBK。用记事本"另存为"，编码选 ANSI。
 </p>
@@ -447,9 +439,8 @@ pause
 </li>
 </ul>
 </li>
-
-<li><a id="org198f3f7"></a>注意事项<br>
-<div class="outline-text-4" id="text-org198f3f7">
+<li><a id="org8815152"></a>注意事项<br>
+<div class="outline-text-4" id="text-org8815152">
 <ol class="org-ol">
 <li>伪装状态下若某软件把该目录作为工作路径，会报错，但文件不会损坏，
 改回原名即可恢复。</li>
@@ -463,10 +454,9 @@ pause
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org6c88366" class="outline-2">
-<h2 id="org6c88366">本机验证记录</h2>
-<div class="outline-text-2" id="text-org6c88366">
+<div id="outline-container-org63b7a52" class="outline-2">
+<h2 id="org63b7a52">本机验证记录</h2>
+<div class="outline-text-2" id="text-org63b7a52">
 <table>
 
 
@@ -519,10 +509,9 @@ pause
 </tbody>
 </table>
 </div>
-
-<div id="outline-container-orgf21ae73" class="outline-3">
-<h3 id="orgf21ae73">结论</h3>
-<div class="outline-text-3" id="text-orgf21ae73">
+<div id="outline-container-org50fb144" class="outline-3">
+<h3 id="org50fb144">结论</h3>
+<div class="outline-text-3" id="text-org50fb144">
 <p>
 方案可复用，两个脚本已验证幂等安全，可直接用于其他机器与目录。
 </p>
@@ -533,7 +522,7 @@ pause
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-17-048/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-11-07 Sat 19:39</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

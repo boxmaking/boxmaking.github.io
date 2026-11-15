@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-11-07 Sat 19:39 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>1chemistry基础,分子,原子,离子,核外电子排布规律,化学键,电负性.</title>
@@ -13,27 +13,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,42 +58,41 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org57c8eab">1. 分子,原子,离子,定义区别</a></li>
-<li><a href="#org38b61e3">2. 原子</a>
+<li><a href="#org6ad46cc">1. 分子,原子,离子,定义区别</a></li>
+<li><a href="#org31671da">2. 原子</a>
 <ul>
-<li><a href="#orgb3d62c3">2.1. 1. 原子的基本构成</a></li>
-<li><a href="#org033a8fc">2.2. 2. 原子核内部粒子的特性</a></li>
-<li><a href="#org1bac50a">2.3. 3. 核外电子的特性</a></li>
-<li><a href="#org56704b5">2.4. 4. 核心数量关系</a></li>
+<li><a href="#orgcffbca6">2.1. 1. 原子的基本构成</a></li>
+<li><a href="#orgd7efaba">2.2. 2. 原子核内部粒子的特性</a></li>
+<li><a href="#orgc8b6b2a">2.3. 3. 核外电子的特性</a></li>
+<li><a href="#orgbcbb173">2.4. 4. 核心数量关系</a></li>
 </ul>
 </li>
-<li><a href="#orgdbeb69d">3. 核外电子的排布规律</a>
+<li><a href="#orgde06c15">3. 核外电子的排布规律</a>
 <ul>
-<li><a href="#orgd12f105">3.1. 1. 核外电子排布的基本规律</a></li>
-<li><a href="#orgc527971">3.2. 2. 常见元素电子排布示例</a></li>
-<li><a href="#org9248f50">3.3. 3. 价电子与最外层电子性质</a></li>
+<li><a href="#org4e92cce">3.1. 1. 核外电子排布的基本规律</a></li>
+<li><a href="#org5b382a0">3.2. 2. 常见元素电子排布示例</a></li>
+<li><a href="#orgf155e51">3.3. 3. 价电子与最外层电子性质</a></li>
 </ul>
 </li>
-<li><a href="#org9c99851">4. 化学键-&#x2014;原子是如何手拉手的</a>
+<li><a href="#org3a332e1">4. 化学键-&#x2014;原子是如何手拉手的</a>
 <ul>
-<li><a href="#orgba413a4">4.1. 1. 化学键的概念与本质</a></li>
-<li><a href="#org8d6bcf6">4.2. 2. 三大主要化学键</a></li>
-<li><a href="#orgcdb3c68">4.3. 3. 核心区别对比表</a></li>
+<li><a href="#org4e8b63c">4.1. 1. 化学键的概念与本质</a></li>
+<li><a href="#org1172081">4.2. 2. 三大主要化学键</a></li>
+<li><a href="#orgaf7683c">4.3. 3. 核心区别对比表</a></li>
 </ul>
 </li>
-<li><a href="#orgc6f0f5e">5. 有机化学常见元素及电负性</a>
+<li><a href="#orgaeed87c">5. 有机化学常见元素及电负性</a>
 <ul>
-<li><a href="#orgc97e2af">5.1. 1. 有机化学常见元素及其特性</a></li>
-<li><a href="#orgbdde689">5.2. 2. 电负性（Electronegativity）</a></li>
-<li><a href="#org5464ed7">5.3. 3. 核心辨析：电负性 vs 电子亲和能（它们两个的区别）</a></li>
+<li><a href="#orgbc46c64">5.1. 1. 有机化学常见元素及其特性</a></li>
+<li><a href="#orgf6568ae">5.2. 2. 电负性（Electronegativity）</a></li>
+<li><a href="#org9006992">5.3. 3. 核心辨析：电负性 vs 电子亲和能（它们两个的区别）</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org57c8eab" class="outline-2">
-<h2 id="org57c8eab"><span class="section-number-2">1.</span> 分子,原子,离子,定义区别</h2>
+<div id="outline-container-org6ad46cc" class="outline-2">
+<h2 id="org6ad46cc"><span class="section-number-2">1.</span> 分子,原子,离子,定义区别</h2>
 <div class="outline-text-2" id="text-1">
 <table>
 
@@ -123,14 +133,12 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org38b61e3" class="outline-2">
-<h2 id="org38b61e3"><span class="section-number-2">2.</span> 原子</h2>
+<div id="outline-container-org31671da" class="outline-2">
+<h2 id="org31671da"><span class="section-number-2">2.</span> 原子</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb3d62c3" class="outline-3">
-<h3 id="orgb3d62c3"><span class="section-number-3">2.1.</span> 1. 原子的基本构成</h3>
+<div id="outline-container-orgcffbca6" class="outline-3">
+<h3 id="orgcffbca6"><span class="section-number-3">2.1.</span> 1. 原子的基本构成</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 原子由带正电的原子核和核外带负电的电子构成。
@@ -142,10 +150,8 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org033a8fc" class="outline-3">
-<h3 id="org033a8fc"><span class="section-number-3">2.2.</span> 2. 原子核内部粒子的特性</h3>
+<div id="outline-container-orgd7efaba" class="outline-3">
+<h3 id="orgd7efaba"><span class="section-number-3">2.2.</span> 2. 原子核内部粒子的特性</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 原子核由质子和中子构成（统称核子）。
@@ -188,10 +194,8 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org1bac50a" class="outline-3">
-<h3 id="org1bac50a"><span class="section-number-3">2.3.</span> 3. 核外电子的特性</h3>
+<div id="outline-container-orgc8b6b2a" class="outline-3">
+<h3 id="orgc8b6b2a"><span class="section-number-3">2.3.</span> 3. 核外电子的特性</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>*运动状态*：没有固定的轨道，表现为概率分布的“电子云”。</li>
@@ -200,10 +204,8 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org56704b5" class="outline-3">
-<h3 id="org56704b5"><span class="section-number-3">2.4.</span> 4. 核心数量关系</h3>
+<div id="outline-container-orgbcbb173" class="outline-3">
+<h3 id="orgbcbb173"><span class="section-number-3">2.4.</span> 4. 核心数量关系</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><b>原子序数</b> = 质子数 (\(Z\)) = 核电荷数</li>
@@ -213,22 +215,19 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgdbeb69d" class="outline-2">
-<h2 id="orgdbeb69d"><span class="section-number-2">3.</span> 核外电子的排布规律</h2>
+<div id="outline-container-orgde06c15" class="outline-2">
+<h2 id="orgde06c15"><span class="section-number-2">3.</span> 核外电子的排布规律</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd12f105" class="outline-3">
-<h3 id="orgd12f105"><span class="section-number-3">3.1.</span> 1. 核外电子排布的基本规律</h3>
+<div id="outline-container-org4e92cce" class="outline-3">
+<h3 id="org4e92cce"><span class="section-number-3">3.1.</span> 1. 核外电子排布的基本规律</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 电子按能量由低到高在核外分层排布（电子层：K, L, M, N&#x2026; 或 $n = 1, 2, 3, 4&#x2026;$）。
 </p>
 </div>
-
 <ol class="org-ol">
-<li><a id="orgf8d5f59"></a>三大核心定理<br>
+<li><a id="org14cb45b"></a>三大核心定理<br>
 <div class="outline-text-4" id="text-3-1-1">
 <ol class="org-ol">
 <li>*能量最低原理*：电子优先占据能量最低的轨道。</li>
@@ -237,8 +236,7 @@
 </ol>
 </div>
 </li>
-
-<li><a id="org897e653"></a>排布数量限制<br>
+<li><a id="orgf4b1e6b"></a>排布数量限制<br>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
 <li>第 \(n\) 电子层最多容纳电子数：\(2n^2\) 个。</li>
@@ -249,10 +247,8 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-orgc527971" class="outline-3">
-<h3 id="orgc527971"><span class="section-number-3">3.2.</span> 2. 常见元素电子排布示例</h3>
+<div id="outline-container-org5b382a0" class="outline-3">
+<h3 id="org5b382a0"><span class="section-number-3">3.2.</span> 2. 常见元素电子排布示例</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 以结构示意图及电子排布表示（括号内为各层电子数）：
@@ -333,10 +329,8 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org9248f50" class="outline-3">
-<h3 id="org9248f50"><span class="section-number-3">3.3.</span> 3. 价电子与最外层电子性质</h3>
+<div id="outline-container-orgf155e51" class="outline-3">
+<h3 id="orgf155e51"><span class="section-number-3">3.3.</span> 3. 价电子与最外层电子性质</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>*定义*：参与化学反应、决定元素化学性质的电子。
@@ -346,9 +340,8 @@
 </ul></li>
 </ul>
 </div>
-
 <ol class="org-ol">
-<li><a id="org8d337dc"></a>最外层电子对化学性质的影响<br>
+<li><a id="org93a7c75"></a>最外层电子对化学性质的影响<br>
 <div class="outline-text-4" id="text-3-3-1">
 <ol class="org-ol">
 <li>*8 电子稳定结构（稀有气体）*：最外层达到 8 电子（H、He 为 2），极难得失电子，化学性质极其稳定。</li>
@@ -360,14 +353,12 @@
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-org9c99851" class="outline-2">
-<h2 id="org9c99851"><span class="section-number-2">4.</span> 化学键-&#x2014;原子是如何手拉手的</h2>
+<div id="outline-container-org3a332e1" class="outline-2">
+<h2 id="org3a332e1"><span class="section-number-2">4.</span> 化学键-&#x2014;原子是如何手拉手的</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgba413a4" class="outline-3">
-<h3 id="orgba413a4"><span class="section-number-3">4.1.</span> 1. 化学键的概念与本质</h3>
+<div id="outline-container-org4e8b63c" class="outline-3">
+<h3 id="org4e8b63c"><span class="section-number-3">4.1.</span> 1. 化学键的概念与本质</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>*概念*：使原子相结合的强烈的相互作用力。</li>
@@ -375,14 +366,12 @@
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org8d6bcf6" class="outline-3">
-<h3 id="org8d6bcf6"><span class="section-number-3">4.2.</span> 2. 三大主要化学键</h3>
+<div id="outline-container-org1172081" class="outline-3">
+<h3 id="org1172081"><span class="section-number-3">4.2.</span> 2. 三大主要化学键</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgfb38570"></a>离子键 (Ionic Bond)<br>
+<li><a id="orgf75b680"></a>离子键 (Ionic Bond)<br>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>*定义*：阴、阳离子通过静电作用形成的化学键。</li>
@@ -391,8 +380,7 @@
 </ul>
 </div>
 </li>
-
-<li><a id="org7c900ee"></a>共价键 (Covalent Bond)<br>
+<li><a id="org7843153"></a>共价键 (Covalent Bond)<br>
 <div class="outline-text-4" id="text-4-2-2">
 <ul class="org-ul">
 <li>*定义*：原子间通过共用电子对所形成的相互作用。</li>
@@ -405,8 +393,7 @@
 </ul>
 </div>
 </li>
-
-<li><a id="org01ae96d"></a>金属键 (Metallic Bond)<br>
+<li><a id="orga34b020"></a>金属键 (Metallic Bond)<br>
 <div class="outline-text-4" id="text-4-2-3">
 <ul class="org-ul">
 <li>*定义*：金属离子与自由电子之间的强烈的相互作用。</li>
@@ -417,10 +404,8 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-orgcdb3c68" class="outline-3">
-<h3 id="orgcdb3c68"><span class="section-number-3">4.3.</span> 3. 核心区别对比表</h3>
+<div id="outline-container-orgaf7683c" class="outline-3">
+<h3 id="orgaf7683c"><span class="section-number-3">4.3.</span> 3. 核心区别对比表</h3>
 <div class="outline-text-3" id="text-4-3">
 <table>
 
@@ -480,14 +465,12 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgc6f0f5e" class="outline-2">
-<h2 id="orgc6f0f5e"><span class="section-number-2">5.</span> 有机化学常见元素及电负性</h2>
+<div id="outline-container-orgaeed87c" class="outline-2">
+<h2 id="orgaeed87c"><span class="section-number-2">5.</span> 有机化学常见元素及电负性</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgc97e2af" class="outline-3">
-<h3 id="orgc97e2af"><span class="section-number-3">5.1.</span> 1. 有机化学常见元素及其特性</h3>
+<div id="outline-container-orgbc46c64" class="outline-3">
+<h3 id="orgbc46c64"><span class="section-number-3">5.1.</span> 1. 有机化学常见元素及其特性</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 有机化学以碳骨架为基础，核心元素主要有 C、H、O、N 及卤素 (X)、P、S。
@@ -558,10 +541,8 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-orgbdde689" class="outline-3">
-<h3 id="orgbdde689"><span class="section-number-3">5.2.</span> 2. 电负性（Electronegativity）</h3>
+<div id="outline-container-orgf6568ae" class="outline-3">
+<h3 id="orgf6568ae"><span class="section-number-3">5.2.</span> 2. 电负性（Electronegativity）</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>*定义*：原子在分子中吸引共用电子对能力相对大小的量度（无单位，相对值）。</li>
@@ -576,9 +557,8 @@
 </ul></li>
 </ul>
 </div>
-
 <ol class="org-ol">
-<li><a id="org5021849"></a>电负性背诵口诀<br>
+<li><a id="orgbd29790"></a>电负性背诵口诀<br>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 &gt; *核心顺口溜*：“**弗 氧 氮 氯 溴 碘 硫 碳 磷 氢**” (F &gt; O &gt; N \(\approx\) Cl &gt; Br &gt; I &gt; S \(\approx\) C &gt; P &gt; H)
@@ -588,10 +568,8 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-org5464ed7" class="outline-3">
-<h3 id="org5464ed7"><span class="section-number-3">5.3.</span> 3. 核心辨析：电负性 vs 电子亲和能（它们两个的区别）</h3>
+<div id="outline-container-org9006992" class="outline-3">
+<h3 id="org9006992"><span class="section-number-3">5.3.</span> 3. 核心辨析：电负性 vs 电子亲和能（它们两个的区别）</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 在学习中，**电负性**与**电子亲和能**最容易混淆，其核心区别如下：
@@ -645,7 +623,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-11-07 Sat 19:39</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

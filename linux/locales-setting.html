@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:29 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>locales-环境的各种设置</title>
@@ -26,59 +26,58 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2be5efa">1. 进入全文本的linux桌面环境后要办的事情</a>
+<li><a href="#orgff20c23">1. 进入全文本的linux桌面环境后要办的事情</a>
 <ul>
-<li><a href="#org5d86992">1.1. 编辑~/.bash.rc or /etc/bash.bashrc 文件添加如下字符</a></li>
-<li><a href="#org189fdda">1.2. 启动终端输入命令</a></li>
-<li><a href="#org3994dde">1.3. 重新配置LOCALE</a></li>
-<li><a href="#org67870f9">1.4. 安装字体和输入法</a></li>
+<li><a href="#org5179b63">1.1. 编辑~/.bash.rc or /etc/bash.bashrc 文件添加如下字符</a></li>
+<li><a href="#org7f0102c">1.2. 启动终端输入命令</a></li>
+<li><a href="#org829feea">1.3. 重新配置LOCALE</a></li>
+<li><a href="#orgc564103">1.4. 安装字体和输入法</a></li>
 </ul>
 </li>
-<li><a href="#org38d1af6">2. locale指令</a>
+<li><a href="#orgd4efa1f">2. locale指令</a>
 <ul>
-<li><a href="#org0d98cc5">2.1. 指令详细解释</a></li>
+<li><a href="#orgbaa22ea">2.1. 指令详细解释</a></li>
 </ul>
 </li>
-<li><a href="#orgd23f5f4">3. dpkg-reconfigure locales</a></li>
+<li><a href="#orgd2713bc">3. dpkg-reconfigure locales</a></li>
 </ul>
 </div>
 </nav>
-
-
-<div id="outline-container-org2be5efa" class="outline-2">
-<h2 id="org2be5efa"><span class="section-number-2">1.</span> 进入全文本的linux桌面环境后要办的事情</h2>
+<div id="outline-container-orgff20c23" class="outline-2">
+<h2 id="orgff20c23"><span class="section-number-2">1.</span> 进入全文本的linux桌面环境后要办的事情</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org5d86992" class="outline-3">
-<h3 id="org5d86992"><span class="section-number-3">1.1.</span> 编辑~/.bash.rc or /etc/bash.bashrc 文件添加如下字符</h3>
+<div id="outline-container-org5179b63" class="outline-3">
+<h3 id="org5179b63"><span class="section-number-3">1.1.</span> 编辑~/.bash.rc or /etc/bash.bashrc 文件添加如下字符</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 就能在自己的用户登录的时候选择英文语系了,
 /etc/bash.bashrc是所有的用户都使用的文件 
 use english
 </p>
-<pre class="example">
-export LANG=en_US.UTF-8
+<div class="org-src-container">
+<pre class="src src-nil">export LANG=en_US.UTF-8
 export LANGUAGE=en_
 </pre>
 </div>
 </div>
-
-<div id="outline-container-org189fdda" class="outline-3">
-<h3 id="org189fdda"><span class="section-number-3">1.2.</span> 启动终端输入命令</h3>
+</div>
+<div id="outline-container-org7f0102c" class="outline-3">
+<h3 id="org7f0102c"><span class="section-number-3">1.2.</span> 启动终端输入命令</h3>
 <div class="outline-text-3" id="text-1-2">
-<pre class="example">
-sudo apt-get install locales
+<div class="org-src-container">
+<pre class="src src-nil">sudo apt-get install locales
 </pre>
 </div>
 </div>
-
-<div id="outline-container-org3994dde" class="outline-3">
-<h3 id="org3994dde"><span class="section-number-3">1.3.</span> 重新配置LOCALE</h3>
+</div>
+<div id="outline-container-org829feea" class="outline-3">
+<h3 id="org829feea"><span class="section-number-3">1.3.</span> 重新配置LOCALE</h3>
 <div class="outline-text-3" id="text-1-3">
-<pre class="example">
-dpkg-reconfigure locales
+<div class="org-src-container">
+<pre class="src src-nil">dpkg-reconfigure locales
 </pre>
+</div>
 <ol class="org-ol">
 <li>第一个页面将能勾选的项目全部勾选完成
 <ul class="org-ul">
@@ -96,9 +95,8 @@ dpkg-reconfigure locales
 </ol>
 </div>
 </div>
-
-<div id="outline-container-org67870f9" class="outline-3">
-<h3 id="org67870f9"><span class="section-number-3">1.4.</span> 安装字体和输入法</h3>
+<div id="outline-container-orgc564103" class="outline-3">
+<h3 id="orgc564103"><span class="section-number-3">1.4.</span> 安装字体和输入法</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 设置完成必要的时候还是需要中文输入和显示的这时候怎么办呢
@@ -116,18 +114,15 @@ apt-get install ibus ibus-gtk ibus-pinyin
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org38d1af6" class="outline-2">
-<h2 id="org38d1af6"><span class="section-number-2">2.</span> locale指令</h2>
+<div id="outline-container-orgd4efa1f" class="outline-2">
+<h2 id="orgd4efa1f"><span class="section-number-2">2.</span> locale指令</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 运行locale指令得到当前系统编码设置的详细资料
 </p>
 </div>
-
-<div id="outline-container-org0d98cc5" class="outline-3">
-<h3 id="org0d98cc5"><span class="section-number-3">2.1.</span> 指令详细解释</h3>
+<div id="outline-container-orgbaa22ea" class="outline-3">
+<h3 id="orgbaa22ea"><span class="section-number-3">2.1.</span> 指令详细解释</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>语言符号及其分类(LC<sub>CTYPE</sub>)</li>
@@ -151,10 +146,8 @@ apt-get install ibus ibus-gtk ibus-pinyin
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgd23f5f4" class="outline-2">
-<h2 id="orgd23f5f4"><span class="section-number-2">3.</span> dpkg-reconfigure locales</h2>
+<div id="outline-container-orgd2713bc" class="outline-2">
+<h2 id="orgd2713bc"><span class="section-number-2">3.</span> dpkg-reconfigure locales</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 可以通过这个来设置linux系统的默认语言环境.
@@ -164,7 +157,7 @@ apt-get install ibus ibus-gtk ibus-pinyin
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:29</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

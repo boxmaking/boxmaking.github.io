@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:29 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>tar命令详细功能和压缩相关命令</title>
@@ -26,28 +26,26 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6f33eab">1. 各种格式介绍</a></li>
-<li><a href="#org4b5243c">2. 各种格式解压操作</a>
+<li><a href="#org9019af5">1. 各种格式介绍</a></li>
+<li><a href="#org62e940d">2. 各种格式解压操作</a>
 <ul>
-<li><a href="#org2cc15e5">2.1. .tar文件命令示例</a></li>
-<li><a href="#org8c240f6">2.2. .tgz/tar.gz文件命令示例</a></li>
-<li><a href="#orgd9a15a1">2.3. .tbz/tar.bz2文件命令示例</a></li>
-<li><a href="#org6de54b7">2.4. .rar和.zip文件命令示例</a></li>
-<li><a href="#orgc73df9c">2.5. 7zip和7z文件命令示例</a></li>
-<li><a href="#orgde7959a">2.6. tar.Xz文件压缩操作指南</a></li>
-<li><a href="#orgc695545">2.7. .gz,.bz2,.Z文件压缩解压操作</a></li>
-<li><a href="#orgd9bc064">2.8. ar解压缩&#x2013;&gt;deb文件的格式</a></li>
+<li><a href="#org0a9dc6e">2.1. .tar文件命令示例</a></li>
+<li><a href="#org94e5a2b">2.2. .tgz/tar.gz文件命令示例</a></li>
+<li><a href="#orgc7e6a4b">2.3. .tbz/tar.bz2文件命令示例</a></li>
+<li><a href="#org69b6671">2.4. .rar和.zip文件命令示例</a></li>
+<li><a href="#orgc42f00c">2.5. 7zip和7z文件命令示例</a></li>
+<li><a href="#orgb9831ba">2.6. tar.Xz文件压缩操作指南</a></li>
+<li><a href="#org3ffd328">2.7. .gz,.bz2,.Z文件压缩解压操作</a></li>
+<li><a href="#orge1f5d56">2.8. ar解压缩&#x2013;&gt;deb文件的格式</a></li>
 </ul>
 </li>
-<li><a href="#org97d5a0a">3. tar详细功能和格式</a></li>
-<li><a href="#orgccf31f2">4. 使用tar代替cp进行拷贝</a></li>
+<li><a href="#org0030045">3. tar详细功能和格式</a></li>
+<li><a href="#org1c9a461">4. 使用tar代替cp进行拷贝</a></li>
 </ul>
 </div>
 </nav>
-
-
-<div id="outline-container-org6f33eab" class="outline-2">
-<h2 id="org6f33eab"><span class="section-number-2">1.</span> 各种格式介绍</h2>
+<div id="outline-container-org9019af5" class="outline-2">
+<h2 id="org9019af5"><span class="section-number-2">1.</span> 各种格式介绍</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 常见打包压缩文件
@@ -136,14 +134,12 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org4b5243c" class="outline-2">
-<h2 id="org4b5243c"><span class="section-number-2">2.</span> 各种格式解压操作</h2>
+<div id="outline-container-org62e940d" class="outline-2">
+<h2 id="org62e940d"><span class="section-number-2">2.</span> 各种格式解压操作</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2cc15e5" class="outline-3">
-<h3 id="org2cc15e5"><span class="section-number-3">2.1.</span> .tar文件命令示例</h3>
+<div id="outline-container-org0a9dc6e" class="outline-3">
+<h3 id="org0a9dc6e"><span class="section-number-3">2.1.</span> .tar文件命令示例</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-shell">tar -cvf home_backup.tar * #------&gt;可以将当前目录下的所有文件打包进home_backup.tar文件中,后面的是文件也可以是目录 
@@ -160,10 +156,8 @@ tar -rvf home_backup.tar test.txt #------&gt;将test.txt文件添加到包中
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-org8c240f6" class="outline-3">
-<h3 id="org8c240f6"><span class="section-number-3">2.2.</span> .tgz/tar.gz文件命令示例</h3>
+<div id="outline-container-org94e5a2b" class="outline-3">
+<h3 id="org94e5a2b"><span class="section-number-3">2.2.</span> .tgz/tar.gz文件命令示例</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-shell">tar -zcvf home_backup.tar.gz /home #----&gt;可以将/home目录下的所有文件打包并用gzip压缩入home_backup.tar.gz文件中.
@@ -179,10 +173,8 @@ tar -zxvf home_backup.tar.gz home/test.c #------&gt;指定解压出test.c这个�
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-orgd9a15a1" class="outline-3">
-<h3 id="orgd9a15a1"><span class="section-number-3">2.3.</span> .tbz/tar.bz2文件命令示例</h3>
+<div id="outline-container-orgc7e6a4b" class="outline-3">
+<h3 id="orgc7e6a4b"><span class="section-number-3">2.3.</span> .tbz/tar.bz2文件命令示例</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-shell">tar -jcvf home_backup.tar.bz2 /home #------&gt;可以将/home目录打包并用bzip2压缩入home_backup.tar.bz2文件中. 
@@ -193,9 +185,8 @@ tar -jtvf home_backup.tar.bz2 #------&gt;列出home_backup.tar.bz2文件里被�
 </pre>
 </div>
 </div>
-
 <ol class="org-ol">
-<li><a id="orgcc4c873"></a>tar调用bzip2就是在选项中加一个小写  j  来解决,注意，由于部分老版本的tar使用-I实现本功能，因此，编写脚本时，最好使用–bzip2。<br>
+<li><a id="orgf6195ab"></a>tar调用bzip2就是在选项中加一个小写  j  来解决,注意，由于部分老版本的tar使用-I实现本功能，因此，编写脚本时，最好使用–bzip2。<br>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 tar.z/taz文件相关命令示例
@@ -213,10 +204,8 @@ tar.z/taz文件相关命令示例
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-org6de54b7" class="outline-3">
-<h3 id="org6de54b7"><span class="section-number-3">2.4.</span> .rar和.zip文件命令示例</h3>
+<div id="outline-container-org69b6671" class="outline-3">
+<h3 id="org69b6671"><span class="section-number-3">2.4.</span> .rar和.zip文件命令示例</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
 <pre class="src src-shell">unzip home_backup.zip #------&gt;解压缩该压缩文件
@@ -226,9 +215,8 @@ rar a txt_backup *.txt #------&gt;将文件夹内所有txt文件打包为txt_bac
 </pre>
 </div>
 </div>
-
 <ol class="org-ol">
-<li><a id="orgd8e0f96"></a>由于rarlinux是收费软件，所以我们首先要下载rarlinux，然后安装它.安装方法：现在下载rarlinux的包，官方网址是：www.rarsoft.com<br>
+<li><a id="orgc3a2813"></a>由于rarlinux是收费软件，所以我们首先要下载rarlinux，然后安装它.安装方法：现在下载rarlinux的包，官方网址是：www.rarsoft.com<br>
 <div class="outline-text-4" id="text-2-4-1">
 <div class="org-src-container">
 <pre class="src src-shell">tar -zxvf rarlinux.tar.gz
@@ -246,9 +234,7 @@ make &amp;&amp; make install
 </div>
 </div>
 </li>
-
-
-<li><a id="orgede0f0a"></a>gbkunzip解压缩zip文件-&#x2014;&gt;解决解压zip乱码问题<br>
+<li><a id="orgcd05578"></a>gbkunzip解压缩zip文件-&#x2014;&gt;解决解压zip乱码问题<br>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 <a href="https://www.lujun9972.win/blog/2017/06/04/%E4%BD%BF%E7%94%A8gbkunzip%E8%A7%A3%E5%86%B3linux%E4%B8%8Bzip%E6%96%87%E4%BB%B6%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/index.html">原文链接</a>
@@ -302,12 +288,12 @@ def main():
     z = ZipFile(sys.argv[1])
     while True:
       try:
-	z.extractall()
+        z.extractall()
       except RuntimeError: # encrypted zipfile
-	passwd = getpass('Enter correct password: ').encode()
-	z.setpassword(passwd)
+        passwd = getpass('Enter correct password: ').encode()
+        z.setpassword(passwd)
       else:
-	break
+        break
     print('Everything is ok.')
   except IndexError:
     sys.exit('give me exactly one zipfile to extract.')
@@ -321,10 +307,8 @@ if __name__ == '__main__':
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-orgc73df9c" class="outline-3">
-<h3 id="orgc73df9c"><span class="section-number-3">2.5.</span> 7zip和7z文件命令示例</h3>
+<div id="outline-container-orgc42f00c" class="outline-3">
+<h3 id="orgc42f00c"><span class="section-number-3">2.5.</span> 7zip和7z文件命令示例</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="org-src-container">
 <pre class="src src-shell">yum install p7zip #------&gt;Redhat、Fedora、Centos安装命令
@@ -335,10 +319,8 @@ apt-get install p7zip #------&gt;Debian、Ubuntu安装命令
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgde7959a" class="outline-3">
-<h3 id="orgde7959a"><span class="section-number-3">2.6.</span> tar.Xz文件压缩操作指南</h3>
+<div id="outline-container-orgb9831ba" class="outline-3">
+<h3 id="orgb9831ba"><span class="section-number-3">2.6.</span> tar.Xz文件压缩操作指南</h3>
 <div class="outline-text-3" id="text-2-6">
 <div class="org-src-container">
 <pre class="src src-shell">xz -d home_backup.tar.Xz #------&gt;首先解压缩Xz文件然后第二部再解包.tar文件
@@ -353,10 +335,8 @@ Xz文件压缩命令的选项是xz -z,有兴趣的大家可以man一下.这个�
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-orgc695545" class="outline-3">
-<h3 id="orgc695545"><span class="section-number-3">2.7.</span> .gz,.bz2,.Z文件压缩解压操作</h3>
+<div id="outline-container-org3ffd328" class="outline-3">
+<h3 id="org3ffd328"><span class="section-number-3">2.7.</span> .gz,.bz2,.Z文件压缩解压操作</h3>
 <div class="outline-text-3" id="text-2-7">
 <div class="org-src-container">
 <pre class="src src-shell">#.gz文件
@@ -372,10 +352,8 @@ compress home_backup.Z #------&gt;压缩
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgd9bc064" class="outline-3">
-<h3 id="orgd9bc064"><span class="section-number-3">2.8.</span> ar解压缩&#x2013;&gt;deb文件的格式</h3>
+<div id="outline-container-orge1f5d56" class="outline-3">
+<h3 id="orge1f5d56"><span class="section-number-3">2.8.</span> ar解压缩&#x2013;&gt;deb文件的格式</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 一个 deb 包其实就是一个ar格式的打包文件. 可以用 ar 命令解开 deb 包.
@@ -410,12 +388,8 @@ sl.deb
 </div>
 </div>
 </div>
-
-
-
-
-<div id="outline-container-org97d5a0a" class="outline-2">
-<h2 id="org97d5a0a"><span class="section-number-2">3.</span> tar详细功能和格式</h2>
+<div id="outline-container-org0030045" class="outline-2">
+<h2 id="org0030045"><span class="section-number-2">3.</span> tar详细功能和格式</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 可以将代表功能和选项的单个字母合并；当使用单个字母时，可以不用在字母前面加“-”
@@ -449,10 +423,8 @@ sl.deb
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-orgccf31f2" class="outline-2">
-<h2 id="orgccf31f2"><span class="section-number-2">4.</span> 使用tar代替cp进行拷贝</h2>
+<div id="outline-container-org1c9a461" class="outline-2">
+<h2 id="org1c9a461"><span class="section-number-2">4.</span> 使用tar代替cp进行拷贝</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 一般来说我们都是使用cp进行拷贝的,然而使用cp拷贝时会修改被拷贝文件的创建日期,修改日期以及所有权.
@@ -504,7 +476,7 @@ sl.deb
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:29</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

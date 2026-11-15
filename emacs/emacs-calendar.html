@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:26 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>calendar和cal-china-x相关的教程</title>
@@ -26,23 +26,22 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2985913">1. Calendar使用</a></li>
-<li><a href="#org5f9185c">2. cal calender命令</a>
+<li><a href="#orge4d4fe2">1. Calendar使用</a></li>
+<li><a href="#org8946a43">2. cal calender命令</a>
 <ul>
-<li><a href="#org805e5f3">2.1. 配置文件</a></li>
-<li><a href="#org38c5e40">2.2. 添加代办事项</a></li>
-<li><a href="#org02a5cbf">2.3. 日期信息</a></li>
-<li><a href="#org098b075">2.4. 导出为HTML</a></li>
-<li><a href="#org9c742ae">2.5. 约会提醒功能</a></li>
+<li><a href="#orgd45975d">2.1. 配置文件</a></li>
+<li><a href="#org5c5a0ff">2.2. 添加代办事项</a></li>
+<li><a href="#org04a40cd">2.3. 日期信息</a></li>
+<li><a href="#orgb1ecd10">2.4. 导出为HTML</a></li>
+<li><a href="#org72b9b13">2.5. 约会提醒功能</a></li>
 </ul>
 </li>
-<li><a href="#orgb38c628">3. cal-china-x安装与使用</a></li>
+<li><a href="#org951acd5">3. cal-china-x安装与使用</a></li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org2985913" class="outline-2">
-<h2 id="org2985913"><span class="section-number-2">1.</span> Calendar使用</h2>
+<div id="outline-container-orge4d4fe2" class="outline-2">
+<h2 id="orge4d4fe2"><span class="section-number-2">1.</span> Calendar使用</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>M-x Calendar 启动</li>
@@ -145,124 +144,113 @@ pC显示农历</li>
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-org5f9185c" class="outline-2">
-<h2 id="org5f9185c"><span class="section-number-2">2.</span> cal calender命令</h2>
+<div id="outline-container-org8946a43" class="outline-2">
+<h2 id="org8946a43"><span class="section-number-2">2.</span> cal calender命令</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org805e5f3" class="outline-3">
-<h3 id="org805e5f3"><span class="section-number-3">2.1.</span> 配置文件</h3>
+<div id="outline-container-orgd45975d" class="outline-3">
+<h3 id="orgd45975d"><span class="section-number-3">2.1.</span> 配置文件</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; -*- coding: utf-8; lexical-binding: t -*-
-;;pengshao-calendar.el---calendar相关配置(一直没有调试)
+<pre class="src src-lisp">;; -*- coding: utf-8; lexical-binding: t -*-
+;; pengshao-calendar.el --- 现代化的中国日历、美化与农历/日出日落显示配置
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; 设置日历 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;设置日历的一些颜色
+(require 'calendar)
+(require 'cal-china)
+
+;; 1. 基础地理与经纬度设置（莱芜：北纬 36.125°，东经 117.786°）
+(setq calendar-latitude +36.125
+      calendar-longitude +117.786
+      calendar-location-name "Laiwu")
+
+;; 2. 日历视图与交互行为优化
+(setq calendar-remove-frame-by-deleting t       ; 关闭日历时自动删除 Frame
+      calendar-week-start-day 1                ; 设置星期一为每周的第一天
+      mark-diary-entries-in-calendar t         ; 在日历中标记有 Diary 日志的日期
+      mark-holidays-in-calendar t              ; 在日历中高亮显示节日
+      view-calendar-holidays-initially nil)    ; 打开时不弹出一大堆默认节日窗口
+
+;; 3. 定制国内常用公历节日
+(setq christian-holidays nil
+      hebrew-holidays nil
+      islamic-holidays nil
+      solar-holidays nil
+      general-holidays
+      '((holiday-fixed 1 1 "元旦")
+        (holiday-fixed 2 14 "情人节")
+        (holiday-fixed 3 8 "妇女节")
+        (holiday-fixed 3 12 "植树节")
+        (holiday-fixed 4 5 "清明节")
+        (holiday-fixed 5 1 "劳动节")
+        (holiday-float 5 0 2 "母亲节")
+        (holiday-fixed 6 1 "儿童节")
+        (holiday-float 6 0 3 "父亲节")
+        (holiday-fixed 7 1 "建党节")
+        (holiday-fixed 8 1 "建军节")
+        (holiday-fixed 9 10 "教师节")
+        (holiday-fixed 10 1 "国庆节")
+        (holiday-fixed 12 25 "圣诞节")))
+
+;; 4. 深度整合开源的中国农历与传统节日扩展：cal-china-x
+(use-package cal-china-x
+  :ensure t
+  :config
+  (setq calendar-holidays
+        (append general-holidays cal-china-x-important-holidays)))
+
+;; 5. 现代化高亮配色美化（使用标准的有效 Face）
 (setq calendar-load-hook
-'(lambda ()
-(set-face-foreground 'diary-face "skyblue")
-(set-face-background 'holiday-face "slate blue")
-(set-face-foreground 'holiday-face "white")))
+      '(lambda ()
+         (set-face-foreground 'calendar-phase-face "#61afef")
+         (set-face-background 'holiday-face "#2c313a")
+         (set-face-foreground 'holiday-face "#98c379")
+         (set-face-background 'calendar-today-face "#3e4452")
+         (set-face-foreground 'calendar-today-face "#e06c75")))
 
-;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
-;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
-(setq calendar-latitude +36.125)
-(setq calendar-longitude +117.786)
-(setq calendar-location-name "Laiwu")
+;; 6. 增强功能：底部实时播报农历与日出日落
+(defun pengshao-display-chinese-and-sun-times (month day year)
+  (let* ((solar-date (list month day year))
+         (chinese-string (calendar-chinese-date-string solar-date))
+         (sun-rise (solar-sunrise-sunset solar-date))
+         (rise-time (car sun-rise))
+         (set-time (cadr sun-rise)))
+    (message "📅 公历: %d-%02d-%02d | 🏮 农历: %s | 🌅 日出: %s | 🌇 日落: %s"
+             year month day
+             (or chinese-string "计算中...")
+             (or rise-time "极昼/极夜")
+             (or set-time "极昼/极夜"))))
 
-;; 设置阴历显示，在 calendar 上用 pC 显示阴历
-(setq chinese-calendar-celestial-stem
-["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
-(setq chinese-calendar-terrestrial-branch
-["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
+;; 绑定光标移动钩子
+(add-hook 'calendar-mode-hook
+          (lambda ()
+            (add-hook 'calendar-move-hook
+                      (lambda ()
+                        (let ((date (calendar-cursor-to-date t)))
+                          (when date
+                            (pengshao-display-chinese-and-sun-times (car date) (cadr date) (caddr date)))))
+                      nil t)))
 
-;; 设置 calendar 的显示
-(setq calendar-remove-frame-by-deleting t)
-;(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
-(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
-(setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar上不标记节日
-(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
+;; 7. 修改后：恢复默认的分屏/标准视图，同时仅保留“自动定位到今天并触发播报”
+(defun pengshao-setup-calendar-view ()
+  (when (derived-mode-p 'calendar-mode)
+    ;; 【已注释】全屏独占：如需恢复全屏，取消下面一行的注释即可
+    ;; (delete-other-windows)
 
-;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
-(setq christian-holidays nil)
-(setq hebrew-holidays nil)
-(setq islamic-holidays nil)
-(setq solar-holidays nil)
-(setq general-holidays '((holiday-fixed 1 1 "元旦")
-(holiday-fixed 2 14 "情人节")
-(holiday-fixed 3 14 "白色情人节")
-(holiday-fixed 4 1 "愚人节")
-(holiday-fixed 5 1 "劳动节")
-(holiday-float 5 0 2 "母亲节")
-(holiday-fixed 6 1 "儿童节")
-(holiday-float 6 0 3 "父亲节")
-(holiday-fixed 7 1 "建党节")
-(holiday-fixed 8 1 "建军节")
-(holiday-fixed 9 10 "教师节")
-(holiday-fixed 10 1 "国庆节")
-(holiday-fixed 12 25 "圣诞节")))
+    ;; 【已删除】整年 12 个月平铺展开逻辑
 
-;;Calendar模式支持各种方式来更改当前日期
-;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
-;; q 退出calendar模式
-;; C-f 让当前日期向前一天
-;; C-b 让当前日期向后一天
-;; C-n 让当前日期向前一周
-;; C-p 让当前日期向后一周
-;; M-} 让当前日期向前一个月
-;; M-{ 让当前日期向后一个月
-;; C-x ] 让当前日期向前一年
-;; C-x [ 让当前日期向后一年
-;; C-a 移动到当前周的第一天
-;; C-e 移动到当前周的最后一天
-;; M-a 移动到当前月的第一天
-;; M-e 多动到当前月的最后一天
-;; M-&lt; 移动到当前年的第一天
-;; M-&gt; 移动到当前年的最后一天
+    ;; 仅保留：打开时自动把光标聚焦到今天，确保 Minibuffer 瞬间显示农历与日出日落
+    (calendar-goto-today)))
 
-;;Calendar模式支持移动多种移动到特珠日期的方式
-;; g d 移动到一个特别的日期
-;; o 使某个特殊的月分作为中间的月分
-;; . 移动到当天的日期
-;; p d 显示某一天在一年中的位置，也显示本年度还有多少天。
-;; C-c C-l 刷新Calendar窗口
-
-;; Calendar支持生成LATEX代码。
-;; t m 按月生成日历
-;; t M 按月生成一个美化的日历
-;; t d 按当天日期生成一个当天日历
-;; t w 1 在一页上生成这个周的日历
-;; t w 2 在两页上生成这个周的日历
-;; t w 3 生成一个ISO-SYTLE风格的当前周日历
-;; t w 4 生成一个从周一开始的当前周日历
-;; t y 生成当前年的日历
-
-;;EMACS Calendar支持配置节日：
-;; h 显示当前的节日
-;; x 定义当天为某个节日
-;; u 取消当天已被定义的节日
-;; e 显示所有这前后共三个月的节日。
-;; M-x holiday 在另外的窗口的显示这前后三个月的节日。
-
-
-;; 另外，还有一些特殊的，有意思的命令：
-;; S 显示当天的日出日落时间(是大写的S)
-;; p C 显示农历可以使用
-;; g C 使用农历移动日期可以使用
-
+(add-hook 'calendar-initial-window-hook #'pengshao-setup-calendar-view)
 
 (provide 'pengshao-calendar)
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org38c5e40" class="outline-3">
-<h3 id="org38c5e40"><span class="section-number-3">2.2.</span> 添加代办事项</h3>
+<div id="outline-container-org5c5a0ff" class="outline-3">
+<h3 id="org5c5a0ff"><span class="section-number-3">2.2.</span> 添加代办事项</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 在Calendar中可以为指定的日期添加代办事项:
@@ -306,9 +294,8 @@ pC显示农历</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org02a5cbf" class="outline-3">
-<h3 id="org02a5cbf"><span class="section-number-3">2.3.</span> 日期信息</h3>
+<div id="outline-container-org04a40cd" class="outline-3">
+<h3 id="org04a40cd"><span class="section-number-3">2.3.</span> 日期信息</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 将光标定位到指定的日期处后,Emacs还提供了一些命令来获取光标所处日期的信息. 常用到的命令有:
@@ -395,10 +382,8 @@ Emacs内置了一些常见的节假日信息
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-org098b075" class="outline-3">
-<h3 id="org098b075"><span class="section-number-3">2.4.</span> 导出为HTML</h3>
+<div id="outline-container-orgb1ecd10" class="outline-3">
+<h3 id="orgb1ecd10"><span class="section-number-3">2.4.</span> 导出为HTML</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Emacs提供了两个命令来将日历信息,节假日信息和待办事项信息一起导出成HTML文件供我们查看,这两个命令为:
@@ -410,9 +395,8 @@ Emacs提供了两个命令来将日历信息,节假日信息和待办事项信�
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org9c742ae" class="outline-3">
-<h3 id="org9c742ae"><span class="section-number-3">2.5.</span> 约会提醒功能</h3>
+<div id="outline-container-org72b9b13" class="outline-3">
+<h3 id="org72b9b13"><span class="section-number-3">2.5.</span> 约会提醒功能</h3>
 <div class="outline-text-3" id="text-2-5">
 <ol class="org-ol">
 <li>用M-x appt-activate开启约会提醒功能 要使用约会提醒功能,先需要开启appointment通知功能,命令是M-x appt-activate</li>
@@ -434,10 +418,8 @@ Emacs提供了两个命令来将日历信息,节假日信息和待办事项信�
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgb38c628" class="outline-2">
-<h2 id="orgb38c628"><span class="section-number-2">3.</span> cal-china-x安装与使用</h2>
+<div id="outline-container-org951acd5" class="outline-2">
+<h2 id="org951acd5"><span class="section-number-2">3.</span> cal-china-x安装与使用</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -457,9 +439,9 @@ Emacs提供了两个命令来将日历信息,节假日信息和待办事项信�
 (setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
 (setq calendar-holidays
       (append cal-china-x-important-holidays
-	      cal-china-x-general-holidays
-	      ;;other-holidays这个地方需要隐藏这句话,要不然错误启动
-	      ))
+              cal-china-x-general-holidays
+              ;;other-holidays这个地方需要隐藏这句话,要不然错误启动
+              ))
 
 </pre>
 </div>
@@ -475,7 +457,7 @@ Emacs提供了两个命令来将日历信息,节假日信息和待办事项信�
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 19:29:44&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:26</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

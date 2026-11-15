@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-10-26 Mon 21:44 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>2元素周期表的规律,离子键,共价键,极性键,非极性键识别区别</title>
@@ -13,27 +13,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,51 +58,48 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3621610">1. 元素周期表.</a></li>
-<li><a href="#org2778ff3">2. 元素周期表周期,族变化</a>
+<li><a href="#orgc6ca794">1. 元素周期表.</a></li>
+<li><a href="#org591102e">2. 元素周期表周期,族变化</a>
 <ul>
-<li><a href="#org2147903">2.1. 1. 元素周期表的核心递变规律（同周期 vs 同族）</a></li>
-<li><a href="#org91ede5d">2.2. 2. 变化规律的“底层原因”解析</a></li>
-<li><a href="#orgad1d82a">2.3. 3. 第 2、3 周期主族元素对比示例</a></li>
-<li><a href="#org079f573">2.4. 4. 关键记忆要点与速记</a></li>
+<li><a href="#orgdbf4584">2.1. 1. 元素周期表的核心递变规律（同周期 vs 同族）</a></li>
+<li><a href="#org5ca6980">2.2. 2. 变化规律的“底层原因”解析</a></li>
+<li><a href="#org668971e">2.3. 3. 第 2、3 周期主族元素对比示例</a></li>
+<li><a href="#orgcb3a9e3">2.4. 4. 关键记忆要点与速记</a></li>
 </ul>
 </li>
-<li><a href="#org93b1bd0">3. 离子键,共价键识别区别</a>
+<li><a href="#org4458bbd">3. 离子键,共价键识别区别</a>
 <ul>
-<li><a href="#org0c1db97">3.1. 1. 离子键与共价键的核心区别</a></li>
-<li><a href="#orgc42e641">3.2. 2. 如何快速识别化学键类型</a></li>
-<li><a href="#org281adcf">3.3. 3. 常见例子列举</a></li>
-<li><a href="#org0946e3f">3.4. 4. 形成化学键的底层原理</a></li>
+<li><a href="#orga9c32d4">3.1. 1. 离子键与共价键的核心区别</a></li>
+<li><a href="#org44a470d">3.2. 2. 如何快速识别化学键类型</a></li>
+<li><a href="#orgfb15268">3.3. 3. 常见例子列举</a></li>
+<li><a href="#orgb8e906f">3.4. 4. 形成化学键的底层原理</a></li>
 </ul>
 </li>
-<li><a href="#orgd7eaa1a">4. 极性键,非极性键识别区别</a>
+<li><a href="#org27f6f29">4. 极性键,非极性键识别区别</a>
 <ul>
-<li><a href="#orgcd6bb59">4.1. 1. 极性键与非极性键的核心区别</a></li>
-<li><a href="#org5b008a4">4.2. 2. 如何快速识别键的极性</a></li>
-<li><a href="#orgaff2374">4.3. 3. 常见例子列举</a></li>
-<li><a href="#org304ba8c">4.4. 4. 形成极性与非极性键的底层原理</a></li>
+<li><a href="#org9d5cca5">4.1. 1. 极性键与非极性键的核心区别</a></li>
+<li><a href="#orgb359174">4.2. 2. 如何快速识别键的极性</a></li>
+<li><a href="#orgc2ca951">4.3. 3. 常见例子列举</a></li>
+<li><a href="#org6786590">4.4. 4. 形成极性与非极性键的底层原理</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org3621610" class="outline-2">
-<h2 id="org3621610"><span class="section-number-2">1.</span> 元素周期表.</h2>
+<div id="outline-container-orgc6ca794" class="outline-2">
+<h2 id="orgc6ca794"><span class="section-number-2">1.</span> 元素周期表.</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="periodic-table-main/index.html">元素周期表</a>
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-org2778ff3" class="outline-2">
-<h2 id="org2778ff3"><span class="section-number-2">2.</span> 元素周期表周期,族变化</h2>
+<div id="outline-container-org591102e" class="outline-2">
+<h2 id="org591102e"><span class="section-number-2">2.</span> 元素周期表周期,族变化</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2147903" class="outline-3">
-<h3 id="org2147903"><span class="section-number-3">2.1.</span> 1. 元素周期表的核心递变规律（同周期 vs 同族）</h3>
+<div id="outline-container-orgdbf4584" class="outline-3">
+<h3 id="orgdbf4584"><span class="section-number-3">2.1.</span> 1. 元素周期表的核心递变规律（同周期 vs 同族）</h3>
 <div class="outline-text-3" id="text-2-1">
 <table>
 
@@ -162,14 +170,12 @@
 </table>
 </div>
 </div>
-
-
-<div id="outline-container-org91ede5d" class="outline-3">
-<h3 id="org91ede5d"><span class="section-number-3">2.2.</span> 2. 变化规律的“底层原因”解析</h3>
+<div id="outline-container-org5ca6980" class="outline-3">
+<h3 id="org5ca6980"><span class="section-number-3">2.2.</span> 2. 变化规律的“底层原因”解析</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orga3c5eca"></a>原因 1：同周期电负性增大、半径减小<br>
+<li><a id="org0459c96"></a>原因 1：同周期电负性增大、半径减小<br>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>*机制*：电子层数不变，质子数增加，**有效核电荷数（核对最外层电子的吸引力）显著增大**。</li>
@@ -178,9 +184,7 @@
 </ul>
 </div>
 </li>
-
-
-<li><a id="org0b5c859"></a>原因 2：同主族电负性减小、半径增大<br>
+<li><a id="orgaac1436"></a>原因 2：同主族电负性减小、半径增大<br>
 <div class="outline-text-4" id="text-2-2-2">
 <ul class="org-ul">
 <li>*机制*：最外层电子数相同，但**电子层数增加**，内层电子的“屏蔽效应”增强。</li>
@@ -191,14 +195,12 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-orgad1d82a" class="outline-3">
-<h3 id="orgad1d82a"><span class="section-number-3">2.3.</span> 3. 第 2、3 周期主族元素对比示例</h3>
+<div id="outline-container-org668971e" class="outline-3">
+<h3 id="org668971e"><span class="section-number-3">2.3.</span> 3. 第 2、3 周期主族元素对比示例</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org24aaee8"></a>第 2 周期主族元素（电子层 \(n=2\)）<br>
+<li><a id="org1ab11cd"></a>第 2 周期主族元素（电子层 \(n=2\)）<br>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 从左到右：半径递减，电负性递增，金属性 \(\rightarrow\) 非金属性。
@@ -307,9 +309,7 @@
 </table>
 </div>
 </li>
-
-
-<li><a id="org0553b9e"></a>第 3 周期主族元素（电子层 \(n=3\)）<br>
+<li><a id="org44bb8c5"></a>第 3 周期主族元素（电子层 \(n=3\)）<br>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 与第 2 周期同族元素对应，表现出相似但电负性略低、半径更宽的特性。
@@ -420,10 +420,8 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-org079f573" class="outline-3">
-<h3 id="org079f573"><span class="section-number-3">2.4.</span> 4. 关键记忆要点与速记</h3>
+<div id="outline-container-orgcb3a9e3" class="outline-3">
+<h3 id="orgcb3a9e3"><span class="section-number-3">2.4.</span> 4. 关键记忆要点与速记</h3>
 <div class="outline-text-3" id="text-2-4">
 <ol class="org-ol">
 <li>**电负性“极值点”**：
@@ -448,14 +446,12 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org93b1bd0" class="outline-2">
-<h2 id="org93b1bd0"><span class="section-number-2">3.</span> 离子键,共价键识别区别</h2>
+<div id="outline-container-org4458bbd" class="outline-2">
+<h2 id="org4458bbd"><span class="section-number-2">3.</span> 离子键,共价键识别区别</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0c1db97" class="outline-3">
-<h3 id="org0c1db97"><span class="section-number-3">3.1.</span> 1. 离子键与共价键的核心区别</h3>
+<div id="outline-container-orga9c32d4" class="outline-3">
+<h3 id="orga9c32d4"><span class="section-number-3">3.1.</span> 1. 离子键与共价键的核心区别</h3>
 <div class="outline-text-3" id="text-3-1">
 <table>
 
@@ -508,9 +504,8 @@
 </table>
 </div>
 </div>
-
-<div id="outline-container-orgc42e641" class="outline-3">
-<h3 id="orgc42e641"><span class="section-number-3">3.2.</span> 2. 如何快速识别化学键类型</h3>
+<div id="outline-container-org44a470d" class="outline-3">
+<h3 id="org44a470d"><span class="section-number-3">3.2.</span> 2. 如何快速识别化学键类型</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 通过成键元素的属性与电负性差值进行判断：
@@ -531,9 +526,8 @@
 </ol>
 </div>
 </div>
-
-<div id="outline-container-org281adcf" class="outline-3">
-<h3 id="org281adcf"><span class="section-number-3">3.3.</span> 3. 常见例子列举</h3>
+<div id="outline-container-orgfb15268" class="outline-3">
+<h3 id="orgfb15268"><span class="section-number-3">3.3.</span> 3. 常见例子列举</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>*离子键为主的化合物*：
@@ -552,9 +546,8 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org0946e3f" class="outline-3">
-<h3 id="org0946e3f"><span class="section-number-3">3.4.</span> 4. 形成化学键的底层原理</h3>
+<div id="outline-container-orgb8e906f" class="outline-3">
+<h3 id="orgb8e906f"><span class="section-number-3">3.4.</span> 4. 形成化学键的底层原理</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 为什么原子要结合形成化学键？核心驱动力是*体系能量降低*。
@@ -575,14 +568,12 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgd7eaa1a" class="outline-2">
-<h2 id="orgd7eaa1a"><span class="section-number-2">4.</span> 极性键,非极性键识别区别</h2>
+<div id="outline-container-org27f6f29" class="outline-2">
+<h2 id="org27f6f29"><span class="section-number-2">4.</span> 极性键,非极性键识别区别</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgcd6bb59" class="outline-3">
-<h3 id="orgcd6bb59"><span class="section-number-3">4.1.</span> 1. 极性键与非极性键的核心区别</h3>
+<div id="outline-container-org9d5cca5" class="outline-3">
+<h3 id="org9d5cca5"><span class="section-number-3">4.1.</span> 1. 极性键与非极性键的核心区别</h3>
 <div class="outline-text-3" id="text-4-1">
 <table>
 
@@ -629,9 +620,8 @@
 </table>
 </div>
 </div>
-
-<div id="outline-container-org5b008a4" class="outline-3">
-<h3 id="org5b008a4"><span class="section-number-3">4.2.</span> 2. 如何快速识别键的极性</h3>
+<div id="outline-container-orgb359174" class="outline-3">
+<h3 id="orgb359174"><span class="section-number-3">4.2.</span> 2. 如何快速识别键的极性</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 只需看成键的两端是什么原子：
@@ -649,9 +639,8 @@
 </ol>
 </div>
 </div>
-
-<div id="outline-container-orgaff2374" class="outline-3">
-<h3 id="orgaff2374"><span class="section-number-3">4.3.</span> 3. 常见例子列举</h3>
+<div id="outline-container-orgc2ca951" class="outline-3">
+<h3 id="orgc2ca951"><span class="section-number-3">4.3.</span> 3. 常见例子列举</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>*非极性键*：
@@ -667,9 +656,8 @@
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org304ba8c" class="outline-3">
-<h3 id="org304ba8c"><span class="section-number-3">4.4.</span> 4. 形成极性与非极性键的底层原理</h3>
+<div id="outline-container-org6786590" class="outline-3">
+<h3 id="org6786590"><span class="section-number-3">4.4.</span> 4. 形成极性与非极性键的底层原理</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 核心驱动力是**成键原子的电负性差异（吸引共用电子对能力的大小）**：
@@ -695,7 +683,7 @@
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2026-10-26-299/Monday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-10-26 Mon 21:44</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2025-03-16 Sun 20:29 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>安全的rm -rf-命令行实现回收站功能</title>
@@ -13,27 +13,38 @@
 <link rel="stylesheet" type="text/css" href="../css/org.css" />
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_page_pv">所有文章阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -47,17 +58,17 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org99e80f3">1. 命令行实现回收站功能</a></li>
+<li><a href="#org2a6729d">1. 命令行实现回收站功能</a></li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org99e80f3" class="outline-2">
-<h2 id="org99e80f3"><span class="section-number-2">1.</span> 命令行实现回收站功能</h2>
+<div id="outline-container-org2a6729d" class="outline-2">
+<h2 id="org2a6729d"><span class="section-number-2">1.</span> 命令行实现回收站功能</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><p>
-编写remove.sh文件
+<li>编写remove.sh文件</li>
+</ol>
+<p>
 TRASH<sub>DIR</sub>="<i>home/pengshao</i>.trash"
 </p>
 
@@ -70,8 +81,7 @@ for i in $*; do
 <p>
 #移动文件到.trash/
 mv $i \({TRASH_DIR}/\){fileName}
-</p></li>
-</ol>
+</p>
 
 
 <p>
@@ -106,7 +116,7 @@ done
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2020-04-29-120/Wednesday&gt; &lt;2025-02-25-056/Tuesday&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2025-03-16 Sun 20:29</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- 2026-11-07 Sat 19:39 -->
+<!-- 2026-11-15 Sun 21:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>我的init.el和各种启动配置</title>
@@ -26,60 +26,56 @@
 <h2>&#30446;&#24405;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga97e228">1. 我的全部配置自文件</a></li>
-<li><a href="#org2a2b2b7">2. 配置文件目录,及调用相关.</a>
+<li><a href="#org1aaa9a1">1. 我的全部配置自文件</a></li>
+<li><a href="#org4c93e9f">2. 配置文件目录,及调用相关.</a>
 <ul>
-<li><a href="#org9a576a8">2.1. 1.配置文件加载调用.</a></li>
-<li><a href="#org19f6557">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
+<li><a href="#org923026c">2.1. 1.配置文件加载调用.</a></li>
+<li><a href="#orge4f5e99">2.2. 2.配置文件立即测试,不用重启emacs.</a></li>
 </ul>
 </li>
-<li><a href="#org81dde87">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
-<li><a href="#org7e0cded">4. 自己自定义的一些配置,啥都有.</a></li>
-<li><a href="#org2030b43">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
-<li><a href="#org1ee2962">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
+<li><a href="#org17c397d">3. 我的配置文件init.el,主要是引导其他配置文件.</a></li>
+<li><a href="#orgb83eab2">4. 自己自定义的一些配置,啥都有.</a></li>
+<li><a href="#org6403e4b">5. org-mode相关的两个配置,第二个是导出静态网站项目配置.</a></li>
+<li><a href="#org133d753">6. 我比较喜欢在写日记时候加入月相和当地天气</a>
 <ul>
-<li><a href="#org6540557">6.1. calendar的配置我不太用.</a></li>
+<li><a href="#org574d09d">6.1. calendar的配置我不太用.</a></li>
 </ul>
 </li>
-<li><a href="#org911d3b6">7. 关于复制粘帖的一些设置</a></li>
-<li><a href="#org74144c0">8. 我的键配置(主要是f1-f10)</a></li>
-<li><a href="#orgb26c831">9. 自动备份相关的设置</a></li>
-<li><a href="#orged656a1">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
+<li><a href="#org0763435">7. 关于复制粘帖的一些设置</a></li>
+<li><a href="#org8ab4a0b">8. 我的键配置(主要是f1-f10)</a></li>
+<li><a href="#orge495066">9. 自动备份相关的设置</a></li>
+<li><a href="#org0a38034">10. 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</a>
 <ul>
-<li><a href="#org8b5e6e9">10.1. 启动页面*scratch*显示特定内容</a></li>
-<li><a href="#orgee55dd0">10.2. frame-title-format设置相关.</a></li>
+<li><a href="#org551030d">10.1. 启动页面*scratch*显示特定内容</a></li>
+<li><a href="#orgf5c4fe9">10.2. frame-title-format设置相关.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<figure id="org174104c">
+<figure id="org6ee4963">
 <img src="./emacs-init1.png" alt="emacs-init1.png" scale="0.8">  
 
 </figure>
-
-
-<div id="outline-container-orga97e228" class="outline-2">
-<h2 id="orga97e228"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
+<div id="outline-container-org1aaa9a1" class="outline-2">
+<h2 id="org1aaa9a1"><span class="section-number-2">1.</span> 我的全部配置自文件</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 [<a href="https://github.com/boxmaking/.emacs.d">https://github.com/boxmaking/.emacs.d</a>]
 </p>
 </div>
 </div>
-
-
-<div id="outline-container-org2a2b2b7" class="outline-2">
-<h2 id="org2a2b2b7"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
+<div id="outline-container-org4c93e9f" class="outline-2">
+<h2 id="org4c93e9f"><span class="section-number-2">2.</span> 配置文件目录,及调用相关.</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9a576a8" class="outline-3">
-<h3 id="org9a576a8"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
+<div id="outline-container-org923026c" class="outline-3">
+<h3 id="org923026c"><span class="section-number-3">2.1.</span> 1.配置文件加载调用.</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgd9e5e72"></a>加载文件,在默认的配置文件中加载的文件<br>
+<li><a id="org865e6b2"></a>加载文件,在默认的配置文件中加载的文件<br>
 <div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(add-to-list 'load-path "~/.emacs.d/loadfile/")
@@ -88,9 +84,7 @@
 </div>
 </div>
 </li>
-
-
-<li><a id="orge59cbd7"></a>想要被加载,插件的.el文件最后一定要proide<br>
+<li><a id="org0cc18f1"></a>想要被加载,插件的.el文件最后一定要proide<br>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(provide '***-***)
@@ -98,9 +92,7 @@
 </div>
 </div>
 </li>
-
-
-<li><a id="orgacadc97"></a>关于这些加载项目的差别可以在这个网站查看<br>
+<li><a id="org526cacc"></a>关于这些加载项目的差别可以在这个网站查看<br>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 <a href="http://ergoemacs.org/emacs/elisp_library_system.html">http://ergoemacs.org/emacs/elisp_library_system.html</a>
@@ -109,10 +101,8 @@
 </li>
 </ol>
 </div>
-
-
-<div id="outline-container-org19f6557" class="outline-3">
-<h3 id="org19f6557"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
+<div id="outline-container-orge4f5e99" class="outline-3">
+<h3 id="orge4f5e99"><span class="section-number-3">2.2.</span> 2.配置文件立即测试,不用重启emacs.</h3>
 <div class="outline-text-3" id="text-2-2">
 <table>
 
@@ -148,10 +138,8 @@
 </tbody>
 </table>
 </div>
-
-
 <ol class="org-ol">
-<li><a id="org8fcd951"></a>都是立即生效，可以马上试验一条语句的效果<br>
+<li><a id="org0e5b8fa"></a>都是立即生效，可以马上试验一条语句的效果<br>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>(setq frame-title-format "emacs@%b") 
@@ -162,223 +150,159 @@
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-org81dde87" class="outline-2">
-<h2 id="org81dde87"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
+<div id="outline-container-org17c397d" class="outline-2">
+<h2 id="org17c397d"><span class="section-number-2">3.</span> 我的配置文件init.el,主要是引导其他配置文件.</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;; -*- coding: utf-8; lexical-binding: t -*-
-<span class="linenr">  2: </span>;;pengshao's ~/.emacs.d/init.el
-<span class="linenr">  3: </span>;;&lt;2025-02-09/Sunday 19:23:31&gt;
-<span class="linenr">  4: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">  5: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">  6: </span>
-<span class="linenr">  7: </span>(defun open-init-file()
-<span class="linenr">  8: </span>  (interactive)
-<span class="linenr">  9: </span>  (find-file "~/.emacs.d/init.el"))
-<span class="linenr"> 10: </span>
-<span class="linenr"> 11: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr">  2: </span>;; -*- coding: utf-8; lexical-binding: t -*-                                    
+<span class="linenr">  3: </span>;;pengshao's ~/.emacs.d/init.el                                                 
+<span class="linenr">  4: </span>;;&lt;2025-02-09/Sunday 19:23:31&gt;
+<span class="linenr">  5: </span>;;&lt;2026-11-12-316/Thursday&gt;
+<span class="linenr">  6: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;     
+<span class="linenr">  7: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;        
+<span class="linenr">  8: </span>
+<span class="linenr">  9: </span>(defun open-init-file()
+<span class="linenr"> 10: </span>  (interactive)
+<span class="linenr"> 11: </span>  (find-file "~/.emacs.d/init.el"))
 <span class="linenr"> 12: </span>
 <span class="linenr"> 13: </span>
-<span class="linenr"> 14: </span>(require 'package)
-<span class="linenr"> 15: </span>(setq package-archives
-<span class="linenr"> 16: </span>      '(("gnu"   . "https://elpa.gnu.org/packages/")
-<span class="linenr"> 17: </span>	("melpa" . "https://melpa.org/packages/")))
-<span class="linenr"> 18: </span>(package-initialize)
-<span class="linenr"> 19: </span>
-<span class="linenr"> 20: </span>
-<span class="linenr"> 21: </span>;;允许升级内建包
-<span class="linenr"> 22: </span>(setq package-install-upgrade-built-in t)
-<span class="linenr"> 23: </span>
-<span class="linenr"> 24: </span>
+<span class="linenr"> 14: </span>;;; 包管理：package.el / ELPA
+<span class="linenr"> 15: </span>
+<span class="linenr"> 16: </span>(require 'package)
+<span class="linenr"> 17: </span>(setq package-archives
+<span class="linenr"> 18: </span>      '(("gnu"   . "https://elpa.gnu.org/packages/")
+<span class="linenr"> 19: </span>        ("melpa" . "https://melpa.org/packages/")))
+<span class="linenr"> 20: </span>(package-initialize)
+<span class="linenr"> 21: </span>
+<span class="linenr"> 22: </span>;; 这里只列出由 ELPA 管理的包。
+<span class="linenr"> 23: </span>;; Magit 由 Debian APT 管理，不要放进这里。
+<span class="linenr"> 24: </span>(setq package-selected-packages '(s company treemacs))
 <span class="linenr"> 25: </span>
-<span class="linenr"> 26: </span>
-<span class="linenr"> 27: </span>
-<span class="linenr"> 28: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 29: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 30: </span>
-<span class="linenr"> 31: </span>;;自己的一些小的配置
-<span class="linenr"> 32: </span>(add-to-list 'load-path "~/.emacs.d/loadfile/")
-<span class="linenr"> 33: </span>
-<span class="linenr"> 34: </span>
-<span class="linenr"> 35: </span>;;mobileorg配置文件
-<span class="linenr"> 36: </span>;;(require 'pengshao-mobileorg)
-<span class="linenr"> 37: </span>
-<span class="linenr"> 38: </span>
-<span class="linenr"> 39: </span>;默认的配置文件
-<span class="linenr"> 40: </span>(require 'pengshao-default)
-<span class="linenr"> 41: </span>
-<span class="linenr"> 42: </span>;字符串处理库
-<span class="linenr"> 43: </span>(require 's)
+<span class="linenr"> 26: </span>;; 缺包时才刷新索引并安装；失败时给出警告，但不中断 Emacs 启动。
+<span class="linenr"> 27: </span>(let ((missing nil))
+<span class="linenr"> 28: </span>  (dolist (pkg package-selected-packages)
+<span class="linenr"> 29: </span>    (unless (package-installed-p pkg)
+<span class="linenr"> 30: </span>      (push pkg missing)))
+<span class="linenr"> 31: </span>  (when missing
+<span class="linenr"> 32: </span>    (condition-case err
+<span class="linenr"> 33: </span>        (progn
+<span class="linenr"> 34: </span>          ;; 有缺包时刷新，避免使用旧的包索引。
+<span class="linenr"> 35: </span>          (package-refresh-contents)
+<span class="linenr"> 36: </span>          (dolist (pkg (nreverse missing))
+<span class="linenr"> 37: </span>            (unless (package-installed-p pkg)
+<span class="linenr"> 38: </span>              (package-install pkg))))
+<span class="linenr"> 39: </span>      (error
+<span class="linenr"> 40: </span>       (display-warning
+<span class="linenr"> 41: </span>        'package
+<span class="linenr"> 42: </span>        (format "自动安装包失败：%s。Emacs 仍会继续启动。" err)
+<span class="linenr"> 43: </span>        :warning)))))
 <span class="linenr"> 44: </span>
-<span class="linenr"> 45: </span>;自动插入天气的配置,月相,农历两个shellscript的,el文件 
-<span class="linenr"> 46: </span>(require 'pengshao-openweather)
+<span class="linenr"> 45: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 46: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="linenr"> 47: </span>
-<span class="linenr"> 48: </span>;自动插入名人名言
-<span class="linenr"> 49: </span>(require 'pengshao-insert-think-deep)
+<span class="linenr"> 48: </span>;;自己的一些小的配置
+<span class="linenr"> 49: </span>(add-to-list 'load-path "~/.emacs.d/loadfile/")
 <span class="linenr"> 50: </span>
-<span class="linenr"> 51: </span>
-<span class="linenr"> 52: </span>;调用翻译
-<span class="linenr"> 53: </span>(require 'pengshao-translate)
-<span class="linenr"> 54: </span>
-<span class="linenr"> 55: </span>
-<span class="linenr"> 56: </span>;;orgmode的全局设置
-<span class="linenr"> 57: </span>;;第一项是链接,第二项是待办事项,第三项是总结
-<span class="linenr"> 58: </span>(require 'pengshao-org-mode)
-<span class="linenr"> 59: </span>(global-set-key "\C-cl" 'org-store-link)
-<span class="linenr"> 60: </span>(global-set-key "\C-cc" 'org-capture)
-<span class="linenr"> 61: </span>(global-set-key "\C-ca" 'org-agenda)
-<span class="linenr"> 62: </span>;;这一项好像不用了已经彻底结束了
-<span class="linenr"> 63: </span>;;(global-set-key "\C-cb" 'org-iswitchb)
-<span class="linenr"> 64: </span>
-<span class="linenr"> 65: </span>(require 'pengshao-org-publish)
-<span class="linenr"> 66: </span>;;在pengshao-org-publish.el文件当中设置了
-<span class="linenr"> 67: </span>;;(define-key global-map "\C-cp" 'org-publish)
-<span class="linenr"> 68: </span>
+<span class="linenr"> 51: </span>;默认的配置文件
+<span class="linenr"> 52: </span>(require 'pengshao-default)
+<span class="linenr"> 53: </span>
+<span class="linenr"> 54: </span>;efthemes的配置文件
+<span class="linenr"> 55: </span>(require 'pengshao-ef-themes)
+<span class="linenr"> 56: </span>
+<span class="linenr"> 57: </span>;自动插入天气的配置,月相,农历两个shellscript的,el文件 
+<span class="linenr"> 58: </span>(require 'pengshao-openweather)
+<span class="linenr"> 59: </span>
+<span class="linenr"> 60: </span>;;Company的配置文件
+<span class="linenr"> 61: </span>(require 'pengshao-Company)
+<span class="linenr"> 62: </span>
+<span class="linenr"> 63: </span>
+<span class="linenr"> 64: </span>;自动插入名人名言
+<span class="linenr"> 65: </span>(require 'pengshao-insert-think-deep)
+<span class="linenr"> 66: </span>
+<span class="linenr"> 67: </span>;;Treemacs配置文件
+<span class="linenr"> 68: </span>(require 'pengshao-treemacs)
 <span class="linenr"> 69: </span>
-<span class="linenr"> 70: </span>(require 'pengshao-calendar)
-<span class="linenr"> 71: </span>
-<span class="linenr"> 72: </span>(require 'pengshao-backup)
+<span class="linenr"> 70: </span>
+<span class="linenr"> 71: </span>;调用翻译
+<span class="linenr"> 72: </span>(require 'pengshao-translate)
 <span class="linenr"> 73: </span>
-<span class="linenr"> 74: </span>(require 'pengshao-insert-date)
-<span class="linenr"> 75: </span>
-<span class="linenr"> 76: </span>(require 'pengshao-copy-cut-paste-killring)
+<span class="linenr"> 74: </span>;;browse-kill-ring模式
+<span class="linenr"> 75: </span>(require 'browse-kill-ring)
+<span class="linenr"> 76: </span>(global-set-key "\C-cy" 'browse-kill-ring)
 <span class="linenr"> 77: </span>
 <span class="linenr"> 78: </span>
 <span class="linenr"> 79: </span>
-<span class="linenr"> 80: </span>
-<span class="linenr"> 81: </span>
-<span class="linenr"> 82: </span>
-<span class="linenr"> 83: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 84: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 85: </span>;;加载下载的插件
-<span class="linenr"> 86: </span>
-<span class="linenr"> 87: </span>
-<span class="linenr"> 88: </span>(add-to-list 'load-path "~/.emacs.d/lisp/")
-<span class="linenr"> 89: </span>
-<span class="linenr"> 90: </span>
-<span class="linenr"> 91: </span>(require 'magit)
-<span class="linenr"> 92: </span>(global-set-key (kbd "C-c m g") 'magit-status) ; 绑定快捷键
-<span class="linenr"> 93: </span>(setq magit-git-executable "/usr/bin/git")    ; 指定Git路径
-<span class="linenr"> 94: </span>
-<span class="linenr"> 95: </span>;;主题插件的配置文件
-<span class="linenr"> 96: </span>(require 'color-theme)
-<span class="linenr"> 97: </span>(color-theme-initialize)
-<span class="linenr"> 98: </span>(color-theme-snow)
-<span class="linenr"> 99: </span>
+<span class="linenr"> 80: </span>;;orgmode的全局设置
+<span class="linenr"> 81: </span>;;第一项是链接,第二项是待办事项,第三项是总结
+<span class="linenr"> 82: </span>(require 'pengshao-org-mode)
+<span class="linenr"> 83: </span>(global-set-key "\C-cl" 'org-store-link)
+<span class="linenr"> 84: </span>(global-set-key "\C-cc" 'org-capture)
+<span class="linenr"> 85: </span>(global-set-key "\C-ca" 'org-agenda)
+<span class="linenr"> 86: </span>;;这一项好像不用了已经彻底结束了
+<span class="linenr"> 87: </span>;;(global-set-key "\C-cb" 'org-iswitchb)
+<span class="linenr"> 88: </span>
+<span class="linenr"> 89: </span>(require 'pengshao-org-publish)
+<span class="linenr"> 90: </span>;;在pengshao-org-publish.el文件当中设置了
+<span class="linenr"> 91: </span>;;(define-key global-map "\C-cp" 'org-publish)
+<span class="linenr"> 92: </span>
+<span class="linenr"> 93: </span>
+<span class="linenr"> 94: </span>(require 'pengshao-copy-cut-paste-killring)
+<span class="linenr"> 95: </span>
+<span class="linenr"> 96: </span>
+<span class="linenr"> 97: </span>(require 'pengshao-insert-date)
+<span class="linenr"> 98: </span>
+<span class="linenr"> 99: </span>(require 'pengshao-calendar)
 <span class="linenr">100: </span>
 <span class="linenr">101: </span>
-<span class="linenr">102: </span>(require 'iimage)
-<span class="linenr">103: </span>
-<span class="linenr">104: </span>;;cuamode的cua-rectangle-mark-mode的快捷键
-<span class="linenr">105: </span>;;由于与orgmode有冲突,我把C-return改为
-<span class="linenr">106: </span>(global-set-key (kbd "C-c n") 'cua-rectangle-mark-mode)
-<span class="linenr">107: </span>
-<span class="linenr">108: </span>;;日历显示农历
-<span class="linenr">109: </span>(require 'cal-china-x)
-<span class="linenr">110: </span>(setq calendar-mark-holidays-flag t)
-<span class="linenr">111: </span>;; (setq mark-holidays-in-calendar t) ; before emacs-25
-<span class="linenr">112: </span>(setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
-<span class="linenr">113: </span>(setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
-<span class="linenr">114: </span>(setq calendar-holidays
-<span class="linenr">115: </span>      (append cal-china-x-important-holidays
-<span class="linenr">116: </span>	      cal-china-x-general-holidays
-<span class="linenr">117: </span>	      ;;other-holidays
-<span class="linenr">118: </span>	      ))
-<span class="linenr">119: </span>
-<span class="linenr">120: </span>;;小小的tabbar-mode
-<span class="linenr">121: </span>(require 'tabbar)
-<span class="linenr">122: </span>(tabbar-mode)
-<span class="linenr">123: </span>;;切换buffer
-<span class="linenr">124: </span>;;prior就是上翻页pg up,next就是pg dn键盘
-<span class="linenr">125: </span>(global-set-key [C-prior] 'previous-buffer)
-<span class="linenr">126: </span>(global-set-key [C-next] 'next-buffer)
-<span class="linenr">127: </span>;;Win更换tabbar不错吧,前两个是在不同的分组切换,后面的是在同组切换
-<span class="linenr">128: </span>;;不知道为什么冲突了
-<span class="linenr">129: </span>;;(global-set-key [s-up] 'tabbar-backward-group)
-<span class="linenr">130: </span>;;(global-set-key [s-down] 'tabbar-backward-group)
-<span class="linenr">131: </span>;;(global-set-key [s-left] 'tabbar-backward-tab)
-<span class="linenr">132: </span>;;(global-set-key [s-right] 'tabbar-forward-tab)
+<span class="linenr">102: </span>
+<span class="linenr">103: </span>(require 'pengshao-backup)
+<span class="linenr">104: </span>
+<span class="linenr">105: </span>
+<span class="linenr">106: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr">107: </span>;;键盘配置放在最后,只要是配置了F1-F10,和Home/End键
+<span class="linenr">108: </span>;;所有自己配置的都在init.el了,方便查找
+<span class="linenr">109: </span>
+<span class="linenr">110: </span>(require 'pengshao-key-building)
+<span class="linenr">111: </span>
+<span class="linenr">112: </span>
+<span class="linenr">113: </span>
+<span class="linenr">114: </span>
+<span class="linenr">115: </span>;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
+<span class="linenr">116: </span>(setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
+<span class="linenr">117: </span>(with-current-buffer "*scratch*"
+<span class="linenr">118: </span>;   (let ((result1 (insert-weather)))
+<span class="linenr">119: </span>;   (insert (format " %s\n" result1)))
+<span class="linenr">120: </span>  (call-interactively 'insert-nongli)
+<span class="linenr">121: </span>  (call-interactively 'insert-weather2)
+<span class="linenr">122: </span>  (call-interactively 'insert-pyphoon)
+<span class="linenr">123: </span>  (call-interactively 'insert-think-deep)
+<span class="linenr">124: </span>   )
+<span class="linenr">125: </span>
+<span class="linenr">126: </span>
+<span class="linenr">127: </span>
+<span class="linenr">128: </span>
+<span class="linenr">129: </span>
+<span class="linenr">130: </span>
+<span class="linenr">131: </span>
+<span class="linenr">132: </span>
 <span class="linenr">133: </span>
 <span class="linenr">134: </span>
 <span class="linenr">135: </span>
-<span class="linenr">136: </span>(require 'browse-kill-ring)
-<span class="linenr">137: </span>(global-set-key (kbd "C-c k") 'browse-kill-ring)
-<span class="linenr">138: </span>
-<span class="linenr">139: </span>
-<span class="linenr">140: </span>(require 'auto-complete)
-<span class="linenr">141: </span>(require 'auto-complete-config)
-<span class="linenr">142: </span>(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict/")
-<span class="linenr">143: </span>(ac-config-default)
-<span class="linenr">144: </span>(define-key ac-mode-map (kbd "C-c q") 'auto-complete)
-<span class="linenr">145: </span>
-<span class="linenr">146: </span>(require 'org-tempo)
-<span class="linenr">147: </span>
-<span class="linenr">148: </span>(require 'sr-speedbar)
-<span class="linenr">149: </span>;;左侧显示
-<span class="linenr">150: </span>(setq sr-speedbar-right-side nil)     
-<span class="linenr">151: </span>;;宽度
-<span class="linenr">152: </span>(setq sr-speedbar-width 25)          
-<span class="linenr">153: </span>;;显示.的头文件
-<span class="linenr">154: </span>(setq speedbar-directory-unshown-regexp "^\(\.\.*$\)\'")
-<span class="linenr">155: </span>;;窗口跳转跳过sr-speedbar
-<span class="linenr">156: </span>(setq sr-speedbar-skip-other-window-p t)
-<span class="linenr">157: </span>;;设置快捷键
-<span class="linenr">158: </span>;(global-set-key [f5] 'sr-speedbar-select-window)
-<span class="linenr">159: </span>(global-set-key [f5] 'sr-speedbar-open)
-<span class="linenr">160: </span>(global-set-key (kbd "C-c s") 'sr-speedbar-open)
-<span class="linenr">161: </span>(global-set-key (kbd "C-c x") 'sr-speedbar-close)
-<span class="linenr">162: </span>;;开机默认启动speedbar,不用了,现在用sr-speedbar了
-<span class="linenr">163: </span>;;(speedbar 1)
-<span class="linenr">164: </span>;;自动打开sr-speedbar
-<span class="linenr">165: </span>;;不知道为什么太不好用了,每次都多打开一个窗格,所以忽略了,
-<span class="linenr">166: </span>;;(sr-speedbar-open)
-<span class="linenr">167: </span>
-<span class="linenr">168: </span>
-<span class="linenr">169: </span>
-<span class="linenr">170: </span>
-<span class="linenr">171: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">172: </span>;;键盘配置放在最后,只要是配置了F1-F10,和Home/End键
-<span class="linenr">173: </span>;;所有自己配置的都在init.el了,方便查找
-<span class="linenr">174: </span>
-<span class="linenr">175: </span>(require 'pengshao-key-building)
-<span class="linenr">176: </span>(custom-set-variables
-<span class="linenr">177: </span> ;; custom-set-variables was added by Custom.
-<span class="linenr">178: </span> ;; If you edit it by hand, you could mess it up, so be careful.
-<span class="linenr">179: </span> ;; Your init file should contain only one such instance.
-<span class="linenr">180: </span> ;; If there is more than one, they won't work right.
-<span class="linenr">181: </span> '(org-agenda-files nil)
-<span class="linenr">182: </span> '(org-safe-remote-resources
-<span class="linenr">183: </span>   '("\\`https://fniessen\\.github\\.io/org-html-themes/setup/theme-readtheorg\\.setup\\'"))
-<span class="linenr">184: </span> '(package-selected-packages '(magit seq json-mode request)))
-<span class="linenr">185: </span>(custom-set-faces
-<span class="linenr">186: </span> ;; custom-set-faces was added by Custom.
-<span class="linenr">187: </span> ;; If you edit it by hand, you could mess it up, so be careful.
-<span class="linenr">188: </span> ;; Your init file should contain only one such instance.
-<span class="linenr">189: </span> ;; If there is more than one, they won't work right.
-<span class="linenr">190: </span> )
-<span class="linenr">191: </span>
-<span class="linenr">192: </span>
-<span class="linenr">193: </span>
-<span class="linenr">194: </span>;; 在 Emacs 启动时清空 *scratch* 缓冲区并插入特定函数代码
-<span class="linenr">195: </span>(setq initial-scratch-message "") ; 清空初始的 *scratch* 消息
-<span class="linenr">196: </span>(with-current-buffer "*scratch*"
-<span class="linenr">197: </span>;   (let ((result1 (insert-weather)))
-<span class="linenr">198: </span>;   (insert (format " %s\n" result1)))
-<span class="linenr">199: </span>  (call-interactively 'insert-nongli)
-<span class="linenr">200: </span>  (call-interactively 'insert-weather)
-<span class="linenr">201: </span>  (call-interactively 'insert-pyphoon)
-<span class="linenr">202: </span>  (call-interactively 'insert-think-deep)
-<span class="linenr">203: </span>   )
+<span class="linenr">136: </span>;;table-line-mode小标签模式
+<span class="linenr">137: </span>;;M-x tab-line-mode
+<span class="linenr">138: </span>(global-tab-line-mode 1)
+<span class="linenr">139: </span>(global-set-key [C-prior] #'previous-buffer)
+<span class="linenr">140: </span>(global-set-key [C-next]  #'next-buffer)
+<span class="linenr">141: </span>;;tab-bar 大标签模式,我测试没有很好用.
+<span class="linenr">142: </span>;;(tab-bar-mode +1)  ;;开启
+<span class="linenr">143: </span>;;(tab-bar-mode -1);;关闭
 </pre>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org7e0cded" class="outline-2">
-<h2 id="org7e0cded"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
+<div id="outline-container-orgb83eab2" class="outline-2">
+<h2 id="orgb83eab2"><span class="section-number-2">4.</span> 自己自定义的一些配置,啥都有.</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -400,99 +324,108 @@
 <span class="linenr"> 17: </span>(set-keyboard-coding-system 'utf-8)
 <span class="linenr"> 18: </span>(setq default-buffer-file-coding-system 'utf-8)
 <span class="linenr"> 19: </span>
-<span class="linenr"> 20: </span>;;关闭起动时的那个“开机画面” 
-<span class="linenr"> 21: </span>(setq inhibit-startup-message t)
-<span class="linenr"> 22: </span>
-<span class="linenr"> 23: </span>;;开始启动历史文件记录
-<span class="linenr"> 24: </span>(recentf-mode 1)
-<span class="linenr"> 25: </span>(global-set-key (kbd "C-c m h") 'recentf-open-files)
-<span class="linenr"> 26: </span>
-<span class="linenr"> 27: </span>;;自动显示图片
-<span class="linenr"> 28: </span>(setq org-startup-with-inline-images t)
-<span class="linenr"> 29: </span>
-<span class="linenr"> 30: </span>
-<span class="linenr"> 31: </span>;;(split-window-below)   ;; 横向分屏
-<span class="linenr"> 32: </span>;;(split-window-right)   ;; 纵向分屏
-<span class="linenr"> 33: </span>
-<span class="linenr"> 34: </span>
-<span class="linenr"> 35: </span>;;设置启动时候窗口大小
-<span class="linenr"> 36: </span>(setq default-frame-alist
-<span class="linenr"> 37: </span>'((height . 30) (width . 100) (menu-bar-lines . 10) (tool-bar-lines . 10)))
-<span class="linenr"> 38: </span>
-<span class="linenr"> 39: </span>
-<span class="linenr"> 40: </span>;在标题栏提示你目前在什么位置
-<span class="linenr"> 41: </span>;(setq frame-title-format "pengshao@%n%b")
-<span class="linenr"> 42: </span>
-<span class="linenr"> 43: </span>
-<span class="linenr"> 44: </span>
-<span class="linenr"> 45: </span>;; buffer name (if the buffer isn't visiting a file)
-<span class="linenr"> 46: </span>(setq frame-title-format
-<span class="linenr"> 47: </span>      '("" "志高路陷,居中添缺则达."
-<span class="linenr"> 48: </span>	(:eval (if (buffer-file-name)
-<span class="linenr"> 49: </span>		   (abbreviate-file-name (buffer-file-name)) "%b"))))
+<span class="linenr"> 20: </span>;;更改字体
+<span class="linenr"> 21: </span>;;sudo apt install fonts-dejavu-core
+<span class="linenr"> 22: </span>;;fc-match "DejaVu Sans Mono"
+<span class="linenr"> 23: </span>(set-face-attribute 'default nil
+<span class="linenr"> 24: </span>                    :family "DejaVu Sans Mono"
+<span class="linenr"> 25: </span>                    :weight 'regular
+<span class="linenr"> 26: </span>                    :height 120)
+<span class="linenr"> 27: </span>;; 中文字体
+<span class="linenr"> 28: </span>;;sudo apt install fonts-noto-cjk
+<span class="linenr"> 29: </span>(set-fontset-font t 'han
+<span class="linenr"> 30: </span>                  (font-spec :family "Noto Sans CJK SC"))
+<span class="linenr"> 31: </span>
+<span class="linenr"> 32: </span>;;启动时候窗口大小
+<span class="linenr"> 33: </span>;; 启动窗口大小：122 列 × 40 行
+<span class="linenr"> 34: </span>(add-to-list 'default-frame-alist '(width . 150))
+<span class="linenr"> 35: </span>(add-to-list 'default-frame-alist '(height . 32))
+<span class="linenr"> 36: </span>
+<span class="linenr"> 37: </span>;;menubar显示状态.
+<span class="linenr"> 38: </span>(menu-bar-mode 1)   ; 显示
+<span class="linenr"> 39: </span>;; (menu-bar-mode -1) ; 隐藏
+<span class="linenr"> 40: </span>
+<span class="linenr"> 41: </span>;; 不显示启动欢迎界面
+<span class="linenr"> 42: </span>;;关闭起动时的那个“开机画面” 这个是旧的emacs名称
+<span class="linenr"> 43: </span>;;(setq inhibit-startup-message t)
+<span class="linenr"> 44: </span>;;在 Emacs 中运行 M-x find-function，输入 fancy-startup-screen；
+<span class="linenr"> 45: </span>(setq inhibit-startup-screen t)
+<span class="linenr"> 46: </span>
+<span class="linenr"> 47: </span>;;开始启动历史文件记录
+<span class="linenr"> 48: </span>(recentf-mode 1)
+<span class="linenr"> 49: </span>(global-set-key (kbd "C-c m h") 'recentf-open-files)
 <span class="linenr"> 50: </span>
-<span class="linenr"> 51: </span>;语法高亮
-<span class="linenr"> 52: </span>(global-font-lock-mode t)
+<span class="linenr"> 51: </span>;;自动显示图片
+<span class="linenr"> 52: </span>(setq org-startup-with-inline-images t)
 <span class="linenr"> 53: </span>
-<span class="linenr"> 54: </span>;打开图片显示功能
-<span class="linenr"> 55: </span>(auto-image-file-mode t)
-<span class="linenr"> 56: </span>
+<span class="linenr"> 54: </span>
+<span class="linenr"> 55: </span>;;(split-window-below)   ;; 横向分屏
+<span class="linenr"> 56: </span>;;(split-window-right)   ;; 纵向分屏
 <span class="linenr"> 57: </span>
-<span class="linenr"> 58: </span>;显示列号
-<span class="linenr"> 59: </span>(column-number-mode t)
-<span class="linenr"> 60: </span>;显示行号
-<span class="linenr"> 61: </span>(global-display-line-numbers-mode t)
-<span class="linenr"> 62: </span>(setq display-line-numbers-type 'absolute) 
-<span class="linenr"> 63: </span>
-<span class="linenr"> 64: </span>
-<span class="linenr"> 65: </span>
-<span class="linenr"> 66: </span>;显示括号匹配
-<span class="linenr"> 67: </span>(show-paren-mode t)
-<span class="linenr"> 68: </span>(setq show-paren-style 'parentheses)
-<span class="linenr"> 69: </span>
-<span class="linenr"> 70: </span>;自动添加括号
-<span class="linenr"> 71: </span>(electric-pair-mode t)
-<span class="linenr"> 72: </span>
+<span class="linenr"> 58: </span>
+<span class="linenr"> 59: </span>
+<span class="linenr"> 60: </span>;在标题栏提示你目前在什么位置
+<span class="linenr"> 61: </span>;(setq frame-title-format "pengshao@%n%b")
+<span class="linenr"> 62: </span>;; buffer name (if the buffer isn't visiting a file)
+<span class="linenr"> 63: </span>(setq frame-title-format
+<span class="linenr"> 64: </span>      '("" "志高路陷,居中添缺则达."
+<span class="linenr"> 65: </span>        (:eval (if (buffer-file-name)
+<span class="linenr"> 66: </span>                   (abbreviate-file-name (buffer-file-name)) "%b"))))
+<span class="linenr"> 67: </span>
+<span class="linenr"> 68: </span>;语法高亮
+<span class="linenr"> 69: </span>(global-font-lock-mode t)
+<span class="linenr"> 70: </span>
+<span class="linenr"> 71: </span>;打开图片显示功能
+<span class="linenr"> 72: </span>(auto-image-file-mode t)
 <span class="linenr"> 73: </span>
-<span class="linenr"> 74: </span>;显示时间，格式如下
-<span class="linenr"> 75: </span>(display-time-mode 1)
-<span class="linenr"> 76: </span>(setq display-time-24hr-format t)
-<span class="linenr"> 77: </span>(setq display-time-day-and-date t)
-<span class="linenr"> 78: </span>
-<span class="linenr"> 79: </span>;去掉那个大大的工具栏
-<span class="linenr"> 80: </span>;;(tool-bar-mode nil)
+<span class="linenr"> 74: </span>
+<span class="linenr"> 75: </span>;显示列号
+<span class="linenr"> 76: </span>(column-number-mode t)
+<span class="linenr"> 77: </span>;显示行号
+<span class="linenr"> 78: </span>(global-display-line-numbers-mode t)
+<span class="linenr"> 79: </span>(setq display-line-numbers-type 'absolute) 
+<span class="linenr"> 80: </span>
 <span class="linenr"> 81: </span>
-<span class="linenr"> 82: </span>;去掉滚动条
-<span class="linenr"> 83: </span>;;(scroll-bar-mode nil)
-<span class="linenr"> 84: </span>
-<span class="linenr"> 85: </span>;支持emacs和外部程序的粘贴
-<span class="linenr"> 86: </span>(setq x-select-enable-clipboard t)
-<span class="linenr"> 87: </span>
-<span class="linenr"> 88: </span>;默认显示 80列就换行
-<span class="linenr"> 89: </span>(setq default-fill-column 80)
+<span class="linenr"> 82: </span>
+<span class="linenr"> 83: </span>;显示括号匹配
+<span class="linenr"> 84: </span>(show-paren-mode t)
+<span class="linenr"> 85: </span>(setq show-paren-style 'parentheses)
+<span class="linenr"> 86: </span>
+<span class="linenr"> 87: </span>;自动添加括号
+<span class="linenr"> 88: </span>(electric-pair-mode t)
+<span class="linenr"> 89: </span>
 <span class="linenr"> 90: </span>
-<span class="linenr"> 91: </span>;一打开就起用 text 模式。
-<span class="linenr"> 92: </span>;(setq default-major-mode 'text-mode)
-<span class="linenr"> 93: </span>
-<span class="linenr"> 94: </span>;;eshell增加自动补全
-<span class="linenr"> 95: </span>; 忽略大小写进行补全
-<span class="linenr"> 96: </span>(setq eshell-cmpl-ignore-case t)
-<span class="linenr"> 97: </span>; 允许循环补全
-<span class="linenr"> 98: </span>(setq eshell-cmpl-cycle-completions t)
-<span class="linenr"> 99: </span>; 让 pcomplete 支持循环补全
-<span class="linenr">100: </span>(setq pcomplete-cycle-completions t) 
+<span class="linenr"> 91: </span>;显示时间，格式如下
+<span class="linenr"> 92: </span>(display-time-mode 1)
+<span class="linenr"> 93: </span>(setq display-time-24hr-format t)
+<span class="linenr"> 94: </span>(setq display-time-day-and-date t)
+<span class="linenr"> 95: </span>
+<span class="linenr"> 96: </span>;去掉那个大大的工具栏
+<span class="linenr"> 97: </span>;;(tool-bar-mode nil)
+<span class="linenr"> 98: </span>
+<span class="linenr"> 99: </span>;去掉滚动条
+<span class="linenr">100: </span>;;(scroll-bar-mode nil)
 <span class="linenr">101: </span>
-<span class="linenr">102: </span>
-<span class="linenr">103: </span>
-<span class="linenr">104: </span>(provide 'pengshao-default)
+<span class="linenr">102: </span>;支持emacs和外部程序的粘贴
+<span class="linenr">103: </span>(setq x-select-enable-clipboard t)
+<span class="linenr">104: </span>
+<span class="linenr">105: </span>;默认显示 80列就换行
+<span class="linenr">106: </span>(setq default-fill-column 80)
+<span class="linenr">107: </span>
+<span class="linenr">108: </span>;一打开就起用 text 模式。
+<span class="linenr">109: </span>;(setq default-major-mode 'text-mode)
+<span class="linenr">110: </span>
+<span class="linenr">111: </span>
+<span class="linenr">112: </span>
+<span class="linenr">113: </span>
+<span class="linenr">114: </span>
+<span class="linenr">115: </span>(provide 'pengshao-default)
 </pre>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org2030b43" class="outline-2">
-<h2 id="org2030b43"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
+<div id="outline-container-org6403e4b" class="outline-2">
+<h2 id="org6403e4b"><span class="section-number-2">5.</span> org-mode相关的两个配置,第二个是导出静态网站项目配置.</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -524,7 +457,7 @@
 <span class="linenr"> 27: </span>;;(global-set-key "\C-ca" 'org-agenda)
 <span class="linenr"> 28: </span>(setq org-agenda-files
 <span class="linenr"> 29: </span>      (list "~/public_note/idear/list-list.org"
-<span class="linenr"> 30: </span>	))
+<span class="linenr"> 30: </span>        ))
 <span class="linenr"> 31: </span>
 <span class="linenr"> 32: </span>
 <span class="linenr"> 33: </span>;;(global-set-key "\C-cc" 'org-capture)
@@ -533,21 +466,21 @@
 <span class="linenr"> 36: </span>(setq org-default-notes-file "~/personal_note/todo-list.org")
 <span class="linenr"> 37: </span>(setq org-capture-templates
 <span class="linenr"> 38: </span>      '(("t" "Todo item" entry
-<span class="linenr"> 39: </span>	 (file+headline "~/personal_note/todo-list.org" "Tasks")
-<span class="linenr"> 40: </span>	 "* TODO %?\n  SCHEDULED: %T\n  %i\n %a\n Created: %U")
+<span class="linenr"> 39: </span>         (file+headline "~/personal_note/todo-list.org" "Tasks")
+<span class="linenr"> 40: </span>         "* TODO %?\n  SCHEDULED: %T\n  %i\n %a\n Created: %U")
 <span class="linenr"> 41: </span>
-<span class="linenr"> 42: </span>	("w" "Web link" entry
-<span class="linenr"> 43: </span>	 (file+headline "~/public_note/share/mybookmarks.org" "bookmarks-temp")
-<span class="linenr"> 44: </span>	 "* %?  :WEB:\n [[https://%^{URL}][%^{Description}]]\n:PROPERTIES:\n:Description: %^{Description}\n:END:")
+<span class="linenr"> 42: </span>        ("w" "Web link" entry
+<span class="linenr"> 43: </span>         (file+headline "~/public_note/share/mybookmarks.org" "bookmarks-temp")
+<span class="linenr"> 44: </span>         "* %?  :WEB:\n [[https://%^{URL}][%^{Description}]]\n:PROPERTIES:\n:Description: %^{Description}\n:END:")
 <span class="linenr"> 45: </span>
-<span class="linenr"> 46: </span>	("a" "Article excerpt" entry
-<span class="linenr"> 47: </span>	 (file "~/personal_note/article-excerpt.org") ; 直接插入文件根层级
-<span class="linenr"> 48: </span>	 "* %^{输入标题} :ARTICLE:\n:PROPERTIES:\n:描述: %^{描述}\n:来源: %^{来源}\n:插入时间: %U\n:END:"
-<span class="linenr"> 49: </span>	 :empty-lines 1)
+<span class="linenr"> 46: </span>        ("a" "Article excerpt" entry
+<span class="linenr"> 47: </span>         (file "~/personal_note/article-excerpt.org") ; 直接插入文件根层级
+<span class="linenr"> 48: </span>         "* %^{输入标题} :ARTICLE:\n:PROPERTIES:\n:描述: %^{描述}\n:来源: %^{来源}\n:插入时间: %U\n:END:"
+<span class="linenr"> 49: </span>         :empty-lines 1)
 <span class="linenr"> 50: </span>
-<span class="linenr"> 51: </span>	("s" "Personal statement" entry
-<span class="linenr"> 52: </span>	 (file+headline "~/personal_note/personal-statement.org" "think-temp")
-<span class="linenr"> 53: </span>	 "* %? :STATEMENT:\n:PROPERTIES:\n:Thought: %^{Thought}\n:END:"))
+<span class="linenr"> 51: </span>        ("s" "Personal statement" entry
+<span class="linenr"> 52: </span>         (file+headline "~/personal_note/personal-statement.org" "think-temp")
+<span class="linenr"> 53: </span>         "* %? :STATEMENT:\n:PROPERTIES:\n:Thought: %^{Thought}\n:END:"))
 <span class="linenr"> 54: </span>      )
 <span class="linenr"> 55: </span>
 <span class="linenr"> 56: </span>;;每次新建todo和做完都要添加时间
@@ -586,19 +519,19 @@
 <span class="linenr"> 89: </span>;; org-todo-keyword-faces
 <span class="linenr"> 90: </span>(setq org-todo-keyword-faces
 <span class="linenr"> 91: </span>      '(
-<span class="linenr"> 92: </span>	("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
-<span class="linenr"> 93: </span>	("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
-<span class="linenr"> 94: </span>	("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
-<span class="linenr"> 95: </span>	))
+<span class="linenr"> 92: </span>        ("TODO"      . (:foreground "#FF0033" :background "#FFFF33"  :weight bold))
+<span class="linenr"> 93: </span>        ("CANCELED"  . (:foreground "yellow" :background "#2E8B57"  :weight bold))
+<span class="linenr"> 94: </span>        ("DOING"     . (:foreground "#990066" :background "#00FF00"  :weight bold))
+<span class="linenr"> 95: </span>        ))
 <span class="linenr"> 96: </span>
 <span class="linenr"> 97: </span>
 <span class="linenr"> 98: </span>;;'org-tag-faces'
 <span class="linenr"> 99: </span>(setf org-tag-faces
 <span class="linenr">100: </span>      '(
-<span class="linenr">101: </span>	("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
-<span class="linenr">102: </span>	("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
-<span class="linenr">103: </span>	("加班" . (:foreground "white" :background "#3498DB" :weight bold))
-<span class="linenr">104: </span>	))
+<span class="linenr">101: </span>        ("上班" . (:foreground "black" :background "#95A5A6"   :weight bold))
+<span class="linenr">102: </span>        ("休班" . (:foreground "red" :background "#2E8B57"  :weight bold))
+<span class="linenr">103: </span>        ("加班" . (:foreground "white" :background "#3498DB" :weight bold))
+<span class="linenr">104: </span>        ))
 <span class="linenr">105: </span>
 <span class="linenr">106: </span>
 <span class="linenr">107: </span>
@@ -620,121 +553,137 @@
 <span class="linenr"> 6: </span>(require 'ox-publish)
 <span class="linenr"> 7: </span>(setq org-publish-project-alist
 <span class="linenr"> 8: </span>      '(
-<span class="linenr"> 9: </span>	 ("psnote-org"
-<span class="linenr">10: </span>	     :base-directory "~/public_note/"
-<span class="linenr">11: </span>	     :base-extension "org"
-<span class="linenr">12: </span>	     :publishing-directory "~/public_site/"
-<span class="linenr">13: </span>	     :recursive t     ;是否递归
-<span class="linenr">14: </span>	     :publishing-function org-html-publish-to-html  ;使用哪个函数来进行publish（注：org 7与8在这个地方有区别）
-<span class="linenr">15: </span>	     :headline-levels 2   ;由于大纲结构也用于列表和任务,因此只有前4个级别用作标题更深的级别会被看作项目列表,我设置的2
-<span class="linenr">16: </span>	     :auto-preamble t     ;自动前言
-<span class="linenr">17: </span>	     :section-numbers t ;章节数字是否显示
-<span class="linenr">18: </span>	     :author "pengshao"   ;作者
-<span class="linenr">19: </span>	     :email "pengshao58@gmail.com"   ;邮箱
-<span class="linenr">20: </span>	     :auto-sitemap t                  ; 自动生成 sitemap.org 文件
-<span class="linenr">21: </span>	     :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
-<span class="linenr">22: </span>	     :sitemap-title "PengShao's BLOG!"         ; ... with title
-<span class="linenr">23: </span>	     ;;:sitemap-file-entry-format "%d %t"   ;这里采用时间+标题的方式生成sitemap 
-<span class="linenr">24: </span>	     :style-include-default nil  ;禁用默认 css 样式,使用自定义css
+<span class="linenr"> 9: </span>         ("psnote-org"
+<span class="linenr">10: </span>             :base-directory "~/public_note/"
+<span class="linenr">11: </span>             :base-extension "org"
+<span class="linenr">12: </span>             :publishing-directory "~/public_site/"
+<span class="linenr">13: </span>             :recursive t     ;是否递归
+<span class="linenr">14: </span>             :publishing-function org-html-publish-to-html  ;使用哪个函数来进行publish（注：org 7与8在这个地方有区别）
+<span class="linenr">15: </span>             :headline-levels 2   ;由于大纲结构也用于列表和任务,因此只有前4个级别用作标题更深的级别会被看作项目列表,我设置的2
+<span class="linenr">16: </span>             :auto-preamble t     ;自动前言
+<span class="linenr">17: </span>             :section-numbers t ;章节数字是否显示
+<span class="linenr">18: </span>             :author "pengshao"   ;作者
+<span class="linenr">19: </span>             :email "pengshao58@gmail.com"   ;邮箱
+<span class="linenr">20: </span>             :auto-sitemap t                  ; 自动生成 sitemap.org 文件
+<span class="linenr">21: </span>             :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
+<span class="linenr">22: </span>             :sitemap-title "PengShao's BLOG!"         ; ... with title
+<span class="linenr">23: </span>             ;;:sitemap-file-entry-format "%d %t"   ;这里采用时间+标题的方式生成sitemap 
+<span class="linenr">24: </span>             :style-include-default nil  ;禁用默认 css 样式,使用自定义css
 <span class="linenr">25: </span>
-<span class="linenr">26: </span>	     ;作为一个字符串给予 html-head 变量并插入到生成的 html 文件的head部
-<span class="linenr">27: </span>	     ;因此里面的某些字符必须避免转义，比如双引号必须加上反斜杠
-<span class="linenr">28: </span>	     ;href 的赋值不会做如何转换，因此必须确保是在生成的 html 文件能够访问的绝对路径。
-<span class="linenr">29: </span>	     ;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"
-<span class="linenr">30: </span>	     ;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"
-<span class="linenr">31: </span>	     ;html-postamble "&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"
-<span class="linenr">32: </span>	     ;HTML_EXPORT_POSTamble: "&lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt; &lt;/script&gt;
+<span class="linenr">26: </span>             ;作为一个字符串给予 html-head 变量并插入到生成的 html 文件的head部
+<span class="linenr">27: </span>             ;因此里面的某些字符必须避免转义，比如双引号必须加上反斜杠
+<span class="linenr">28: </span>             ;href 的赋值不会做如何转换，因此必须确保是在生成的 html 文件能够访问的绝对路径。
+<span class="linenr">29: </span>             ;html-home/up-format"&lt;div id=\"org-div-home-and-up\"&gt; &lt;a accesskey=\"h\" href=\"/home/index.html\"&gt; UP &lt;/a&gt; | &lt;a accesskey=\"H\" href=\"/home/index.html\"&gt; HOME &lt;/a&gt;&lt;/div&gt;"
+<span class="linenr">30: </span>             ;html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"/home/css/org.css\"/&gt;"
+<span class="linenr">31: </span>             ;html-postamble "&lt;script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-164487790-1\"&gt;&lt;/script&gt; &lt;script&gt; window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-164487790-1'); &lt;/script&gt;"
+<span class="linenr">32: </span>             ;HTML_EXPORT_POSTamble: "&lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt; &lt;/script&gt;
 <span class="linenr">33: </span>
-<span class="linenr">34: </span>	 )
+<span class="linenr">34: </span>         )
 <span class="linenr">35: </span>
 <span class="linenr">36: </span>
-<span class="linenr">37: </span>
-<span class="linenr">38: </span>	 ("psnote-static"
-<span class="linenr">39: </span>	     :base-directory "~/public_note/"
-<span class="linenr">40: </span>	     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|sh\\|el\\|jpeg\\|html"
-<span class="linenr">41: </span>	     :publishing-directory "~/public_site/"
-<span class="linenr">42: </span>	     :recursive t
-<span class="linenr">43: </span>	     :publishing-function org-publish-attachment
-<span class="linenr">44: </span>	  )
-<span class="linenr">45: </span>
-<span class="linenr">46: </span>
-<span class="linenr">47: </span>	 ("psnote" :components ("psnote-org" "psnote-static"))
-<span class="linenr">48: </span>
-<span class="linenr">49: </span>
-<span class="linenr">50: </span>	))
+<span class="linenr">37: </span>             :recursive t
+<span class="linenr">38: </span>             :exclude "styles/readtheorg/readtheorg\\.org\\'"
+<span class="linenr">39: </span>             :publishing-function org-html-publish-to-html
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>         ("psnote-static"
+<span class="linenr">44: </span>             :base-directory "~/public_note/"
+<span class="linenr">45: </span>             :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|sh\\|el\\|jpeg\\|html"
+<span class="linenr">46: </span>             :publishing-directory "~/public_site/"
+<span class="linenr">47: </span>             :recursive t
+<span class="linenr">48: </span>             :publishing-function org-publish-attachment
+<span class="linenr">49: </span>          )
+<span class="linenr">50: </span>
 <span class="linenr">51: </span>
-<span class="linenr">52: </span>
-<span class="linenr">53: </span>(define-key global-map "\C-cp" 'org-publish)
+<span class="linenr">52: </span>         ("psnote" :components ("psnote-org" "psnote-static"))
+<span class="linenr">53: </span>
 <span class="linenr">54: </span>
-<span class="linenr">55: </span>
+<span class="linenr">55: </span>        ))
 <span class="linenr">56: </span>
 <span class="linenr">57: </span>
-<span class="linenr">58: </span>(provide 'pengshao-org-publish)
+<span class="linenr">58: </span>(define-key global-map "\C-cp" 'org-publish)
+<span class="linenr">59: </span>
+<span class="linenr">60: </span>
+<span class="linenr">61: </span>
+<span class="linenr">62: </span>
+<span class="linenr">63: </span>(provide 'pengshao-org-publish)
 </pre>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org1ee2962" class="outline-2">
-<h2 id="org1ee2962"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
+<div id="outline-container-org133d753" class="outline-2">
+<h2 id="org133d753"><span class="section-number-2">6.</span> 我比较喜欢在写日记时候加入月相和当地天气</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
-<pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
-<span class="linenr"> 3: </span>;;pengshao-einsrt-date.el---插入时间格式相关的配置
-<span class="linenr"> 4: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr"> 5: </span>
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 2: </span>;; pengshao-insert-date.el --- 交互式活时间戳插入与日历联动配置
+<span class="linenr"> 3: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>(require 'org)
 <span class="linenr"> 6: </span>
-<span class="linenr"> 7: </span>(defun my-insert-time ()
-<span class="linenr"> 8: </span>  (interactive)
-<span class="linenr"> 9: </span>  (insert (format-time-string "&lt;%Y-%m-%d/%A %H:%M:%S&gt;" (current-time))))
-<span class="linenr">10: </span>
-<span class="linenr">11: </span>(global-set-key (kbd "C-c m t") 'my-insert-time)
-<span class="linenr">12: </span>
-<span class="linenr">13: </span>
-<span class="linenr">14: </span>
-<span class="linenr">15: </span>(defun my-insert-date ()
-<span class="linenr">16: </span>  (interactive)
-<span class="linenr">17: </span>  (insert (format-time-string "&lt;%Y-%m-%d-%j/%A&gt;" (current-time))))
-<span class="linenr">18: </span>
-<span class="linenr">19: </span>(global-set-key (kbd "C-c m d") 'my-insert-date)
+<span class="linenr"> 7: </span>;; 确保调用日期选择时，自动在下方弹出日历窗口供可视化点选
+<span class="linenr"> 8: </span>(setq org-popup-calendar-for-date-prompt t)
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>;; 1. 快捷键 C-c m t：插入带 24 小时制时间的【活时间戳】
+<span class="linenr">11: </span>;;    格式示例：&lt;2026-11-14 Saturday 14:30:00&gt;
+<span class="linenr">12: </span>(defun my-insert-time ()
+<span class="linenr">13: </span>  (interactive)
+<span class="linenr">14: </span>  (let* ((time (org-read-date t t nil "选择日期和时间 (可用鼠标点选下方日历，或直接回车): "))
+<span class="linenr">15: </span>         (system-time-locale "en_US.UTF-8"))
+<span class="linenr">16: </span>    (insert (format-time-string "&lt;%Y-%m-%d %A %H:%M:%S&gt;" time))))
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>(global-set-key (kbd "C-c m t") 'my-insert-time)
+<span class="linenr">19: </span>
 <span class="linenr">20: </span>
-<span class="linenr">21: </span>
-<span class="linenr">22: </span>
-<span class="linenr">23: </span>(defun my-insert-month ()
-<span class="linenr">24: </span>  (interactive)
-<span class="linenr">25: </span>  (insert (format-time-string "&lt;%Y-%B&gt;" (current-time))))
-<span class="linenr">26: </span>
-<span class="linenr">27: </span>(global-set-key (kbd "C-c m m") 'my-insert-month)
-<span class="linenr">28: </span>
-<span class="linenr">29: </span>
-<span class="linenr">30: </span>;;插入今年的时间进度条
-<span class="linenr">31: </span>(defun make-progress (width percent has-number?)
-<span class="linenr">32: </span>  (let* ((done (/ percent 100.0))
-<span class="linenr">33: </span>	 (done-width (floor (* width done))))
-<span class="linenr">34: </span>    (concat
-<span class="linenr">35: </span>     "["
-<span class="linenr">36: </span>     (make-string done-width ?/)
-<span class="linenr">37: </span>     (make-string (- width done-width) ? )
-<span class="linenr">38: </span>     "]"
-<span class="linenr">39: </span>     (if has-number? (concat " " (number-to-string percent) "%"))
-<span class="linenr">40: </span>     )))
-<span class="linenr">41: </span>
-<span class="linenr">42: </span>(defun insert-day-progress ()
-<span class="linenr">43: </span>  (interactive)
-<span class="linenr">44: </span>  (let* ((today (time-to-day-in-year (current-time)))
-<span class="linenr">45: </span>	 (percent (floor (* 100 (/ today 365.0)))))
-<span class="linenr">46: </span>    (insert (make-progress 30 percent t))
-<span class="linenr">47: </span>    ))
-<span class="linenr">48: </span>
-<span class="linenr">49: </span>(global-set-key (kbd "C-c m y") 'insert-day-progress)
-<span class="linenr">50: </span>
-<span class="linenr">51: </span>(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-<span class="linenr">52: </span>
-<span class="linenr">53: </span>
-<span class="linenr">54: </span>
-<span class="linenr">55: </span>(provide 'pengshao-insert-date)
+<span class="linenr">21: </span>;; 2. 快捷键 C-c m d：核心修复
+<span class="linenr">22: </span>;;    尖括号内为标准的【活时间戳】（可点击、可联动日历、可Shift调整），
+<span class="linenr">23: </span>;;    后面紧跟 `-%j` 显示当年的第几天，星期用英文。
+<span class="linenr">24: </span>;;    插入效果示例：&lt;2026-11-14 Saturday&gt;-318
+<span class="linenr">25: </span>(defun my-insert-date ()
+<span class="linenr">26: </span>  (interactive)
+<span class="linenr">27: </span>  (let* ((time (org-read-date nil t nil "选择日期 (直接点选日历，或按 Shift+方向键 移动): "))
+<span class="linenr">28: </span>         (system-time-locale "en_US.UTF-8"))
+<span class="linenr">29: </span>    (insert (format-time-string "&lt;%Y-%m-%d %A&gt;-%j" time))))
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>(global-set-key (kbd "C-c m d") 'my-insert-date)
+<span class="linenr">32: </span>
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>;; 3. 快捷键 C-c m m：插入年月（英文月份全称）
+<span class="linenr">35: </span>(defun my-insert-month ()
+<span class="linenr">36: </span>  (interactive)
+<span class="linenr">37: </span>  (let* ((time (org-read-date nil t nil "选择某年某月的一天: "))
+<span class="linenr">38: </span>         (system-time-locale "en_US.UTF-8"))
+<span class="linenr">39: </span>    (insert (format-time-string "&lt;%Y-%B&gt;" time))))
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>(global-set-key (kbd "C-c m m") 'my-insert-month)
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>
+<span class="linenr">44: </span>;; 4. 插入今年的时间进度条（保持原样不变）
+<span class="linenr">45: </span>(defun make-progress (width percent has-number?)
+<span class="linenr">46: </span>  (let* ((done (/ percent 100.0))
+<span class="linenr">47: </span>         (done-width (floor (* width done))))
+<span class="linenr">48: </span>    (concat
+<span class="linenr">49: </span>     "["
+<span class="linenr">50: </span>     (make-string done-width ?/)
+<span class="linenr">51: </span>     (make-string (- width done-width) ? )
+<span class="linenr">52: </span>     "]"
+<span class="linenr">53: </span>     (if has-number? (concat " " (number-to-string percent) "%"))
+<span class="linenr">54: </span>     )))
+<span class="linenr">55: </span>
+<span class="linenr">56: </span>(defun insert-day-progress ()
+<span class="linenr">57: </span>  (interactive)
+<span class="linenr">58: </span>  (let* ((today (time-to-day-in-year (current-time)))
+<span class="linenr">59: </span>         (percent (floor (* 100 (/ today 365.0)))))
+<span class="linenr">60: </span>    (insert (make-progress 30 percent t))
+<span class="linenr">61: </span>    ))
+<span class="linenr">62: </span>
+<span class="linenr">63: </span>(global-set-key (kbd "C-c m y") 'insert-day-progress)
+<span class="linenr">64: </span>
+<span class="linenr">65: </span>;; 保留原有的 plantuml 语言配置
+<span class="linenr">66: </span>(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+<span class="linenr">67: </span>
+<span class="linenr">68: </span>(provide 'pengshao-insert-date)
 </pre>
 </div>
 
@@ -751,187 +700,181 @@
 <span class="linenr">10: </span>  (insert (shell-command-to-string "curl wttr.in/颜庄@36.0711,117.4628?format=4 2&gt; /dev/null")))
 <span class="linenr">11: </span>
 <span class="linenr">12: </span>
-<span class="linenr">13: </span>(global-set-key (kbd "C-c m w") #'insert-weather)
-<span class="linenr">14: </span>
-<span class="linenr">15: </span>
-<span class="linenr">16: </span>;;添加月相的操作
-<span class="linenr">17: </span>(defun insert-pyphoon ()
-<span class="linenr">18: </span>  (interactive)
-<span class="linenr">19: </span>  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
+<span class="linenr">13: </span>(defun insert-weather2 ()
+<span class="linenr">14: </span>  (interactive)
+<span class="linenr">15: </span>  (insert (shell-command-to-string " curl -s 'wttr.in/颜庄@36.0711,117.4628?format=钢城区:+%c+%C++%t,+风速+%w+%p,+月相:%m%M,:sun+%S+%s&amp;M' 2&gt; /dev/null")))
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>
+<span class="linenr">18: </span>(global-set-key (kbd "C-c m w") #'insert-weather2)
+<span class="linenr">19: </span>
 <span class="linenr">20: </span>
-<span class="linenr">21: </span>(global-set-key (kbd "C-c m o") #'insert-pyphoon)
-<span class="linenr">22: </span>
-<span class="linenr">23: </span>
-<span class="linenr">24: </span>(defun insert-nongli ()
-<span class="linenr">25: </span>  (interactive)
-<span class="linenr">26: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
-<span class="linenr">27: </span>
-<span class="linenr">28: </span>(global-set-key (kbd "C-c m n") #'insert-nongli)
+<span class="linenr">21: </span>
+<span class="linenr">22: </span>;;添加月相的操作
+<span class="linenr">23: </span>(defun insert-pyphoon ()
+<span class="linenr">24: </span>  (interactive)
+<span class="linenr">25: </span>  (insert (shell-command-to-string "source ~/mypython/bin/activate &amp;&amp; pyphoon")))
+<span class="linenr">26: </span>
+<span class="linenr">27: </span>(global-set-key (kbd "C-c m o") #'insert-pyphoon)
+<span class="linenr">28: </span>
 <span class="linenr">29: </span>
-<span class="linenr">30: </span>(defun insert-nonglijian ()
+<span class="linenr">30: </span>(defun insert-nongli ()
 <span class="linenr">31: </span>  (interactive)
-<span class="linenr">32: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+<span class="linenr">32: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nongli.sh")))
 <span class="linenr">33: </span>
-<span class="linenr">34: </span>(global-set-key (kbd "C-c m j") #'insert-nonglijian)
+<span class="linenr">34: </span>(global-set-key (kbd "C-c m n") #'insert-nongli)
 <span class="linenr">35: </span>
-<span class="linenr">36: </span>
-<span class="linenr">37: </span>;; 定义一个函数来插入 MOON-TODAY drawer 并调用 insert-pyphoon 函数
-<span class="linenr">38: </span>(defun insert-moon-today-drawer-with-pyphoon ()
-<span class="linenr">39: </span>  "Insert a MOON-TODAY drawer at the current line and call insert-pyphoon inside it."
-<span class="linenr">40: </span>  (interactive)
-<span class="linenr">41: </span>  (insert ":MOON-TODAY:\n")
-<span class="linenr">42: </span>  (call-interactively 'insert-pyphoon)
-<span class="linenr">43: </span>  (insert ":END:\n"))
-<span class="linenr">44: </span>
-<span class="linenr">45: </span>;; 绑定快捷键 C-c m c 到 insert-moon-today-drawer-with-pyphoon 函数
-<span class="linenr">46: </span>(add-hook 'org-mode-hook
-<span class="linenr">47: </span>	  (lambda ()
-<span class="linenr">48: </span>	    (local-set-key (kbd "C-c m c") 'insert-moon-today-drawer-with-pyphoon)))
-<span class="linenr">49: </span>
+<span class="linenr">36: </span>(defun insert-nonglijian ()
+<span class="linenr">37: </span>  (interactive)
+<span class="linenr">38: </span>  (insert (shell-command-to-string "~/.emacs.d/loadfile/nonglijian.sh")))
+<span class="linenr">39: </span>
+<span class="linenr">40: </span>(global-set-key (kbd "C-c m j") #'insert-nonglijian)
+<span class="linenr">41: </span>
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>;; 定义一个函数来插入 MOON-TODAY drawer 并调用 insert-pyphoon 函数
+<span class="linenr">44: </span>(defun insert-moon-today-drawer-with-pyphoon ()
+<span class="linenr">45: </span>  "Insert a MOON-TODAY drawer at the current line and call insert-pyphoon inside it."
+<span class="linenr">46: </span>  (interactive)
+<span class="linenr">47: </span>  (insert ":MOON-TODAY:\n")
+<span class="linenr">48: </span>  (call-interactively 'insert-pyphoon)
+<span class="linenr">49: </span>  (insert ":END:\n"))
 <span class="linenr">50: </span>
-<span class="linenr">51: </span>(defun insert-scratch-content-drawer ()
-<span class="linenr">52: </span>  "将 *scratch* 的当前内容插入光标处的 Org drawer。"
-<span class="linenr">53: </span>  (interactive)
-<span class="linenr">54: </span>  (let ((content
-<span class="linenr">55: </span>	 (with-current-buffer (get-buffer "*scratch*")
-<span class="linenr">56: </span>	   (buffer-substring-no-properties (point-min) (point-max)))))
-<span class="linenr">57: </span>    ;; Org drawer 需要从新的一行开始。
-<span class="linenr">58: </span>    (unless (bolp)
-<span class="linenr">59: </span>      (insert "\n"))
-<span class="linenr">60: </span>    (insert ":SCRATCH:\n")
-<span class="linenr">61: </span>    (insert content)
-<span class="linenr">62: </span>    ;; 确保 :END: 从新的一行开始。
-<span class="linenr">63: </span>    (unless (or (= (length content) 0)
-<span class="linenr">64: </span>		(= (aref content (1- (length content))) ?\n))
+<span class="linenr">51: </span>;; 绑定快捷键 C-c m c 到 insert-moon-today-drawer-with-pyphoon 函数
+<span class="linenr">52: </span>(add-hook 'org-mode-hook
+<span class="linenr">53: </span>          (lambda ()
+<span class="linenr">54: </span>            (local-set-key (kbd "C-c m c") 'insert-moon-today-drawer-with-pyphoon)))
+<span class="linenr">55: </span>
+<span class="linenr">56: </span>
+<span class="linenr">57: </span>(defun insert-scratch-content-drawer ()
+<span class="linenr">58: </span>  "将 *scratch* 的当前内容插入光标处的 Org drawer。"
+<span class="linenr">59: </span>  (interactive)
+<span class="linenr">60: </span>  (let ((content
+<span class="linenr">61: </span>         (with-current-buffer (get-buffer "*scratch*")
+<span class="linenr">62: </span>           (buffer-substring-no-properties (point-min) (point-max)))))
+<span class="linenr">63: </span>    ;; Org drawer 需要从新的一行开始。
+<span class="linenr">64: </span>    (unless (bolp)
 <span class="linenr">65: </span>      (insert "\n"))
-<span class="linenr">66: </span>    (insert ":END:\n")))
-<span class="linenr">67: </span>
-<span class="linenr">68: </span>(add-hook 'org-mode-hook
-<span class="linenr">69: </span>	  (lambda ()
-<span class="linenr">70: </span>	    (local-set-key (kbd "C-c m s")
-<span class="linenr">71: </span>			   #'insert-scratch-content-drawer)))
-<span class="linenr">72: </span>
+<span class="linenr">66: </span>    (insert ":SCRATCH:\n")
+<span class="linenr">67: </span>    (insert content)
+<span class="linenr">68: </span>    ;; 确保 :END: 从新的一行开始。
+<span class="linenr">69: </span>    (unless (or (= (length content) 0)
+<span class="linenr">70: </span>                (= (aref content (1- (length content))) ?\n))
+<span class="linenr">71: </span>      (insert "\n"))
+<span class="linenr">72: </span>    (insert ":END:\n")))
 <span class="linenr">73: </span>
-<span class="linenr">74: </span>(provide 'pengshao-openweather)
+<span class="linenr">74: </span>(add-hook 'org-mode-hook
+<span class="linenr">75: </span>          (lambda ()
+<span class="linenr">76: </span>            (local-set-key (kbd "C-c m s")
+<span class="linenr">77: </span>                           #'insert-scratch-content-drawer)))
+<span class="linenr">78: </span>
+<span class="linenr">79: </span>
+<span class="linenr">80: </span>(provide 'pengshao-openweather)
 </pre>
 </div>
 </div>
-
-
-<div id="outline-container-org6540557" class="outline-3">
-<h3 id="org6540557"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
+<div id="outline-container-org574d09d" class="outline-3">
+<h3 id="org574d09d"><span class="section-number-3">6.1.</span> calendar的配置我不太用.</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
-<pre class="src src-lisp"><span class="linenr">  1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">  2: </span>;; -*- coding: utf-8; lexical-binding: t -*-
-<span class="linenr">  3: </span>;;pengshao-calendar.el---calendar相关配置(一直没有调试)
-<span class="linenr">  4: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">  5: </span>
-<span class="linenr">  6: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;; 设置日历 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">  7: </span>;;设置日历的一些颜色
-<span class="linenr">  8: </span>(setq calendar-load-hook
-<span class="linenr">  9: </span>'(lambda ()
-<span class="linenr"> 10: </span>(set-face-foreground 'diary-face "skyblue")
-<span class="linenr"> 11: </span>(set-face-background 'holiday-face "slate blue")
-<span class="linenr"> 12: </span>(set-face-foreground 'holiday-face "white")))
-<span class="linenr"> 13: </span>
-<span class="linenr"> 14: </span>;;设置我所在地方的经纬度，calendar里有个功能是日月食的预测，和你的经纬度相联系的。
-<span class="linenr"> 15: </span>;; 让emacs能计算日出日落的时间，在 calendar 上用 S 即可看到
-<span class="linenr"> 16: </span>(setq calendar-latitude +36.125)
-<span class="linenr"> 17: </span>(setq calendar-longitude +117.786)
-<span class="linenr"> 18: </span>(setq calendar-location-name "Laiwu")
-<span class="linenr"> 19: </span>
-<span class="linenr"> 20: </span>;; 设置阴历显示，在 calendar 上用 pC 显示阴历
-<span class="linenr"> 21: </span>(setq chinese-calendar-celestial-stem
-<span class="linenr"> 22: </span>["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
-<span class="linenr"> 23: </span>(setq chinese-calendar-terrestrial-branch
-<span class="linenr"> 24: </span>["子" "丑" "寅" "卯" "辰" "巳" "戊" "未" "申" "酉" "戌" "亥"])
-<span class="linenr"> 25: </span>
-<span class="linenr"> 26: </span>;; 设置 calendar 的显示
-<span class="linenr"> 27: </span>(setq calendar-remove-frame-by-deleting t)
-<span class="linenr"> 28: </span>;(setq calendar-week-start-day 1) ; 设置星期一为每周的第一天
-<span class="linenr"> 29: </span>(setq mark-diary-entries-in-calendar t) ; 标记calendar上有diary的日期
-<span class="linenr"> 30: </span>(setq mark-holidays-in-calendar nil) ; 为了突出有diary的日期，calendar上不标记节日
-<span class="linenr"> 31: </span>(setq view-calendar-holidays-initially nil) ; 打开calendar的时候不显示一堆节日
-<span class="linenr"> 32: </span>
-<span class="linenr"> 33: </span>;; 去掉不关心的节日，设定自己在意的节日，在 calendar 上用 h 显示节日
-<span class="linenr"> 34: </span>(setq christian-holidays nil)
-<span class="linenr"> 35: </span>(setq hebrew-holidays nil)
-<span class="linenr"> 36: </span>(setq islamic-holidays nil)
-<span class="linenr"> 37: </span>(setq solar-holidays nil)
-<span class="linenr"> 38: </span>(setq general-holidays '((holiday-fixed 1 1 "元旦")
-<span class="linenr"> 39: </span>(holiday-fixed 2 14 "情人节")
-<span class="linenr"> 40: </span>(holiday-fixed 3 14 "白色情人节")
-<span class="linenr"> 41: </span>(holiday-fixed 4 1 "愚人节")
-<span class="linenr"> 42: </span>(holiday-fixed 5 1 "劳动节")
-<span class="linenr"> 43: </span>(holiday-float 5 0 2 "母亲节")
-<span class="linenr"> 44: </span>(holiday-fixed 6 1 "儿童节")
-<span class="linenr"> 45: </span>(holiday-float 6 0 3 "父亲节")
-<span class="linenr"> 46: </span>(holiday-fixed 7 1 "建党节")
-<span class="linenr"> 47: </span>(holiday-fixed 8 1 "建军节")
-<span class="linenr"> 48: </span>(holiday-fixed 9 10 "教师节")
-<span class="linenr"> 49: </span>(holiday-fixed 10 1 "国庆节")
-<span class="linenr"> 50: </span>(holiday-fixed 12 25 "圣诞节")))
-<span class="linenr"> 51: </span>
-<span class="linenr"> 52: </span>;;Calendar模式支持各种方式来更改当前日期
-<span class="linenr"> 53: </span>;;（这里的“前”是指还没有到来的那一天，“后”是指已经过去的日子）
-<span class="linenr"> 54: </span>;; q 退出calendar模式
-<span class="linenr"> 55: </span>;; C-f 让当前日期向前一天
-<span class="linenr"> 56: </span>;; C-b 让当前日期向后一天
-<span class="linenr"> 57: </span>;; C-n 让当前日期向前一周
-<span class="linenr"> 58: </span>;; C-p 让当前日期向后一周
-<span class="linenr"> 59: </span>;; M-} 让当前日期向前一个月
-<span class="linenr"> 60: </span>;; M-{ 让当前日期向后一个月
-<span class="linenr"> 61: </span>;; C-x ] 让当前日期向前一年
-<span class="linenr"> 62: </span>;; C-x [ 让当前日期向后一年
-<span class="linenr"> 63: </span>;; C-a 移动到当前周的第一天
-<span class="linenr"> 64: </span>;; C-e 移动到当前周的最后一天
-<span class="linenr"> 65: </span>;; M-a 移动到当前月的第一天
-<span class="linenr"> 66: </span>;; M-e 多动到当前月的最后一天
-<span class="linenr"> 67: </span>;; M-&lt; 移动到当前年的第一天
-<span class="linenr"> 68: </span>;; M-&gt; 移动到当前年的最后一天
-<span class="linenr"> 69: </span>
-<span class="linenr"> 70: </span>;;Calendar模式支持移动多种移动到特珠日期的方式
-<span class="linenr"> 71: </span>;; g d 移动到一个特别的日期
-<span class="linenr"> 72: </span>;; o 使某个特殊的月分作为中间的月分
-<span class="linenr"> 73: </span>;; . 移动到当天的日期
-<span class="linenr"> 74: </span>;; p d 显示某一天在一年中的位置，也显示本年度还有多少天。
-<span class="linenr"> 75: </span>;; C-c C-l 刷新Calendar窗口
-<span class="linenr"> 76: </span>
-<span class="linenr"> 77: </span>;; Calendar支持生成LATEX代码。
-<span class="linenr"> 78: </span>;; t m 按月生成日历
-<span class="linenr"> 79: </span>;; t M 按月生成一个美化的日历
-<span class="linenr"> 80: </span>;; t d 按当天日期生成一个当天日历
-<span class="linenr"> 81: </span>;; t w 1 在一页上生成这个周的日历
-<span class="linenr"> 82: </span>;; t w 2 在两页上生成这个周的日历
-<span class="linenr"> 83: </span>;; t w 3 生成一个ISO-SYTLE风格的当前周日历
-<span class="linenr"> 84: </span>;; t w 4 生成一个从周一开始的当前周日历
-<span class="linenr"> 85: </span>;; t y 生成当前年的日历
-<span class="linenr"> 86: </span>
-<span class="linenr"> 87: </span>;;EMACS Calendar支持配置节日：
-<span class="linenr"> 88: </span>;; h 显示当前的节日
-<span class="linenr"> 89: </span>;; x 定义当天为某个节日
-<span class="linenr"> 90: </span>;; u 取消当天已被定义的节日
-<span class="linenr"> 91: </span>;; e 显示所有这前后共三个月的节日。
-<span class="linenr"> 92: </span>;; M-x holiday 在另外的窗口的显示这前后三个月的节日。
-<span class="linenr"> 93: </span>
-<span class="linenr"> 94: </span>
-<span class="linenr"> 95: </span>;; 另外，还有一些特殊的，有意思的命令：
-<span class="linenr"> 96: </span>;; S 显示当天的日出日落时间(是大写的S)
-<span class="linenr"> 97: </span>;; p C 显示农历可以使用
-<span class="linenr"> 98: </span>;; g C 使用农历移动日期可以使用
-<span class="linenr"> 99: </span>
-<span class="linenr">100: </span>
-<span class="linenr">101: </span>(provide 'pengshao-calendar)
+<pre class="src src-lisp"><span class="linenr"> 1: </span>;; -*- coding: utf-8; lexical-binding: t -*-
+<span class="linenr"> 2: </span>;; pengshao-calendar.el --- 现代化的中国日历、美化与农历/日出日落显示配置
+<span class="linenr"> 3: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>(require 'calendar)
+<span class="linenr"> 6: </span>(require 'cal-china)
+<span class="linenr"> 7: </span>
+<span class="linenr"> 8: </span>;; 1. 基础地理与经纬度设置（莱芜：北纬 36.125°，东经 117.786°）
+<span class="linenr"> 9: </span>(setq calendar-latitude +36.125
+<span class="linenr">10: </span>      calendar-longitude +117.786
+<span class="linenr">11: </span>      calendar-location-name "Laiwu")
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>;; 2. 日历视图与交互行为优化
+<span class="linenr">14: </span>(setq calendar-remove-frame-by-deleting t       ; 关闭日历时自动删除 Frame
+<span class="linenr">15: </span>      calendar-week-start-day 1                ; 设置星期一为每周的第一天
+<span class="linenr">16: </span>      mark-diary-entries-in-calendar t         ; 在日历中标记有 Diary 日志的日期
+<span class="linenr">17: </span>      mark-holidays-in-calendar t              ; 在日历中高亮显示节日
+<span class="linenr">18: </span>      view-calendar-holidays-initially nil)    ; 打开时不弹出一大堆默认节日窗口
+<span class="linenr">19: </span>
+<span class="linenr">20: </span>;; 3. 定制国内常用公历节日
+<span class="linenr">21: </span>(setq christian-holidays nil
+<span class="linenr">22: </span>      hebrew-holidays nil
+<span class="linenr">23: </span>      islamic-holidays nil
+<span class="linenr">24: </span>      solar-holidays nil
+<span class="linenr">25: </span>      general-holidays
+<span class="linenr">26: </span>      '((holiday-fixed 1 1 "元旦")
+<span class="linenr">27: </span>        (holiday-fixed 2 14 "情人节")
+<span class="linenr">28: </span>        (holiday-fixed 3 8 "妇女节")
+<span class="linenr">29: </span>        (holiday-fixed 3 12 "植树节")
+<span class="linenr">30: </span>        (holiday-fixed 4 5 "清明节")
+<span class="linenr">31: </span>        (holiday-fixed 5 1 "劳动节")
+<span class="linenr">32: </span>        (holiday-float 5 0 2 "母亲节")
+<span class="linenr">33: </span>        (holiday-fixed 6 1 "儿童节")
+<span class="linenr">34: </span>        (holiday-float 6 0 3 "父亲节")
+<span class="linenr">35: </span>        (holiday-fixed 7 1 "建党节")
+<span class="linenr">36: </span>        (holiday-fixed 8 1 "建军节")
+<span class="linenr">37: </span>        (holiday-fixed 9 10 "教师节")
+<span class="linenr">38: </span>        (holiday-fixed 10 1 "国庆节")
+<span class="linenr">39: </span>        (holiday-fixed 12 25 "圣诞节")))
+<span class="linenr">40: </span>
+<span class="linenr">41: </span>;; 4. 深度整合开源的中国农历与传统节日扩展：cal-china-x
+<span class="linenr">42: </span>(use-package cal-china-x
+<span class="linenr">43: </span>  :ensure t
+<span class="linenr">44: </span>  :config
+<span class="linenr">45: </span>  (setq calendar-holidays
+<span class="linenr">46: </span>        (append general-holidays cal-china-x-important-holidays)))
+<span class="linenr">47: </span>
+<span class="linenr">48: </span>;; 5. 现代化高亮配色美化（使用标准的有效 Face）
+<span class="linenr">49: </span>(setq calendar-load-hook
+<span class="linenr">50: </span>      '(lambda ()
+<span class="linenr">51: </span>         (set-face-foreground 'calendar-phase-face "#61afef")
+<span class="linenr">52: </span>         (set-face-background 'holiday-face "#2c313a")
+<span class="linenr">53: </span>         (set-face-foreground 'holiday-face "#98c379")
+<span class="linenr">54: </span>         (set-face-background 'calendar-today-face "#3e4452")
+<span class="linenr">55: </span>         (set-face-foreground 'calendar-today-face "#e06c75")))
+<span class="linenr">56: </span>
+<span class="linenr">57: </span>;; 6. 增强功能：底部实时播报农历与日出日落
+<span class="linenr">58: </span>(defun pengshao-display-chinese-and-sun-times (month day year)
+<span class="linenr">59: </span>  (let* ((solar-date (list month day year))
+<span class="linenr">60: </span>         (chinese-string (calendar-chinese-date-string solar-date))
+<span class="linenr">61: </span>         (sun-rise (solar-sunrise-sunset solar-date))
+<span class="linenr">62: </span>         (rise-time (car sun-rise))
+<span class="linenr">63: </span>         (set-time (cadr sun-rise)))
+<span class="linenr">64: </span>    (message "📅 公历: %d-%02d-%02d | 🏮 农历: %s | 🌅 日出: %s | 🌇 日落: %s"
+<span class="linenr">65: </span>             year month day
+<span class="linenr">66: </span>             (or chinese-string "计算中...")
+<span class="linenr">67: </span>             (or rise-time "极昼/极夜")
+<span class="linenr">68: </span>             (or set-time "极昼/极夜"))))
+<span class="linenr">69: </span>
+<span class="linenr">70: </span>;; 绑定光标移动钩子
+<span class="linenr">71: </span>(add-hook 'calendar-mode-hook
+<span class="linenr">72: </span>          (lambda ()
+<span class="linenr">73: </span>            (add-hook 'calendar-move-hook
+<span class="linenr">74: </span>                      (lambda ()
+<span class="linenr">75: </span>                        (let ((date (calendar-cursor-to-date t)))
+<span class="linenr">76: </span>                          (when date
+<span class="linenr">77: </span>                            (pengshao-display-chinese-and-sun-times (car date) (cadr date) (caddr date)))))
+<span class="linenr">78: </span>                      nil t)))
+<span class="linenr">79: </span>
+<span class="linenr">80: </span>;; 7. 修改后：恢复默认的分屏/标准视图，同时仅保留“自动定位到今天并触发播报”
+<span class="linenr">81: </span>(defun pengshao-setup-calendar-view ()
+<span class="linenr">82: </span>  (when (derived-mode-p 'calendar-mode)
+<span class="linenr">83: </span>    ;; 【已注释】全屏独占：如需恢复全屏，取消下面一行的注释即可
+<span class="linenr">84: </span>    ;; (delete-other-windows)
+<span class="linenr">85: </span>
+<span class="linenr">86: </span>    ;; 【已删除】整年 12 个月平铺展开逻辑
+<span class="linenr">87: </span>
+<span class="linenr">88: </span>    ;; 仅保留：打开时自动把光标聚焦到今天，确保 Minibuffer 瞬间显示农历与日出日落
+<span class="linenr">89: </span>    (calendar-goto-today)))
+<span class="linenr">90: </span>
+<span class="linenr">91: </span>(add-hook 'calendar-initial-window-hook #'pengshao-setup-calendar-view)
+<span class="linenr">92: </span>
+<span class="linenr">93: </span>(provide 'pengshao-calendar)
 </pre>
 </div>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org911d3b6" class="outline-2">
-<h2 id="org911d3b6"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
+<div id="outline-container-org0763435" class="outline-2">
+<h2 id="org0763435"><span class="section-number-2">7.</span> 关于复制粘帖的一些设置</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -955,9 +898,9 @@
 <span class="linenr">19: </span>  "When called interactively with no active region, copy a single line instead."
 <span class="linenr">20: </span>  (interactive
 <span class="linenr">21: </span>   (if mark-active (list (region-beginning) (region-end))
-<span class="linenr">22: </span>     (message "welldone,copy this line")
+<span class="linenr">22: </span>     (message "Execution successful. Next sequence initiated!")
 <span class="linenr">23: </span>     (list (line-beginning-position)
-<span class="linenr">24: </span>	   (line-beginning-position 2)))))
+<span class="linenr">24: </span>           (line-beginning-position 2)))))
 <span class="linenr">25: </span>
 <span class="linenr">26: </span>
 <span class="linenr">27: </span>
@@ -967,10 +910,8 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org74144c0" class="outline-2">
-<h2 id="org74144c0"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
+<div id="outline-container-org8ab4a0b" class="outline-2">
+<h2 id="org8ab4a0b"><span class="section-number-2">8.</span> 我的键配置(主要是f1-f10)</h2>
 <div class="outline-text-2" id="text-8">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1004,52 +945,51 @@
 <span class="linenr">29: </span>
 <span class="linenr">30: </span>
 <span class="linenr">31: </span>;;F4,kill当前buffer
-<span class="linenr">32: </span>(global-set-key [f4] 'kill-this-buffer)
-<span class="linenr">33: </span>
-<span class="linenr">34: </span>;;F5,speedbar,在init.el设置了
-<span class="linenr">35: </span>;;(global-set-key [f5] 'sr-speedbar-select-window)
-<span class="linenr">36: </span>;;(global-set-key (kbd "C-c s") 'sr-speedbar-open)
-<span class="linenr">37: </span>;;(global-set-key (kbd "C-c x") 'sr-speedbar-close)
-<span class="linenr">38: </span>
-<span class="linenr">39: </span>;;F6,dired
-<span class="linenr">40: </span>(global-set-key [f6] 'dired)
-<span class="linenr">41: </span>
-<span class="linenr">42: </span>;;F7,eshell,shell,terminal-emulator
-<span class="linenr">43: </span>(global-set-key [f7] 'shell)
-<span class="linenr">44: </span>
-<span class="linenr">45: </span>;;;F8,list-bookmarks
-<span class="linenr">46: </span>(global-set-key [f8] 'list-bookmarks)
-<span class="linenr">47: </span>
-<span class="linenr">48: </span>;;;F9,bookmark-set
-<span class="linenr">49: </span>(global-set-key [f9] 'bookmark-set)
-<span class="linenr">50: </span>
-<span class="linenr">51: </span>;;看新闻组，常用的很，不过更多时间现在sir里
-<span class="linenr">52: </span>;;(global-set-key [f9] 'gnus)
-<span class="linenr">53: </span>
-<span class="linenr">54: </span>;;F10，打开／关闭菜单
-<span class="linenr">55: </span>(global-set-key [f10] 'menu-bar-mode)
-<span class="linenr">56: </span>
-<span class="linenr">57: </span>;;编译等，暂时还不常用的设置
-<span class="linenr">58: </span>;;(global-set-key [f11] 'compile)
-<span class="linenr">59: </span>;;(global-set-key [f12] 'todo-show)
-<span class="linenr">60: </span>;;(global-set-key [f12] 'gdb)
-<span class="linenr">61: </span>
-<span class="linenr">62: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-<span class="linenr">63: </span>
+<span class="linenr">32: </span>;;(global-set-key [f4] 'kill-this-buffer)这个不好用了
+<span class="linenr">33: </span>(global-set-key (kbd "&lt;f4&gt;") #'kill-buffer)
+<span class="linenr">34: </span>
+<span class="linenr">35: </span>;;F5,speedbar,在init.el设置了
+<span class="linenr">36: </span>;;(global-set-key [f5] 'sr-speedbar-select-window)
+<span class="linenr">37: </span>;;(global-set-key (kbd "C-c s") 'sr-speedbar-open)
+<span class="linenr">38: </span>;;(global-set-key (kbd "C-c x") 'sr-speedbar-close)
+<span class="linenr">39: </span>
+<span class="linenr">40: </span>;;F6,dired
+<span class="linenr">41: </span>(global-set-key [f6] 'dired)
+<span class="linenr">42: </span>
+<span class="linenr">43: </span>;;F7,eshell,shell,terminal-emulator
+<span class="linenr">44: </span>(global-set-key [f7] 'shell)
+<span class="linenr">45: </span>
+<span class="linenr">46: </span>;;;F8,list-bookmarks
+<span class="linenr">47: </span>(global-set-key [f8] 'list-bookmarks)
+<span class="linenr">48: </span>
+<span class="linenr">49: </span>;;;F9,bookmark-set
+<span class="linenr">50: </span>(global-set-key [f9] 'bookmark-set)
+<span class="linenr">51: </span>
+<span class="linenr">52: </span>;;看新闻组，常用的很，不过更多时间现在sir里
+<span class="linenr">53: </span>;;(global-set-key [f9] 'gnus)
+<span class="linenr">54: </span>
+<span class="linenr">55: </span>;;F10，打开／关闭菜单
+<span class="linenr">56: </span>(global-set-key [f10] 'menu-bar-mode)
+<span class="linenr">57: </span>
+<span class="linenr">58: </span>;;编译等，暂时还不常用的设置
+<span class="linenr">59: </span>;;(global-set-key [f11] 'compile)
+<span class="linenr">60: </span>;;(global-set-key [f12] 'todo-show)
+<span class="linenr">61: </span>;;(global-set-key [f12] 'gdb)
+<span class="linenr">62: </span>
+<span class="linenr">63: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 <span class="linenr">64: </span>
 <span class="linenr">65: </span>
 <span class="linenr">66: </span>
 <span class="linenr">67: </span>
 <span class="linenr">68: </span>
-<span class="linenr">69: </span>(provide 'pengshao-key-building)
+<span class="linenr">69: </span>
+<span class="linenr">70: </span>(provide 'pengshao-key-building)
 </pre>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgb26c831" class="outline-2">
-<h2 id="orgb26c831"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
+<div id="outline-container-orge495066" class="outline-2">
+<h2 id="orge495066"><span class="section-number-2">9.</span> 自动备份相关的设置</h2>
 <div class="outline-text-2" id="text-9">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr"> 1: </span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1079,14 +1019,12 @@
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orged656a1" class="outline-2">
-<h2 id="orged656a1"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
+<div id="outline-container-org0a38034" class="outline-2">
+<h2 id="org0a38034"><span class="section-number-2">10.</span> 一些关于启动的个性化设定,*scratch*和frame-title-format的设置.</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org8b5e6e9" class="outline-3">
-<h3 id="org8b5e6e9"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
+<div id="outline-container-org551030d" class="outline-3">
+<h3 id="org551030d"><span class="section-number-3">10.1.</span> 启动页面*scratch*显示特定内容</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 将以下代码添加到你的 Emacs 配置文件中：
@@ -1105,31 +1043,26 @@
 </div>
 </div>
 </div>
-
-
-
-<div id="outline-container-orgee55dd0" class="outline-3">
-<h3 id="orgee55dd0"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
+<div id="outline-container-orgf5c4fe9" class="outline-3">
+<h3 id="orgf5c4fe9"><span class="section-number-3">10.2.</span> frame-title-format设置相关.</h3>
 <div class="outline-text-3" id="text-10-2">
 </div>
 <ol class="org-ol">
-<li><a id="org0b3356d"></a>我的设置<br>
+<li><a id="orgb9799d9"></a>我的设置<br>
 <div class="outline-text-4" id="text-10-2-1">
 <div class="org-src-container">
 <pre class="src src-lisp"><span class="linenr">1: </span>;; buffer name (if the buffer isn't visiting a file)
 <span class="linenr">2: </span>(setq frame-title-format
 <span class="linenr">3: </span>      '("" "上古大椿,八千春秋,知途知径,浑然天成."
-<span class="linenr">4: </span>	(:eval (if (buffer-file-name)
-<span class="linenr">5: </span>		   (abbreviate-file-name (buffer-file-name)) "%b"))))
+<span class="linenr">4: </span>        (:eval (if (buffer-file-name)
+<span class="linenr">5: </span>                   (abbreviate-file-name (buffer-file-name)) "%b"))))
 </pre>
 </div>
 </div>
 </li>
-
-
-<li><a id="orge43ce3c"></a>frame-title-format选项相关<br>
+<li><a id="org8c360d1"></a>frame-title-format选项相关<br>
 <div class="outline-text-4" id="text-10-2-2">
-<pre class="example" id="org01910b4">
+<pre class="example" id="orgb017f88">
 A string is printed verbatim in the mode line except for %-constructs:
 (%-constructs are allowed when the string is the entire mode-line-format
 or when it is found in a cons-cell or a list)
@@ -1158,7 +1091,7 @@ Decimal digits after the % specify field width to which to pad.
 <div id="postamble" class="status">
 <p class="date">&#26085;&#26399;: &lt;2025-02-09/Sunday 18:49:55&gt;</p>
 <p class="author">&#20316;&#32773;: pengshao</p>
-<p class="date">Created: 2026-11-07 Sat 19:39</p>
+<p class="date">Created: 2026-11-15 Sun 21:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
